@@ -1,0 +1,48 @@
+version: "3.1"
+
+services:
+  db:
+    image: mysql/mysql-server:latest
+    container_name: mysql
+    restart: always
+    environment:
+       MYSQL_ROOT_PASSWORD: 'password'
+       MYSQL_DATABASE: 'loja_virtual'
+       MYSQL_USER: 'user'
+       MYSQL_PASSWORD: 'password'
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql-volume:/var/lib/mysql
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin:latest
+    container_name: phpmyadmin
+    restart: always
+    environment:
+      PMA_USER: 'user'
+      PMA_PASSWORD: 'password'
+    ports:
+      - "8080:80"
+
+  webserver:
+    image: "nginx:alpine"
+    container_name: nginx
+    working_dir: /var/www/html
+    volumes:
+      - ".:/var/www/html"
+      - "./docker/nginx/nginx.conf:/etc/nginx/conf.d/default.conf"
+    ports:
+      - "80:80"
+
+  php-fpm:
+    build: docker/php-fpm
+    container_name: php
+    working_dir: /var/www/html/
+    volumes:
+      - ".:/var/www/html"
+      - "./docker/php-fpm/php-ini-overrides.ini:/etc/php/8.3/fpm/conf.d/99-overrides.ini"
+
+volumes:
+  mysql-volume:
+    driver: local

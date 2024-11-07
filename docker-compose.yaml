@@ -6,10 +6,10 @@ services:
     container_name: mysql
     restart: always
     environment:
-       MYSQL_ROOT_PASSWORD: 'password'
-       MYSQL_DATABASE: 'loja_virtual'
-       MYSQL_USER: 'user'
-       MYSQL_PASSWORD: 'password'
+       MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
+       MYSQL_DATABASE: ${DB_DATABASE}
+       MYSQL_USER: ${DB_USERNAME}
+       MYSQL_PASSWORD: ${DB_PASSWORD}
     ports:
       - "3306:3306"
     volumes:
@@ -20,14 +20,15 @@ services:
     container_name: phpmyadmin
     restart: always
     environment:
-      PMA_USER: 'user'
-      PMA_PASSWORD: 'password'
+      PMA_USER: ${DB_USERNAME}
+      PMA_PASSWORD: ${DB_PASSWORD}
     ports:
       - "8080:80"
 
   webserver:
     image: "nginx:alpine"
     container_name: nginx
+    restart: always
     working_dir: /var/www/html
     volumes:
       - ".:/var/www/html"
@@ -38,6 +39,7 @@ services:
   php-fpm:
     build: docker/php-fpm
     container_name: php
+    restart: always
     working_dir: /var/www/html/
     volumes:
       - ".:/var/www/html"

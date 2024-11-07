@@ -36,7 +36,11 @@
     composer install \
     && composer update \
     && php artisan key:generate \
-    && php artisan migrate
+    && php artisan migrate \
+    && chown -R $USER:www-data storage \
+    && chown -R $USER:www-data bootstrap/cache \
+    && chmod -R 775 storage \
+    && chmod -R 775 bootstrap/cache
     ```
 
 8. Por fim, acesse a aplicação:

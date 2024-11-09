@@ -45,6 +45,8 @@ services:
     volumes:
       - ".:/var/www/html"
       - "./docker/php-fpm/php-ini-overrides.ini:/etc/php/8.3/fpm/conf.d/99-overrides.ini"
+    ports:
+      - "5173:5173"
 
 volumes:
   mysql-volume:

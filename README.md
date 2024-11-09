@@ -1,4 +1,6 @@
-# LOJA VIRTUAL
+# LOJA VIRTUAL 
+
+### CODIFICA + 2024
 
 ## REQUISITOS:
 - [Git](https://git-scm.com/downloads)
@@ -31,19 +33,22 @@
    docker exec -it php /bin/bash
     ```
 
-6. Execute o seguinte comando no terminal do container:
+6. Execute o comando no terminal do container:
     ```BASH
     composer install \
-    && composer update \
     && php artisan key:generate \
     && php artisan migrate \
-    && chown -R $USER:www-data storage \
-    && chown -R $USER:www-data bootstrap/cache \
-    && chmod -R 775 storage \
-    && chmod -R 775 bootstrap/cache
+    && npm install \
+    && npm run build 
+    ```
+
+7. Ainda no terminal do conteiner, execute o comando para rodar o processo de desenvolvimento:
+
+    ```BASH
+    npm run dev
     ```
 
 8. Por fim, acesse a aplicação:
 
-    [Localhost](http://localhost)
+    [localhost](http://localhost)
 

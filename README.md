@@ -33,15 +33,21 @@
     ```bash
     docker compose up --build -d ; docker exec -it php /bin/bash -c "composer install && php artisan key:generate && php artisan migrate"
     ```
+5. **Habilitar execução de scripts no PowerShell (para Windows)**
+
+   Caso você esteja usando o Windows e veja um erro ao tentar executar comandos npm, talvez seja necessário habilitar a execução de scripts. Abra o PowerShell como administrador e execute:
+   ```bash
+   Set-ExecutionPolicy RemoteSigned -Scope CurrentUser
+   ```
 
 5. **Instalação de dependências do Node.js**  
-   No terminal, execute:
+   No repositório, no terminal, execute:
     ```bash
     npm install ; npm run build
     ```
 
 6. **Início do processo de desenvolvimento**  
-   Inicie o servidor de desenvolvimento com:
+   No repositório, inicie o servidor de desenvolvimento com:
     ```bash
        npm run dev
     ```

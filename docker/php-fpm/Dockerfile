@@ -17,8 +17,6 @@ RUN apt-get clean && rm -rf /var/lib/apt/lists/*
 RUN docker-php-ext-install pdo_mysql mbstring exif pcntl bcmath gd sockets
 
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
-COPY --from=node:22-slim /usr/local/bin /usr/local/bin
-COPY --from=node:22-slim /usr/local/lib/node_modules /usr/local/lib/node_modules
 
 RUN useradd -G www-data,root -u $uid -d /home/$user $user
 RUN mkdir -p /home/$user/.composer && \

@@ -9,3 +9,8 @@ Route::get('/', function () {
 Route::get('/produtos/create', function () {
     return view('formulario-produtos');
 });
+
+Route::get('/user', function () {
+    return view('user._layouts.user');
+});
+

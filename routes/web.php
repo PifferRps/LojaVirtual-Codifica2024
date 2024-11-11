@@ -6,6 +6,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/user', function () {
-    return view('user._layouts.user');
+Route::get('/produtos/create', function () {
+    return view('formulario-produtos');
 });

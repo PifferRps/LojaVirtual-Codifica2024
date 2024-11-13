@@ -15,7 +15,8 @@ Route::get('/user', function () {
 });
 
 Route::get('/cadastro', function() {
-    return view('user.cadastro');})->name('user.cadastro');
+    return view('user.cadastro');
+})->name('user.cadastro');
 
 Route::get('/admin', function () {
     return view('admin.pages.index');

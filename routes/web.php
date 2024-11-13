@@ -14,6 +14,10 @@ Route::get('/user', function () {
     return view('user._layouts.user');
 });
 
+Route::get('/cadastro', function() {
+    return view('user.cadastro');
+})->name('user.cadastro');
+
 Route::get('/admin', function () {
     return view('admin.pages.index');
 });

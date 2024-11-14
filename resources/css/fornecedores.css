@@ -1,0 +1,32 @@
+* {
+    margin: 0
+}
+
+.conteudo{
+    width: 100%;
+}
+
+.conteudo_main__table{
+    width: 100%;
+}
+
+.form {
+    display: flex;
+    gap: 1rem;
+}
+
+.button-forn {
+    margin-left: auto;}
+
+th {
+    padding: 1rem;
+    text-align: center;
+    border-bottom: 1px solid #c1c1c1;
+}
+
+td {
+    padding: 1rem;
+    text-align: center;
+    border-bottom: 1px dashed #c1c1c1;    
+}
+

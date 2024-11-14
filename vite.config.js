@@ -9,6 +9,7 @@ export default defineConfig({
                 'resources/css/formulario-produtos.css',
                 'resources/css/admin.css',
                 'resources/css/categorias.css',
+                'resources/css/fornecedores.css',
                 'resources/css/app.css',
                 'resources/js/app.js'
             ],

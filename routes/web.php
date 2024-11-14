@@ -26,6 +26,11 @@ Route::get('/admin/categorias', function () {
     return view('admin.pages.categorias');
 });
 
+
+Route::get('/admin/criarCategorias', function () {
+    return view('admin.pages.criarCategorias');
+});
+
 Route::get('/api', [\App\Http\Controllers\CepController::class, 'get'])->name('api.get');
 Route::post('/api/resultado', [\App\Http\Controllers\CepController::class, 'post'])->name('api.post');
 

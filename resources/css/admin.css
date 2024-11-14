@@ -2,13 +2,20 @@
     margin: 0;
 }
 
+body {
+    display: flex;
+    border: 1px solid red;
+    min-width: 100vw;
+}
+
 .sidebar {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     height: 100vh;
     width: 20vw;
-    border: 1px solid #000000;
+    border: 1px solid green;
+    overflow: auto;
 }
 
 .sidebar_logo {
@@ -48,4 +55,12 @@
 
 .sidebar_baixo a {
     text-decoration: none;
+}
+
+
+.main{
+    width: 80vw;
+    display: flex;
+    border: 1px solid yellow;
+    padding: 2rem 4rem;
 }

@@ -26,6 +26,10 @@ Route::get('/admin/categorias', function () {
     return view('admin.pages.categorias');
 });
 
+Route::get('/admin/fornecedor/create', function () {
+    return view('admin.pages.formaluario-fornecedor');
+});
+
 Route::get('/api', [\App\Http\Controllers\CepController::class, 'get'])->name('api.get');
 Route::post('/api/resultado', [\App\Http\Controllers\CepController::class, 'post'])->name('api.post');
 

@@ -4,13 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastro de Usuário</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    @vite('resources/css/cadastro.css')
 </head>
 <body>
 
-<div class="container mt-5">
+<div class="container">
     <h2>Cadastro de Usuário</h2>
-    <form action="{{ route('user.cadastro') }}" method="POST">
+    <form action="{{ route('user.auth.cadastro') }}" method="POST">
         @csrf
         
         <div class="form-group">
@@ -47,7 +47,7 @@
             <input type="text" name="cnpj" id="cnpj" class="form-control" maxlength="18">
         </div>
 
-        <button type="submit" class="btn btn-primary">Cadastrar</button>
+        <button type="submit">Cadastrar</button>
     </form>
 
     <script>

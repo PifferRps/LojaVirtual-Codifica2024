@@ -14,10 +14,10 @@ return new class extends Migration
     {
         Schema::create('usuarios_clientes', function (Blueprint $table) {
             $table->id();
-            $table->foreignIdFor(Usuario::class, 'usuario_id')->constrained();
+            $table->foreignIdFor(Usuario::class, 'usuario_id');
             $table->string('nome');
             $table->string('documento');
-            $table->timestamp('data_nascimento');
+            $table->date('data_nascimento');
             $table->timestamps();
             $table->softDeletes();
         });

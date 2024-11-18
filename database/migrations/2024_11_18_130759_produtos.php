@@ -16,6 +16,8 @@ return new class extends Migration
             $table->string('sku');
             $table->string('nome');
             $table->float('valor');
+            $table->bigInteger('categoria_id');
+            $table->bigInteger('fornecedor_id');
             $table->float('valor_promocional')->nullable();
             $table->bigInteger('quantidade');
             $table->string('imagem_1');

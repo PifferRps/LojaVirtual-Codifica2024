@@ -10,7 +10,8 @@ export default defineConfig({
                 'resources/css/admin.css',
                 'resources/css/categorias.css',
                 'resources/css/app.css',
-                'resources/js/app.js'
+                'resources/js/app.js',
+                'resources/css/listagem.css',
             ],
             refresh: true,
         }),

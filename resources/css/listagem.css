@@ -1,0 +1,127 @@
+.titulo{
+    margin: 1rem;
+}
+
+div.master{
+    display: flex;
+    align-items: baseline;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 1rem;
+    
+  
+   
+
+}
+
+div.busca{
+
+    display: flex;
+    align-items: baseline;
+    justify-content:baseline;
+ 
+  
+  
+
+}
+button.buscar{
+   border: 0.2rem solid;
+   border-radius: 0.3rem;
+   color: none;
+  
+
+}
+.selecionar{
+    margin: 1rem;
+    border: 0.2rem solid;
+    display: flex;
+    align-items: baseline;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 1rem;
+
+}
+
+
+
+.lista{
+    display: flex;
+    align-items: baseline;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 1rem;
+   
+}
+.camiseta{
+    display: flex;
+    align-items: baseline;
+    flex-direction: row;
+    
+}
+.imagem{
+    display: flex;
+    align-items: baseline;
+    flex-direction: row;
+    justify-content: space-between;
+    border: 0.2rem solid;
+    border-radius: 0.5rem;
+    width: 8rem;
+    height: 10rem;
+
+}
+.informacoes{
+    display: flex;
+    align-items: baseline;
+    flex-direction: column;
+    justify-content: space-between;
+   
+    
+}
+
+.botoes{
+   
+    display: flex;
+    align-items: flex-end;
+    flex-direction: column;
+    padding: 1rem;
+}
+.produto{
+    display: flex;
+    align-items: baseline;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 1rem;
+   
+}
+.inativo{
+ display: flex;
+ align-items: baseline;
+ flex-direction: row;
+}
+.foto{
+display: flex;
+align-items: baseline;
+flex-direction: row;
+justify-content: space-between;
+border: 0.2rem solid;
+border-radius: 0.5rem;
+width: 8rem;
+height: 10rem;}
+
+.detalhes{
+display: flex;
+align-items: baseline;
+flex-direction: column;
+justify-content: space-between;
+padding: 1rem;
+
+}
+
+.desativar{
+    display: flex;
+    align-items: flex-end;
+    flex-direction: column;
+    padding: 1rem;
+    
+}
+

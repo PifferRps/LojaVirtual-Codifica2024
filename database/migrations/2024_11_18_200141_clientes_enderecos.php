@@ -14,8 +14,7 @@ return new class extends Migration
     {
         Schema::create('clientes_enderecos', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('usuario_id'); // precisa de alteração
-//            $table->foreignIdFor(UsuarioCliente::class, 'usuario_id')->constrained();
+            $table->foreignId('usuario_id')->constrained('usuarios');
             $table->string('cep');
             $table->string('rua');
             $table->string('numero');

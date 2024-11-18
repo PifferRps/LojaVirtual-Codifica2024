@@ -14,7 +14,7 @@ return new class extends Migration
     {
         Schema::create('usuarios_clientes', function (Blueprint $table) {
             $table->id();
-            $table->foreignIdFor(Usuario::class, 'usuario_id');
+            $table->foreignId('usuario_id')->constrained('usuarios');
             $table->string('nome');
             $table->string('documento');
             $table->date('data_nascimento');

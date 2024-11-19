@@ -1,26 +1,28 @@
 @extends("admin._layouts.admin")
 @vite('resources/css/formulario-produtos.css')
 @section("conteudo")
-<body>
     <div class="container">
-        <form action="{{ route("produtos.store") }}" method="post" enctype="multipart/form-data" class="form">
+        <form action="{{ isset($produto) ? route('produtos.update', [$produto->id]) : route('produtos.store')}}" method="post" enctype="multipart/form-data" class="form">
             @csrf
+            @isset($produto)
+                @method('PUT')
+            @endisset
             <div class="form_row">
                 <label for="nome" class="form_row__label">Nome</label>
-                <input type="text" name="nome" id="nome" class="form_row__input">
+                <input type="text" name="nome" id="nome" class="form_row__input" value="{{ ($produto->nome ?? '') }}">
             </div>
 
 
             <div class="form_row">
                 <label for="descricao" class="form_row__label">Descrição</label>
-                <textarea name="descricao" id="descricao" rows="5" cols="50" class="form_row__input"></textarea>
+                <textarea name="descricao" id="descricao" rows="5" cols="50" class="form_row__input" required>{{ ($produto->descricao ?? '') }}</textarea>
             </div>
 
 
             <div class="form_section">
                 <div class="form_section__column">
                     <label for="nome" class="form_section__column-label">SKU</label>
-                    <input type="text" name="sku" id="sku" class="form_section__column-input">
+                    <input type="text" name="sku" id="sku" class="form_section__column-input" value="{{ ($produto->sku ?? '') }}">
                 </div>
 
                 <div class="form_section__column">
@@ -44,13 +46,13 @@
 
                 <div class="form_section__column">
                     <label for="valor" class="form_section__column-label">Valor</label>
-                    <input type="number" name="valor" id="valor" class="form_section__column-input">
+                    <input type="number" name="valor" id="valor" class="form_section__column-input" value="{{ ($produto->valor ?? '') }}">
                 </div>
             </div>
 
             <div class="form_section__column">
                 <label for="quantidade" class="form_section__column-label">Quantidade</label>
-                <input type="number" name="quantidade" id="quantidade" class="form_section__column-input">
+                <input type="number" name="quantidade" id="quantidade" class="form_section__column-input" value="{{ ($produto->quantidade ?? '') }}">
             </div>
             <div class="form_row">
                 <label for="img_upload" class="form_row__label">Adicionar imagens</label>
@@ -62,5 +64,4 @@
             </div>
         </form>
     </div>
-</body>
 @endsection

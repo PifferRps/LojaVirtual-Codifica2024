@@ -16,9 +16,9 @@ return new class extends Migration
             $table->foreignId('pedido_id')->constrained('pedidos');
             $table->foreignId('produto_id')->constrained('produtos');
             $table->integer('quantidade');
-            $table->float('produto_valor');
-            $table->float('produto_valor_promocional');
-            $table->float('valor_total_final');
+            $table->float('produto_valor', 10, 2);
+            $table->float('produto_valor_promocional', 10, 2);
+            $table->float('valor_total_final', 10, 2);
             $table->timestamps();
             $table->softDeletes();
         });

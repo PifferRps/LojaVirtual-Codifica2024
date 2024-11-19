@@ -32,3 +32,7 @@ Route::get('/admin/fornecedor/create', function () {
 Route::get('/api', [\App\Http\Controllers\CepController::class, 'get'])->name('api.get');
 Route::post('/api/resultado', [\App\Http\Controllers\CepController::class, 'post'])->name('api.post');
 
+Route::get('/login', function() {
+    return view('user.auth.login');
+})->name('user.auth.login');
+

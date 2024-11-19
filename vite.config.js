@@ -11,7 +11,8 @@ export default defineConfig({
                 'resources/css/categorias.css',
                 'resources/css/app.css',
                 'resources/js/app.js',
-                'resources/css/cadastro.css'
+                'resources/css/cadastro.css',
+                'resources/css/login.css'
             ],
             refresh: true,
         }),

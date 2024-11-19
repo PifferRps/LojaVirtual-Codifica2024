@@ -58,8 +58,6 @@ body{
 
 
 .main{
-    width: 80vw;
     display: flex;
-    border: 1px solid yellow;
     padding: 1rem;
 }

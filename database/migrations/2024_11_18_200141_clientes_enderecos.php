@@ -21,8 +21,8 @@ return new class extends Migration
             $table->string('bairro');
             $table->string('cidade');
             $table->string('estado');
-            $table->string('complemento');
-            $table->string('referencia');
+            $table->string('complemento')->nullable();
+            $table->string('referencia')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });
@@ -33,6 +33,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        //
+        Schema::dropIfExists('clientes_enderecos');
     }
 };

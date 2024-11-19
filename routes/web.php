@@ -6,8 +6,10 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+Route::prefix('admin')->group(function () {
+    Route::resource('produtos', ProdutosController::class)->names('produtos')->except('show');
+});
 
-Route::resource('produtos', ProdutosController::class)->names('produtos')->except('show');
 
 Route::get('/user', function () {
     return view('user._layouts.user');

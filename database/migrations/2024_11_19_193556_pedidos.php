@@ -14,10 +14,10 @@ return new class extends Migration
         Schema::create('pedidos', function (Blueprint $table) {
             $table->id();
             $table->foreignId('cliente_id')->constrained('usuarios_clientes');
-            $table->foreignId('status_id')->constrained('pedidos_status');            $table->string('password');
-            $table->float('valor_total');
-            $table->float('desconto_total');
-            $table->float('valor_final');
+            $table->foreignId('status_id')->constrained('pedidos_status');
+            $table->float('valor_total', 10, 2);
+            $table->float('desconto_total', 10, 2);
+            $table->float('valor_final', 10, 2);
             $table->timestamps();
             $table->softDeletes();
         });

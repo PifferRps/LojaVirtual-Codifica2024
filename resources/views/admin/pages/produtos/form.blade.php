@@ -28,18 +28,18 @@
                 <div class="form_section__column">
                     <label for="categoria_id" class="form_section__column-label">Categoria</label>
                     <select name="categoria_id" id="categoria_id" class="form_section__column-input">
-                        <option value="1">Categoria 1</option>
-                        <option value="2">Categoria 2</option>
-                        <option value="3">Categoria 3</option>
+                        <option {{ isset($produto) && $produto->categoria_id == 1 ? 'selected' : '' }} value="1">Categoria 1</option>
+                        <option {{ isset($produto) && $produto->categoria_id == 2 ? 'selected' : '' }} value="2">Categoria 2</option>
+                        <option {{ isset($produto) && $produto->categoria_id == 3 ? 'selected' : '' }} value="3">Categoria 3</option>
                     </select>
                 </div>
 
                 <div class="form_section__column">
                     <label for="fornecedor_id" class="form_section__column-label">Fornecedor</label>
                     <select name="fornecedor_id" id="fornecedor_id" class="form_section__column-input">
-                        <option value="1">Fornecedor 1</option>
-                        <option value="2">Fornecedor 2</option>
-                        <option value="3">Fornecedor 3</option>
+                        <option {{ isset($produto) && $produto->fornecedor_id == 1 ? 'selected' : '' }} value="1">Fornecedor 1</option>
+                        <option {{ isset($produto) && $produto->fornecedor_id == 2 ? 'selected' : '' }} value="2">Fornecedor 2</option>
+                        <option {{ isset($produto) && $produto->fornecedor_id == 3 ? 'selected' : '' }} value="3">Fornecedor 3</option>
                     </select>
                 </div>
 

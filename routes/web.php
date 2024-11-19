@@ -6,6 +6,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/produtos', function () {
+    return view('produtos.produtos-home');
+});
+
 Route::get('/produtos/create', function () {
     return view('formulario-produtos');
 });

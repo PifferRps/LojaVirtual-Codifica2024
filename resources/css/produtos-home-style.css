@@ -1,0 +1,62 @@
+@import url();
+
+* {
+    margin: 0;
+    padding: 0;
+
+}
+body{
+    height: auto;
+    width: auto;
+    box-sizing: border-box;
+    background-color: #ffffff;
+    color: #000000;
+    margin: auto;
+
+}
+
+.container{
+    padding-top: 5%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+}
+
+img{
+    border: 1px solid #ddd;
+    border-radius: 4px; 
+    padding: 5px;
+    margin: 15px;
+
+}
+
+.container__secundario{ 
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2%;
+    border: 3px solid #ddd;
+    border-radius: 5px;
+    padding: 1%;
+    min-height: 263.3px;
+    min-width: 814.05px;
+    align-items: center;
+
+}
+
+h1{
+    display: flex;
+    padding-bottom: 5px;
+    align-items: flex-start;
+    justify-content: flex-start;
+
+}
+
+.imagens{
+    padding: 5px;
+    margin: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}

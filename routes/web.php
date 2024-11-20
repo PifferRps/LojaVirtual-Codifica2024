@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ProdutosController;
 use Illuminate\Support\Facades\Route;
 
@@ -10,6 +11,8 @@ Route::prefix('admin')->group(function () {
     Route::resource('produtos', ProdutosController::class)->names('produtos')->except('show');
 });
 
+Route::get('/login', [LoginController::class, 'index'])->name('login.index');
+Route::post('/login/auth', [LoginController::class, 'auth'])->name('login.auth');
 
 Route::get('/user', function () {
     return view('user._layouts.user');
@@ -33,8 +36,3 @@ Route::get('/admin/fornecedor/create', function () {
 
 Route::get('/api', [\App\Http\Controllers\CepController::class, 'get'])->name('api.get');
 Route::post('/api/resultado', [\App\Http\Controllers\CepController::class, 'post'])->name('api.post');
-
-Route::get('/login', function() {
-    return view('user.auth.login');
-})->name('user.auth.login');
-

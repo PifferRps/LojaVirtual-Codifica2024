@@ -10,11 +10,11 @@
 <main class="main">
     <img class="main__logo" src="logo.png" alt="logo">
     <section class="main__section">
-        <form class="section__form" action="{{ route('user.auth.login') }}" method="">
+        <form class="section__form" action="{{ route('login.auth') }}" method="POST">
             @csrf
             <label for="">Login</label>
-            <input class="form__input" type="email" placeholder="Digite seu email">
-            <input class="form__input" type="password" placeholder="Digite sua senha">
+            <input class="form__input" name="email" type="email" placeholder="Digite seu email" required>
+            <input class="form__input" name="password" type="password" placeholder="Digite sua senha" required>
             <button class="button form__button" type="submit">Logar</button>
         </form>
         <a class="button section__a" href="">Crie sua conta</a>

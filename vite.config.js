@@ -7,8 +7,13 @@ export default defineConfig({
             input: [
                 'resources/css/user.style.css',
                 'resources/css/formulario-produtos.css',
+                'resources/css/admin.css',
+                'resources/css/categorias.css',
                 'resources/css/app.css',
-                'resources/js/app.js'
+                'resources/css/pedidos.css',
+                'resources/js/app.js',
+                'resources/css/cadastro.css',
+                'resources/css/login.css'
             ],
             refresh: true,
         }),

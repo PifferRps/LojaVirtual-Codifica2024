@@ -6,11 +6,12 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
-    @vite("resources/css/sidebar.css")
+    @vite("resources/css/admin.css")
+    @stack("style")
 </head>
 <body>
-    <div class="container">
-        @include('admin._components.sidebar')
+    @include('admin._components.sidebar')
+    <div class="main">
         @yield('conteudo')
     </div>
 </body>

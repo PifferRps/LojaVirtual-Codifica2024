@@ -39,8 +39,18 @@ Route::get('/admin/categorias', function () {
     return view('admin.pages.categorias');
 });
 
+
+Route::get('/admin/categorias/create', function () {
+    return view('admin.pages.criar-categorias');
+});
+
 Route::get('/admin/fornecedor/create', function () {
     return view('admin.pages.formaluario-fornecedor');
+});
+
+Route::get('/admin/pedidos', function () {
+    return view('admin.pages.pedidos.list');
+
 });
 
 Route::get('/api', [\App\Http\Controllers\CepController::class, 'get'])->name('api.get');

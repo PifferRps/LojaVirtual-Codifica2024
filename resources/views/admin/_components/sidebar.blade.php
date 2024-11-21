@@ -6,7 +6,7 @@
     <div class="sidebar_opcoes">
         <a href="#Dashboard">Dashboard</a>
         <a href="#Pedidos">Pedidos</a>
-        <a href="#Produtos">Produtos</a>
+        <a href="{{ route('produtos.index') }}">Produtos</a>
         <a href="#Fornecedor">Fornecedor</a>
         <a href="#Categorias">Categorias</a>
         <a href="#Relátorios">Relátorios</a>

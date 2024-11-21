@@ -2,13 +2,6 @@
     margin: 0
 }
 
-body {
-    display: flex;
-    /* align-items: center; */
-    margin-top: 50px;
-    justify-content: center;
-}
-
 .form {
     display: flex;
     flex-direction: column;

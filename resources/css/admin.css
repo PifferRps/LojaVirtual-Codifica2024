@@ -2,10 +2,9 @@
     margin: 0;
 }
 
-body {
+body{
     display: flex;
-    border: 1px solid red;
-    min-width: 100vw;
+    flex-direction: row;
 }
 
 .sidebar {
@@ -59,8 +58,6 @@ body {
 
 
 .main{
-    width: 80vw;
     display: flex;
-    border: 1px solid yellow;
-    padding: 2rem 4rem;
+    padding: 1rem;
 }

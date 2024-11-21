@@ -1,5 +1,5 @@
 @extends("admin._layouts.admin")
-@vite("resources/css/criarCategorias.css")
+@vite("resources/css/criar-categorias.css")
 @section("conteudo")
 <div class="conteiner-criarCategoria">
         <div class="nome">

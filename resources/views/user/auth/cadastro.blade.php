@@ -29,6 +29,27 @@
         </div>
 
         <div class="form-group">
+        <label for="password_confirmation">Confirmar Senha</label>
+        <input type="password" name="password_confirmation" id="password_confirmation" class="form-control" required>
+        </div>
+        <span id="password-error" style="color: red; display: none;">As senhas não coincidem.</span>
+
+        <script>
+            document.querySelector('form').addEventListener('submit', function (e) {
+        const password = document.getElementById('password').value;
+        const confirmPassword = document.getElementById('password_confirmation').value;
+        const errorSpan = document.getElementById('password-error');
+
+        if (password !== confirmPassword) {
+            e.preventDefault();
+            errorSpan.style.display = 'block';
+        } else {
+            errorSpan.style.display = 'none';
+        }
+    });
+        </script>
+
+        <div class="form-group">
             <label>Tipo de Conta</label>
             <select name="account_type" id="account_type" class="form-control" required>
                 <option value="">Selecione</option>

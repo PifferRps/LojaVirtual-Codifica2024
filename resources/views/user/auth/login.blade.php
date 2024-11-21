@@ -17,7 +17,7 @@
             <input class="form__input" name="password" type="password" placeholder="Digite sua senha" required>
             <button class="button form__button" type="submit">Logar</button>
         </form>
-        <a class="button section__a" href="">Crie sua conta</a>
+        <a class="button section__a" href="cadastro">Crie sua conta</a>
     </section>
 </main>
 </body>

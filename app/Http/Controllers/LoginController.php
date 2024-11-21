@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
 {
@@ -11,9 +12,19 @@ class LoginController extends Controller
         return view('user.auth.login');
     }
 
-    public function auth(Request $request)
+    public function autenticar(Request $request)
     {
-        // caso queira se aventurar, o cartão #79 é referente a essa função.
-        dd($request->all());
+        if (!Auth::attempt(request()->except(['_token']))) {
+            return redirect()->back()->withErrors(['Usuário ou senha inválidos']);
+        }
+
+        return to_route('transacoes.index');
+    }
+
+    public function destruir()
+    {
+        Auth::logout();
+
+        return to_route('login');
     }
 }

@@ -18,7 +18,7 @@ class LoginController extends Controller
             return redirect()->back()->withErrors(['Usuário ou senha inválidos']);
         }
 
-        return to_route('transacoes.index');
+        return to_route('admin.pages'); // estou usando essa view enquanto a view certa nao fica pronta.
     }
 
     public function destruir()

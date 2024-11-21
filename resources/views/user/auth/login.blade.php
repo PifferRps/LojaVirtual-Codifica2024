@@ -10,7 +10,7 @@
 <main class="main">
     <img class="main__logo" src="logo.png" alt="logo">
     <section class="main__section">
-        <form class="section__form" action="{{ route('login.auth') }}" method="POST">
+        <form class="section__form" action="{{ route('login.autenticar') }}" method="POST">
             @csrf
             <label for="">Login</label>
             <input class="form__input" name="email" type="email" placeholder="Digite seu email" required>

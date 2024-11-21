@@ -1,5 +1,4 @@
 @extends("admin._layouts.admin")
-@vite("resources/css/pedidos.css")
 @section("conteudo")
     <div class="conteudo">
         <div class="conteudo_header">
@@ -23,3 +22,6 @@
         </div>
     </div>
 @endsection
+@push('style')
+    @vite("resources/css/pedidos.css")
+@endpush

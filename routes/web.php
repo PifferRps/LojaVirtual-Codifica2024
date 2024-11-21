@@ -30,9 +30,8 @@ Route::get('/admin/categorias', function () {
 });
 
 
-
-Route::get('/admin/criarCategorias', function () {
-    return view('admin.pages.criarCategorias');
+Route::get('/admin/categorias/create', function () {
+    return view('admin.pages.criar-categorias');
 });
 
 Route::get('/admin/fornecedor/create', function () {

@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('site', function (Blueprint $table) {
+        Schema::create('produtos', function (Blueprint $table) {
             $table->id();
             $table->bigInteger('categoria_id');
             $table->bigInteger('fornecedor_id');
@@ -35,6 +35,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        schema::dropIfExists('site');
+        schema::dropIfExists('produtos');
     }
 };

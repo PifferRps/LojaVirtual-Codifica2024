@@ -1,10 +1,11 @@
 <?php
 
-use App\Http\Controllers\FornecedoresController;
-use App\Http\Controllers\LoginController;
-use App\Http\Controllers\ProdutosController;
+use App\Http\Controllers\API\CepController;
+use App\Http\Controllers\Auth\CadastroController;
+use App\Http\Controllers\Admin\FornecedoresController;
+use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\Admin\ProdutosController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\CadastroController;
 
 Route::get('/', function () {
     return view('user.site.list');
@@ -54,8 +55,8 @@ Route::get('/user/dados', function () {
 
 });
 
-Route::get('/api', [\App\Http\Controllers\CepController::class, 'get'])->name('api.get');
-Route::post('/api/resultado', [\App\Http\Controllers\CepController::class, 'post'])->name('api.post');
+Route::get('/api', [CepController::class, 'get'])->name('api.get');
+Route::post('/api/resultado', [CepController::class, 'post'])->name('api.post');
 
 Route::get('/admin/pedidos', function () {
     return view('admin.pages.pedidos.list');

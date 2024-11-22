@@ -3,7 +3,7 @@
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ProdutosController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\UsuariosController;
+use App\Http\Controllers\CadastroController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -29,7 +29,7 @@ Route::get('/user', function () {
 Route::get('/cadastro', function() {
     return view('user.auth.cadastro');
 });
-Route::post('/cadastro', [CadastroController::class, 'register'])->name('user.auth.cadastro');
+Route::post('/cadastro/store', [CadastroController::class, 'store'])->name('user.auth.cadastro');
 
 Route::get('/admin', function () {
     return view('admin.pages.index');

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Usuario;
+use App\Models\UsuarioCliente;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -24,7 +25,14 @@ class CadastroController extends Controller
         $user = Usuario::create([
             'email' => $request->email,
             'password' => Hash::make($request->password),
-            'user_level' => '1',
+            'name' => $request->name,
+            'user_level' => '2',
+        ]);
+
+        $cliente = UsuarioCliente::create([
+            'usuario_id' => $user->id,
+            'nome' => $request->name,
+            'documento' => $request->account_type == 'fisica' ? $request->cpf : $request->cnpj,
         ]);
 
         Auth::login($user);

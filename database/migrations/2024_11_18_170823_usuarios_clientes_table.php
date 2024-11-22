@@ -17,7 +17,7 @@ return new class extends Migration
             $table->foreignId('usuario_id')->constrained('usuarios');
             $table->string('nome');
             $table->string('documento');
-            $table->date('data_nascimento');
+            $table->date('data_nascimento')->nullable()->default(null);
             $table->timestamps();
             $table->softDeletes();
         });

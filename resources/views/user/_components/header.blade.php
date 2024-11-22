@@ -15,7 +15,7 @@
 
         @auth
             <div class="header_container__user-info">
-                <p>Olá, {{ Auth::user()->name }}!</p>
+                <p>Olá, {{ Auth::user()->cliente->nome ?? 'admin' }}!</p>
                 <div class="user-info__img">
                     <img src="{{ Auth::user()->profile_photo_url }}" alt="Foto de perfil">
                 </div>

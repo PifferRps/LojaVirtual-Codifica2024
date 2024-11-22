@@ -53,6 +53,11 @@ Route::get('/admin/pedidos', function () {
 
 });
 
+Route::get('/user/dados', function () {
+    return view('user.pages.dados-clientes');
+
+});
+
 Route::get('/api', [\App\Http\Controllers\CepController::class, 'get'])->name('api.get');
 Route::post('/api/resultado', [\App\Http\Controllers\CepController::class, 'post'])->name('api.post');
 
@@ -67,3 +72,4 @@ Route::get('/login', [LoginController::class, 'index'])->name('login');
 Route::post('/login/autenticar', [LoginController::class, 'autenticar'])->name('login.autenticar');
 Route::get('/login/destruir', [LoginController::class, 'destruir'])->name('login.destruir');
 // FIM: BASE EXEMPLO FUNCIONAL DO MIDDLEWARE
+

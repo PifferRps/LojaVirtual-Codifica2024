@@ -1,7 +1,4 @@
-*{
-    margin: auto;
-    padding: 0;
-}
+
 .conteudo{
     display: flex;
     flex-direction: column;

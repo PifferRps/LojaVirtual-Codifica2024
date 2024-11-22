@@ -1,10 +1,9 @@
-@import url();
-
 * {
     margin: 0;
     padding: 0;
 
 }
+
 body{
     height: auto;
     width: auto;
@@ -23,19 +22,11 @@ body{
 
 }
 
-img{
-    border: 1px solid #ddd;
-    border-radius: 4px; 
-    padding: 5px;
-    margin: 15px;
-
-}
-
-.container__secundario{ 
+.container_produtos{
     display: flex;
     justify-content: center;
     margin-bottom: 2%;
-    border: 3px solid #ddd;
+
     border-radius: 5px;
     padding: 1%;
     min-height: 263.3px;
@@ -44,19 +35,24 @@ img{
 
 }
 
-h1{
+.container_produtos__destaque-tittle{
     display: flex;
     padding-bottom: 5px;
     align-items: flex-start;
     justify-content: flex-start;
-
 }
 
-.imagens{
+.container_produtos__destaque-imgs{
     padding: 5px;
     margin: 15px;
     display: flex;
     justify-content: center;
     align-items: center;
-    
+}
+
+.container_produtos__destaque-imgs img{
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 5px;
+    margin: 15px;
 }

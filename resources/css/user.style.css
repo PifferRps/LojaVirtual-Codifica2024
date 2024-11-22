@@ -57,6 +57,7 @@ body{
     flex-direction: row;
     padding: 0.5rem;
     border: 1px solid black;
+    justify-content: space-between;
 }
 
 .nav select{

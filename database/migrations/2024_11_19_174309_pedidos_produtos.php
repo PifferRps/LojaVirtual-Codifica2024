@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('pedidos_produtos', function (Blueprint $table) {
             $table->id();
             // $table->foreignId('pedido_id')->constrained('pedidos');
-            // $table->foreignId('produto_id')->constrained('produtos');
+            // $table->foreignId('produto_id')->constrained('site');
             $table->integer('quantidade');
             $table->float('produto_valor', 10, 2);
             $table->float('produto_valor_promocional', 10, 2);

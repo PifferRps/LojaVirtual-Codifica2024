@@ -9,7 +9,7 @@ class Produto extends Model
 {
     use SoftDeletes;
 
-    protected $table = 'produtos';
+    protected $table = 'site';
     protected $guarded = [
         'id'
     ];

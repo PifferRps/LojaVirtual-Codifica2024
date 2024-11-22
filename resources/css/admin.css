@@ -15,6 +15,7 @@ body{
     width: 20vw;
     border: 1px solid green;
     overflow: auto;
+    min-width: 20%;
 }
 
 .sidebar_logo {

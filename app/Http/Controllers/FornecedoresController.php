@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Http\Models\Fornecedor;
+use App\Models\Fornecedor;
 use App\Models\Fornecedor as ModelsFornecedor;
 
 class FornecedoresController extends Controller
@@ -11,9 +11,9 @@ class FornecedoresController extends Controller
     public function index(){
         $fornecedores = Fornecedor::all();
 
-        return view('admin.pages.formaluario-fornecedor', compact('fornecedores'));
+        return view('admin.pages.fornecedores.form', compact('fornecedores'));
     }
-    
+
     public function create()
     {
         return view('admin.pages.formaluario-fornecedor');

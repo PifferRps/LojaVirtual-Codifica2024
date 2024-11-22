@@ -1,5 +1,4 @@
 @extends("admin._layouts.admin")
-@vite("resources/css/formulario-produtos.css")
 @section("conteudo")
     <div>
         <div class="nav">
@@ -19,3 +18,8 @@
         </form>
     </div>
 @endsection
+@push('style')
+    @vite("resources/css/formulario-site.css")
+@endpush
+
+

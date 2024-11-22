@@ -1,25 +1,22 @@
 <?php
 
+use App\Http\Controllers\FornecedoresController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ProdutosController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UsuariosController;
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('user.site.list');
 });
 
-Route::get('/produtos', function () {
-    return view('produtos.produtos-home');
-});
-
-Route::get('/produtos/create', function () {
-    return view('formulario-produtos');
+Route::get('/site/create', function () {
+    return view('formulario-site');
 });
 
 Route::prefix('admin')->group(function () {
     Route::resource('produtos', ProdutosController::class)->names('produtos')->except('show');
-
+    Route::resource('fornecedores', FornecedoresController::class)->names('fornecedores')->except('show');
 });
 
 Route::get('/user', function () {
@@ -29,6 +26,7 @@ Route::get('/user', function () {
 Route::get('/cadastro', function() {
     return view('user.auth.cadastro');
 });
+
 Route::post('/cadastro', [CadastroController::class, 'register'])->name('user.auth.cadastro');
 
 Route::get('/admin', function () {
@@ -36,31 +34,28 @@ Route::get('/admin', function () {
 });
 
 Route::get('/admin/categorias', function () {
-    return view('admin.pages.categorias');
-});
+    return view('admin.pages.categorias.list');
+})->name('admin.categorias.list');
 
 
 Route::get('/admin/categorias/create', function () {
-    return view('admin.pages.criar-categorias');
+    return view('admin.pages.categorias.form');
 });
 
 Route::get('/admin/fornecedor/create', function () {
-    return view('admin.pages.formaluario-fornecedor');
-});
-
-Route::get('/admin/pedidos', function () {
-    return view('admin.pages.pedidos.list');
-
+    return view('admin.pages.fornecedores.form');
 });
 
 Route::get('/api', [\App\Http\Controllers\CepController::class, 'get'])->name('api.get');
 Route::post('/api/resultado', [\App\Http\Controllers\CepController::class, 'post'])->name('api.post');
 
+Route::get('/admin/pedidos', function () {
+    return view('admin.pages.pedidos.list');
+})->name('admin.pedidos.list');
+
 // INICIO: BASE EXEMPLO FUNCIONAL DO MIDDLEWARE
 Route::middleware(['auth'])->group(function () {
-    Route::get('/admin/pedidos', function () {
-        return view('admin.pages.pedidos.list');
-    })->name('admin.pages');
+
 });
 
 Route::get('/login', [LoginController::class, 'index'])->name('login');

@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class ProdutoFornecedor extends Model
+class Fornecedor extends Model
 {
     use SoftDeletes;
 

@@ -8,7 +8,7 @@ use App\Http\Controllers\CadastroController;
 
 Route::get('/', function () {
     return view('user.site.list');
-});
+})->name('home');
 
 Route::get('/site/create', function () {
     return view('formulario-site');
@@ -27,8 +27,7 @@ Route::get('/cadastro', function() {
     return view('user.auth.cadastro');
 });
 
-
-Route::post('/cadastro', [CadastroController::class, 'register'])->name('user.auth.cadastro');
+Route::post('/cadastro', [CadastroController::class, 'register'])->name('user.auth.criar');
 
 Route::post('/cadastro/store', [CadastroController::class, 'store'])->name('user.auth.cadastro');
 
@@ -68,6 +67,19 @@ Route::middleware(['auth'])->group(function () {
 
 Route::get('/login', [LoginController::class, 'index'])->name('login');
 Route::post('/login/autenticar', [LoginController::class, 'autenticar'])->name('login.autenticar');
-Route::get('/login/destruir', [LoginController::class, 'destruir'])->name('login.destruir');
+Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 // FIM: BASE EXEMPLO FUNCIONAL DO MIDDLEWARE
+
+Route::get('/profile', function () {
+    return view('user.pages.profile.form');
+})->name('profile');
+
+Route::get('/cart', function () {
+    return view('user.pages.cart.list');
+})->name('cart');
+
+Route::get('/purchases', function () {
+    return view('user.pages.purchases.list');
+})->name('purchases');
+
 

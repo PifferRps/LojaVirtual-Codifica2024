@@ -18,10 +18,10 @@ class LoginController extends Controller
             return redirect()->back()->withErrors(['Usuário ou senha inválidos']);
         }
 
-        return to_route('admin.pages'); // estou usando essa view enquanto a view certa nao fica pronta.
+        return to_route('home'); // estou usando essa view enquanto a view certa nao fica pronta.
     }
 
-    public function destruir()
+    public function logout()
     {
         Auth::logout();
 

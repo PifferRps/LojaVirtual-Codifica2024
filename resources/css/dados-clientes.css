@@ -1,13 +1,7 @@
-
-
-body {
-
-    display:flex;
+.containerPrincipal{
+    display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-    margin: 0;
-
 }
 
 .blocoPrincipal {
@@ -21,6 +15,9 @@ body {
     gap: 0.6rem;
     border:solid 1px black;
     padding: 1.5%;
+    justify-content: center;
+    align-items: center;
+    margin: 20px;
 
 }
 
@@ -48,8 +45,8 @@ body {
 
     padding: 7px;
     align-items: center;
-    
-  
+
+
 }
 
 .informacoes {
@@ -60,7 +57,7 @@ body {
     flex-direction:column;
     border-radius: 15px;
     gap: 0.6rem;
-    
+
     align-items: start;
     padding: 6px;
 
@@ -74,7 +71,7 @@ body {
     flex-direction:column;
     border-radius: 15px;
     gap: 0.6rem;
-    
+
     padding: 0px;
     font-size: 20px;
 
@@ -87,7 +84,7 @@ body {
     flex-direction:column;
     border-radius: 15px;
     gap: 0.6rem;
-    
+
     padding: 2px;
     font-size: 13.5px;
     color: rgb(95, 94, 94);

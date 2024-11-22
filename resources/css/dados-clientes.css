@@ -1,0 +1,112 @@
+
+
+body {
+
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+
+}
+
+.blocoPrincipal {
+
+    display:flex;
+    height: 80%;
+    width: 30%;
+    flex-direction:column;
+    border-radius: 15px;
+    box-shadow:rgba(25, 25, 25, 0.04) 0 0 1px 0, rgba(0, 0, 0, 0.1) 0 3px 4px 0;
+    gap: 0.6rem;
+    border:solid 1px black;
+    padding: 1.5%;
+
+}
+
+.titulo {
+
+    display:flex;
+    height: 10%;
+    width: 100%;
+    flex-direction:column;
+    border-radius: 15px;
+    gap: 0.6rem;
+    align-items: center;
+    font-size: 24px;
+
+}
+
+.telaInformacoes {
+
+    display:flex;
+    height: 450px;
+    width: 450px;
+    flex-direction:column;
+    border-radius: 15px;
+    gap: 0.8px;
+
+    padding: 7px;
+    align-items: center;
+    
+  
+}
+
+.informacoes {
+
+    display:flex;
+    height: 65px;
+    width: 360px;
+    flex-direction:column;
+    border-radius: 15px;
+    gap: 0.6rem;
+    
+    align-items: start;
+    padding: 6px;
+
+}
+
+.dadosTitulos {
+
+    display:flex;
+    height: 60px;
+    width: 340px;
+    flex-direction:column;
+    border-radius: 15px;
+    gap: 0.6rem;
+    
+    padding: 0px;
+    font-size: 20px;
+
+}
+.dadosClientes {
+
+    display:flex;
+    height: 60px;
+    width: 340px;
+    flex-direction:column;
+    border-radius: 15px;
+    gap: 0.6rem;
+    
+    padding: 2px;
+    font-size: 13.5px;
+    color: rgb(95, 94, 94);
+
+}
+
+.botaoEditar {
+
+    display:flex;
+    height: 65px;
+    width: 360px;
+    flex-direction:column;
+    border-radius: 15px;
+    gap: 0.6rem;
+    border:solid 1px black;
+    align-items: start;
+    padding: 10px;
+    background-color: rgb(88, 241, 83);
+    align-items: center;
+
+}
+

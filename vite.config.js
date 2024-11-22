@@ -15,7 +15,8 @@ export default defineConfig({
                 'resources/js/app.js',
                 'resources/css/cadastro.css',
                 'resources/css/login.css',
-                'resources/css/home-site.css'
+                'resources/css/home-site.css',
+                'resources/css/dados-clientes.css'
             ],
             refresh: true,
         }),

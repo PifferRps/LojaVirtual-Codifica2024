@@ -16,10 +16,10 @@ class CadastroController extends Controller
 
     public function store(Request $request)
     {
-        $request->validate([
-            'email' => 'required|email|unique:usuarios,email',
-            'password' => 'required|confirmed|min:6',
-        ]);
+//        $request->validate([
+//            'email' => 'required|email|unique:usuarios,email',
+//            'password' => 'required|confirmed|min:6',
+//        ]);
 
         $user = Usuario::create([
             'email' => $request->email,
@@ -28,6 +28,6 @@ class CadastroController extends Controller
         ]);
 
         Auth::login($user);
-        return redirect()->route('login'); //mais tarde modificar a rota
+        return redirect()->route('home'); //mais tarde modificar a rota
     }
 }

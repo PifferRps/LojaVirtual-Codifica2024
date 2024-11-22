@@ -1,17 +1,16 @@
 * {
-    margin: 0;
+    margin: auto;
     padding: 0;
 
 }
 
 body{
-    height: auto;
-    width: auto;
+    height: 90vhs;
+    width: 90vw;
     box-sizing: border-box;
     background-color: #ffffff;
     color: #000000;
     margin: auto;
-
 }
 
 .container{

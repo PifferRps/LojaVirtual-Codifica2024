@@ -5,6 +5,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ProdutosController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CadastroController;
+use App\Http\Controllers\ClientesController;
 
 Route::get('/', function () {
     return view('user.site.list');
@@ -22,6 +23,17 @@ Route::prefix('admin')->group(function () {
 Route::get('/user', function () {
     return view('user._layouts.user');
 });
+
+
+
+Route::prefix('user')->middleware(['auth'])->group(function () {
+    Route::get('/dados', [ClientesController::class, 'index'])->name('clientes.index');
+    Route::get('/dados/editar', [ClientesController::class, 'edit'])->name('clientes.edit');
+    Route::put('/dados', [ClientesController::class, 'update'])->name('clientes.update');
+    Route::get('/senha/editar', [ClientesController::class, 'editarSenha'])->name('clientes.editarSenha');
+    Route::put('/senha', [ClientesController::class, 'atualizarSenha'])->name('clientes.atualizarSenha');
+}); // UTILIZARA O PREFIXO USER, EXIGE QUE O USUARIO ESTEJA AUTENTICADO COM O MIDDLEWARE
+
 
 Route::get('/cadastro', function() {
     return view('user.auth.cadastro');

@@ -1,8 +1,7 @@
 <?php
 
-namespace App\Http\Controllers\Auth;
+namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -13,13 +12,13 @@ class LoginController extends Controller
         return view('user.auth.login');
     }
 
-    public function login(Request $request)
+    public function autenticar(Request $request)
     {
         if (!Auth::attempt(request()->except(['_token']))) {
             return redirect()->back()->withErrors(['Usuário ou senha inválidos']);
         }
 
-        return to_route('user.site.list'); // estou usando essa view enquanto a view certa nao fica pronta.
+        return to_route('home'); // estou usando essa view enquanto a view certa nao fica pronta.
     }
 
     public function logout()

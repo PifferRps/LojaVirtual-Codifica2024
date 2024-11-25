@@ -12,7 +12,7 @@
     <h2>Cadastro de Usuário</h2>
     <form action="{{ route('user.auth.cadastro') }}" method="POST">
         @csrf
-        
+
         <div class="form-group">
             <label for="name">Nome Completo</label>
             <input type="text" name="name" id="name" class="form-control" required>
@@ -80,9 +80,9 @@
 
     function applyCpfMask(value) {
         return value
-            .replace(/\D/g, '')     
-            .replace(/(\d{3})(\d)/, '$1.$2') 
-            .replace(/(\d{3})(\d)/, '$1.$2')  
+            .replace(/\D/g, '')
+            .replace(/(\d{3})(\d)/, '$1.$2')
+            .replace(/(\d{3})(\d)/, '$1.$2')
             .replace(/(\d{3})(\d{1,2})$/, '$1-$2');
     } // os dígitos do cpf vão ser formatados automaticamente, o mesmo com cnpj
 

@@ -13,4 +13,9 @@ class Usuario extends Authenticatable
     protected $guarded = [
         'id'
     ];
+
+    public function cliente()
+    {
+        return $this->hasOne(UsuarioCliente::class, 'usuario_id');
+    }
 }

@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Site;
 
+use App\Http\Controllers\Controller;
 use App\Models\Produto;
 use Illuminate\Http\Request;
 
@@ -43,6 +44,4 @@ class ProdutosController extends Controller
 
         return redirect()->route('produtos.index');
     }
-
 }
-

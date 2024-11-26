@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
-use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 use App\Models\ProdutoFornecedor;
-use App\Models\Fornecedor as ModelsFornecedor;
+use Illuminate\Http\Request;
 
 class FornecedoresController extends Controller
 {

@@ -1,14 +1,11 @@
-*{
-    margin: auto;
-    padding: 0;
-}
+
 .conteudo{
     display: flex;
     flex-direction: column;
 }
 .conteudo_header{
     background-color: white;
-    width: 90%;
+    width: 100%;
     display: flex;
     justify-content: space-between;
     height: 10vh;
@@ -29,12 +26,11 @@
 
 .conteudo_main{
     border: 1px solid black;
-    height: 100%;
-    overflow: hidden;
-    max-width: 90%;
+    height: 90vh;
+    overflow: hidden
 }
 
-.conteudo_main__category{
+.conteudo_main__pedido{
     height: 15vh;
     border: 1px solid black;
     display: flex;
@@ -47,19 +43,13 @@
 }
 
 .conteudo_main__infos-section1{
-    width: 55%;
+    width: 65%;
     margin-left: 1rem;
 }
 
 .conteudo_main__infos-section2{
-    width: 25%;
-}
-
-.conteudo_main__infos-section3{
     width: 10%;
-}
-.conteudo_main__infos-edit, .conteudo_main__infos-view, .conteudo_main__infos-delete{
-    width: 3.3%;
+    margin-right: 3rem;
 }
 
 

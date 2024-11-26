@@ -6,12 +6,18 @@ export default defineConfig({
         laravel({
             input: [
                 'resources/css/user.style.css',
-                'resources/css/formulario-produtos.css',
+                'resources/css/formulario-site.css',
+                'resources/css/criar-categorias.css',
                 'resources/css/admin.css',
                 'resources/css/categorias.css',
                 'resources/css/fornecedores.css',
                 'resources/css/app.css',
-                'resources/js/app.js'
+                'resources/css/pedidos.css',
+                'resources/js/app.js',
+                'resources/css/cadastro.css',
+                'resources/css/login.css',
+                'resources/css/home-site.css',
+                'resources/css/dados-clientes.css'
             ],
             refresh: true,
         }),

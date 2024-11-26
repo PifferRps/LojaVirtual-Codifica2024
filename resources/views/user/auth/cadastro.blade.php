@@ -4,15 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastro de Usuário</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    @vite('resources/css/cadastro.css')
 </head>
 <body>
 
-<div class="container mt-5">
+<div class="container">
     <h2>Cadastro de Usuário</h2>
-    <form action="{{ route('user.cadastro') }}" method="POST">
+    <form action="{{ route('user.auth.cadastro') }}" method="POST">
         @csrf
-        
+
         <div class="form-group">
             <label for="name">Nome Completo</label>
             <input type="text" name="name" id="name" class="form-control" required>
@@ -27,6 +27,27 @@
             <label for="password">Senha</label>
             <input type="password" name="password" id="password" class="form-control" required>
         </div>
+
+        <div class="form-group">
+        <label for="password_confirmation">Confirmar Senha</label>
+        <input type="password" name="password_confirmation" id="password_confirmation" class="form-control" required>
+        </div>
+        <span id="password-error" style="color: red; display: none;">As senhas não coincidem.</span>
+
+        <script>
+            document.querySelector('form').addEventListener('submit', function (e) {
+        const password = document.getElementById('password').value;
+        const confirmPassword = document.getElementById('password_confirmation').value;
+        const errorSpan = document.getElementById('password-error');
+
+        if (password !== confirmPassword) {
+            e.preventDefault();
+            errorSpan.style.display = 'block';
+        } else {
+            errorSpan.style.display = 'none';
+        }
+    });
+        </script>
 
         <div class="form-group">
             <label>Tipo de Conta</label>
@@ -47,7 +68,7 @@
             <input type="text" name="cnpj" id="cnpj" class="form-control" maxlength="18">
         </div>
 
-        <button type="submit" class="btn btn-primary">Cadastrar</button>
+        <button type="submit">Cadastrar</button>
     </form>
 
     <script>
@@ -59,9 +80,9 @@
 
     function applyCpfMask(value) {
         return value
-            .replace(/\D/g, '')     
-            .replace(/(\d{3})(\d)/, '$1.$2') 
-            .replace(/(\d{3})(\d)/, '$1.$2')  
+            .replace(/\D/g, '')
+            .replace(/(\d{3})(\d)/, '$1.$2')
+            .replace(/(\d{3})(\d)/, '$1.$2')
             .replace(/(\d{3})(\d{1,2})$/, '$1-$2');
     } // os dígitos do cpf vão ser formatados automaticamente, o mesmo com cnpj
 

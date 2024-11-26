@@ -1,57 +1,72 @@
-# LOJA VIRTUAL
+# CODIFICA+ 2024
 
-### CODIFICA + 2024
+---
 
-## REQUISITOS:
+## LOJA VIRTUAL
+
+## REQUISITOS
+Para rodar este projeto, recomendamos o uso do WSL (Windows Subsystem for Linux) no Windows, com o Ubuntu instalado. Você pode seguir o passo a passo da Microsoft para instalar o WSL:
+- [WSL](https://learn.microsoft.com/pt-br/windows/wsl/install) - (caso esteja no Windows) Subsistema Windows para Linux (WSL)
+
+Além disso, instale as seguintes tecnologias no sistema Linux:
+
 - [Git](https://git-scm.com/downloads) - Controle de versão para clonar e gerenciar o repositório.
 - [Node.js](https://nodejs.org/en/download/package-manager) - Execução de JavaScript no backend e gerenciamento de pacotes.
-- [Docker Desktop](https://www.docker.com/products/docker-desktop) - Para rodar os containers do projeto.
+- [Docker Engine](https://docs.docker.com/engine/install/ubuntu) - Para rodar os containers do projeto.
 
-## Passo a passo
+## Passo a Passo
 
 1. **Clone o repositório**  
-   Abra o `Windows PowerShell` e execute o comando:
-    ```bash
-    git clone git@github.com:PifferRps/LojaVirtual-Codifica2024.git
-    ```
+   Abra o `Ubuntu no WSL` e execute o comando:
+   ```bash
+   git clone git@github.com:PifferRps/LojaVirtual-Codifica2024.git
+   ```
 
 2. **Entre na pasta do projeto**  
    Navegue até o repositório recém-clonado:
-    ```bash
-    cd LojaVirtual-Codifica2024
-    ```
+   ```bash
+   cd LojaVirtual-Codifica2024
+   ```
 
 3. **Configuração do arquivo de ambiente**  
    Copie o arquivo `.env.example` para `.env` e ajuste as configurações conforme necessário:
-    ```bash
-    cp .env.example .env
-    ```
+   ```bash
+   cp .env.example .env
+   ```
 
 4. **Inicialização dos containers e instalação de dependências**  
    Execute o seguinte comando para subir os containers e instalar as dependências do PHP:
-
-    ```bash
-    docker compose up --build -d ; docker exec -it php /bin/bash -c "composer install && php artisan key:generate && php artisan migrate"
-    ```
-5. **Habilitar execução de scripts no PowerShell (para Windows)**
-
-   Caso você esteja usando o Windows e veja um erro ao tentar executar comandos npm, talvez seja necessário habilitar a execução de scripts. Abra o PowerShell como administrador e execute:
    ```bash
-   Set-ExecutionPolicy RemoteSigned -Scope CurrentUser
+   docker compose up --build -d
    ```
 
-5. **Instalação de dependências do Node.js**  
-   No repositório, no terminal, execute:
-    ```bash
-    npm install ; npm run build
-    ```
+5. **Configuração do Laravel**  
+   Gere a chave da aplicação e rode as migrações:
+   ```bash
+   docker exec -it php /bin/bash -c "php artisan key:generate"
+   docker exec -it php /bin/bash -c "php artisan migrate"
+   ```
 
-6. **Início do processo de desenvolvimento**  
-   No repositório, inicie o servidor de desenvolvimento com:
-    ```bash
-       npm run dev
-    ```
+6. **Instalação de dependências do Node.js**  
+   No terminal, dentro do repositório, execute:
+   ```bash
+   npm install
+   ```
 
-7. **Acesse a aplicação**  
+7. **Compilação dos ativos do projeto**  
+   Compile os arquivos do projeto com:
+   ```bash
+   npm run build
+   ```
+
+8. **Início do processo de desenvolvimento**  
+   Inicie o servidor de desenvolvimento com:
+   ```bash
+   npm run dev
+   ```
+
+9. **Acesse a aplicação**  
    Abra o navegador e acesse a aplicação em:  
    [localhost](http://localhost)
+
+--- 

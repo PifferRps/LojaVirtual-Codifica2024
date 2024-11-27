@@ -84,3 +84,16 @@ Route::get('/purchases', function () {
 })->name('purchases');
 
 
+
+
+
+
+
+
+
+
+
+
+Route::get('/pedidos/teste', function () {
+    return view('user.pages.purchases.info');
+});

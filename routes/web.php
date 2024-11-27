@@ -93,3 +93,12 @@ Route::get('/purchases', function () {
 })->name('purchases');
 
 
+
+
+
+
+
+
+Route::get('/categoria', function () {
+    return view('user.site.list-por-categoria');
+})->name('home');

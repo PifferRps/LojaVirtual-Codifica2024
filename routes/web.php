@@ -6,6 +6,7 @@ use App\Http\Controllers\Admin\FornecedoresController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Admin\ProdutosController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Cliente\ClientesController;
 
 Route::get('/', function () {
     return view('user.site.list');
@@ -22,6 +23,14 @@ Route::prefix('admin')->group(function () {
 
 Route::get('/user', function () {
     return view('user._layouts.user');
+});
+
+Route::prefix('user')->middleware(['auth'])->group(function () {
+    Route::get('/dados', [ClientesController::class, 'index'])->name('clientes.index');
+    Route::get('/dados/editar', [ClientesController::class, 'edit'])->name('clientes.edit');
+    Route::put('/dados', [ClientesController::class, 'update'])->name('clientes.update');
+    Route::get('/senha/editar', [ClientesController::class, 'editarSenha'])->name('clientes.editarSenha');
+    Route::put('/senha', [ClientesController::class, 'atualizarSenha'])->name('clientes.atualizarSenha');
 });
 
 Route::get('/cadastro', function() {
@@ -84,16 +93,11 @@ Route::get('/purchases', function () {
 })->name('purchases');
 
 
-
-
-
-
-
-
-
-
-
-
 Route::get('/pedidos/teste', function () {
     return view('user.pages.purchases.info');
 });
+
+Route::get('/categoria', function () {
+    return view('user.site.list-por-categoria');
+})->name('home');
+

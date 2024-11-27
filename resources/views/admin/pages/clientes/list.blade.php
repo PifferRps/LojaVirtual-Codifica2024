@@ -8,9 +8,6 @@
                 <input type="text" name="buscarClientes">
                 <button type="submit">Buscar</button>
             </form>
-            <div class="conteudo_header__button">
-                <button class="">Adicionar Cliente</button>
-            </div>
         </div>
         <div class="conteudo_main">
             <div class="conteudo_main__infos">
@@ -22,7 +19,6 @@
                 <section class="conteudo_main__infos-section1">João da Silva</section>
                 <section class="conteudo_main__infos-section3">Ativo</section>
                 <section class="conteudo_main__infos-edit">E</section>
-                <section class="conteudo_main__infos-view">V</section>
                 <section class="conteudo_main__infos-delete">X</section>
             </div>
         </div>

@@ -92,6 +92,10 @@ Route::get('/purchases', function () {
     return view('user.pages.purchases.list');
 })->name('purchases');
 
+Route::get('/admin/clientes', function () {
+    return view('admin.pages.clientes.list');
+})->name('admin.categorias.list');
+
 
 
 

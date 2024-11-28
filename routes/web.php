@@ -97,12 +97,11 @@ Route::get('/admin/clientes', function () {
 })->name('admin.categorias.list');
 
 
-
-
-
-
-
+Route::get('/pedidos/teste', function () {
+    return view('user.pages.purchases.info');
+});
 
 Route::get('/categoria', function () {
     return view('user.site.list-por-categoria');
 })->name('home');
+

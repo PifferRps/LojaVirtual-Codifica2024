@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use App\Models\Usuario;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Hash;
 
 class UsuarioSeeder extends Seeder
 {
@@ -14,7 +15,7 @@ class UsuarioSeeder extends Seeder
     {
         Usuario::create([
             'email' => 'admin@admin.com',
-            'password' => bcrypt('codifica'),
+            'password' => Hash::make('codifica'),
             'user_level' => 1
         ]);
     }

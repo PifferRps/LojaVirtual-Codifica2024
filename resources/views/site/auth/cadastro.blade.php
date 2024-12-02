@@ -10,7 +10,7 @@
 
 <div class="container">
     <h2>Cadastro de Usuário</h2>
-    <form action="{{ route('user.auth.cadastro') }}" method="POST">
+    <form action="{{ route('site.auth.cadastro') }}" method="POST">
         @csrf
 
         <div class="form-group">

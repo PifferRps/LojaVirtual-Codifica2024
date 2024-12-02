@@ -12,19 +12,19 @@ class ClientesController extends Controller
     public function index() // tela minha conta
     {
         $cliente = Auth::user();
-        return view('user.pages.dados-clientes', compact('cliente'));
+        return view('site.pages.dados-clientes', compact('cliente'));
     }
 
     public function edit() // tela de edição de dados
     {
         $cliente = Auth::user();
-        return view('user.pages.edit-dados-clientes', compact('cliente'));
+        return view('site.pages.edit-dados-clientes', compact('cliente'));
     }
 
     public function update(Request $request) //atualiza dados cliente
     {
         $cliente = Auth::user();
-        
+
     /**    $request->validate([
             'name' => 'required|string|max:255',
             'email' => 'required|email|unique:usuarios,email' . $cliente->id
@@ -37,12 +37,12 @@ class ClientesController extends Controller
         ]);
 
         return redirect()->route('clientes.index'); //retorna a tela minha conta
-    } 
+    }
 
 
     public function editarSenha() // tela edição d e senha
     {
-        return view('user.pages.edit-senha');
+        return view('site.pages.edit-senha');
     }
 
     public function atualizarSenha(Request $request)

@@ -19,7 +19,7 @@ class LoginController extends Controller
             return redirect()->back()->withErrors(['Usuário ou senha inválidos']);
         }
 
-        return to_route('user.site.list'); // estou usando essa view enquanto a view certa nao fica pronta.
+        return to_route('site.site.list'); // estou usando essa view enquanto a view certa nao fica pronta.
     }
 
     public function logout()

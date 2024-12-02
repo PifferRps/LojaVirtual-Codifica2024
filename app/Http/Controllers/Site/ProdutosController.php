@@ -12,36 +12,16 @@ class ProdutosController extends Controller
     {
         $produtos = Produto::all();
 
-        return view('admin.pages.produtos.list', compact('produtos'));
+        return view('site.pages.vitrine.produtos.list', compact('produtos'));
     }
 
-    public function create()
+    public static function show($id_categoria)
     {
-        return view('admin.pages.produtos.form');
+        return view('site.pages.vitrine.produtos.show');
     }
 
-    public function store(Request $request)
+    public static function produtosPorCategoria($id_categoria)
     {
-        Produto::create($request->all());
-
-        return redirect()->route('produtos.index');
-    }
-    public function destroy(Produto $produto)
-    {
-        $produto->delete();
-
-        return redirect()->route('produtos.index');
-    }
-
-    public function edit(Produto $produto)
-    {
-        return view('admin.pages.produtos.form', compact('produto'));
-    }
-
-    public function update(Request $request, Produto $produto)
-    {
-        $produto->update($request->all());
-
-        return redirect()->route('produtos.index');
+        return view('site.pages.vitrine.porCategoria.list');
     }
 }

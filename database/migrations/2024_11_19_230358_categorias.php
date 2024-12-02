@@ -13,12 +13,12 @@ return new class extends Migration
     {
         Schema::create('produtos_categorias', function (Blueprint $table) {
             $table->id();
-            $table->string('nome');
+            $table->string('nome')->unique();
             $table->timestamps();
             $table->softDeletes();
 
-        });    
-    }    
+        });
+    }
 
     /**
      * Reverse the migrations.

@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\PedidoStatus;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
@@ -12,7 +13,7 @@ class PedidoStatusSeeder extends Seeder
      */
     public function run(): void
     {
-        DB::table('pedidos_status')->insert([
+        $data = [
             ['status' => 'Efetuado'],
             ['status' => 'Aguardando pagamento'],
             ['status' => 'Cancelado'],
@@ -22,6 +23,10 @@ class PedidoStatusSeeder extends Seeder
             ['status' => 'Entregue'],
             ['status' => 'Devolvido'],
             ['status' => 'Concluído']
-        ]);
+        ];
+
+        foreach($data as $record){
+            PedidoStatus::firstOrCreate($record);
+        }
     }
 }

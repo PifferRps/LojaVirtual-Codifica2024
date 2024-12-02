@@ -1,0 +1,247 @@
+
+
+.navbarCheckout{
+    border: 2px solid black;
+    display: flex;
+    justify-content: space-between;
+    min-height: 3rem;
+}
+
+.navbarCheckout p{
+    font-size: 20px;
+    color: grey;
+   }
+
+#navbarCheckout_pSelected{
+    color: black;
+    text-decoration: underline;
+}
+
+.checkoutTitle{
+    display: flex;
+    border: 2px solid black;
+}
+
+.checkoutTitle_produtos{
+    width: 70%;
+    display: flex;
+    justify-content: space-between;
+    margin: 0;
+    height: 3rem;
+    align-items: center;
+    border-right: 2px solid black;
+}
+
+.checkoutTitle_produtos p, button{
+    margin: 0;
+}
+
+.checkoutTitle_resumo{
+    width: 30%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 3rem;
+}
+
+.checkoutContent{
+    display: flex;
+    height: 80vh;
+}
+
+.checkoutContent_items{
+    width: 70%;
+    height: 100%;
+    margin: 0;
+    border-right: 2px solid black;
+}
+
+.checkoutContent_items__item{
+    border: 1px solid black;
+    height: 6rem;
+    display: flex;
+    margin: 0;
+}
+
+.checkoutContent_items__item img{
+    height: 80px;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    margin: 10px;
+
+}
+
+.checkoutContent_items__item-img{
+    display: flex;
+    margin: 0 ;
+    width: 35%;
+}
+
+.checkoutContent_items__item-img section{
+    margin-left: 10px;
+}
+.checkoutContent_items__item-img p{
+    margin-top: 10px;
+}
+
+.checkoutContent_items__item-qt{
+    margin: 0;
+    width: 20%;
+    align-self: center;;
+}
+
+.checkoutContent_items__item-qt label{
+    display: inline-block;
+    min-width: 100%;
+}
+
+.checkoutContent_items__item-qt input{
+    width: 45%;
+}
+
+.checkoutContent_items__item button{
+    height: 20px;
+    margin: 10px;
+}
+
+.checkoutContent_values{
+    margin: 0;
+    width: 30%;
+}
+
+.checkoutContent_values__total{
+    height: 40%;
+    display: flex;
+    justify-content: center;
+}
+
+.checkoutContent_values__pix{
+    height: 10%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.checkoutContent_values__cartao{
+    height: 30%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.checkoutContent_values__cartao p, h6{
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+.checkoutContent_values__button{
+    width: 90%;
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+}
+
+.checkoutContent_values__button a{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    width: 90%;
+    height: 40px;
+    border: 2px solid black;
+    border-radius: 8px;
+    background-color: #58f153;
+    margin: 0;
+}
+
+.checkoutContent_values__button:hover{
+    cursor: pointer;
+}
+
+.checkoutContent_informacoes{
+    width: 70%;
+    height: 100%;
+    margin: 0;
+    border-right: 2px solid black;
+}
+
+.checkoutContent_informacoes__info1{
+    display: flex;
+    justify-content: space-between;
+}
+
+.checkoutContent_informacoes__info1 label{
+    display: inline-block;
+    margin: 0 0 0 1rem;
+}
+
+.checkoutContent_informacoes__info1 input{
+    width: 90%;
+}
+
+.checkoutContent_informacoes__info1-labelInput50{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    margin: 1rem;
+    width: 50%;
+}
+
+.checkoutContent_informacoes__info1-labelInput33{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    margin: 1rem;
+    width: 33%;
+}
+
+.checkoutContent_informacoes__pagamento{
+    border: 1px solid black;
+    height: 15%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 1rem;
+
+}
+
+.checkoutContent_informacoes__pagamento section{
+    margin: 0;
+}
+
+.checkoutContent_informacoes__dadosCliente{
+    border: 1px solid black;
+    height: 25%;
+    display: flex;
+    justify-content: flex-start;
+    margin: 1rem;
+    padding: 1rem;
+    flex-direction: column;
+}
+
+.checkoutContent_informacoes__dadosCliente p{
+    margin: 0;
+}
+
+.checkoutContent_informacoes__dadosProdutos{
+    border: 1px solid black;
+    height: 50%;
+    display: flex;
+    justify-content: flex-start;
+    margin: 1rem;
+    padding: 1rem;
+    flex-direction: column;
+    overflow: auto;
+}
+.checkoutFim{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 50vh;
+    justify-content: center;
+}
+
+.checkoutFim h1, p, a{
+    margin: 0;
+}

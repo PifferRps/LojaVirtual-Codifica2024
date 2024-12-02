@@ -88,6 +88,22 @@ Route::get('/cart', function () {
     return view('user.pages.cart.list');
 })->name('cart');
 
+Route::get('/cart/enderecos', function () {
+    return view('user.pages.cart.form');
+})->name('cart.enderecos');
+
+Route::get('/cart/pagamento', function () {
+    return view('user.pages.cart.payment');
+})->name('cart.pagamento');
+
+Route::get('/cart/confirmacao', function () {
+    return view('user.pages.cart.confirm');
+})->name('cart.confirmacao');
+
+Route::get('/cart/finalizado', function () {
+    return view('user.pages.cart.finish');
+})->name('cart.finalizado');
+
 Route::get('/purchases', function () {
     return view('user.pages.purchases.list');
 })->name('purchases');

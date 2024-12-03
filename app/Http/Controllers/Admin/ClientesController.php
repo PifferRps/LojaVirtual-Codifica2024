@@ -9,7 +9,7 @@ class ClientesController extends Controller
 {
     public function index()
     {
-        //
+        return view('admin.pages.clientes.list');
     }
 
     public function create()

@@ -7,16 +7,16 @@
         <option value="1">Eletrodoméstico</option>
     </select>
     <div>
-        <a href=""><p>Eletrônicos</p></a>
+        <a href="{{ route('site.porCategoria', 1) }}"><p>Eletrônicos</p></a>
     </div>
     <div>
-        <a href=""><p>Cosméticos</p></a>
+        <a href="{{ route('site.porCategoria', 2) }}"><p>Cosméticos</p></a>
     </div>
     <div>
-        <a href=""><p>Vestuario</p></a>
+        <a href="{{ route('site.porCategoria', 3) }}"><p>Vestuário</p></a>
     </div>
     <div>
-        <a href=""><p>Eletrodoméstico</p></a>
+        <a href="{{ route('site.porCategoria', 4) }}"><p>Eletrodoméstico</p></a>
     </div>
 
 </nav>

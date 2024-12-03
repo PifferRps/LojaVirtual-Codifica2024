@@ -17,7 +17,7 @@
             <div class="conteudo_main__pedido">
                 <section class="conteudo_main__infos-section1">#45587</section>
                 <section class="conteudo_main__infos-section2">Em separação</section>
-                <a href=""><section class="conteudo_main__infos-view">Visualizar pedido</section></a>
+                <a href="{{ route('pedidos.show', 'TESTE') }}"><section class="conteudo_main__infos-view">Visualizar pedido</section></a>
             </div>
         </div>
     </div>

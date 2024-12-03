@@ -43,9 +43,9 @@ Além disso, instale as seguintes tecnologias no sistema Linux:
 5. **Configuração do Laravel**  
    Instale o composer, gere a chave da aplicação e rode as migrações:
    ```bash
-   docker exec -it php /bin/bash -c "composer install"
-   docker exec -it php /bin/bash -c "php artisan key:generate"
-   docker exec -it php /bin/bash -c "php artisan migrate"
+   docker exec -it php_codifica /bin/bash -c "composer install"
+   docker exec -it php_codifica /bin/bash -c "php artisan key:generate"
+   docker exec -it php_codifica /bin/bash -c "php artisan migrate"
    ```
 
 6. **Instalação de dependências do Node.js**  

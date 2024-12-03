@@ -11,35 +11,37 @@ class FornecedoresController extends Controller
     public function index(){
         $fornecedores = ProdutoFornecedor::all();
 
-        return view('admin.pages.fornecedores.form', compact('fornecedores'));
+        return view('admin.pages.fornecedores.list', compact('fornecedores'));
     }
 
     public function create()
     {
-        return view('admin.pages.formaluario-fornecedor');
+        return view('admin.pages.fornecedores.form');
     }
 
-    public function edit(Fornecedor $fornecedor){
-        return view('admin.pages.formaluario-fornecedor');
+    public function edit(ProdutoFornecedor $fornecedor)
+    {
+        return view('admin.pages.fornecedores.form');
     }
 
-    public function destroy(Fornecedor $fornecedor){
-
+    public function destroy(ProdutoFornecedor $fornecedor)
+    {
         $fornecedor->delete();
 
-        return redirect()->route('admin.pages.formaluario-fornecedor');
+        return redirect()->route('/admin/fornecedores');
     }
-    public function store(Request $request, Fornecedor $fornecedor)
+
+    public function store(Request $request, ProdutoFornecedor $fornecedor)
     {
-        Fornecedor::create($request->all());
+        ProdutoFornecedor::create($request->all());
 
-        return redirect()->route('admin.pages.formaluario-fornecedor');
+        return redirect()->route('/admin/fornecedores');
     }
 
-    public function update(Request $request, Fornecedor $fornecedor){
-
+    public function update(Request $request, ProdutoFornecedor $fornecedor)
+    {
         $fornecedor->update($request->all());
 
-        return redirect()->route('admin.pages.formaluario-fornecedor');
+        return redirect()->route('/admin/fornecedores');
     }
 }

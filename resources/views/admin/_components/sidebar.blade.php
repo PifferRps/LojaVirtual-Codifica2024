@@ -4,16 +4,16 @@
     </div>
 
     <div class="sidebar_opcoes">
-        <a href="#Dashboard">Dashboard</a>
-        <a href="{{ route('admin.pedidos.list') }}">Pedidos</a>
+        <a href="{{ route('admin.dashboard.index') }}">Dashboard</a>
         <a href="{{ route('produtos.index') }}">Produtos</a>
-        <a href="{{ route('fornecedores.index') }}">Fornecedor</a>
-        <a href="{{ route('admin.categorias.list') }}">Categorias</a>
-        <a href="#Relátorios">Relátorios</a>
+        <a href="{{ route('pedidos.index') }}">Pedidos</a>
+        <a href="{{ route('clientes.index') }}">Clientes</a>
+        <a href="{{ route('categorias.index') }}">Categorias</a>
+        <a href="{{ route('fornecedores.index') }}">Fornecedores</a>
+        <a href="{{ route('admin.relatorios.index') }}">Relátorios</a>
     </div>
 
     <div class="sidebar_baixo">
-        <a href="#Minha conta">Minha conta</a>
-        <a href="#Ver loja">Ver loja</a>
+        <a href="/">Ver loja</a>
     </div>
 </div>

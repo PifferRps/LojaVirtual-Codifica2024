@@ -1,5 +1,4 @@
 @extends("admin._layouts.admin")
-
 @section("conteudo")
     <div class="conteudo">
         <div class="conteudo_header">
@@ -24,7 +23,6 @@
         </div>
     </div>
 @endsection
-
 @Push('style')
 @Vite("resources/css/categorias.css")
 @endpush

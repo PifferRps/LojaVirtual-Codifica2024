@@ -1,0 +1,92 @@
+@import url('https://fonts.googleapis.com/css2?family=Host+Grotesk:ital,wght@0,300..800;1,300..800&display=swap');
+
+*{
+    background-color: rgb(51, 51, 51);
+    color: azure;
+    font-family: "Host Grotesk", sans-serif;
+}
+
+.titulo{
+    padding: 2rem;
+    display: flex;
+    align-items: baseline;
+    justify-content: left;
+}
+
+#filtragem_divisao{
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+    gap: 1rem;
+    padding: 2rem;
+}
+
+
+#pedidos_listagem{
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+}
+
+#items{
+ display: flex;
+ align-items: center;
+    
+}
+
+ul{
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+}
+
+.button {
+    border-radius: 0.3rem;
+    background-color: #808180;
+    border: none;
+    color: white;
+    padding: 0.300rem 0.300rem;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+  }
+
+.button:hover{
+    background-color: #1f1f1f;
+    cursor:pointer;
+}
+
+.pedido-card {
+    background-color: #252525;
+    padding: 1.3rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 30rem;
+
+}
+
+.pedido-card h3 {
+    color: rgb(252, 193, 16);
+    margin-bottom: 0.5rem;
+    font-size: 1.5rem;
+}
+
+.pedido-card p {
+    margin: 0.3rem 0;
+    font-size: 1rem;
+}
+
+#pedidos_listagem ul {
+    padding: 0;
+    list-style: none;
+}
+
+#pedidos_listagem li {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.consulta_pedidos {
+    display: flex;
+}

@@ -34,6 +34,6 @@ class CategoriasController extends Controller
 
     public function destroy(string $id)
     {
-        dd();
+	//
     }
 }

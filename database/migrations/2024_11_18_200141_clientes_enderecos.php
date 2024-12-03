@@ -14,7 +14,7 @@ return new class extends Migration
     {
         Schema::create('clientes_enderecos', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('usuario_id')->constrained('usuarios');
+            $table->foreignId('cliente_id')->constrained('usuarios_clientes');
             $table->string('cep');
             $table->string('rua');
             $table->string('numero');

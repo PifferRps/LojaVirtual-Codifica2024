@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class ProdutoFornecedor extends Model
@@ -13,4 +14,9 @@ class ProdutoFornecedor extends Model
     protected $guarded = [
         'id'
     ];
+
+    public function produtos(): HasMany
+    {
+        return $this->hasMany(Produto::class, 'categoria_id');
+    }
 }

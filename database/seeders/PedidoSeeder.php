@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use Carbon\Carbon;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
@@ -15,6 +16,7 @@ class PedidoSeeder extends Seeder
     {
         DB::table('pedidos')->insert([
             [
+                'data_transacao' => Carbon::parse('31-11-2024')->format('Y-m-d'),
                 'cliente_id' => 1,
                 'endereco_id' => 1,
                 'status_id' => 1,
@@ -23,6 +25,7 @@ class PedidoSeeder extends Seeder
                 'valor_final' => 2150.00,
             ],
             [
+                'data_transacao' => Carbon::parse('31-11-2024')->format('Y-m-d'),
                 'cliente_id' => 1,
                 'endereco_id' => 1,
                 'status_id' => 2,
@@ -31,6 +34,7 @@ class PedidoSeeder extends Seeder
                 'valor_final' => 1400.00,
             ],
             [
+                'data_transacao' => Carbon::parse('28-11-2024')->format('Y-m-d'),
                 'cliente_id' => 1,
                 'endereco_id' => 1,
                 'status_id' => 3,
@@ -39,6 +43,7 @@ class PedidoSeeder extends Seeder
                 'valor_final' => 1200.00,
             ],
             [
+                'data_transacao' => Carbon::parse('01-12-2024')->format('Y-m-d'),
                 'cliente_id' => 2,
                 'endereco_id' => 2,
                 'status_id' => 1,
@@ -47,6 +52,7 @@ class PedidoSeeder extends Seeder
                 'valor_final' => 1600.00,
             ],
             [
+                'data_transacao' => Carbon::parse('03-12-2024')->format('Y-m-d'),
                 'cliente_id' => 2,
                 'endereco_id' => 2,
                 'status_id' => 9,

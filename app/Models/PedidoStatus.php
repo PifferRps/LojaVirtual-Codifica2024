@@ -3,7 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class PedidoStatus extends Model
 {
@@ -12,4 +12,9 @@ class PedidoStatus extends Model
     protected $guarded = [
         'id'
     ];
+
+    public function pedidos(): HasMany
+    {
+        return $this->hasMany(Pedido::class, 'status_id');
+    }
 }

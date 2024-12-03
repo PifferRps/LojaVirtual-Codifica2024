@@ -6,6 +6,9 @@ use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
+/**
+ * @method static create(array $array)
+ */
 class Usuario extends Authenticatable
 {
     use SoftDeletes;

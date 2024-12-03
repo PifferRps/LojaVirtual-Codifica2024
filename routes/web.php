@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\RelatoriosController;
 use App\Http\Controllers\Auth\CadastroController;
 use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\Cliente\EnderecosController;
 use App\Http\Controllers\Site\CheckoutController;
 use App\Http\Controllers\Site\ProdutosController;
 use Illuminate\Support\Facades\Route;
@@ -39,6 +40,8 @@ Route::get('/login', [LoginController::class, 'index'])->name('login');
 Route::post('/login/autenticar', [LoginController::class, 'login'])->name('login.autenticar');
 Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 Route::resource('/cadastro', CadastroController::class)->only('index', 'store');
+
+Route::resource('enderecos', EnderecosController::class);
 
 Route::middleware(['auth'])->group(function () {
     Route::prefix('admin')->group(function () {

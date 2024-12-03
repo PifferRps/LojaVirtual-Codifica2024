@@ -7,11 +7,10 @@ export default defineConfig({
             input: [
                 'resources/css/home-site.css',
                 'resources/css/navbar.css',
-                'resources/css/checkout.css',
+                'resources/css/carrinho.css',
                 'resources/css/formulario-site.css',
                 'resources/css/criar-categorias.css',
                 'resources/css/admin.css',
-                'resources/css/carrinho1.css',
                 'resources/css/categorias.css',
                 'resources/css/app.css',
                 'resources/css/pedidos.css',

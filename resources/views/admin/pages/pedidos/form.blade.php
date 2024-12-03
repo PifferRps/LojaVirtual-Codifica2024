@@ -1,4 +1,4 @@
 @extends('.admin._layouts.admin')
 @section('conteudo')
-    editando/adicionando fornecedores
+    editando status do pedido
 @endsection

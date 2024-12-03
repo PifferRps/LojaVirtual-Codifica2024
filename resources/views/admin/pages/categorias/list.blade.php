@@ -9,7 +9,7 @@
                 <button type="submit">Buscar</button>
             </form>
             <div class="conteudo_header__button">
-                <button class="">Adicionar Categoria</button>
+                <a href="{{ route('categorias.create') }}" class="">Adicionar Categoria</a>
             </div>
         </div>
         <div class="conteudo_main">
@@ -23,9 +23,9 @@
                 <section class="conteudo_main__infos-section1">Eletrônico</section>
                 <section class="conteudo_main__infos-section2">50</section>
                 <section class="conteudo_main__infos-section3">Ativo</section>
-                <section class="conteudo_main__infos-edit">E</section>
-                <section class="conteudo_main__infos-view">V</section>
-                <section class="conteudo_main__infos-delete">X</section>
+                <section class="conteudo_main__infos-edit"><a href="{{ route('categorias.edit', 'TESTE') }}">E</a></section>
+{{--                MUDAR PARA FORMULÁRIO--}}
+                <section class="conteudo_main__infos-view"><a href="{{ route('categorias.destroy', 'TESTE') }}">X</a></section>
             </div>
         </div>
     </div>

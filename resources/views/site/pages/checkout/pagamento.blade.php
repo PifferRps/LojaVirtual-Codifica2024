@@ -1,10 +1,10 @@
-@extends("user._layouts.user")
+@extends("site._layouts.site")
 @section('conteudo')
     <div class="navbarCheckout">
         <p>
             Carrinho >
         </p>
-        <a href="{{ route('cart.enderecos') }}">
+        <a href="{{ route('site.checkout.enderecos') }}">
             <p>
                 Dados pessoais >
             </p>
@@ -69,11 +69,11 @@
                 <h6>sem juros no cartão</h6>
             </section>
             <div class="checkoutContent_values__button">
-                <a href="{{ route('cart.confirmacao') }}">Continuar</a>
+                <a href="{{ route('site.checkout.confirmacao') }}">Continuar</a>
             </div>
         </div>
     </div>
 @endsection
 @push('style')
-    @vite('resources/css/carrinho1.css')
+    @vite('resources/css/carrinho.css')
 @endpush

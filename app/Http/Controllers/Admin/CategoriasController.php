@@ -9,12 +9,12 @@ class CategoriasController extends Controller
 {
     public function index()
     {
-        //
+        return view('admin.pages.categorias.list');
     }
 
     public function create()
     {
-        //
+        return view('admin.pages.categorias.form');
     }
 
     public function store(Request $request)
@@ -22,14 +22,9 @@ class CategoriasController extends Controller
         //
     }
 
-    public function show(string $id)
-    {
-        //
-    }
-
     public function edit(string $id)
     {
-        //
+        return view('admin.pages.categorias.form');
     }
 
     public function update(Request $request, string $id)
@@ -39,6 +34,6 @@ class CategoriasController extends Controller
 
     public function destroy(string $id)
     {
-        //
+	//
     }
 }

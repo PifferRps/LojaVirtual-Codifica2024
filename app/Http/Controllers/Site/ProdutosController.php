@@ -11,7 +11,6 @@ class ProdutosController extends Controller
     public function index()
     {
         $produtos = Produto::all();
-
         return view('site.pages.vitrine.produtos.list', compact('produtos'));
     }
 

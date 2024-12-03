@@ -1,7 +1,7 @@
 <header class="header">
     <div class="header_container">
         <div class="header_container__img">
-            <a href="{{ route('vitrine') }}"><img src="" alt="imagem.teste"></a>
+            <a href="{{ route('site.pages.vitrine.produtos.list') }}"><img src="" alt="imagem.teste"></a>
         </div>
         <div class="header_container__search">
             <form action="">

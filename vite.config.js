@@ -11,6 +11,7 @@ export default defineConfig({
                 'resources/css/formulario-site.css',
                 'resources/css/criar-categorias.css',
                 'resources/css/admin.css',
+                'resources/css/carrinho1.css',
                 'resources/css/categorias.css',
                 'resources/css/app.css',
                 'resources/css/pedidos.css',

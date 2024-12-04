@@ -21,15 +21,18 @@
                 </div>
 
                 <div class="user-info__actions">
-                    <a href="{{ route('perfil') }}">Meu Perfil</a>
-                    <a href=" {{ route('pedidos') }}">Minhas Compras</a>
+                    <a href="#">Meu Perfil</a>
+                    <a href="#">Minhas Compras</a>
                     <a href="{{ route('logout') }}">Sair</a>
                 </div>
             </div>
         @else
             <div class="header_container_login">
-                {{--                <button onclick="window.location.href='{{ route('site.auth.login') }}'">Logar</button>--}}
-                <a href="#">Criar conta</a>
+                <div>
+                    <a href="{{ route('login') }}">Entre</a>
+                    ou
+                </div>
+                <a href="{{ route('cadastro.index') }}">Criar conta</a>
             </div>
         @endauth
     </div>

@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\Admin\RelatoriosController;
+use App\Http\Controllers\Auth\CadastroController;
+use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Site\CheckoutController;
 use App\Http\Controllers\Site\ProdutosController;
 use Illuminate\Support\Facades\Route;
@@ -35,13 +37,20 @@ Route::get('/confirmacao', [CheckoutController::class, 'etapaConfirmacao'])->nam
 
 Route::get('/concluido', [CheckoutController::class, 'etapaConcluido'])->name('site.checkout.concluido');
 
-Route::prefix('admin')->group(function () {
-    Route::get('/', [DashboardController::class, 'index'])->name('admin.dashboard.index');
-    Route::get('/relatorios', [RelatoriosController::class, 'index'])->name('admin.relatorios.index');
+Route::get('/login', [LoginController::class, 'index'])->name('login');
+Route::post('/login/autenticar', [LoginController::class, 'login'])->name('login.autenticar');
+Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
+Route::resource('/cadastro', CadastroController::class)->only('index', 'store');
 
-    Route::resource('produtos', AdminProdutosController::class)->except('show');
-    Route::resource('pedidos', AdminPedidosController::class)->except('create', 'store');
-    Route::resource('fornecedores', AdminFornecedoresController::class)->except('show');
-    Route::resource('clientes', AdminClientesController::class)->except('show', 'create', 'store');
-    Route::resource('categorias', AdminCategoriasController::class)->except('show');
+Route::middleware(['auth'])->group(function () {
+    Route::prefix('admin')->group(function () {
+        Route::get('/', [DashboardController::class, 'index'])->name('admin.dashboard.index');
+        Route::get('/relatorios', [RelatoriosController::class, 'index'])->name('admin.relatorios.index');
+
+        Route::resource('produtos', AdminProdutosController::class)->except('show');
+        Route::resource('pedidos', AdminPedidosController::class)->except('create', 'store');
+        Route::resource('fornecedores', AdminFornecedoresController::class)->except('show');
+        Route::resource('clientes', AdminClientesController::class)->except('show', 'create', 'store');
+        Route::resource('categorias', AdminCategoriasController::class)->except('show');
+    });
 });

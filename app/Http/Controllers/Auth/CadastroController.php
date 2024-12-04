@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Http\Controllers\Controller;
 use App\Models\Usuario;
 use App\Models\UsuarioCliente;
 use Illuminate\Http\Request;
@@ -12,11 +13,12 @@ class CadastroController extends Controller
 {
     public function index()
     {
-        return view('user.auth.cadastro');
+        return view('site.auth.cadastro');
     }
 
     public function store(Request $request)
     {
+//        FALTA TERMINAR A VERIFICAÇÃO:
 //        $request->validate([
 //            'email' => 'required|email|unique:usuarios,email',
 //            'password' => 'required|confirmed|min:6',
@@ -36,6 +38,6 @@ class CadastroController extends Controller
         ]);
 
         Auth::login($user);
-        return redirect()->route('home'); //mais tarde modificar a rota
+        return redirect()->route('vitrine'); //mais tarde modificar a rota
     }
 }

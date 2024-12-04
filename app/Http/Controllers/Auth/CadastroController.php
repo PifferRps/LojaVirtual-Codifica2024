@@ -38,6 +38,6 @@ class CadastroController extends Controller
         ]);
 
         Auth::login($user);
-        return redirect()->route('vitrine'); //mais tarde modificar a rota
+        return redirect()->route('site.pages.vitrine.produtos.list'); //mais tarde modificar a rota
     }
 }

@@ -19,13 +19,13 @@ class LoginController extends Controller
             return redirect()->back()->withErrors(['Usuário ou senha inválidos']);
         }
 
-        return to_route('vitrine');
+        return to_route('site.pages.vitrine.produtos.list');
     }
 
     public function logout()
     {
         Auth::logout();
 
-        return to_route('vitrine');
+        return to_route('site.pages.vitrine.produtos.list');
     }
 }

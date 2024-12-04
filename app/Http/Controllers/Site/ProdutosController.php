@@ -21,6 +21,7 @@ class ProdutosController extends Controller
 
     public static function produtosPorCategoria($id_categoria)
     {
-        return view('site.pages.vitrine.porCategoria.list');
+        $produtos = Produto::where('categoria_id', $id_categoria)->get();
+        return view('site.pages.vitrine.porCategoria.list', compact('produtos'));
     }
 }

@@ -13,17 +13,11 @@ use App\Http\Controllers\Admin\ClientesController as AdminClientesController;
 use App\Http\Controllers\Admin\FornecedoresController as AdminFornecedoresController;
 use App\Http\Controllers\Admin\ProdutosController as AdminProdutosController;
 
-Route::get('/', function () {
-    return view('site.pages.vitrine.produtos.list');
-})->name('vitrine');
+Route::get('/', [ProdutosController::class, 'index'])->name('site.pages.vitrine.produtos.list');
 
-Route::get('/categoria/{id_categoria?}', function (?int $id_categoria = null) {
-    return ProdutosController::produtosPorCategoria($id_categoria);
-})->name('site.porCategoria');
+Route::get('/produto/{produto}', [ProdutosController::class, 'show'])->name('site.produto.show');
 
-Route::get('/produto/{id_produtos?}', function (?int $id_produtos = null) {
-    return ProdutosController::show($id_produtos);
-})->name('site.produto');
+Route::get('/produto/{categoria}', [ProdutosController::class, 'produtosPorCategoria'])->name('site.porCategoria');
 
 Route::get('/carrinho', [CheckoutController::class, 'index'])->name('site.checkout.carrinho');
 

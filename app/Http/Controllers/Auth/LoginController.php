@@ -10,7 +10,7 @@ class LoginController extends Controller
 {
     public function index()
     {
-        return view('user.auth.login');
+        return view('site.auth.login');
     }
 
     public function login(Request $request)
@@ -19,13 +19,13 @@ class LoginController extends Controller
             return redirect()->back()->withErrors(['Usuário ou senha inválidos']);
         }
 
-        return to_route('site.site.list'); // estou usando essa view enquanto a view certa nao fica pronta.
+        return to_route('vitrine');
     }
 
     public function logout()
     {
         Auth::logout();
 
-        return to_route('login');
+        return to_route('vitrine');
     }
 }

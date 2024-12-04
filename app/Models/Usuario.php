@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
@@ -17,7 +18,7 @@ class Usuario extends Authenticatable
         'id'
     ];
 
-    public function cliente()
+    public function cliente(): HasOne
     {
         return $this->hasOne(UsuarioCliente::class, 'usuario_id');
     }

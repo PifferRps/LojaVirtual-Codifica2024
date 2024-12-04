@@ -16,7 +16,7 @@ class ClienteEnderecoSeeder extends Seeder
     {
         DB::table('clientes_enderecos')->insert([
             [
-                'usuario_id' => 2,
+                'cliente_id' => 1,
                 'cep' => '60766115',
                 'rua' => 'Rua Alberto Sales',
                 'numero' => '222',
@@ -25,7 +25,7 @@ class ClienteEnderecoSeeder extends Seeder
                 'estado' => 'CE'
             ],
             [
-                'usuario_id' => 3,
+                'cliente_id' => 2,
                 'cep' => '74415460',
                 'rua' => 'Praça Ofélia Nascimento',
                 'numero' => '333',

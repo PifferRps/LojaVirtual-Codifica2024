@@ -11,12 +11,10 @@ class EnderecosController extends Controller
 {
     public function index()
     {
-        $endereco = ClienteEndereco::all(); //por enquanto ele puxa todos os pedidos
-        //$clienteId = Auth::guard('cliente')->user()->cliente_id;
-        //$cliente = UsuarioCliente::findOrFail($clienteId);
-        //$endereco = ClienteEndereco::where('cliente_id', $clienteId)->get();
+        $clienteId = Auth::guard('cliente')->user()->cliente_id;
+        $cliente = UsuarioCliente::findOrFail($clienteId);
+        $endereco = ClienteEndereco::where('cliente_id', $clienteId)->get();
 
-        //precisa do login funcionando
         return view('user.pages.cart.list', compact('cart'));
     }
 

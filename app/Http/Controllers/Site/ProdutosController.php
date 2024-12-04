@@ -28,15 +28,34 @@ class ProdutosController extends Controller
         return view('site.pages.vitrine.porCategoria.list', compact('produtos'));
     }
 
-    public function adicionarAoCarrinho($id)
+    public function adicionarAoCarrinho($id, Request $request)
     {
         $produto = Produto::find($id);
         $sessao = session('produtos');
-        $sessao[$produto->id] = $produto->nome;
+
+        if (array_key_exists($produto->id, $sessao)){
+            $soma = $request->query('quantidade') + $sessao[$produto->id]['produto_quantidade'];
+            $sessao[$produto->id] = [
+                'produto_nome' => $produto->nome,
+                'produto_valor' => $produto->valor,
+                'produto_quantidade' => $soma
+            ];
+        }
+
+        if (!array_key_exists($produto->id, $sessao)) {
+            $sessao[$produto->id] = [
+                'produto_nome' => $produto->nome,
+                'produto_valor' => $produto->valor,
+                'produto_quantidade' => $request->query('quantidade')
+            ];
+        }
+
+        dd($sessao);
         session(['produtos' => $sessao]);
-        dd(session());
+
         return to_route('site.produto.show', $id);
     }
+
 
     public function exibirProdutosCarrinho()
     {

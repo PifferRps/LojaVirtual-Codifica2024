@@ -15,8 +15,8 @@
             <section class="produto" style="margin-top: 15px; display: flex; flex-direction: column; justify-content: center">
                 <a href="{{ route('site.produto.show', $produto->id) }}">
                     <img src="{{ asset('img/1.jpg') }}" width="200" height="200">
-                    <p>Produto A</p>
-                    <p>R$49,90</p>
+                    <p>{{ $produto->nome }}</p>
+                    <p>{{ $produto->valor }}</p>
                 </a>
             </section>
             @endforeach

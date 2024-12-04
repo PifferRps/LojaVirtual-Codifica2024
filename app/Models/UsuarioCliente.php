@@ -26,7 +26,7 @@ class UsuarioCliente extends Model
         return $this->hasMany(ClienteEndereco::class, 'cliente_id');
     }
 
-    public function pedidos()
+    public function pedidos(): HasMany
     {
         return $this->hasMany(Pedido::class, 'cliente_id');
     }

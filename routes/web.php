@@ -17,7 +17,7 @@ Route::get('/', [ProdutosController::class, 'index'])->name('site.pages.vitrine.
 
 Route::get('/produto/{produto}', [ProdutosController::class, 'show'])->name('site.produto.show');
 
-Route::get('/produto/{categoria}', [ProdutosController::class, 'produtosPorCategoria'])->name('site.porCategoria');
+Route::get('/categoria/{categoria}', [ProdutosController::class, 'produtosPorCategoria'])->name('site.porCategoria');
 
 Route::get('/carrinho', [CheckoutController::class, 'index'])->name('site.checkout.carrinho');
 

@@ -50,7 +50,6 @@ class ProdutosController extends Controller
             ];
         }
 
-        dd($sessao);
         session(['produtos' => $sessao]);
 
         return to_route('site.produto.show', $id);

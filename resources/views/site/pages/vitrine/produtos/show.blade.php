@@ -25,8 +25,12 @@
                     </div>
 
                     <div class="botoesInferiores">
-                        <div class="botaoCompra"> Comprar Agora</div>
-                        <div class="botaoCarrinho"> <i class="fa-solid fa-cart-shopping"></i> </div>
+                        <form action="{{ route('site.adicionarAoCarrinho', $produto->id) }}" method="get">
+                            <label for="quantidade">Quantidade</label>
+                            <input type="number" name="quantidade">
+                            <button> Adicionar ao Carrinho </button>
+                        </form>
+
                     </div>
                 </div>
             </div>

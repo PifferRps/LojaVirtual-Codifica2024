@@ -19,6 +19,8 @@ Route::get('/produto/{produto}', [ProdutosController::class, 'show'])->name('sit
 
 Route::get('/categoria/{categoria}', [ProdutosController::class, 'produtosPorCategoria'])->name('site.porCategoria');
 
+Route::get('/produto/adicionarAoCarrinho/{id}', [ProdutosController::class, 'adicionarAoCarrinho'])->name('site.adicionarAoCarrinho');
+
 Route::get('/carrinho', [CheckoutController::class, 'index'])->name('site.checkout.carrinho');
 
 Route::get('/enderecos', [CheckoutController::class, 'etapaEnderecos'])->name('site.checkout.enderecos');

@@ -12,6 +12,7 @@ use App\Http\Controllers\Admin\PedidosController as AdminPedidosController;
 use App\Http\Controllers\Admin\ClientesController as AdminClientesController;
 use App\Http\Controllers\Admin\FornecedoresController as AdminFornecedoresController;
 use App\Http\Controllers\Admin\ProdutosController as AdminProdutosController;
+use App\Http\Controllers\Cliente\PedidosController;
 
 Route::get('/', [ProdutosController::class, 'index'])->name('site.pages.vitrine.produtos.list');
 
@@ -45,4 +46,5 @@ Route::middleware(['auth'])->group(function () {
         Route::resource('clientes', AdminClientesController::class)->except('show', 'create', 'store');
         Route::resource('categorias', AdminCategoriasController::class)->except('show');
     });
+    Route::get('/meus-pedidos', [PedidosController::class, 'index'])->name('pedidos.index');    
 });

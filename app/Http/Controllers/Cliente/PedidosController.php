@@ -10,16 +10,18 @@ use Illuminate\Http\Request;
 
 class PedidosController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
+        $search = $request->input('search');
 
-        $pedido = Pedido::all(); //por enquanto ele puxa todos os pedidos
-        //$clienteId = Auth::guard('cliente')->user()->cliente_id;
-        //$cliente = UsuarioCliente::findOrFail($clienteId);
-        //$pedido = Pedido::where('cliente_id', $clienteId)->where('status', Status::Ativo)->get();
-
-        //precisa do login funcionando
-        return view('user.pages.purchases.list', compact('purchases'));
+        $query = Pedido::where('cliente_id', auth()->id());
+        
+            if ($search) {
+            $query->where('id', $search);
+        }
+    
+        $pedidos = $query->get();
+        return view('site.pages.pedidos.list', compact('pedidos'));
     }
 
     public function show(Request $request, int $pedidoId)

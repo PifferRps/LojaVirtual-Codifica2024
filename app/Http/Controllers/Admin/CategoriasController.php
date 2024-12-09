@@ -27,16 +27,16 @@ class CategoriasController extends Controller
         return redirect()->route('categorias.index');
     }
 
-    public function edit(string $id)
+    public function edit(ProdutoCategoria $categoria)
     {
-        return view('admin.pages.categorias.form');
+        return view('admin.pages.categorias.form', compact('categoria'));
     }
 
-    public function update(Request $request, ProdutoCategoria $produtoCategoria)
+    public function update(Request $request, ProdutoCategoria $categoria)
     {
-        $produtoCategoria->update($request->all());
+        $categoria->update($request->all());
 
-        return redirect()->route('admin.categorias.index');
+        return redirect()->route('categorias.index');
     }
 
     public function destroy(ProdutoCategoria $categoria)

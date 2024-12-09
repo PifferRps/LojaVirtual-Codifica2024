@@ -19,7 +19,8 @@ export default defineConfig({
                 'resources/css/produto.css',
                 'resources/css/login.css',
                 'resources/css/dados-clientes.css',
-                'resources/css/meus-pedidos.css'
+                'resources/css/meus-pedidos.css',
+                'resources/css/formulario-produtos.css'
             ],
             refresh: true,
         }),

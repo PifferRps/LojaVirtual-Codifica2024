@@ -2,12 +2,11 @@
 @vite("resources/css/criar-categorias.css")
 @section("conteudo")
 <div class="conteiner-criarCategoria">
-        <div class="nome">
-            <input type="text" placeholder="Nome categoria" class="barra">
-        </div>
-
-        <div class="criar">
-            <button class="botao">adicionar</button>
-        </div>
+    <form action="{{ route('categorias.store') }}" method="post">
+        @csrf
+        <label for="nome">Categoria:</label>
+        <input type="text" name="nome">
+        <button>Adicionar</button>
+    </form>
     </div>
 @endsection

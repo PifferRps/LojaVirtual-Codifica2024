@@ -19,14 +19,22 @@
                 <section class="conteudo_main__infos-section3">Status</section>
             </div>
             <hr>
-            <div class="conteudo_main__category">
-                <section class="conteudo_main__infos-section1">Eletrônico</section>
-                <section class="conteudo_main__infos-section2">50</section>
-                <section class="conteudo_main__infos-section3">Ativo</section>
-                <section class="conteudo_main__infos-edit"><a href="{{ route('categorias.edit', 'TESTE') }}">E</a></section>
-{{--                MUDAR PARA FORMULÁRIO--}}
-                <section class="conteudo_main__infos-view"><a href="{{ route('categorias.destroy', 'TESTE') }}">X</a></section>
-            </div>
+            @foreach($categorias as $categoria)
+                <div class="conteudo_main__category">
+                    <section class="conteudo_main__infos-section1">{{ $categoria->nome}}</section>
+                    <section class="conteudo_main__infos-section2">50</section>
+                    <section class="conteudo_main__infos-section3">Ativo</section>
+                    <form method="post" action="{{ route("categorias.destroy", $categoria->id) }}">
+                        @csrf
+                        @method("delete")
+                        <button>Deletar</button>
+                    </form>
+                    <section class="conteudo_main__infos-edit"><a href="{{ route('categorias.edit', $categoria->id) }}">E</a></section>
+                    {{--                MUDAR PARA FORMULÁRIO--}}
+                </div>
+            @endforeach
         </div>
     </div>
+
 @endsection
+

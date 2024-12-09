@@ -1,70 +1,185 @@
-@import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Host+Grotesk:ital,wght@0,300..800;1,300..800&display=swap');
 
 *{
-    margin: auto;
+    font-family: "Host Grotesk", sans-serif;
+    margin: 0;
     padding: 0;
-
+    box-sizing: border-box;
+    font-style: none;
 }
 
-body{
-    height: 100%;
-    min-height: 720px;
-    width: 90vw;
-    border: 4px solid black;
-    font-family: "Ubuntu", sans-serif;
+body.dark-mode {
+    background-color: #121212;
+    color: #ffffff;
+    .header_container__cart i {
+        color: white;
+    }
+
+    .user-info__img img {
+        width: 3.2rem;
+        height: 2.75rem;
+        border-radius: 50%;
+        background-color: #ffffff;
+    }
 }
 
-.header_container{
-    display: flex;
-    flex-direction: row;
-    border: 1px solid black;
-    justify-content: space-between;
-}
 
-.header_container__img{
-    width: 20%;
-    border: 1px solid black;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.header_container__img img{
-    height: 100px;
-}
-
-.header_container__search{
-    width: 55%;
-    border: 1px solid black;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.header_container__cart{
-    width: 5%;
-    display: flex;
-    border: 1px solid black;
-}
-
-.header_container_login{
-    width: 20%;
-    border: 1px solid black;
+header{
     display: flex;
     flex-direction: column;
+    gap: 2rem;
+    justify-content: space-between;  /* Distribui os itens corretamente */
+    box-sizing: border-box; 
 }
 
-.header_container_login button{
-    width: 40%;
+.header {
+    padding: 1.5rem 3rem;
+    display: flex;
+    align-items: center;
 }
-.nav{
+
+.header_container {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    width: 100%;
+    max-width: 1000px;
+}
+
+.header_container__img img {
+    max-width: 5rem;
+    height: auto;
+}
+
+.header_container__search {
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    width: auto;
+}
+
+.header_container__search form {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    width: auto;
+}
+
+.header_container__search input {
+    flex-grow: 1;
+    padding: 0.5rem;
+    border: 0.100rem solid rgb(155, 155, 155);
+    border-radius: 0.5rem;
+    background-color: rgb(255, 255, 255);
+    font-size: 1rem;
+}
+
+.header_container__search button {
+    padding: 0.5rem 1rem;
+    background-color: rgb(236, 236, 236);
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.header_container__search button:hover {
+    background-color: rgb(255, 182, 182);
+}
+
+.header_container__cart i {
+    font-size: 1.5rem;
+    color: black;
+    margin-right: 0.5rem;
+}
+
+.header_container__cart:hover {
+    opacity: 0.7;
+}
+
+.header_container__cart a {
+    text-decoration: none;
+}
+
+.header_container__user-info {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    font-size: 1rem;
+}
+
+.user-info__img img {
+    width: 3.rem;
+    height: 2.5rem;
+    border-radius: 50%;
+}
+
+.user-info__actions {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+    font-size: 0.675rem;
+}
+
+.user-info__actions a {
+    text-decoration: none;
+    color: rgb(236, 161, 161);
+    transition: color 0.3s;
+}
+
+.user-info__actions a:hover {
+    color: brown;
+}
+
+.header_container_login {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 1rem;
+}
+
+.header_container_login a {
+    text-decoration: none;
+    color: red;
+    font-weight: bold;
+}
+
+.header_container_login a:hover {
+    color: var(--color-secondary);
+}
+
+.dark-mode-toggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.5rem;
+    color: inherit;
+}
+.dark-mode-toggle:hover {
+    opacity: 0.7;
+}
+
+
+nav{
+    gap: 5rem;
     display: flex;
     flex-direction: row;
     padding: 0.5rem;
-    border: 1px solid black;
+    border: 0.120rem solid rgb(167, 48, 48);
+    border-radius: 1rem;
     justify-content: space-between;
+    font-style: none;
 }
 
-.nav select{
+nav a{
+    text-decoration: none;
+    color: rgb(252, 95, 95);
+}
+
+nav a:hover{
+    color: brown;
+}
+
+nav select{
     border: 1px solid black;
 }

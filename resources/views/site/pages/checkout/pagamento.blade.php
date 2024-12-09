@@ -28,32 +28,41 @@
         </div>
     </div>
     <div class="checkoutContent">
-        <div class="checkoutContent_informacoes">
-            <div class="checkoutContent_informacoes__pagamento">
-                <section>
-                    <input type="radio" name="pix">
-                    <label for="pix">Pix (10% de desconto)</label>
-                </section>
-            </div>
-            <div class="checkoutContent_informacoes__pagamento">
-                <section>
-                    <input type="radio" name="pix">
-                    <label for="pix">Boleto</label>
-                </section>
-            </div>
-            <div class="checkoutContent_informacoes__pagamento">
-                <section>
-                    <input type="radio" name="pix">
-                    <label for="pix">Cartão de crédito</label>
-                </section>
-                <select name="vezes">
-                    @for($i = 1; $i <= 10; $i++)
-                        <option value="{{ $i }}"> {{ $i }} </option>
-                    @endfor
-                </select>
-            </div>
+    <div class="checkoutContent_informacoes">
+    <div class="checkoutContent_informacoes__pagamento">
+        <section class="payment-card">
+            <input type="radio" id="pix" name="payment_method">
+            <label for="pix">
+            <img src="img/pix.png" alt="Pix Icon" class="payment-icon">
+                Pix <span class="payment-discount">(10% de desconto)</span>
+            </label>
+        </section>
+    </div>
+    <div class="checkoutContent_informacoes__pagamento">
+        <section class="payment-card">
+            <input type="radio" id="boleto" name="payment_method">
+            <label for="boleto">
+                <img src="img/boleto.png" alt="Boleto Icon" class="payment-icon">
+                Boleto
+            </label>
+        </section>
+    </div>
+    <div class="checkoutContent_informacoes__pagamento">
+        <section class="payment-card">
+            <input type="radio" id="cartao" name="payment_method">
+            <label for="cartao">
+                <img src="img/cartao.png" alt="Cartão Icon" class="payment-icon">
+                Cartão de crédito
+            </label>
+            <select name="vezes" class="installments-select">
+                @for($i = 1; $i <= 10; $i++)
+                    <option value="{{ $i }}"> {{ $i }}x sem juros </option>
+                @endfor
+            </select>
+        </section>
+    </div>
+</div>
 
-        </div>
         <div class="checkoutContent_values">
             <section class="checkoutContent_values__total">
                 <h1>Total: R$4.095,00</h1>

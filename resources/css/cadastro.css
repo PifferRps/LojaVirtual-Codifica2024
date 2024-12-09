@@ -1,50 +1,95 @@
 @import url('https://fonts.googleapis.com/css2?family=Host+Grotesk:ital,wght@0,300..800;1,300..800&display=swap');
 
-*{
-    background-color: rgb(255, 255, 255);
+* {
     font-family: "Host Grotesk", sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    display: flex;
+    width: 100vw;
+    min-height: 100vh;
+    justify-content: center;
 }
 
 .container {
     display: flex;
-    /* align-items: center; */
-    margin-top: 50px;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    width: 100vw;
+    height: auto;
+    border-radius: 1rem;
+    margin: 2rem;
     gap: 2rem;
 }
 
-h2{
-    width: 20%;
+.main__logo {
+    margin: 1rem;
+    max-width: 18rem;
 }
 
 form {
     display: flex;
     flex-direction: column;
-    gap: 1.3rem;
-    width: 40%;
+    border: solid rgb(255, 71, 71) 0.250rem;
+    border-radius: 1.875rem;
+    padding: 1.5rem;
+    gap: 1rem;
+    align-items: center;
+    width: 20rem;
 }
 
 .form-group{
     display: flex;
-    align-items: center;
-    justify-content: space-between;
+    flex-direction: column;
+    gap: 1rem;
 }
 
 .form-control{
-    border-radius: 0.6rem;
-    width: 18vw;
-    height: 2vw;
-    padding: 0.4rem;
+    display: flex;
+    flex-direction: column;
+    border-radius: 0.313rem;
+    border: solid rgb(255, 103, 103) 0.100rem;
+    padding-left: 0.5rem;
+    width: 15rem;
+    height: 2.5rem;
 }
 
 button {
 border-radius: 0.3rem;
-    background-color: #04AA6D;
+    background-color: #ff3232;
   border: none;
   color: white;
-  padding: 0.938rem 1rem;
+  padding: 0.850rem 1rem;
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 16px;
+  font-size: medium;
 }
+button:hover {
+    background-color:  rgb(216, 0, 0);
+    cursor: pointer;
+    }
+
+    body.dark-mode {
+        background-color: #121212;
+        color: #ffffff;
+    }
+    
+    .form__input.dark-mode,
+    .form-control.dark-mode {
+        background-color: #1e1e1e;
+        border: solid #333333 0.1rem;
+        color: #ffffff;
+    }
+    
+    button.dark-mode {
+        background-color: #333333;
+        color: #ffffff;
+    }
+    
+    button.dark-mode:hover {
+        background-color: #444444;
+    }
+    

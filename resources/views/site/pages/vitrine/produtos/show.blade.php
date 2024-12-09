@@ -4,28 +4,29 @@
         <div class="blocoPrincipal">
             <div class="conteudoProduto">
                 <div class="imagemProduto">
-                    <div class="imagemProdutoReferencia"></div>
-                    <div class="imagemProdutoReferencia"></div>
-                    <div class="imagemProdutoReferencia"></div>
-                    <div class="imagemProdutoReferencia"></div>
+                    <img src="{{ asset('img/1.jpg') }}" width="100%" height="100%" alt="Placeholder">
+{{--                    <div class="imagemProdutoReferencia"></div>--}}
+{{--                    <div class="imagemProdutoReferencia"></div>--}}
+{{--                    <div class="imagemProdutoReferencia"></div>--}}
+{{--                    <div class="imagemProdutoReferencia"></div>--}}
                 </div>
 
                 <div class="informacoesProduto">
                     <div class="blocoSuperior">
                         <div class="rotas">Home > Categoria ></div>
-                        <div class="tituloProduto"> Titulo de produto</div>
-                        <div class="descricaoSuperior">SKU:I90FGI9958</div>
+                        <div class="tituloProduto"> {{ $produto->nome }}</div>
+                        <div class="descricaoSuperior">{{ $produto->sku }}</div>
                     </div>
 
                     <div class="blocoInferior">
-                        <div class="tituloProduto"> R$900,00</div>
+                        <div class="tituloProduto"> R${{ number_format(num:$produto->valor, decimals: 2, decimal_separator: ',',thousands_separator: '.' )}}</div>
                         <div class="descricaoSuperior">A vista no pix 10% OFF</div>
-                        <div class="descricaoInferior">R$1000,00</div>
-                        <div class="descricaoSuperior">Em até 10x de R$100,00 sem juros</div>
+                        <div class="descricaoInferior">R$ {{ number_format(num:$valorComDesconto, decimals: 2, decimal_separator: ',',thousands_separator: '.' )}}</div>
+                        <div class="descricaoSuperior">Em até 10x de {{ number_format(num:$valorParcelado, decimals: 2, decimal_separator: ',',thousands_separator: '.' )}} sem juros</div>
                     </div>
 
                     <div class="botoesInferiores">
-                        <form action="{{ route('site.adicionarAoCarrinho', $produto->id) }}" method="get">
+                        <form action="{{ route('adicionar-ao-carrinho', $produto->id) }}" method="get">
                             <label for="quantidade">Quantidade</label>
                             <input type="number" name="quantidade">
                             <button> Adicionar ao Carrinho </button>
@@ -37,7 +38,7 @@
 
             <div class="detalhesProduto">
                 <div class="titulo">Detalhes do Produto</div>
-                <div class="descricao"> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum </div>
+                <div class="descricao">{{ $produto->descricao }}</div>
             </div>
         </div>
     </div>

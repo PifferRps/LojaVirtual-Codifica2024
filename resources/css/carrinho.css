@@ -245,3 +245,7 @@
 .checkoutFim h1, p, a{
     margin: 0;
 }
+
+.checkoutContent_values__cartao-p{
+    display: flex;
+}

@@ -19,7 +19,11 @@ class ProdutosController extends Controller
     public static function show($id)
     {
         $produto = Produto::find($id);
-        return view('site.pages.vitrine.produtos.show', compact("produto"));
+
+        $valorComDesconto = $produto->valor-$produto->valor*(10/100);
+        $valorParcelado = $produto->valor/10;
+
+        return view('site.pages.vitrine.produtos.show', compact("produto", "valorComDesconto", "valorParcelado"));
     }
 
     public static function produtosPorCategoria($id_categoria)
@@ -30,27 +34,27 @@ class ProdutosController extends Controller
 
     public function adicionarAoCarrinho($id, Request $request)
     {
+
         $produto = Produto::find($id);
-        $sessao = session('produtos');
+        $sessao = session('produtos', []);
 
         if (array_key_exists($produto->id, $sessao)){
-            $soma = $request->query('quantidade') + $sessao[$produto->id]['produto_quantidade'];
+            $soma = $request->query('quantidade') + $sessao[$produto->id]['quantidade'];
             $sessao[$produto->id] = [
-                'produto_nome' => $produto->nome,
-                'produto_valor' => $produto->valor,
-                'produto_quantidade' => $soma
+                'quantidade' => $soma,
+                'produto' => $produto
             ];
         }
 
         if (!array_key_exists($produto->id, $sessao)) {
             $sessao[$produto->id] = [
-                'produto_nome' => $produto->nome,
-                'produto_valor' => $produto->valor,
-                'produto_quantidade' => $request->query('quantidade')
+                'quantidade' => $request->query('quantidade'),
+                'produto' => $produto
             ];
         }
 
         session(['produtos' => $sessao]);
+
 
         return to_route('site.produto.show', $id);
     }
@@ -60,5 +64,14 @@ class ProdutosController extends Controller
     {
 
         return view('site.pages.checkout.list');
+    }
+
+    public function calcularDescontoPix($id)
+    {
+
+
+        return to_route('site.produto.show', $id, compact('valorComDesconto'));
+
+
     }
 }

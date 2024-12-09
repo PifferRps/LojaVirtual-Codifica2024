@@ -1,92 +1,137 @@
-@import url('https://fonts.googleapis.com/css2?family=Host+Grotesk:ital,wght@0,300..800;1,300..800&display=swap');
-
-*{
-    background-color: rgb(51, 51, 51);
-    color: azure;
-    font-family: "Host Grotesk", sans-serif;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-.titulo{
-    padding: 2rem;
-    display: flex;
-    align-items: baseline;
-    justify-content: left;
-}
-
-#filtragem_divisao{
-    display: flex;
-    justify-content: center;
-    align-items: baseline;
-    gap: 1rem;
-    padding: 2rem;
-}
-
-
-#pedidos_listagem{
-    display: flex;
-    justify-content: center;
-    align-items: baseline;
-}
-
-#items{
- display: flex;
- align-items: center;
-
-}
-
-ul{
+body {
+    margin: 0;
     display: flex;
     flex-direction: column;
-    gap: 3rem;
+    align-items: center;
+    min-height: 100vh;
+}
+
+h1.titulo {
+    font-size: 3rem;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    text-align: left;
+    width: 90%;
+    max-width: 1024px;
+}
+
+#filtragem {
+    width: 30%;
+    max-width: 1024px;
+    margin-bottom: 2rem;
+}
+
+#filtragem_divisao {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem 0;
+}
+
+.input-box {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    width: 100%;
+}
+
+.input-box input {
+    flex-grow: 1;
+    padding: 0.8rem;
+    border-radius: 0.5rem;
+    border: 1px solid #666;
+    color: #f2f2f2;
+    outline: none;
+}
+
+.input-box input::placeholder {
+    color: #aaa;
 }
 
 .button {
-    border-radius: 0.3rem;
+    border-radius: 0.5rem;
     background-color: #808180;
     border: none;
     color: white;
-    padding: 0.300rem 0.300rem;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-  }
-
-.button:hover{
-    background-color: #1f1f1f;
-    cursor:pointer;
-}
-
-.pedido-card {
-    background-color: #252525;
-    padding: 1.3rem;
-    border-radius: 0.5rem;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    width: 30rem;
-
-}
-
-.pedido-card h3 {
-    color: rgb(252, 193, 16);
-    margin-bottom: 0.5rem;
-    font-size: 1.5rem;
-}
-
-.pedido-card p {
-    margin: 0.3rem 0;
+    padding: 0.5rem 1rem;
     font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
 }
 
-#pedidos_listagem ul {
+.button:hover {
+    background-color: #1f1f1f;
+}
+
+#pedidos_listagem {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    width: 90%;
+    max-width: 1024px;
+}
+
+#items {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    width: 100%;
     padding: 0;
     list-style: none;
 }
 
-#pedidos_listagem li {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.pedido-card {
+    background-color: #484848;
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.pedido-card:hover {
+    transform: scale(1.02);
+    box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.2);
+}
+
+.pedido-card h3 {
+    color: rgb(255, 14, 14);
+    margin-bottom: 0.8rem;
+    font-size: 1.5rem;
+}
+
+.pedido-card p {
+    margin: 0.5rem 0;
+    font-size: 1rem;
+    color: #ddd;
 }
 
 .consulta_pedidos {
-    display: flex;
+    margin-top: 1rem;
+    padding: 0.5rem 1.5rem;
+    background-color: rgba(252, 67, 16, 0.705);
+    border: none;
+    border-radius: 0.5rem;
+    color: #000000;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.consulta_pedidos:hover {
+    background-color: #ff07079c;
+}
+
+
+.dark-mode{
+    .input-box input{
+        background-color: #252525;
+    }
+    
 }

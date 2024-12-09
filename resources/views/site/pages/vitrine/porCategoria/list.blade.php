@@ -3,22 +3,16 @@
     <section class="container" style="max-width: 1024px">
         <h1>Categoria</h1>
 
-        <section id="produtos" style="
-            display: grid;
-            grid-template-columns: auto auto auto auto;
-            justify-content: space-around;
-            column-gap: 80px;
-            margin-top: 15px"
-        >
+        <section id="produtos">
 
             @foreach($produtos as $produto)
-            <section class="produto" style="margin-top: 15px; display: flex; flex-direction: column; justify-content: center">
+            <div class="produto-card">
                 <a href="{{ route('site.produto.show', $produto->id) }}">
-                    <img src="{{ asset('img/1.jpg') }}" width="200" height="200">
-                    <p>{{ $produto->nome }}</p>
-                    <p>{{ $produto->valor }}</p>
+                    <img src="{{ asset('img/1.jpg') }}" alt="Imagem do produto">
+                    <p class="produto-nome">{{ $produto->nome }}</p>
+                    <p class="produto-valor">R$ {{ number_format($produto->valor, 2, ',', '.') }}</p>
                 </a>
-            </section>
+            </div>
             @endforeach
         </section>
     </section>

@@ -1,163 +1,147 @@
-.container_blocos{
-    display:flex;
+.container_blocos {
+    display: flex;
     justify-content: center;
     align-items: center;
     margin: 0;
+    padding: 1rem;
 }
 
 .blocoPrincipal {
-
-    display:flex;
-    height: 90vh;
-    width: 87.5vw;    
-    flex-direction:column;
-    box-shadow:rgba(25, 25, 25, 0.04) 0 0 1px 0, rgba(0, 0, 0, 0.1) 0 3px 4px 0;
-    gap: 0.6rem;
-    padding: 1rem;
-    border:solid 1px black;
-
-
+    display: flex;
+    flex-direction: column;
+    width: 90vw;
+    max-width: 60rem;
+    height: auto;
+    padding: 1.5rem;
+    gap: 1rem;
+    border: 0.1rem solid black;
+    border-radius: 1rem;
+    box-shadow: rgba(0, 0, 0, 0.1) 0 0.1rem 0.5rem;
+    background-color: #f1f1f1;
 }
 
 .conteudoProduto {
-
-    height: 90vh;
-    width: 90vw;
-    
-    padding: 0.4rem  1.3rem;
     display: flex;
-    gap: 1.5rem;
-
-
-}
-
-.detalhesProduto {
-
-    height: 13rem;
-    width: 53rem;
-    padding: 25px;
-
-
+    flex-direction: row;
+    gap: 1.2rem;
+    width: 100%;
 }
 
 .imagemProduto {
-
-    height: 90%;
-    width: 27%;
-    border: solid 1px black;
-    border-radius: 20px;
-    padding: 10px 20px;
+    flex: 1;
+    max-width: 18rem;
+    padding: 0.5rem;
+    border: 0.1rem solid black;
+    border-radius: 0.5rem;
     display: flex;
-    flex-direction: column;
-    align-content: flex-start;
-    flex-wrap: wrap;
-    justify-content: flex-start;
+    justify-content: center;
+    align-items: center;
 }
-
 
 .informacoesProduto {
-
-    height: 20rem;
-    width: 25rem;
-    padding: 15px;
-
-}
-
-.titulo{
-
-    font-size: 30px;
-
-}
-
-.descricao {
-
-font-size:14px;
-padding: 0.8rem;
-color: rgb(66, 66, 66);
-
-}
-
-.imagemProdutoReferencia {
-
-    height: 2.5rem;
-    width: 1.8rem;
-    border:solid 1px black;
-    border-radius: 8px;
-    display: flex;
-    justify-content: start;
-
-
+    flex: 2;
+    padding: 1rem;
 }
 
 .tituloProduto {
-
-padding: 10px;
-font-size: 27px;
-
+    font-size: 1.8rem;
+    font-weight: bold;
+    margin-bottom: 0.4rem;
 }
 
-.descricaoSuperior {
-
-    font-size:14px;
-    padding: 0.5px 1rem;
-    color: rgb(87, 87, 87);
-    
-    }
-
+.descricaoSuperior, 
+.descricaoInferior {
+    font-size: 1rem;
+    color: #575757;
+    margin-bottom: 0.2rem;
+}
 
 .blocoInferior {
-
-padding: 30px 10px;
-
+    margin-top: 1rem;
 }
 
-.descricaoInferior {
+.botoesInferiores {
+    display: flex;
+    flex-direction: row;
+    gap: 1.5rem;
+    margin-top: 1rem;
+}
 
-    font-size:20px;
-    padding: 7px 0.8rem;
-    color: rgb(87, 87, 87);
-    
+.botoesInferiores label {
+    font-size: 1rem;
+    margin-right: 0.5rem;
+}
+
+.botoesInferiores input {
+    width: 4rem;
+    padding: 0.5rem;
+    font-size: 1rem;
+    border: 0.1rem solid #ddd;
+    border-radius: 0.5rem;
+}
+
+.botoesInferiores button {
+    margin: 0.5rem;
+    padding: 0.8rem 1.2rem;
+    font-size: 1rem;
+    color: white;
+    background-color: #000;
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.botoesInferiores button:hover {
+    background-color: #444;
+}
+
+.rotas{
+    color: #bb0000;
+}
+
+.detalhesProduto {
+    margin-top: 1.5rem;
+    padding: 1rem;
+    border-top: 0.1rem solid #ddd;
+}
+
+.detalhesProduto .titulo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+.detalhesProduto .descricao {
+    font-size: 1rem;
+    color: #424242;
+    line-height: 1.5;
+}
+
+
+.dark-mode{
+    .descricao{
+        color: rgb(162, 162, 162);
     }
 
-.botaoCompra {
+    .titulo{
+        color: #ffffff;
+    }
 
-    height: 2rem;
-    width: 18rem;
-    border: solid 1px black;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 20px;
-    border-radius: 7px;
+    .tituloProduto{
+        color: #ffffff;
+    }
 
-}
+    .blocoPrincipal{
+        background-color: #232323;
+    }
 
-.botaoCarrinho {
-
-    height: 2rem;
-    width: 3rem;
-    border: solid 1px black;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 7px;
-
-}
-
-.botoesInferiores{
-
-    height: 4rem;
-    width: 24rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 8px;
-
-}
-
-.fa-solid  {
-
-color: black;
-font-size: 21px;
-
+    .descricaoSuperior, 
+    .descricaoInferior{
+        color: rgb(162, 162, 162);
+    }
+    
+    .rotas{
+        color: #ff6565;
+    }
 }

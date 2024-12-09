@@ -25,7 +25,6 @@
                     <li>
                         <div class="pedido-card">
                             <h3>Pedido #{{ $pedido->id }}</h3>
-                            <p><strong>Produtos:</strong> {{ $pedido->produto }}</p>
                             <p><strong>Status:</strong> {{ ucfirst($pedido->status_id) }}</p>
                             <p><strong>Valor Total:</strong> R$ {{ number_format($pedido->valor_total, 2, ',', '.') }}</p>
                             <p><strong>Desconto:</strong> {{ ucfirst($pedido->desconto_total) }}</p>

@@ -20,7 +20,8 @@ export default defineConfig({
                 'resources/css/login.css',
                 'resources/css/dados-clientes.css',
                 'resources/css/meus-pedidos.css',
-                'resources/css/formulario-produtos.css'
+                'resources/css/formulario-produtos.css',
+                'resources/js/dark-mode.js'
             ],
             refresh: true,
         }),

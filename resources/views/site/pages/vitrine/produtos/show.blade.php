@@ -28,7 +28,7 @@
                     <div class="botoesInferiores">
                         <form action="{{ route('adicionar-ao-carrinho', $produto->id) }}" method="get">
                             <label for="quantidade">Quantidade</label>
-                            <input type="number" name="quantidade">
+                            <input type="number" name="quantidade" value="1" min="1">
                             <button> Adicionar ao Carrinho </button>
                         </form>
 

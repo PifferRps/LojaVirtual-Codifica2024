@@ -1,0 +1,3 @@
+<?php
+
+//arquivo editar endereços

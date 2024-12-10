@@ -46,10 +46,12 @@ Route::middleware(['auth'])->group(function () {
 
     Route::middleware([Admin::class])->group(function () {
         Route::prefix('admin')->group(function () {
+            Route::resource('dashboard', DashboardController::class)->except('show');
             Route::resource('produtos', AdminProdutosController::class)->except('show');
             Route::resource('pedidos', AdminPedidosController::class)->except('create', 'store');
             Route::resource('clientes', AdminClientesController::class)->except('show', 'create', 'store', 'destroy');
             Route::resource('categorias', AdminCategoriasController::class)->except('show');
+            Route::resource('relatorios', RelatoriosController::class)->except('show');
         });
     });
 });

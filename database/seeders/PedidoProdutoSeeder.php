@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
@@ -13,118 +14,26 @@ class PedidoProdutoSeeder extends Seeder
     public function run(): void
     {
         DB::table('pedidos_produtos')->insert([
-            [
-                'pedido_id' => 1,
-                'produto_id' => 5,
-                'produto_valor' => 500.00,
-                'quantidade' => 2,
-                'valor_total' => 1000.00,
-            ],
-            [
-                'pedido_id' => 1,
-                'produto_id' => 8,
-                'produto_valor' => 500.00,
-                'quantidade' => 1,
-                'valor_total' => 500.00,
-            ],
-            [
-                'pedido_id' => 2,
-                'produto_id' => 3,
-                'produto_valor' => 1500.00,
-                'quantidade' => 2,
-                'valor_total' => 3000.00,
-            ],
-            [
-                'pedido_id' => 3,
-                'produto_id' => 10,
-                'produto_valor' => 600.00,
-                'quantidade' => 2,
-                'valor_total' => 1200.00,
-            ],
-            [
-                'pedido_id' => 4,
-                'produto_id' => 12,
-                'produto_valor' => 1250.00,
-                'quantidade' => 2,
-                'valor_total' => 2500.00,
-            ],
-            [
-                'pedido_id' => 5,
-                'produto_id' => 7,
-                'produto_valor' => 875.00,
-                'quantidade' => 2,
-                'valor_total' => 1750.00,
-            ],
-            [
-                'pedido_id' => 6,
-                'produto_id' => 15,
-                'produto_valor' => 400.00,
-                'quantidade' => 2,
-                'valor_total' => 800.00,
-            ],
-            [
-                'pedido_id' => 7,
-                'produto_id' => 3,
-                'produto_valor' => 1600.00,
-                'quantidade' => 2,
-                'valor_total' => 3200.00,
-            ],
-            [
-                'pedido_id' => 8,
-                'produto_id' => 10,
-                'produto_valor' => 1500.00,
-                'quantidade' => 1,
-                'valor_total' => 1500.00,
-            ],
-            [
-                'pedido_id' => 9,
-                'produto_id' => 15,
-                'produto_valor' => 1200.00,
-                'quantidade' => 5,
-                'valor_total' => 6000.00,
-            ],
-            [
-                'pedido_id' => 10,
-                'produto_id' => 2,
-                'produto_valor' => 1100.00,
-                'quantidade' => 2,
-                'valor_total' => 2200.00,
-            ],
-            [
-                'pedido_id' => 11,
-                'produto_id' => 5,
-                'produto_valor' => 1750.00,
-                'quantidade' => 2,
-                'valor_total' => 3500.00,
-            ],
-            [
-                'pedido_id' => 12,
-                'produto_id' => 3,
-                'produto_valor' => 900.00,
-                'quantidade' => 3,
-                'valor_total' => 2700.00,
-            ],
-            [
-                'pedido_id' => 13,
-                'produto_id' => 7,
-                'produto_valor' => 1000.00,
-                'quantidade' => 1,
-                'valor_total' => 1000.00,
-            ],
-            [
-                'pedido_id' => 14,
-                'produto_id' => 9,
-                'produto_valor' => 1250.00,
-                'quantidade' => 1,
-                'valor_total' => 1250.00,
-            ],
-            [
-                'pedido_id' => 15,
-                'produto_id' => 4,
-                'produto_valor' => 1500.00,
-                'quantidade' => 3,
-                'valor_total' => 4500.00,
-            ]
+            ['pedido_id' => 1, 'produto_id' => 1, 'quantidade' => 2, 'produto_valor' => 1500.00, 'produto_valor_promocional' => 1350.00, 'valor_total_final' => 2700.00],
+            ['pedido_id' => 1, 'produto_id' => 2, 'quantidade' => 3, 'produto_valor' => 50.00, 'produto_valor_promocional' => 45.00, 'valor_total_final' => 135.00],
+            ['pedido_id' => 1, 'produto_id' => 3, 'quantidade' => 4, 'produto_valor' => 25.00, 'produto_valor_promocional' => null, 'valor_total_final' => 100.00],
+            ['pedido_id' => 2, 'produto_id' => 4, 'quantidade' => 1, 'produto_valor' => 80.00, 'produto_valor_promocional' => 72.00, 'valor_total_final' => 72.00],
+            ['pedido_id' => 2, 'produto_id' => 1, 'quantidade' => 1, 'produto_valor' => 1500.00, 'produto_valor_promocional' => 1350.00, 'valor_total_final' => 1350.00],
+            ['pedido_id' => 3, 'produto_id' => 6, 'quantidade' => 2, 'produto_valor' => 300.00, 'produto_valor_promocional' => 270.00, 'valor_total_final' => 540.00],
+            ['pedido_id' => 3, 'produto_id' => 5, 'quantidade' => 1, 'produto_valor' => 40.00, 'produto_valor_promocional' => 35.00, 'valor_total_final' => 35.00],
+            ['pedido_id' => 4, 'produto_id' => 3, 'quantidade' => 5, 'produto_valor' => 25.00, 'produto_valor_promocional' => null, 'valor_total_final' => 125.00],
+            ['pedido_id' => 4, 'produto_id' => 7, 'quantidade' => 1, 'produto_valor' => 10.00, 'produto_valor_promocional' => null, 'valor_total_final' => 10.00],
+            ['pedido_id' => 5, 'produto_id' => 2, 'quantidade' => 2, 'produto_valor' => 50.00, 'produto_valor_promocional' => 45.00, 'valor_total_final' => 90.00],
+            ['pedido_id' => 5, 'produto_id' => 1, 'quantidade' => 3, 'produto_valor' => 1500.00, 'produto_valor_promocional' => 1350.00, 'valor_total_final' => 4050.00],
+            ['pedido_id' => 1, 'produto_id' => 6, 'quantidade' => 2, 'produto_valor' => 300.00, 'produto_valor_promocional' => 270.00, 'valor_total_final' => 540.00],
+            ['pedido_id' => 2, 'produto_id' => 5, 'quantidade' => 4, 'produto_valor' => 40.00, 'produto_valor_promocional' => 35.00, 'valor_total_final' => 140.00],
+            ['pedido_id' => 3, 'produto_id' => 4, 'quantidade' => 2, 'produto_valor' => 80.00, 'produto_valor_promocional' => 72.00, 'valor_total_final' => 144.00],
+            ['pedido_id' => 4, 'produto_id' => 2, 'quantidade' => 5, 'produto_valor' => 50.00, 'produto_valor_promocional' => 45.00, 'valor_total_final' => 225.00],
+            ['pedido_id' => 5, 'produto_id' => 3, 'quantidade' => 6, 'produto_valor' => 25.00, 'produto_valor_promocional' => null, 'valor_total_final' => 150.00],
+            ['pedido_id' => 5, 'produto_id' => 6, 'quantidade' => 3, 'produto_valor' => 300.00, 'produto_valor_promocional' => 270.00, 'valor_total_final' => 810.00],
+            ['pedido_id' => 3, 'produto_id' => 7, 'quantidade' => 2, 'produto_valor' => 10.00, 'produto_valor_promocional' => null, 'valor_total_final' => 20.00],
+            ['pedido_id' => 2, 'produto_id' => 1, 'quantidade' => 1, 'produto_valor' => 1500.00, 'produto_valor_promocional' => 1350.00, 'valor_total_final' => 1350.00],
+            ['pedido_id' => 4, 'produto_id' => 5, 'quantidade' => 3, 'produto_valor' => 40.00, 'produto_valor_promocional' => 35.00, 'valor_total_final' => 105.00],
         ]);
 
     }

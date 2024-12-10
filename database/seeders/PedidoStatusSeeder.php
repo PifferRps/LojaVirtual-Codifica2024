@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use App\Models\PedidoStatus;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class PedidoStatusSeeder extends Seeder
 {

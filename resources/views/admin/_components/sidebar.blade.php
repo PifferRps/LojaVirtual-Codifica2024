@@ -9,7 +9,6 @@
         <a href="{{ route('pedidos.index') }}">Pedidos</a>
         <a href="{{ route('clientes.index') }}">Clientes</a>
         <a href="{{ route('categorias.index') }}">Categorias</a>
-        <a href="{{ route('fornecedores.index') }}">Fornecedores</a>
         <a href="{{ route('admin.relatorios.index') }}">Relátorios</a>
     </div>
 

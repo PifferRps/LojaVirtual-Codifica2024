@@ -12,37 +12,36 @@ class ClientesController extends Controller
     public function index() // tela minha conta
     {
         $cliente = Auth::user();
-        return view('site.pages.dados-clientes', compact('cliente'));
+        return view('site.pages.perfil.list', compact('cliente'));
     }
 
     public function edit() // tela de edição de dados
     {
         $cliente = Auth::user();
-        return view('site.pages.edit-dados-clientes', compact('cliente'));
+        return view('site.pages.perfil.form', compact('cliente'));
     }
 
     public function update(Request $request) //atualiza dados cliente
     {
         $cliente = Auth::user();
-
     /**    $request->validate([
             'name' => 'required|string|max:255',
             'email' => 'required|email|unique:usuarios,email' . $cliente->id
         ]);
     */
 
-        $cliente->update([
-            'name' => $request->name,
-            'email' => $request->email,
-        ]);
+//        $cliente->update([
+//            'name' => $request->name,
+//            'email' => $request->email,
+//        ]);
 
-        return redirect()->route('clientes.index'); //retorna a tela minha conta
+        return redirect()->route('site.meu-perfil.index'); //retorna a tela minha conta
     }
 
 
     public function editarSenha() // tela edição d e senha
     {
-        return view('site.pages.edit-senha');
+        return view('site.pages.perfil.editar-senha');
     }
 
     public function atualizarSenha(Request $request)
@@ -63,6 +62,16 @@ class ClientesController extends Controller
         ]);
 
         return redirect()->route('clientes.index');
+    }
+
+    public function meusPedidos()
+    {
+        return view('site.pages.perfil.meus-pedidos');
+    }
+
+    public function meusEnderecos()
+    {
+        return view('site.pages.perfil.meus-enderecos');
     }
 
 }

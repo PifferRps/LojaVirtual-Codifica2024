@@ -27,7 +27,7 @@
                 </div>
 
                 <div class="user-info__actions">
-                <a href="#">
+                <a href="{{ route('site.meu-perfil.index') }}">
                     <i class="fas fa-user-circle"></i> Meu Perfil</a>
                 <a href="{{route('pedidos.index')}}">
                         <i class="fas fa-shopping-bag"></i> Minhas Compras</a>
@@ -38,7 +38,7 @@
         @else
             <div class="header_container_login">
                 <div>
-                    <a href="{{ route('login') }}">Entre</a> 
+                    <a href="{{ route('login') }}">Entre</a>
                 </div>
                 <p>ou</p>
                 <a href="{{ route('cadastro.index') }}">Crie uma conta</a>

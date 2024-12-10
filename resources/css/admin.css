@@ -61,4 +61,5 @@ body{
 .main{
     display: flex;
     padding: 1rem;
+    width: 100%;
 }

@@ -3,9 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\Produto;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\DB;
 
 class ProdutoSeeder extends Seeder
 {
@@ -17,67 +15,124 @@ class ProdutoSeeder extends Seeder
         $data = [
             [
                 'categoria_id' => 1,
-                'sku' => 'ELEC12345',
-                'nome' => 'Smartphone XYZ',
-                'valor' => 1500.00,
-                'valor_promocional' => 1350.00,
-                'quantidade' => 100,
-                'descricao' => 'Smartphone com tela AMOLED e 128GB de armazenamento.'
-            ],
-            [
-                'categoria_id' => 2,
-                'sku' => 'VEST67890',
-                'nome' => 'Camiseta Básica',
-                'valor' => 50.00,
-                'valor_promocional' => 45.00,
-                'quantidade' => 200,
-                'descricao' => 'Camiseta de algodão com várias cores disponíveis.'
-            ],
-            [
-                'categoria_id' => 3,
-                'sku' => 'ALIM54321',
-                'nome' => 'Pacote de Arroz 5kg',
-                'valor' => 25.00,
-                'valor_promocional' => null,
-                'quantidade' => 300,
-                'descricao' => 'Arroz tipo 1, ideal para o dia a dia.'
-            ],
-            [
-                'categoria_id' => 4,
-                'sku' => 'LIVR11223',
-                'nome' => 'Livro - Aprendendo PHP',
-                'valor' => 80.00,
-                'valor_promocional' => 72.00,
+                'sku' => 'HARDW001',
+                'nome' => 'Placa Mãe ABC-X1',
+                'valor' => 899.90,
                 'quantidade' => 50,
-                'descricao' => 'Livro para iniciantes em programação PHP.'
-            ],
-            [
-                'categoria_id' => 5,
-                'sku' => 'FERR33445',
-                'nome' => 'Martelo de Aço',
-                'valor' => 40.00,
-                'valor_promocional' => 35.00,
-                'quantidade' => 150,
-                'descricao' => 'Martelo resistente para uso geral.'
+                'descricao' => 'Placa mãe com suporte para processadores de última geração.'
             ],
             [
                 'categoria_id' => 1,
-                'sku' => 'ELEC99887',
-                'nome' => 'Fone de Ouvido Bluetooth',
-                'valor' => 300.00,
-                'valor_promocional' => 270.00,
+                'sku' => 'HARDW002',
+                'nome' => 'Processador X-Core 5',
+                'valor' => 1200.00,
+                'quantidade' => 30,
+                'descricao' => 'Processador de alto desempenho com 6 núcleos e 12 threads.'
+            ],
+            [
+                'categoria_id' => 1,
+                'sku' => 'HARDW003',
+                'nome' => 'Memória RAM 16GB DDR4',
+                'valor' => 450.00,
+                'quantidade' => 70,
+                'descricao' => 'Memória RAM de alta velocidade ideal para multitarefas.'
+            ],
+            [
+                'categoria_id' => 2,
+                'sku' => 'MOUS001',
+                'nome' => 'Mouse Codifica X154',
+                'valor' => 150.00,
+                'quantidade' => 100,
+                'descricao' => 'Mouse com 3000 DPI perfeito para trabalho e jogos.'
+            ],
+            [
+                'categoria_id' => 2,
+                'sku' => 'MOUS002',
+                'nome' => 'Mouse RGB Extreme',
+                'valor' => 200.00,
+                'quantidade' => 80,
+                'descricao' => 'Mouse gamer com iluminação RGB personalizável.'
+            ],
+            [
+                'categoria_id' => 2,
+                'sku' => 'MOUS003',
+                'nome' => 'Mouse sem Fio Compact',
+                'valor' => 99.90,
                 'quantidade' => 120,
-                'descricao' => 'Fone de ouvido sem fio com cancelamento de ruído.'
+                'descricao' => 'Mouse sem fio com design ergonômico.'
             ],
             [
                 'categoria_id' => 3,
-                'sku' => 'ALIM77665',
-                'nome' => 'Pacote de Feijão 1kg',
-                'valor' => 10.00,
-                'valor_promocional' => null,
-                'quantidade' => 500,
-                'descricao' => 'Feijão carioca de alta qualidade.'
+                'sku' => 'TECL001',
+                'nome' => 'Teclado Mecânico Pro Gamer',
+                'valor' => 320.00,
+                'quantidade' => 40,
+                'descricao' => 'Teclado mecânico com switches azuis e iluminação RGB.'
             ],
+            [
+                'categoria_id' => 3,
+                'sku' => 'TECL002',
+                'nome' => 'Teclado Slim Office',
+                'valor' => 120.00,
+                'quantidade' => 90,
+                'descricao' => 'Teclado compacto e silencioso para uso em escritório.'
+            ],
+            [
+                'categoria_id' => 3,
+                'sku' => 'TECL003',
+                'nome' => 'Teclado Gamer com Macro',
+                'valor' => 280.00,
+                'quantidade' => 60,
+                'descricao' => 'Teclado com teclas macro programáveis e iluminação RGB.'
+            ],
+            [
+                'categoria_id' => 4,
+                'sku' => 'MONI001',
+                'nome' => 'Monitor Full HD 24"',
+                'valor' => 800.00,
+                'quantidade' => 50,
+                'descricao' => 'Monitor com resolução Full HD e taxa de atualização de 75Hz.'
+            ],
+            [
+                'categoria_id' => 4,
+                'sku' => 'MONI002',
+                'nome' => 'Monitor Ultrawide 34"',
+                'valor' => 2500.00,
+                'quantidade' => 20,
+                'descricao' => 'Monitor ultrawide para maior produtividade e imersão.'
+            ],
+            [
+                'categoria_id' => 4,
+                'sku' => 'MONI003',
+                'nome' => 'Monitor 4K 27"',
+                'valor' => 3200.00,
+                'quantidade' => 15,
+                'descricao' => 'Monitor com resolução 4K e suporte a HDR.'
+            ],
+            [
+                'categoria_id' => 5,
+                'sku' => 'HEAD001',
+                'nome' => 'Headset Gamer Surround',
+                'valor' => 380.00,
+                'quantidade' => 70,
+                'descricao' => 'Headset com som surround 7.1 e microfone removível.'
+            ],
+            [
+                'categoria_id' => 5,
+                'sku' => 'HEAD002',
+                'nome' => 'Headset Bluetooth',
+                'valor' => 450.00,
+                'quantidade' => 50,
+                'descricao' => 'Headset sem fio com conexão Bluetooth e bateria de longa duração.'
+            ],
+            [
+                'categoria_id' => 5,
+                'sku' => 'HEAD003',
+                'nome' => 'Fone de Ouvido Over-ear',
+                'valor' => 300.00,
+                'quantidade' => 80,
+                'descricao' => 'Fone de ouvido confortável para uso prolongado.'
+            ]
         ];
 
         foreach($data as $record){

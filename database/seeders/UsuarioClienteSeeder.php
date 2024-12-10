@@ -17,14 +17,9 @@ class UsuarioClienteSeeder extends Seeder
         DB::table('usuarios_clientes')->insert([
             [
                 'usuario_id' => 2,
-                'nome' => 'Cliente CPF',
-                'documento' => '11111111111',
-                'data_nascimento' => Carbon::parse('31-01-2000')->format('Y-m-d')
-            ],
-            [
-                'usuario_id' => 3,
-                'nome' => 'Cliente CNPJ',
-                'documento' => '22222222222',
+                'nome' => 'Cliente Teste',
+                'cpf' => '11111111111',
+                'telefone' => '27996688777',
                 'data_nascimento' => Carbon::parse('31-01-2000')->format('Y-m-d')
             ]
         ]);

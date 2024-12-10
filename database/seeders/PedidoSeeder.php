@@ -44,8 +44,8 @@ class PedidoSeeder extends Seeder
             ],
             [
                 'data_transacao' => Carbon::parse('01-12-2024')->format('Y-m-d'),
-                'cliente_id' => 2,
-                'endereco_id' => 2,
+                'cliente_id' => 1,
+                'endereco_id' => 1,
                 'status_id' => 1,
                 'valor_total' => 1800.00,
                 'desconto_total' => 200.00,
@@ -53,8 +53,8 @@ class PedidoSeeder extends Seeder
             ],
             [
                 'data_transacao' => Carbon::parse('03-12-2024')->format('Y-m-d'),
-                'cliente_id' => 2,
-                'endereco_id' => 2,
+                'cliente_id' => 1,
+                'endereco_id' => 1,
                 'status_id' => 9,
                 'valor_total' => 1300.00,
                 'desconto_total' => 100.00,

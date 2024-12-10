@@ -23,15 +23,6 @@ class ClienteEnderecoSeeder extends Seeder
                 'bairro' => 'Planalto Ayrton Senna',
                 'cidade' => 'Fortaleza',
                 'estado' => 'CE'
-            ],
-            [
-                'cliente_id' => 2,
-                'cep' => '74415460',
-                'rua' => 'Praça Ofélia Nascimento',
-                'numero' => '333',
-                'bairro' => 'Cidade Jardim',
-                'cidade' => 'Goiânia',
-                'estado' => 'GO'
             ]
         ]);
     }

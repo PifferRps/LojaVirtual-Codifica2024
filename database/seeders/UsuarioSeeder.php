@@ -21,14 +21,9 @@ class UsuarioSeeder extends Seeder
                 'user_level' => 999
             ],
             [
-                'email' => 'usercpf@usercpf.com',
-                'password' => Hash::make('usercpf'),
+                'email' => 'cliente@cliente.com',
+                'password' => Hash::make('cliente'),
                 'user_level' => 1
-            ],
-            [
-                'email' => 'usercnpj@usercnpj.com',
-                'password' => Hash::make('usercnpj'),
-                'user_level' => 2
             ]
         ];
 

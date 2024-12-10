@@ -17,7 +17,6 @@ class ProdutoSeeder extends Seeder
         $data = [
             [
                 'categoria_id' => 1,
-                'fornecedor_id' => 1,
                 'sku' => 'ELEC12345',
                 'nome' => 'Smartphone XYZ',
                 'valor' => 1500.00,
@@ -27,7 +26,6 @@ class ProdutoSeeder extends Seeder
             ],
             [
                 'categoria_id' => 2,
-                'fornecedor_id' => 2,
                 'sku' => 'VEST67890',
                 'nome' => 'Camiseta Básica',
                 'valor' => 50.00,
@@ -37,7 +35,6 @@ class ProdutoSeeder extends Seeder
             ],
             [
                 'categoria_id' => 3,
-                'fornecedor_id' => 3,
                 'sku' => 'ALIM54321',
                 'nome' => 'Pacote de Arroz 5kg',
                 'valor' => 25.00,
@@ -47,7 +44,6 @@ class ProdutoSeeder extends Seeder
             ],
             [
                 'categoria_id' => 4,
-                'fornecedor_id' => 4,
                 'sku' => 'LIVR11223',
                 'nome' => 'Livro - Aprendendo PHP',
                 'valor' => 80.00,
@@ -57,7 +53,6 @@ class ProdutoSeeder extends Seeder
             ],
             [
                 'categoria_id' => 5,
-                'fornecedor_id' => 5,
                 'sku' => 'FERR33445',
                 'nome' => 'Martelo de Aço',
                 'valor' => 40.00,
@@ -67,7 +62,6 @@ class ProdutoSeeder extends Seeder
             ],
             [
                 'categoria_id' => 1,
-                'fornecedor_id' => 1,
                 'sku' => 'ELEC99887',
                 'nome' => 'Fone de Ouvido Bluetooth',
                 'valor' => 300.00,
@@ -77,7 +71,6 @@ class ProdutoSeeder extends Seeder
             ],
             [
                 'categoria_id' => 3,
-                'fornecedor_id' => 3,
                 'sku' => 'ALIM77665',
                 'nome' => 'Pacote de Feijão 1kg',
                 'valor' => 10.00,

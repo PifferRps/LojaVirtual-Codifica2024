@@ -29,7 +29,6 @@ Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 Route::resource('/cadastro', CadastroController::class)->only('index', 'store');
 
 Route::middleware(['auth'])->group(function () {
-
     Route::get('/enderecos', [CheckoutController::class, 'etapaEnderecos'])->name('site.checkout.enderecos');
     Route::get('/pagamento', [CheckoutController::class, 'etapaPagamento'])->name('site.checkout.pagamento');
     Route::get('/confirmacao', [CheckoutController::class, 'etapaConfirmacao'])->name('site.checkout.confirmacao');

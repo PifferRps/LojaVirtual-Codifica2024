@@ -1,4 +1,4 @@
-@extends("site._layouts.site")
+@extends("site._layouts.carrinho")
 @section('conteudo')
     <div class="navbarCheckout">
         <a href="{{ route('site.checkout.carrinho') }}">

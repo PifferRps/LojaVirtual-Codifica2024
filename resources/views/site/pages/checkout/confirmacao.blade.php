@@ -1,4 +1,4 @@
-@extends("site._layouts.site")
+@extends("site._layouts.carrinho")
 @section('conteudo')
     <div class="navbarCheckout">
         <p>
@@ -16,7 +16,7 @@
             Confirmação >
         </p>
         <p>
-            Concluir
+            Concluído
         </p>
     </div>
     <div class="checkoutTitle">

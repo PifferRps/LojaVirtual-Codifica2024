@@ -12,7 +12,7 @@ use App\Http\Controllers\Admin\PedidosController as AdminPedidosController;
 use App\Http\Controllers\Admin\ClientesController as AdminClientesController;
 use App\Http\Controllers\Admin\FornecedoresController as AdminFornecedoresController;
 use App\Http\Controllers\Admin\ProdutosController as AdminProdutosController;
-use App\Http\Controllers\Cliente\PedidosController;
+use App\Http\Controllers\Cliente\PedidosController as ClientePedidosController;
 
 Route::get('/', [ProdutosController::class, 'index'])->name('site.pages.vitrine.produtos.list');
 
@@ -40,8 +40,6 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/confirmacao', [CheckoutController::class, 'etapaConfirmacao'])->name('site.checkout.confirmacao');
     Route::get('/concluido', [CheckoutController::class, 'etapaConcluido'])->name('site.checkout.concluido');
 
-    Route::get('/meu-perfil', [CheckoutController::class, ''])->name('site.checkout.concluido');
-
     Route::prefix('admin')->group(function () {
         Route::get('/', [DashboardController::class, 'index'])->name('admin.dashboard.index');
         Route::get('/relatorios', [RelatoriosController::class, 'index'])->name('admin.relatorios.index');
@@ -52,5 +50,5 @@ Route::middleware(['auth'])->group(function () {
         Route::resource('clientes', AdminClientesController::class)->except('show', 'create', 'store');
         Route::resource('categorias', AdminCategoriasController::class)->except('show');
     });
-    Route::get('/meus-pedidos', [PedidosController::class, 'index'])->name('pedidos.index');    
+    Route::get('/meus-pedidos', [ClientePedidosController::class, 'index'])->name('meusPedidos.index');
 });

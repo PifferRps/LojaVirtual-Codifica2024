@@ -1,4 +1,4 @@
-@extends("site._layouts.site")
+@extends("site._layouts.site", ['categorias' => $categorias])
 @section("conteudo")
     <section class="container">
         <div class="container_produtos">

@@ -23,6 +23,3 @@
         </div>
     </div>
 @endsection
-@Push('style')
-@Vite("resources/css/categorias.css")
-@endpush

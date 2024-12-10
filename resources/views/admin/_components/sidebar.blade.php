@@ -14,6 +14,6 @@
     </div>
 
     <div class="sidebar_baixo">
-        <a href="/">Ver loja</a>
+        <a href="/" target="_blank">Ver loja</a>
     </div>
 </div>

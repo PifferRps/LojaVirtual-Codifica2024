@@ -37,5 +37,4 @@
         @endauth
     </div>
 
-    @include("site._components.navbar")
 </header>

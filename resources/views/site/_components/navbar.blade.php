@@ -1,15 +1,22 @@
 <nav class="nav">
-
     <select>
         <option value="" selected>Escolha uma categoria</option>
-        @foreach($categorias as $categoria)
-            <option value="{{ $categoria->id }}">{{ $categoria->nome }}</option>
-        @endforeach
+        <option value="1">Eletrônicos</option>
+        <option value="1">Vestuario</option>
+        <option value="1">Cosmetico</option>
+        <option value="1">Eletrodoméstico</option>
     </select>
-    @for($i = 0; $i < 4; $i++)
-        <div>
-            <a href="{{ route('site.porCategoria', $categorias[$i]->id) }}"><p>{{ $categorias[$i]->nome }}</p></a>
-        </div>
-    @endfor
-</nav>
+    <div>
+        <a href="{{ route('site.porCategoria', 1) }}"><p>Eletrônicos</p></a>
+    </div>
+    <div>
+        <a href="{{ route('site.porCategoria', 2) }}"><p>Cosméticos</p></a>
+    </div>
+    <div>
+        <a href="{{ route('site.porCategoria', 3) }}"><p>Vestuário</p></a>
+    </div>
+    <div>
+        <a href="{{ route('site.porCategoria', 4) }}"><p>Eletrodoméstico</p></a>
+    </div>
 
+</nav>

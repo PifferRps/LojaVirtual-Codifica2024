@@ -3,35 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="{{ asset('favicon-16x16.png') }}">
     <title>Cadastro de Usuário</title>
     @vite('resources/css/cadastro.css')
 </head>
 <body>
 
 <div class="container">
-    <h2>Cadastro de Usuário</h2>
+
+<img class="main__logo" src="{{ asset('img/codificamaislogo2.png')}}" alt="logo">
     <form action="{{ route('cadastro.store') }}" method="POST">
         @csrf
 
         <div class="form-group">
-            <label for="name">Nome Completo</label>
-            <input type="text" name="name" id="name" class="form-control" required>
+
+            <span>Cadastro de Usuário</span>
+            
+            <input type="text" name="name" id="name" class="form-control" placeholder="Nome Completo" required>
+            <input type="email" name="email" id="email" class="form-control" placeholder="Email" required>
+            <input type="password" name="password" id="password" class="form-control" placeholder="Senha" required>
+            <input type="password" name="password_confirmation" id="password_confirmation" class="form-control" placeholder="Confirmar senha" required>
+
+            <select name="account_type" id="account_type" class="form-control" required>
+                <option value="">Selecione o tipo de conta</option>
+                <option value="fisica">Pessoa Física</option>
+                <option value="juridica">Pessoa Jurídica</option>
+            </select>
+
         </div>
 
-        <div class="form-group">
-            <label for="email">E-mail</label>
-            <input type="email" name="email" id="email" class="form-control" required>
-        </div>
-
-        <div class="form-group">
-            <label for="password">Senha</label>
-            <input type="password" name="password" id="password" class="form-control" required>
-        </div>
-
-        <div class="form-group">
-        <label for="password_confirmation">Confirmar Senha</label>
-        <input type="password" name="password_confirmation" id="password_confirmation" class="form-control" required>
-        </div>
         <span id="password-error" style="color: red; display: none;">As senhas não coincidem.</span>
 
         <script>
@@ -48,15 +48,6 @@
         }
     });
         </script>
-
-        <div class="form-group">
-            <label>Tipo de Conta</label>
-            <select name="account_type" id="account_type" class="form-control" required>
-                <option value="">Selecione</option>
-                <option value="fisica">Pessoa Física</option>
-                <option value="juridica">Pessoa Jurídica</option>
-            </select>
-        </div>
 
         <div class="form-group" id="cpf-field" style="display: none;">
             <label for="cpf">CPF</label>
@@ -105,6 +96,7 @@
 </script>
 
 </div>
+@vite('resources/js/dark-mode.js')
 
 </body>
 </html>

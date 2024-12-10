@@ -46,7 +46,7 @@ Route::middleware(['auth'])->group(function () {
 
     Route::middleware([Admin::class])->group(function () {
         Route::prefix('admin')->group(function () {
-            Route::resource('dashboard', DashboardController::class)->except('show');
+            Route::resource('/', DashboardController::class)->except('show')->names('dashboard');
             Route::resource('produtos', AdminProdutosController::class)->except('show');
             Route::resource('pedidos', AdminPedidosController::class)->except('create', 'store');
             Route::resource('clientes', AdminClientesController::class)->except('show', 'create', 'store', 'destroy');

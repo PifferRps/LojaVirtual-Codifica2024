@@ -11,7 +11,7 @@ use App\Http\Controllers\Admin\RelatoriosController;
 use App\Http\Controllers\Admin\CategoriasController as AdminCategoriasController;
 use App\Http\Controllers\Admin\PedidosController as AdminPedidosController;
 use App\Http\Controllers\Admin\ClientesController as AdminClientesController;
-use App\Http\Controllers\Admin\FornecedoresController as AdminFornecedoresController;
+use App\Http\Controllers\Cliente\ClientesController as ClienteClientesController;
 use App\Http\Controllers\Admin\ProdutosController as AdminProdutosController;
 use App\Http\Controllers\Cliente\PedidosController as ClientePedidosController;
 
@@ -35,24 +35,23 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/confirmacao', [CheckoutController::class, 'etapaConfirmacao'])->name('site.checkout.confirmacao');
     Route::get('/concluido', [CheckoutController::class, 'etapaConcluido'])->name('site.checkout.concluido');
 
-    Route::prefix('admin')->group(function () {
-        Route::get('/', [DashboardController::class, 'index'])->name('admin.dashboard.index');
-        Route::get('/relatorios', [RelatoriosController::class, 'index'])->name('admin.relatorios.index');
-      
-    Route::get('/meu-perfil', [CheckoutController::class, ''])->name('site.checkout.concluido');
-    Route::get('/meus-pedidos', [PedidosController::class, 'index'])->name('pedidos.index');    
+    Route::prefix('meu-perfil')->group(function () {
+        Route::get('/', [ClienteClientesController::class, 'index'])->name('site.meu-perfil.index');
+        Route::get('/editar-dados', [ClienteClientesController::class, 'edit'])->name('site.meu-perfil.edit');
+        Route::get('/editar-dados/salvar', [ClienteClientesController::class, 'update'])->name('site.meu-perfil.update');
+        Route::get('/meus-pedidos', [ClienteClientesController::class, 'meusPedidos'])->name('site.meu-perfil.pedidos');
+        Route::get('/meus-enderecos', [ClienteClientesController::class, 'meusEnderecos'])->name('site.meu-perfil.enderecos');
+        Route::get('/editar-senha', [ClienteClientesController::class, 'editarSenha'])->name('site.meu-perfil.editar-senha');
+    });
 
     Route::middleware([Admin::class])->group(function () {
         Route::prefix('admin')->group(function () {
-            Route::get('/', [DashboardController::class, 'index'])->name('admin.dashboard.index');
-            Route::get('/relatorios', [RelatoriosController::class, 'index'])->name('admin.relatorios.index');
-
+            Route::resource('/', DashboardController::class)->except('show')->names('dashboard');
             Route::resource('produtos', AdminProdutosController::class)->except('show');
             Route::resource('pedidos', AdminPedidosController::class)->except('create', 'store');
-            Route::resource('fornecedores', AdminFornecedoresController::class)->except('show');
-            Route::resource('clientes', AdminClientesController::class)->except('show', 'create', 'store');
+            Route::resource('clientes', AdminClientesController::class)->except('show', 'create', 'store', 'destroy');
             Route::resource('categorias', AdminCategoriasController::class)->except('show');
+            Route::resource('relatorios', RelatoriosController::class)->except('show');
         });
     });
-    Route::get('/meus-pedidos', [ClientePedidosController::class, 'index'])->name('meusPedidos.index');
 });

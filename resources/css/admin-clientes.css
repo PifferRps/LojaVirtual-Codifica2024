@@ -1,0 +1,30 @@
+.conteudo{
+    border: 2px solid green;
+    width: 100%;
+}
+
+.conteudo_main__infos{
+    display: flex;
+}
+
+.conteudo_main__infos-section1{
+    width: 40%;
+    margin: 0;
+}
+
+.conteudo_main__infos-section3{
+    width: 40%;
+    margin: 0;
+}
+
+.conteudo_main__category{
+    display: flex;
+    border: 1px solid black;
+    height: 3rem;
+    flex-direction: row;
+    align-items: center;
+}
+
+.conteudo_main__infos-edit{
+    margin-right: 2rem;
+}

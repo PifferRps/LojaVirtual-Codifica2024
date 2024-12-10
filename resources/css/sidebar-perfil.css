@@ -1,0 +1,22 @@
+.containerGeral{
+    display: flex;
+    flex-direction: row;
+}
+
+.containerLateral{
+    border: 3px solid red;
+    width: 20%;
+    height: 70vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.containerGeral_principal{
+    border: 2px solid green;
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

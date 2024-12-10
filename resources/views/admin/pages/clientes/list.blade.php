@@ -11,15 +11,17 @@
         <div class="conteudo_main">
             <div class="conteudo_main__infos">
                 <section class="conteudo_main__infos-section1">Cliente</section>
-                <section class="conteudo_main__infos-section3">Status</section>
             </div>
             <hr>
-            <div class="conteudo_main__category">
-                <section class="conteudo_main__infos-section1">João da Silva</section>
-                <section class="conteudo_main__infos-section3">Ativo</section>
-                <section class="conteudo_main__infos-edit">E</section>
-                <section class="conteudo_main__infos-delete">X</section>
-            </div>
+            @foreach($clientes as $cliente)
+                <div class="conteudo_main__category">
+                    <section class="conteudo_main__infos-section1">{{ $cliente->nome }}</section>
+                    <a href="{{ route('clientes.edit', $cliente->id) }}"><button>Editar</button></a>
+                </div>
+            @endforeach
         </div>
     </div>
 @endsection
+@push('style')
+    @vite('resources/css/admin-clientes.css')
+@endpush

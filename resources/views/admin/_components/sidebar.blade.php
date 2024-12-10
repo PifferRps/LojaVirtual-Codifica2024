@@ -4,13 +4,12 @@
     </div>
 
     <div class="sidebar_opcoes">
-        <a href="{{ route('admin.dashboard.index') }}">Dashboard</a>
+        <a href="{{ route('dashboard.index') }}">Dashboard</a>
         <a href="{{ route('produtos.index') }}">Produtos</a>
         <a href="{{ route('pedidos.index') }}">Pedidos</a>
         <a href="{{ route('clientes.index') }}">Clientes</a>
         <a href="{{ route('categorias.index') }}">Categorias</a>
-        <a href="{{ route('fornecedores.index') }}">Fornecedores</a>
-        <a href="{{ route('admin.relatorios.index') }}">Relátorios</a>
+        <a href="{{ route('relatorios.index') }}">Relátorios</a>
     </div>
 
     <div class="sidebar_baixo">

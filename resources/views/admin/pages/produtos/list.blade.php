@@ -1,11 +1,11 @@
 @extends("admin._layouts.admin")
 
 @section("conteudo")
-    <div>
-        <h1>{{ count($produtos) == 0 ? "Estoque vazio." : "Produtos em estoque: "}}</h1><br><br>
-        <a href="{{ route('produtos.create') }}"><button>Adicionar Produto</button></a><br><br>
-        <hr>
-        <br><br>
+    <section>
+        <h1 class="title">{{ count($produtos) == 0 ? "Estoque vazio." : "Produtos em estoque: "}}</h1>
+        <a href="{{ route('produtos.create') }}"><button>Adicionar Produto</button></a>
+
+
         <table>
             <thead>
                 <tr>
@@ -36,5 +36,8 @@
             </tbody>
         </table>
 
-    </div>
+    </section>
 @endsection
+@push('style')
+    @vite('resources/css/admin.css')
+@endpush

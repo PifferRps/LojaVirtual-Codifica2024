@@ -26,12 +26,17 @@ class ClientesController extends Controller
 
     public function update(Request $request, UsuarioCliente $cliente)
     {
-        $dadosUsuario = [
-            'email' => $request->post('email')
-        ];
+
+        $usuario = Usuario::all();
+
+        $dadosUsuario = [];
 
         if (!empty($request->post('senha'))) {
             $dadosUsuario['password']  = Hash::make($request->post('senha'));
+        }
+
+        if ($request->post('email') != $usuario[$cliente->id]->email) {
+            $dadosUsuario['email'] = $request->post('email');
         }
 
         $cliente->usuario()->update($dadosUsuario);
@@ -44,8 +49,4 @@ class ClientesController extends Controller
         return redirect()->route('clientes.index');
     }
 
-    public function destroy(string $id)
-    {
-        //
-    }
 }

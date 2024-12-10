@@ -13,6 +13,7 @@ use App\Http\Controllers\Admin\PedidosController as AdminPedidosController;
 use App\Http\Controllers\Admin\ClientesController as AdminClientesController;
 use App\Http\Controllers\Admin\FornecedoresController as AdminFornecedoresController;
 use App\Http\Controllers\Admin\ProdutosController as AdminProdutosController;
+use App\Http\Controllers\Cliente\PedidosController as ClientePedidosController;
 
 Route::get('/', [ProdutosController::class, 'index'])->name('site.pages.vitrine.produtos.list');
 Route::get('/produto/{produto}', [ProdutosController::class, 'show'])->name('site.produto.show');
@@ -33,12 +34,16 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/pagamento', [CheckoutController::class, 'etapaPagamento'])->name('site.checkout.pagamento');
     Route::get('/confirmacao', [CheckoutController::class, 'etapaConfirmacao'])->name('site.checkout.confirmacao');
     Route::get('/concluido', [CheckoutController::class, 'etapaConcluido'])->name('site.checkout.concluido');
+
+    Route::prefix('admin')->group(function () {
+        Route::get('/', [DashboardController::class, 'index'])->name('admin.dashboard.index');
+        Route::get('/relatorios', [RelatoriosController::class, 'index'])->name('admin.relatorios.index');
+      
     Route::get('/meu-perfil', [CheckoutController::class, ''])->name('site.checkout.concluido');
     Route::get('/meus-pedidos', [PedidosController::class, 'index'])->name('pedidos.index');    
 
     Route::middleware([Admin::class])->group(function () {
         Route::prefix('admin')->group(function () {
-
             Route::get('/', [DashboardController::class, 'index'])->name('admin.dashboard.index');
             Route::get('/relatorios', [RelatoriosController::class, 'index'])->name('admin.relatorios.index');
 
@@ -49,4 +54,5 @@ Route::middleware(['auth'])->group(function () {
             Route::resource('categorias', AdminCategoriasController::class)->except('show');
         });
     });
+    Route::get('/meus-pedidos', [ClientePedidosController::class, 'index'])->name('meusPedidos.index');
 });

@@ -132,7 +132,7 @@ class ProdutoSeeder extends Seeder
                 'valor' => 300.00,
                 'quantidade' => 80,
                 'descricao' => 'Fone de ouvido confortável para uso prolongado.'
-            ],
+            ]
         ];
 
         foreach($data as $record){

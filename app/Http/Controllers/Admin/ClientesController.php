@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Usuario;
 use App\Models\UsuarioCliente;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class ClientesController extends Controller
 {
@@ -30,7 +31,7 @@ class ClientesController extends Controller
         ];
 
         if (!empty($request->post('senha'))) {
-            $dadosUsuario['password']  = bcrypt($request->post('senha'));
+            $dadosUsuario['password']  = Hash::make($request->post('senha'));
         }
 
         $cliente->usuario()->update($dadosUsuario);

@@ -14,11 +14,11 @@ class ProdutoCategoriaSeeder extends Seeder
     public function run(): void
     {
         $data = [
-            ['nome' => 'Hardware'],
-            ['nome' => 'Mouses'],
-            ['nome' => 'Teclados'],
-            ['nome' => 'Monitores'],
-            ['nome' => 'Headsets']
+            ['nome' => 'Eletrônicos'],
+            ['nome' => 'Vestuário'],
+            ['nome' => 'Alimentos'],
+            ['nome' => 'Livros'],
+            ['nome' => 'Ferramentas']
         ];
 
         foreach($data as $record){

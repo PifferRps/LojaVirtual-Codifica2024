@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use App\Models\Usuario;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 
 class UsuarioSeeder extends Seeder
@@ -21,16 +22,6 @@ class UsuarioSeeder extends Seeder
             ],
             [
                 'email' => 'cliente@cliente.com',
-                'password' => Hash::make('cliente'),
-                'user_level' => 1
-            ],
-            [
-                'email' => 'cliente2@cliente.com',
-                'password' => Hash::make('cliente'),
-                'user_level' => 1
-            ],
-            [
-                'email' => 'cliente3@cliente.com',
                 'password' => Hash::make('cliente'),
                 'user_level' => 1
             ]

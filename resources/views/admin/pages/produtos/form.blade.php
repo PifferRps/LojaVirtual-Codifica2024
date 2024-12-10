@@ -28,21 +28,11 @@
                 <div class="form_section__column">
                     <label for="categoria_id" class="form_section__column-label">Categoria</label>
                     <select name="categoria_id" id="categoria_id" class="form_section__column-input">
-                        <option {{ isset($produto) && $produto->categoria_id == 1 ? 'selected' : '' }} value="1">Vestuario</option>
-                        <option {{ isset($produto) && $produto->categoria_id == 2 ? 'selected' : '' }} value="2">Eletrônico</option>
-                        <option {{ isset($produto) && $produto->categoria_id == 3 ? 'selected' : '' }} value="3">Alimento</option>
+                        @foreach ($categorias as $categoria)
+                            <option value="{{ $categoria->id }}">{{ $categoria->nome }}</option>
+                        @endforeach
                     </select>
                 </div>
-
-                <div class="form_section__column">
-                    <label for="fornecedor_id" class="form_section__column-label">Fornecedor</label>
-                    <select name="fornecedor_id" id="fornecedor_id" class="form_section__column-input">
-                        <option {{ isset($produto) && $produto->fornecedor_id == 1 ? 'selected' : '' }} value="1">Adidas</option>
-                        <option {{ isset($produto) && $produto->fornecedor_id == 2 ? 'selected' : '' }} value="2">Dell</option>
-                        <option {{ isset($produto) && $produto->fornecedor_id == 3 ? 'selected' : '' }} value="3">Sepé</option>
-                    </select>
-                </div>
-
 
                 <div class="form_section__column">
                     <label for="valor" class="form_section__column-label">Valor</label>
@@ -55,8 +45,8 @@
                 <input type="number" name="quantidade" id="quantidade" class="form_section__column-input" value="{{ ($produto->quantidade ?? '') }}">
             </div>
             <div class="form_row">
-                <label for="img_upload" class="form_row__label">Adicionar imagens</label>
-                <input type="file" name="img_upload" id="img_upload">
+                <label for="imagem" class="form_row__label">Adicionar imagem</label>
+                <input type="file" name="imagem" id="imagem">
             </div>
 
             <div class="form_action">

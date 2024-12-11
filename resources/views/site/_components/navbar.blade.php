@@ -27,12 +27,19 @@
                 </div>
 
                 <div class="user-info__actions">
-                <a href="{{ route('site.meu-perfil.index') }}">
-                    <i class="fas fa-user-circle"></i> Meu Perfil</a>
-                <a href="{{route('site.meu-perfil.pedidos')}}">
+
+                    @if(Auth::user()->user_level == 999)
+                    <a href="{{ route('dashboard.index') }}">
+                        <i class="fas fa-user-circle"></i> Painel</a>
+                    @else
+                    <a href="{{ route('site.meu-perfil.index') }}">
+                        <i class="fas fa-user-circle"></i> Meu Perfil</a>
+                    <a href="{{route('pedidos.index')}}">
+
                         <i class="fas fa-shopping-bag"></i> Minhas Compras</a>
-                <a href="{{ route('logout') }}">
-                        <i class="fas fa-sign-out-alt"></i> Sair</a>
+                    @endif
+                    <a href="{{ route('logout') }}">
+                            <i class="fas fa-sign-out-alt"></i> Sair</a>
                 </div>
             </div>
         @else

@@ -1,6 +1,6 @@
 @extends("site._layouts.perfil")
 @section("conteudoPerfil")
-    <div class="dadosClientesPrincipal">
+    <div class="header_container__search dadosClientesPrincipal">
         <label for="nome">Nome</label>
         <input type="text" name="nome"  value="Guilherme Costa"><br><br>
         <label for="email">Email</label>

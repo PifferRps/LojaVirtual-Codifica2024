@@ -21,13 +21,9 @@ class Produto extends Model
         return $this->belongsTo(ProdutoCategoria::class, 'categoria_id');
     }
 
-    public function fornecedor(): BelongsTo
-    {
-        return $this->belongsTo(ProdutoFornecedor::class, 'fornecedor_id');
-    }
-
     public function pedidos(): BelongsToMany
     {
-        return $this->belongsToMany(Pedido::class, 'pedidos_produtos', 'pedido_id', 'produto_id');
+        return $this->belongsToMany(Pedido::class, 'pedidos_produtos', 'pedido_id', 'produto_id')
+            ->withPivot('quantidade_vendida');
     }
 }

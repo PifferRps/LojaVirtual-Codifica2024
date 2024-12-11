@@ -5,7 +5,6 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
-use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Pedido extends Model
@@ -27,6 +26,11 @@ class Pedido extends Model
         return $this->belongsTo(ClienteEndereco::class, 'endereco_id');
     }
 
+    public function formaPagamento(): BelongsTo
+    {
+        return $this->belongsTo(FormaPagamento::class, 'forma_pagamento_id');
+    }
+
     public function status(): BelongsTo
     {
         return $this->belongsTo(PedidoStatus::class, 'status_id', 'id');
@@ -34,6 +38,7 @@ class Pedido extends Model
 
     public function produtos(): BelongsToMany
     {
-        return $this->belongsToMany(Produto::class, 'pedidos_produtos', 'pedido_id', 'produto_id');
+        return $this->belongsToMany(Produto::class, 'pedidos_produtos', 'pedido_id', 'produto_id')
+            ->withPivot('quantidade_vendida');
     }
 }

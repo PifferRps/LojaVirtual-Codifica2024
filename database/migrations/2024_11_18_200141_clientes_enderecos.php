@@ -23,6 +23,7 @@ return new class extends Migration
             $table->string('estado');
             $table->string('complemento')->nullable();
             $table->string('referencia')->nullable();
+            $table->float('valor_frete', 2, 10);
             $table->timestamps();
             $table->softDeletes();
         });

@@ -11,12 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('produtos_categorias', function (Blueprint $table) {
+        Schema::create('formas_pagamento', function (Blueprint $table) {
             $table->id();
-            $table->string('nome')->unique();
-            $table->timestamps();
-            $table->softDeletes();
-
+            $table->string('nome');
         });
     }
 
@@ -25,6 +22,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('produtos_categorias');
+        Schema::dropIfExists('formas_pagamento');
     }
 };

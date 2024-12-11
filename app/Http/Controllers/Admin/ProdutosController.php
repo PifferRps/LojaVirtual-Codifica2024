@@ -29,11 +29,11 @@ class ProdutosController extends Controller
             'nome' => 'required|string|max:255',
             'imagem' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
-    
+
         if ($request->hasFile('imagem')) {
             $caminhoImagem = $request->file('imagem')->store('img', 'public');
         }
-    
+
         Produto::create([
             'categoria_id' => $request->input('categoria_id'),
             'sku' => $request->input('sku'),
@@ -43,7 +43,7 @@ class ProdutosController extends Controller
             'imagem_1' => $caminhoImagem ?? null,
             'descricao' => $request->input('descricao'),
         ]);
-    
+
         return redirect()->route('produtos.index')->with('success', 'Produto criado com sucesso!');
     }
 
@@ -56,7 +56,9 @@ class ProdutosController extends Controller
 
     public function edit(Produto $produto)
     {
-        return view('admin.pages.produtos.form', compact('produto'));
+        $categorias = ProdutoCategoria::all();
+
+        return view('admin.pages.produtos.form', compact('categorias'));
     }
 
     public function update(Request $request, Produto $produto)

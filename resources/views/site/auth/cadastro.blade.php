@@ -48,7 +48,7 @@
                     document.getElementById('rua').value=("");
                     document.getElementById('bairro').value=("");
                     document.getElementById('cidade').value=("");
-                    document.getElementById('uf').value=("");
+                    document.getElementById('estado').value=("");
                 }
 
                 function meu_callback(conteudo) {
@@ -56,7 +56,7 @@
                         document.getElementById('rua').value=(conteudo.logradouro);
                         document.getElementById('bairro').value=(conteudo.bairro);
                         document.getElementById('cidade').value=(conteudo.localidade);
-                        document.getElementById('uf').value=(conteudo.uf);
+                        document.getElementById('estado').value=(conteudo.uf);
                     }
                     else {
                         limpa_formulário_cep();
@@ -77,7 +77,7 @@
                             document.getElementById('rua').value="...";
                             document.getElementById('bairro').value="...";
                             document.getElementById('cidade').value="...";
-                            document.getElementById('uf').value="...";
+                            document.getElementById('estado').value="...";
 
                             var script = document.createElement('script');
 
@@ -100,7 +100,7 @@
             <input type="text" name="rua" id="rua" class="form-control" placeholder="Rua" required>
             <input type="text" name="bairro" id="bairro" class="form-control" placeholder="Bairro" required>
             <input type="text" name="cidade" id="cidade" class="form-control" placeholder="Cidade" required>
-            <input type="text" name="uf" id="uf" class="form-control" placeholder="Estado" required>
+            <input type="text" name="estado" id="estado" class="form-control" placeholder="Estado" required>
             <input type="text" name="numero" id="numero" class="form-control" placeholder="Numero" required>
             <input type="text" name="referencia" id="referencia" class="form-control" placeholder="Ponto de referência" required>
             <input type="text" name="complemento" id="complemento" class="form-control" placeholder="Complemento" required>

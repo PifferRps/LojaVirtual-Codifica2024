@@ -112,13 +112,11 @@ class CheckoutController extends Controller
         $id = Auth::id();
         $cliente = UsuarioCliente::where('usuario_id', $id)->first();
         $enderecos = $cliente->enderecos->toArray();
-        return view('site.pages.checkout.confirmacao',compact('valores', 'cliente', 'enderecos', 'produtos', 'vezes', 'pagamento', 'idEndereco'));
+        return view('site.pages.checkout.confirmacao',compact('valores','cliente', 'enderecos', 'produtos', 'vezes', 'pagamento', 'idEndereco'));
     }
 
     public function etapaConcluido()
     {
-
-
         return view('site.pages.checkout.concluido');
     }
 }

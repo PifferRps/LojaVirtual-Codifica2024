@@ -21,12 +21,12 @@ class CheckoutController extends Controller
             foreach ($produtos as $produto) {
                 $valor = $produto['produto']->valor;
                 $quantidade = $produto['quantidade'];
-                $valorTotal = $valor*$quantidade + $valorTotal;
+                $valorTotal = $valor * $quantidade + $valorTotal;
             }
         }
 
-        $valorDescontoPix = $valorTotal-$valorTotal*(10/100);
-        $valorParcelado = $valorTotal/10;
+        $valorDescontoPix = $valorTotal - $valorTotal * (10 / 100);
+        $valorParcelado = $valorTotal / 10;
 
         $valores[] = [
             'valorTotal' => $valorTotal,
@@ -42,16 +42,17 @@ class CheckoutController extends Controller
         $produtos = session('produtos');
         $valores = $this->getValores();
 
-        return view('site.pages.checkout.list',compact('produtos', 'valores'));
+        return view('site.pages.checkout.list', compact('produtos', 'valores'));
     }
 
     public function removerDoCarrinho($id)
     {
 
-        session()->forget('produtos.' .$id);
-        if (!session('produtos')){
+        session()->forget('produtos.' . $id);
+        if (!session('produtos')) {
             return redirect('/');
-        } return redirect()->back();
+        }
+        return redirect()->back();
     }
 
     public function removerTudoDoCarrinho()
@@ -85,7 +86,7 @@ class CheckoutController extends Controller
 
         $valores = $this->getValores();
 
-        return view('site.pages.checkout.pagamento',compact('valores'));
+        return view('site.pages.checkout.pagamento', compact('valores'));
     }
 
     public function salvarPagamento(\Illuminate\Http\Request $request)
@@ -112,7 +113,7 @@ class CheckoutController extends Controller
         $id = Auth::id();
         $cliente = UsuarioCliente::where('usuario_id', $id)->first();
         $enderecos = $cliente->enderecos->toArray();
-        return view('site.pages.checkout.confirmacao',compact('valores','cliente', 'enderecos', 'produtos', 'vezes', 'pagamento', 'idEndereco'));
+        return view('site.pages.checkout.confirmacao', compact('valores', 'cliente', 'enderecos', 'produtos', 'vezes', 'pagamento', 'idEndereco'));
     }
 
     public function etapaConcluido()

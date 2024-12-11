@@ -74,7 +74,8 @@ table{
     margin: 1rem;    
     color: #333;
     width: 95%;
-    border: 1px solid;
+    border: 0.120rem solid rgb(167, 48, 48);
+    border-radius: 1rem;
 }
 
 .title {
@@ -89,18 +90,20 @@ section{
 }
 
 td{
-text-align: center;
+text-align: center; 
+
 }
+
+
 
 
 .button {
     color: white;
     background-color: rgb(255, 59, 59);
-    padding: 0.5rem;
-    height: 2rem;
+    padding: 0.3rem;
+    margin: 0.1rem;
     border: solid rgb(255, 75, 75) 1px;
     border-radius: 5px;
-    word-wrap: break-word;
     text-align: center;
     text-decoration: none;
     color: rgb(255, 255, 255);
@@ -113,4 +116,32 @@ text-align: center;
 
 .button:active {
     filter: brightness(160%);
+}
+
+.button_adcionar {
+    background-color: rgb(155, 155, 155);
+    margin: 1rem; 
+    padding: 0.5rem;
+    border: 0.100rem solid rgb(155, 155, 155);
+    border-radius: 5px;
+    text-align: center;
+    text-decoration: none;
+}
+
+.button_adcionar:hover {
+    background-color: rgb(255, 182, 182);
+}
+
+.button_editar {
+    padding: 0.3rem;
+    margin: 0.1rem;
+    background-color: rgb(155, 155, 155);
+    border: 0.100rem solid rgb(155, 155, 155);;
+    border-radius: 5px;
+    text-align: center;
+    text-decoration: none;
+}
+
+.button_editar:hover {
+    background-color: rgb(255, 182, 182);
 }

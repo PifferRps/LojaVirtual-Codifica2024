@@ -9,13 +9,27 @@ use Illuminate\Http\Request;
 
 class ProdutosController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $produtos = Produto::all();
-
-        return view('admin.pages.produtos.list', compact('produtos'));
+        $ordem = $request->query('ordem');
+        $categoriaSelecionada = $request->query('categoria');
+    
+        $query = Produto::query();
+    
+        if ($categoriaSelecionada && $categoriaSelecionada != 0) {
+            $query->where('categoria_id', $categoriaSelecionada);
+        }
+    
+        if ($ordem) {
+            $query->orderBy('quantidade', $ordem);
+        }
+    
+        $produtos = $query->get();
+        $categorias = ProdutoCategoria::all();
+    
+        return view('admin.pages.produtos.list', compact('produtos', 'categorias', 'categoriaSelecionada', 'ordem'));
     }
-
+    
     public function create()
     {
         $categorias = ProdutoCategoria::all();
@@ -29,11 +43,11 @@ class ProdutosController extends Controller
             'nome' => 'required|string|max:255',
             'imagem' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
-    
+
         if ($request->hasFile('imagem')) {
             $caminhoImagem = $request->file('imagem')->store('img', 'public');
         }
-    
+
         Produto::create([
             'categoria_id' => $request->input('categoria_id'),
             'sku' => $request->input('sku'),
@@ -43,7 +57,7 @@ class ProdutosController extends Controller
             'imagem_1' => $caminhoImagem ?? null,
             'descricao' => $request->input('descricao'),
         ]);
-    
+
         return redirect()->route('produtos.index')->with('success', 'Produto criado com sucesso!');
     }
 
@@ -56,7 +70,9 @@ class ProdutosController extends Controller
 
     public function edit(Produto $produto)
     {
-        return view('admin.pages.produtos.form', compact('produto'));
+        $categorias = ProdutoCategoria::all();
+
+        return view('admin.pages.produtos.form', compact('produto', 'categorias'));
     }
 
     public function update(Request $request, Produto $produto)

@@ -1,11 +1,5 @@
 .dadosClientesPrincipal{
     display: flex;
     flex-direction: column;
-    width: 30%;
     justify-content: flex-start;
-    margin: 0;
-}
-
-.dadosClientesPrincipal input{
-    width: 100%;
 }

@@ -1,11 +1,9 @@
-
 .conteudo{
     display: flex;
     flex-direction: column;
 }
 .conteudo_header{
     background-color: white;
-    width: 100%;
     display: flex;
     justify-content: space-between;
     height: 10vh;
@@ -43,7 +41,7 @@
 }
 
 .conteudo_main__infos-section1{
-    width: 65%;
+    width: 50%;
     margin-left: 1rem;
 }
 

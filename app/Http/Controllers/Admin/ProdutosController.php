@@ -27,12 +27,15 @@ class ProdutosController extends Controller
     {
         $request->validate([
             'nome' => 'required|string|max:255',
-            'imagem' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'imagem' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
 
+        $caminhoImagem = '/img/codificamaislogo.png';
+
         if ($request->hasFile('imagem')) {
-            $caminhoImagem = $request->file('imagem')->store('img', 'public');
+            $caminhoImagem = 'storage/' . $request->file('imagem')->store('uploads', 'public');
         }
+        // dd($caminhoImagem);
 
         Produto::create([
             'categoria_id' => $request->input('categoria_id'),
@@ -40,7 +43,7 @@ class ProdutosController extends Controller
             'nome' => $request->input('nome'),
             'valor' => $request->input('valor'),
             'quantidade' => $request->input('quantidade'),
-            'imagem_1' => $caminhoImagem ?? null,
+            'imagem_1' => $caminhoImagem,
             'descricao' => $request->input('descricao'),
         ]);
 

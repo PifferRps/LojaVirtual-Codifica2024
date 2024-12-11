@@ -2,12 +2,24 @@
 @section("conteudo")
     <div class="conteudo" >
         <div class="conteudo_header">
+
             <form action="" class="form">
+                
+                <label for="ordem">Ordenar por</label>
+                <select id="ordem" name="ordem">
+                    <option value="0"></option>
+                    <option value="asc" >menor quantidade</option>
+                    <option value="desc" >maior quantidade</option>
+                </select>
+
                 <label for="Search"></label>
                 <input type="text" name="searchPedidos">
+
                 <button type="submit">Buscar</button>
             </form>
+
         </div>
+
         <div class="conteudo_main" style="overflow: auto">
             <div class="conteudo_main__infos">
                 <section class="conteudo_main__infos-section1">Número do pedido</section>

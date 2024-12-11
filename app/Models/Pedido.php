@@ -18,7 +18,7 @@ class Pedido extends Model
 
     public function cliente(): BelongsTo
     {
-        return $this->belongsTo(UsuarioCliente::class, 'usuario_id');
+        return $this->belongsTo(UsuarioCliente::class, 'cliente_id');
     }
 
     public function endereco(): BelongsTo

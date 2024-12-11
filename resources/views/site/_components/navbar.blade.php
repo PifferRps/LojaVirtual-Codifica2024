@@ -29,13 +29,13 @@
                 <div class="user-info__actions">
                     @if(Auth::user()->user_level == 999)
                     <a href="{{ route('dashboard.index') }}">
-                        <i class="fas fa-user-circle"></i> Configurações</a>
+                        <i class="fas fa-user-circle"></i> Painel</a>
                     @else
                     <a href="{{ route('site.meu-perfil.index') }}">
                         <i class="fas fa-user-circle"></i> Meu Perfil</a>
-                    @endif
                     <a href="{{route('pedidos.index')}}">
-                            <i class="fas fa-shopping-bag"></i> Minhas Compras</a>
+                        <i class="fas fa-shopping-bag"></i> Minhas Compras</a>
+                    @endif
                     <a href="{{ route('logout') }}">
                             <i class="fas fa-sign-out-alt"></i> Sair</a>
                 </div>

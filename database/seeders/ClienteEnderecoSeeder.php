@@ -20,7 +20,8 @@ class ClienteEnderecoSeeder extends Seeder
                 'numero' => '111',
                 'bairro' => 'Itararé',
                 'cidade' => 'Teresina',
-                'estado' => 'PI'
+                'estado' => 'PI',
+                'valor_frete' => 15.95
             ],
             [
                 'cliente_id' => 2,
@@ -29,7 +30,8 @@ class ClienteEnderecoSeeder extends Seeder
                 'numero' => '222',
                 'bairro' => 'Parque Alvorada II',
                 'cidade' => 'Imperatriz',
-                'estado' => 'MA'
+                'estado' => 'MA',
+                'valor_frete' => 20.40
             ],
             [
                 'cliente_id' => 3,
@@ -38,7 +40,8 @@ class ClienteEnderecoSeeder extends Seeder
                 'numero' => '333',
                 'bairro' => 'Colônia do Marçal',
                 'cidade' => 'São João Del Rei',
-                'estado' => 'MG'
+                'estado' => 'MG',
+                'valor_frete' => 18.60
             ]
         ]);
     }

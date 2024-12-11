@@ -1,6 +1,8 @@
 @extends("site._layouts.perfil")
 @section("conteudoPerfil")
     <div class="dadosClientesPrincipal">
+    <div class=informacoes>
+
         <label for="nome">Nome</label>
         <input type="text" name="nome" disabled value="Guilherme Costa"><br><br>
         <label for="email">Email</label>
@@ -11,7 +13,8 @@
         <input type="text" name="nascimento" disabled value="05/08/2001"><br><br>
         <label for="cpf">CPF</label>
         <input type="text" name="cpf" disabled value="111.222.333-44"><br><br>
-        <a href="{{ route('site.meu-perfil.edit') }}"><button>Editar dados</button></a>
+        <a href="{{ route('site.meu-perfil.edit') }}"><button class=salvar>Editar dados</button></a>
+</div>
     </div>
 @endsection
 

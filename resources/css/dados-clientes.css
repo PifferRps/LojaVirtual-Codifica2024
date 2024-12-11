@@ -1,11 +1,85 @@
+* {
+    font-family: "Host Grotesk", sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #043495;
+  }
+
 .dadosClientesPrincipal{
     display: flex;
     flex-direction: column;
     width: 30%;
     justify-content: flex-start;
-    margin: 0;
+    padding: 4vh;
 }
 
 .dadosClientesPrincipal input{
+
     width: 100%;
+    
+}
+
+.informacoes {
+    
+    display: flex;
+    flex-direction: column; 
+    border-radius: 20px;
+    
+    box-shadow:1px 1px 11px 0px #03266b;
+   padding: 5vh;
+    height: 85vh;
+    width: 60vh;
+
+
+}
+
+.salvar {
+
+  border-radius: 0.3rem;
+  background-color: #ff3232;
+  border: none;
+  color: white;
+  padding: 6px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size:2.5vh;
+
+}
+
+button:hover {
+    background-color:  rgb(216, 0, 0);
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+    cursor: pointer;
+
+}
+
+input[type=text]{
+
+    background-color: white;
+    color: rgb(95, 95, 95);
+    text-decoration: none;
+    border: none;
+    border-radius: 5px;
+    padding: 4px;
+
+}
+
+input[type=text]:focus {
+    background-color: #92eea6;
+    color: black;
+  
+}
+
+
+  
+input[type=date]{
+
+    background-color: white;
+    color: rgb(95, 95, 95);
+    text-decoration: none;
+    border: none;
+    border-radius: 5px;
+    padding: 4px;
+
 }

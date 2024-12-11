@@ -9,11 +9,25 @@ use Illuminate\Http\Request;
 
 class ProdutosController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $produtos = Produto::all();
+        $ordem = $request->query('ordem');
+        $categoriaSelecionada = $request->query('categoria');
 
-        return view('admin.pages.produtos.list', compact('produtos'));
+        $query = Produto::query();
+
+        if ($categoriaSelecionada && $categoriaSelecionada != 0) {
+            $query->where('categoria_id', $categoriaSelecionada);
+        }
+
+        if ($ordem) {
+            $query->orderBy('quantidade', $ordem);
+        }
+
+        $produtos = $query->get();
+        $categorias = ProdutoCategoria::all();
+
+        return view('admin.pages.produtos.list', compact('produtos', 'categorias', 'categoriaSelecionada', 'ordem'));
     }
 
     public function create()
@@ -27,11 +41,15 @@ class ProdutosController extends Controller
     {
         $request->validate([
             'nome' => 'required|string|max:255',
-            'imagem' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'imagem' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
 
+
+        $caminhoImagem = '/img/codificamaislogo.png';
+
+
         if ($request->hasFile('imagem')) {
-            $caminhoImagem = $request->file('imagem')->store('img', 'public');
+            $caminhoImagem = 'storage/' . $request->file('imagem')->store('uploads', 'public');
         }
 
         Produto::create([
@@ -40,7 +58,7 @@ class ProdutosController extends Controller
             'nome' => $request->input('nome'),
             'valor' => $request->input('valor'),
             'quantidade' => $request->input('quantidade'),
-            'imagem_1' => $caminhoImagem ?? null,
+            'imagem_1' => $caminhoImagem,
             'descricao' => $request->input('descricao'),
         ]);
 
@@ -58,7 +76,8 @@ class ProdutosController extends Controller
     {
         $categorias = ProdutoCategoria::all();
 
-        return view('admin.pages.produtos.form', compact('categorias'));
+        return view('admin.pages.produtos.form', compact('produto', 'categorias'));
+
     }
 
     public function update(Request $request, Produto $produto)

@@ -41,8 +41,7 @@ Route::middleware(['auth'])->group(function () {
 
     Route::prefix('meu-perfil')->group(function () {
         Route::get('/', [ClienteClientesController::class, 'index'])->name('site.meu-perfil.index');
-        Route::get('/editar-dados', [ClienteClientesController::class, 'edit'])->name('site.meu-perfil.edit');
-        Route::get('/editar-dados/salvar', [ClienteClientesController::class, 'update'])->name('site.meu-perfil.update');
+        Route::put('/editar-dados/salvar/{usuario}', [ClienteClientesController::class, 'update'])->name('site.meu-perfil.update');
         Route::get('/meus-pedidos', [ClienteClientesController::class, 'meusPedidos'])->name('site.meu-perfil.pedidos');
         Route::get('/meus-enderecos', [ClienteClientesController::class, 'meusEnderecos'])->name('site.meu-perfil.enderecos');
         Route::get('/editar-senha', [ClienteClientesController::class, 'editarSenha'])->name('site.meu-perfil.editar-senha');

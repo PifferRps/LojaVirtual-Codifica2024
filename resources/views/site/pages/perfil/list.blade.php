@@ -11,7 +11,7 @@
         <input type="text" name="nascimento" disabled value="05/08/2001"><br><br>
         <label for="cpf">CPF</label>
         <input type="text" name="cpf" disabled value="111.222.333-44"><br><br>
-        <a href="{{ route('site.meu-perfil.edit') }}"><button>Editar dados</button></a>
+        <a href="{{ route('site.meu-perfil.update') }}"><button>Editar dados</button></a>
     </div>
 @endsection
 

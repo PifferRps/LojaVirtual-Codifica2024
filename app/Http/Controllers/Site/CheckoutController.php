@@ -61,9 +61,9 @@ class CheckoutController extends Controller
 
     public function etapaEnderecos()
     {
-        $id = Auth::id();
-        $cliente = UsuarioCliente::where('usuario_id', $id)->first();
-        $enderecos = $cliente->enderecos->toArray();
+        $usuario = Auth::user();
+
+        $enderecos = $usuario->cliente->enderecos->toArray();
 
         $valores = $this->getValores();
 

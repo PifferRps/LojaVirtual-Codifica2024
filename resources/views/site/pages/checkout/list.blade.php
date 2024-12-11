@@ -21,7 +21,6 @@
             @if(session('produtos'))
                 @foreach($produtos as $produto)
                     <section class="checkoutContent_items__item">
-
                         <div class="checkoutContent_items__item-img">
                             <img src="{{ $produto['produto']->imagem_1}}" alt="imagemProduto">
                             <section>

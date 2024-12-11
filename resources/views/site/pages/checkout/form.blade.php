@@ -20,6 +20,7 @@
         <div class="checkoutContent_informacoes">
             @foreach($enderecos as $endereco)
                 <input type="hidden" name="id" value="{{ $endereco['id'] }}">
+                <input type="hidden" name="frete" value="{{ $endereco['valor_frete'] }}">
                 <section class="checkoutContent_informacoes__endereco">
                     <label>
                         <input type="radio" name="teste">
@@ -28,6 +29,7 @@
                             <span>Bairro: {{$endereco['bairro']}} - {{ $endereco['cidade'] }} - {{ $endereco['estado'] }}</span>
                             <span>Cep: {{$endereco['cep']}}</span>
                         </span>
+                        <span class="checkoutContent_informacoes__endereco-frete">Frete: R${{ number_format($endereco['valor_frete'], decimals: 2, decimal_separator: ',',thousands_separator: '.' ) }}</span>
                     </label>
                 </section>
             @endforeach

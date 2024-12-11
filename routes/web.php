@@ -29,7 +29,7 @@ Route::get('/login', [LoginController::class, 'index'])->name('login');
 Route::post('/login/autenticar', [LoginController::class, 'login'])->name('login.autenticar');
 Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 Route::resource('/cadastro', CadastroController::class)->only('index', 'store');
-Route::resource('enderecos', EnderecosController::class);
+//Route::resource('enderecos', EnderecosController::class);
 
 Route::middleware(['auth'])->group(function () {
     Route::get('/enderecos', [CheckoutController::class, 'etapaEnderecos'])->name('site.checkout.enderecos');

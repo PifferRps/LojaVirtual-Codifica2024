@@ -32,7 +32,7 @@
                 @foreach($produtos as $produto)
                     <section class="checkoutContent_items__item">
                         <div class="checkoutContent_items__item-img">
-                            <img src="{{ asset('img/4.jpg') }}" alt="imagemProduto">
+                            <img src="{{ $produto['produto']->imagem_1}}" alt="imagemProduto">
                             <section>
                                 <h3>Nome: {{ $produto['produto']->nome }}</h3>
                                 <p>SKU: {{ $produto['produto']->sku }}</p>

@@ -23,7 +23,7 @@
                     <section class="checkoutContent_items__item">
 
                         <div class="checkoutContent_items__item-img">
-                            <img src="{{ asset('img/4.jpg') }}" alt="imagemProduto">
+                            <img src="{{ $produto['produto']->imagem_1}}" alt="imagemProduto">
                             <section>
                                 <h3>{{ $produto['produto']->nome }}</h3>
                                 <p>SKU: {{ $produto['produto']->sku}}</p>
@@ -51,7 +51,7 @@
         </div>
         <div class="checkoutContent_values">
             <section class="checkoutContent_values__total">
-                <h1>Total: R${{ number_format(num:$valores[0]['valorTotal'], decimals: 2, decimal_separator: ',',thousands_separator: '.' )}}</h1>
+                <h1>Total: R${{ number_format(num:$valores[0]['valorTotal'], decimals: 2, decimal_separator: ',',thousands_separator: '.' )}} + Frete</h1>
             </section>
             <section class="checkoutContent_values__pix">
                 <h6>A vista</h6>

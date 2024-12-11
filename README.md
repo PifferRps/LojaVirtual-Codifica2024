@@ -46,6 +46,8 @@ Além disso, instale as seguintes tecnologias no sistema Linux:
    docker exec -it php_codifica /bin/bash -c "composer install"
    docker exec -it php_codifica /bin/bash -c "php artisan key:generate"
    docker exec -it php_codifica /bin/bash -c "php artisan migrate"
+   docker exec -it php_codifica /bin/bash -c "php artisan db:seed" 
+   docker exec -it php_codifica /bin/bash -c "php artisan storage:link"
    ```
 
 6. **Instalação de dependências do Node.js**  
@@ -69,5 +71,15 @@ Além disso, instale as seguintes tecnologias no sistema Linux:
 9. **Acesse a aplicação**  
    Abra o navegador e acesse a aplicação em:  
    [localhost](http://localhost)
+
+   Login do ``cliente``:
+
+         email: cliente@cliente.com
+         senha: cliente
+
+   Login do ``admin``:
+
+         email: admin@admin.com
+         senha: admin
 
 --- 

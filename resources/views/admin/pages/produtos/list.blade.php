@@ -1,12 +1,36 @@
 @extends("admin._layouts.admin")
-
 @section("conteudo")
+
     <section>
         <div>
             <h1 class="title">{{ count($produtos) == 0 ? "Estoque vazio." : "Produtos em estoque: "}}</h1>
             <a href="{{ route('produtos.create') }}" ><button class="button_adcionar" >Adicionar Produto</button></a>
         </div>
+        
+<form method="GET" action="{{ route('produtos.index') }}">
+    <label for="categoria">Categoria</label>
+    <select id="categoria" name="categoria">
+        @if(isset($categorias[0]))
+            <option value="0">Todos</option>
+        @endif
+        @forelse ($categorias as $categoria)
+            <option value="{{ $categoria->id }}" {{ $categoria->id == $categoriaSelecionada ? 'selected' : '' }}>
+                {{ $categoria->nome }}
+            </option>
+        @empty
+            <option>Adicione uma transação</option>
+        @endforelse
+    </select>
 
+    <label for="ordem">Ordenar por</label>
+    <select id="ordem" name="ordem">
+        <option value="0"></option>
+        <option value="asc" {{ $ordem == 'asc' ? 'selected' : '' }}>menor quantidade</option>
+        <option value="desc" {{ $ordem == 'desc' ? 'selected' : '' }}>maior quantidade</option>
+    </select>
+
+    <button type="submit">Filtrar</button>
+</form>
         <table>
             <thead>
                 <tr>
@@ -38,6 +62,7 @@
         </table>
 
     </section>
+
 @endsection
 @push('style')
     @vite('resources/css/admin.css')

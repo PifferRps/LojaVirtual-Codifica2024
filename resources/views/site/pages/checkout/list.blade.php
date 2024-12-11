@@ -2,10 +2,10 @@
 @section('conteudo')
     <div class="navbarCheckout">
         <p id="navbarCheckout_pSelected">Carrinho ></p>
-        <p>Dados pessoais ></p>
+        <p>Endereço ></p>
         <p>Pagamento ></p>
         <p>Confirmação ></p>
-        <p>Concluir</p>
+        <p>Concluído</p>
     </div>
     <div class="checkoutTitle">
         <div class="checkoutTitle_produtos">
@@ -51,16 +51,16 @@
         </div>
         <div class="checkoutContent_values">
             <section class="checkoutContent_values__total">
-                <h1>Total: R${{ number_format(num:$valorTotal, decimals: 2, decimal_separator: ',',thousands_separator: '.' )}}</h1>
+                <h1>Total: R${{ number_format(num:$valores[0]['valorTotal'], decimals: 2, decimal_separator: ',',thousands_separator: '.' )}}</h1>
             </section>
             <section class="checkoutContent_values__pix">
                 <h6>A vista</h6>
-                <h1>R${{ number_format(num:$valorDescontoPix, decimals: 2, decimal_separator: ',',thousands_separator: '.' )}}</h1>
+                <h1>R${{ number_format(num:$valores[0]['valorDescontoPix'], decimals: 2, decimal_separator: ',',thousands_separator: '.' )}}</h1>
                 <h6>Com 10% de desconto no pix</h6>
             </section>
             <section class="checkoutContent_values__cartao">
                 <h6>ou em até 10x de</h6>
-                <p class="checkoutContent_values__cartao-p"><b>{{ number_format(num:$valorParcelado, decimals: 2, decimal_separator: ',',thousands_separator: '.' )}}</b></p>
+                <p class="checkoutContent_values__cartao-p"><b>{{ number_format(num:$valores[0]['valorParcelado'], decimals: 2, decimal_separator: ',',thousands_separator: '.' )}}</b></p>
                 <h6>sem juros no cartão</h6>
             </section>
             <div class="checkoutContent_values__button">

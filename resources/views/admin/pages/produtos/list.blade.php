@@ -3,7 +3,7 @@
 @section("conteudo")
     <section>
         <h1 class="title">{{ count($produtos) == 0 ? "Estoque vazio." : "Produtos em estoque: "}}</h1>
-        <a href="{{ route('produtos.create') }}"><button>Adicionar Produto</button></a>
+        <a href="{{ route('produtos.create') }}" ><button class="button" >Adicionar Produto</button></a>
 
 
         <table>
@@ -28,9 +28,9 @@
                     <td><form style="margin-right: 20px" method="post" action="{{ route("produtos.destroy", $produto->id) }}">
                         @csrf
                         @method("delete")
-                        <button style="background-color: red">Deletar</button>
+                        <button class="button" >Deletar</button>
                     </form>
-                    <a href="{{ route('produtos.edit', $produto->id) }}"><button>Editar</button></a></td>
+                    <a href="{{ route('produtos.edit', $produto->id) }}"><button class="button" >Editar</button></a></td>
                 </tr>
             @endforeach
             </tbody>

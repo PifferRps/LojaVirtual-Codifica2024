@@ -91,3 +91,26 @@ section{
 td{
 text-align: center;
 }
+
+
+.button {
+    color: white;
+    background-color: rgb(255, 59, 59);
+    padding: 0.5rem;
+    height: 2rem;
+    border: solid rgb(255, 75, 75) 1px;
+    border-radius: 5px;
+    word-wrap: break-word;
+    text-align: center;
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+}
+
+.button:hover {
+    cursor: pointer;
+    filter: brightness(130%);
+}
+
+.button:active {
+    filter: brightness(160%);
+}

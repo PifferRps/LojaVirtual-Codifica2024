@@ -9,13 +9,27 @@ use Illuminate\Http\Request;
 
 class ProdutosController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $produtos = Produto::all();
-
-        return view('admin.pages.produtos.list', compact('produtos'));
+        $ordem = $request->query('ordem');
+        $categoriaSelecionada = $request->query('categoria');
+    
+        $query = Produto::query();
+    
+        if ($categoriaSelecionada && $categoriaSelecionada != 0) {
+            $query->where('categoria_id', $categoriaSelecionada);
+        }
+    
+        if ($ordem) {
+            $query->orderBy('quantidade', $ordem);
+        }
+    
+        $produtos = $query->get();
+        $categorias = ProdutoCategoria::all();
+    
+        return view('admin.pages.produtos.list', compact('produtos', 'categorias', 'categoriaSelecionada', 'ordem'));
     }
-
+    
     public function create()
     {
         $categorias = ProdutoCategoria::all();
@@ -30,13 +44,14 @@ class ProdutosController extends Controller
             'imagem' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
 
+
         $caminhoImagem = '/img/codificamaislogo.png';
+
 
         if ($request->hasFile('imagem')) {
             $caminhoImagem = 'storage/' . $request->file('imagem')->store('uploads', 'public');
         }
-        // dd($caminhoImagem);
-
+      
         Produto::create([
             'categoria_id' => $request->input('categoria_id'),
             'sku' => $request->input('sku'),
@@ -61,7 +76,8 @@ class ProdutosController extends Controller
     {
         $categorias = ProdutoCategoria::all();
 
-        return view('admin.pages.produtos.form', compact('categorias'));
+        return view('admin.pages.produtos.form', compact('produto', 'categorias'));
+
     }
 
     public function update(Request $request, Produto $produto)

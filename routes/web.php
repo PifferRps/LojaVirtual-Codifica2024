@@ -1,7 +1,9 @@
 <?php
+
 use App\Http\Middleware\Admin;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\Cliente\EnderecosController;
 use App\Http\Controllers\Site\CheckoutController;
 use App\Http\Controllers\Site\ProdutosController;
 use App\Http\Controllers\Auth\CadastroController;
@@ -27,12 +29,15 @@ Route::get('/login', [LoginController::class, 'index'])->name('login');
 Route::post('/login/autenticar', [LoginController::class, 'login'])->name('login.autenticar');
 Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 Route::resource('/cadastro', CadastroController::class)->only('index', 'store');
+Route::resource('enderecos', EnderecosController::class);
 
 Route::middleware(['auth'])->group(function () {
     Route::get('/enderecos', [CheckoutController::class, 'etapaEnderecos'])->name('site.checkout.enderecos');
+    Route::post('/enderecos/salvar', [CheckoutController::class, 'salvarEndereco'])->name('site.checkout.enderecos.salvar');
     Route::get('/pagamento', [CheckoutController::class, 'etapaPagamento'])->name('site.checkout.pagamento');
+    Route::post('/pagamento/salvar', [CheckoutController::class, 'salvarPagamento'])->name('site.checkout.pagamento.salvar');
     Route::get('/confirmacao', [CheckoutController::class, 'etapaConfirmacao'])->name('site.checkout.confirmacao');
-    Route::get('/concluido', [CheckoutController::class, 'etapaConcluido'])->name('site.checkout.concluido');
+    Route::post('/concluido', [CheckoutController::class, 'etapaConcluido'])->name('site.checkout.concluido');
 
     Route::prefix('meu-perfil')->group(function () {
         Route::get('/', [ClienteClientesController::class, 'index'])->name('site.meu-perfil.index');

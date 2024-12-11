@@ -4,7 +4,7 @@
         <div class="blocoPrincipal">
             <div class="conteudoProduto">
                 <div class="imagemProduto">
-                    <img src="{{ asset('storage/' . $produto->imagem_1) }}" width="100%" height="100%" alt="{{ $produto->nome }}">
+                    <img src="{{ asset($produto->imagem_1) }}" width="100%" height="100%" alt="{{ $produto->nome }}">
                 </div>
 
                 <div class="informacoesProduto">

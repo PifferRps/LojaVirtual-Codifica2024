@@ -33,9 +33,9 @@
     <tr>
         <th>Número do Pedido</th>
         <th>Data</th>
-        <th>Valor</th>
         <th>Método</th>
         <th>Status</th>
+        <th>Valor</th>
     </tr>
     </thead>
     <tbody>
@@ -43,9 +43,9 @@
         <tr>
             <td>#{{ $venda->id }}</td>
             <td>{{ $venda->data_transacao }}</td>
-            <td>R$ {{ number_format($venda->valor_final, 2, ',', '.') }}</td>
             <td>{{ $venda->formaPagamento->nome }}</td>
             <td>{{ $venda->status->status }}</td>
+            <td>R$ {{ number_format($venda->valor_final, 2, ',', '.') }}</td>
         </tr>
     @endforeach
     </tbody>

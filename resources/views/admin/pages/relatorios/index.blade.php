@@ -6,7 +6,6 @@
             <div style="display: flex; flex-direction: column">
                 <a href="{{ route('relatorios.estoque-atual') }}" target="_blank">Estoque atual</a>
                 <a href="{{ route('relatorios.vendas') }}" target="_blank">Vendas</a>
-                <a href="">Produtos mais vendidos</a>
             </div>
         </div>
     </section>

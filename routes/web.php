@@ -29,11 +29,12 @@ Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 Route::resource('/cadastro', CadastroController::class)->only('index', 'store');
 
 Route::middleware(['auth'])->group(function () {
-
     Route::get('/enderecos', [CheckoutController::class, 'etapaEnderecos'])->name('site.checkout.enderecos');
+    Route::post('/enderecos/salvar', [CheckoutController::class, 'salvarEndereco'])->name('site.checkout.enderecos.salvar');
     Route::get('/pagamento', [CheckoutController::class, 'etapaPagamento'])->name('site.checkout.pagamento');
+    Route::post('/pagamento/salvar', [CheckoutController::class, 'salvarPagamento'])->name('site.checkout.pagamento.salvar');
     Route::get('/confirmacao', [CheckoutController::class, 'etapaConfirmacao'])->name('site.checkout.confirmacao');
-    Route::get('/concluido', [CheckoutController::class, 'etapaConcluido'])->name('site.checkout.concluido');
+    Route::post('/concluido', [CheckoutController::class, 'etapaConcluido'])->name('site.checkout.concluido');
 
     Route::prefix('meu-perfil')->group(function () {
         Route::get('/', [ClienteClientesController::class, 'index'])->name('site.meu-perfil.index');

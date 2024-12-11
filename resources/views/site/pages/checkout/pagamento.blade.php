@@ -54,7 +54,7 @@
 
         <div class="checkoutContent_values">
             <section class="checkoutContent_values__total">
-                <h1>Total: R${{ number_format(num:$valores[0]['valorTotal'], decimals: 2, decimal_separator: ',',thousands_separator: '.' )}}</h1>
+                <h1>Total com frete: R${{ number_format(num:$valorComFrete, decimals: 2, decimal_separator: ',',thousands_separator: '.' )}}</h1>
             </section>
             <section class="checkoutContent_values__pix">
                 <h6>A vista</h6>

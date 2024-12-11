@@ -73,7 +73,9 @@ class CheckoutController extends Controller
     public function salvarEndereco(\Illuminate\Http\Request $request)
     {
         $idEndereco = $request->id;
+        $frete = $request->frete;
         session(['endereco' => $idEndereco]);
+        session(['frete' => $frete]);
         $valores = $this->getValores();
 
         return to_route('site.checkout.pagamento');
@@ -82,14 +84,15 @@ class CheckoutController extends Controller
     public function etapaPagamento()
     {
         $valores = $this->getValores();
+        $valorComFrete = session('frete') + $valores[0]['valorTotal'];
+        $frete = session('frete');
 
-        return view('site.pages.checkout.pagamento', compact('valores'));
+        return view('site.pages.checkout.pagamento', compact('valores', 'frete', 'valorComFrete'));
     }
 
     public function salvarPagamento(\Illuminate\Http\Request $request)
     {
         $pagamento = $request['payment_method'];
-
         if ($request['payment_method'] == '3') {
             $vezes = $request['vezes'];
             session(['vezes' => $vezes]);
@@ -103,6 +106,7 @@ class CheckoutController extends Controller
     public function etapaConfirmacao()
     {
         $idEndereco = session('endereco');
+
         $pagamento = session('pagamento');
         $vezes = session('vezes');
         $produtos = session('produtos');
@@ -111,7 +115,7 @@ class CheckoutController extends Controller
         $cliente = UsuarioCliente::where('usuario_id', $id)->first();
         $enderecos = $cliente->enderecos->toArray();
 
-        return view('site.pages.checkout.confirmacao', compact('valores', 'cliente', 'enderecos', 'produtos', 'vezes', 'pagamento', 'idEndereco'));
+        return view('site.pages.checkout.confirmacao', compact('valores','frete', 'cliente', 'enderecos', 'produtos', 'vezes', 'pagamento', 'idEndereco'));
     }
 
     public function etapaConcluido()

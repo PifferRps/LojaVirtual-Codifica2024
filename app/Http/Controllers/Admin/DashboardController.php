@@ -3,37 +3,75 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
+use App\Models\Pedido;
+use App\Models\PedidoProduto;
+use Carbon\Carbon;
+use Illuminate\Support\Facades\DB;
 
 class DashboardController extends Controller
 {
     public function index()
     {
-        return view('admin.pages.dashboard.index');
+        $dados = [
+            'vendasSemana' => self::calcularVendasSemana(),
+            'vendasMes' => self::calcularVendasMes(),
+            'vendasAno' => self::calcularVendasAno(),
+            'ultimasVendas' => self::ultimasVendas(),
+            'maisVendidos' => self::maisVendidos()
+        ];
+
+        $dados = (object)$dados;
+
+        return view('admin.pages.dashboard.index', compact('dados'));
     }
 
-    public function calcularVendasSemana()
+    private function calcularVendasSemana()
     {
-        //
+        $vendasSemana = Pedido::where('data_transacao', '<=', Carbon::now()->subDays(7)
+            ->startOfDay()
+            ->format('Y-m-d'))
+            ->sum('valor_final');
+
+        return $vendasSemana;
     }
 
-    public function calcularVendasMes()
+    private function calcularVendasMes()
     {
-        //
+        $vendasMes = Pedido::whereBetween('data_transacao', [
+                Carbon::now()->startOfMonth(),
+                Carbon::now()->endOfMonth()
+            ])->sum('valor_final');
+
+        return $vendasMes;
     }
 
-    public function calcularVendasAno()
+    private function calcularVendasAno()
     {
-        //
+        $vendasAno = Pedido::whereBetween('data_transacao', [
+            Carbon::now()->startOfYear(),
+            Carbon::now()->endOfYear()
+        ])->sum('valor_final');
+
+        return $vendasAno;
     }
 
     public function ultimasVendas()
     {
-        //
+        $ultimasVendas = Pedido::orderByDesc('data_transacao')
+            ->limit(3)
+            ->get();
+
+        return $ultimasVendas;
     }
 
     public function maisVendidos()
     {
-        //
+        $maisVendidos = PedidoProduto::select('produto_id', DB::raw('SUM(quantidade_vendida) as vendas'))
+            ->groupBy('produto_id')
+            ->orderByDesc('vendas')
+            ->limit(3)
+            ->get();
+
+        return $maisVendidos;
     }
 }

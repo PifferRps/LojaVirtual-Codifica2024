@@ -13,23 +13,23 @@ class ProdutosController extends Controller
     {
         $ordem = $request->query('ordem');
         $categoriaSelecionada = $request->query('categoria');
-    
+
         $query = Produto::query();
-    
+
         if ($categoriaSelecionada && $categoriaSelecionada != 0) {
             $query->where('categoria_id', $categoriaSelecionada);
         }
-    
+
         if ($ordem) {
             $query->orderBy('quantidade', $ordem);
         }
-    
+
         $produtos = $query->get();
         $categorias = ProdutoCategoria::all();
-    
+
         return view('admin.pages.produtos.list', compact('produtos', 'categorias', 'categoriaSelecionada', 'ordem'));
     }
-    
+
     public function create()
     {
         $categorias = ProdutoCategoria::all();
@@ -51,7 +51,7 @@ class ProdutosController extends Controller
         if ($request->hasFile('imagem')) {
             $caminhoImagem = 'storage/' . $request->file('imagem')->store('uploads', 'public');
         }
-      
+
         Produto::create([
             'categoria_id' => $request->input('categoria_id'),
             'sku' => $request->input('sku'),

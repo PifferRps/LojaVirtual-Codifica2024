@@ -46,7 +46,7 @@
         <tr>
             <td>{{ $produto->nome }}</td>
             <td>{{ $produto->sku }}</td>
-            <td>{{ $produto->categoria_id }}</td>
+            <td>{{ $produto->categoria->nome }}</td>
             <td>{{ $produto->valor }}</td>
             <td>{{ $produto->quantidade }}</td>
             <td><form style="margin-right: 20px" method="post" action="{{ route("produtos.destroy", $produto->id) }}">

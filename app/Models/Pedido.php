@@ -28,7 +28,7 @@ class Pedido extends Model
 
     public function formaPagamento(): BelongsTo
     {
-        return $this->belongsTo(FormaPagamento::class, 'endereco_id');
+        return $this->belongsTo(FormaPagamento::class, 'forma_pagamento_id');
     }
 
     public function status(): BelongsTo
@@ -38,6 +38,7 @@ class Pedido extends Model
 
     public function produtos(): BelongsToMany
     {
-        return $this->belongsToMany(Produto::class, 'pedidos_produtos', 'pedido_id', 'produto_id');
+        return $this->belongsToMany(Produto::class, 'pedidos_produtos', 'pedido_id', 'produto_id')
+            ->withPivot('quantidade_vendida');
     }
 }

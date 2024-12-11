@@ -19,7 +19,20 @@
                 <div class="conteudo_main__pedido">
                     <section class="conteudo_main__infos-section1">#{{ $pedido->id }}</section>
                     <section class="conteudo_main__infos-section2">R$ {{ number_format($pedido->valor_final, 2, ',', '.') }}</section>
-                    <section class="conteudo_main__infos-section2">{{ $pedido->status->status }}</section>
+                    <section class="conteudo_main__infos-select">
+                        <form action="{{ route('pedidos.update', $pedido) }}" method="post">
+                            @method('PUT')
+                            @csrf
+                            <select name="status_id" id="status_id">
+                                <option value="{{ $pedido->status->id }}">{{ $pedido->status->status }}</option>
+                                @foreach ($status as $status_unitario)
+                                    <option value="{{ $status_unitario->id }}">{{ $status_unitario->status }}</option>
+                                @endforeach
+                            </select>
+                            <button type="submit">OK</button>
+                        </form>
+
+                    </section>
                     <a href="{{ route('pedidos.show', $pedido) }}"><section class="conteudo_main__infos-view">Visualizar pedido</section></a>
                 </div>
             @endforeach

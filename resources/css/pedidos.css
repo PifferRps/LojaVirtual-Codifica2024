@@ -41,12 +41,17 @@
 }
 
 .conteudo_main__infos-section1{
-    width: 50%;
+    width: 40%;
     margin-left: 1rem;
 }
 
 .conteudo_main__infos-section2{
     width: 10%;
+    margin-right: 3rem;
+}
+
+.conteudo_main__infos-select{
+    width: 20%;
     margin-right: 3rem;
 }
 

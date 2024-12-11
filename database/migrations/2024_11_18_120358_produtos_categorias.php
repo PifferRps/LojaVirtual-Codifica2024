@@ -11,9 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('produtos_fornecedores', function (Blueprint $table) {
+        Schema::create('produtos_categorias', function (Blueprint $table) {
             $table->id();
-            $table->string('razao_social');
+            $table->string('nome')->unique();
             $table->timestamps();
             $table->softDeletes();
         });
@@ -24,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('fornecedores');
+        Schema::dropIfExists('produtos_categorias');
     }
 };

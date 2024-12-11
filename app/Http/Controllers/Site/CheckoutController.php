@@ -12,7 +12,6 @@ use Illuminate\Support\Facades\Auth;
 
 class CheckoutController extends Controller
 {
-
     public function getValores()
     {
         $produtos = session('produtos');
@@ -47,7 +46,6 @@ class CheckoutController extends Controller
 
     public function removerDoCarrinho($id)
     {
-
         session()->forget('produtos.' . $id);
         if (!session('produtos')) {
             return redirect('/');
@@ -83,7 +81,6 @@ class CheckoutController extends Controller
 
     public function etapaPagamento()
     {
-
         $valores = $this->getValores();
 
         return view('site.pages.checkout.pagamento', compact('valores'));
@@ -113,6 +110,7 @@ class CheckoutController extends Controller
         $id = Auth::id();
         $cliente = UsuarioCliente::where('usuario_id', $id)->first();
         $enderecos = $cliente->enderecos->toArray();
+
         return view('site.pages.checkout.confirmacao', compact('valores', 'cliente', 'enderecos', 'produtos', 'vezes', 'pagamento', 'idEndereco'));
     }
 

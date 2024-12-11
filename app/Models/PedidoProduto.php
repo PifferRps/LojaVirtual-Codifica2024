@@ -13,4 +13,14 @@ class PedidoProduto extends Model
     protected $guarded = [
         'id'
     ];
+
+    public function produto()
+    {
+        return $this->belongsTo(Produto::class, 'produto_id');
+    }
+
+    public function pedido()
+    {
+        return $this->belongsTo(Pedido::class, 'pedido_id');
+    }
 }

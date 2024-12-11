@@ -1,6 +1,6 @@
 <div class="sidebar">
     <div class="sidebar_logo">
-        <img src="teste.png">
+        <img src="{{ asset('img/codificamaislogo2.png') }}" alt="codifica">
     </div>
 
     <div class="sidebar_opcoes">

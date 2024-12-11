@@ -19,7 +19,14 @@ body{
 }
 
 .sidebar_logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     height: 20vh;
+    img {
+        max-height: 100%;
+        max-width: 100%;
+    }
 }
 
 .sidebar_opcoes {

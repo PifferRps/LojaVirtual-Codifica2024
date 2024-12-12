@@ -40,7 +40,7 @@
                             <h4>Valor total:</h4>
                             <p>R$ {{ number_format(num:$produto['produto']->valor*$produto['quantidade'], decimals: 2, decimal_separator: ',',thousands_separator: '.' )}}</p>
                         </div>
-                        <a href={{ route('remover-do-carrinho', $produto['produto']->id) }}><button>Excluir</button></a>
+                        <a href="{{ route('remover-do-carrinho', $produto['produto']->id) }}"><button>Excluir</button></a>
                     </section>
                 @endforeach
             @else

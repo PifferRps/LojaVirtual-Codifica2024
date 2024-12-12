@@ -7,7 +7,7 @@ use App\Models\ClienteEndereco;
 use App\Models\Produto;
 use App\Models\Usuario;
 use App\Models\UsuarioCliente;
-use http\Env\Request;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class CheckoutController extends Controller
@@ -70,7 +70,7 @@ class CheckoutController extends Controller
         return view('site.pages.checkout.form', compact('enderecos', 'valores'));
     }
 
-    public function salvarEndereco(\Illuminate\Http\Request $request)
+    public function salvarEndereco(Request $request)
     {
         $idEndereco = $request->id;
         $frete = $request->frete;
@@ -90,7 +90,7 @@ class CheckoutController extends Controller
         return view('site.pages.checkout.pagamento', compact('valores', 'frete', 'valorComFrete'));
     }
 
-    public function salvarPagamento(\Illuminate\Http\Request $request)
+    public function salvarPagamento(Request $request)
     {
         $pagamento = $request['payment_method'];
         if ($request['payment_method'] == '3') {

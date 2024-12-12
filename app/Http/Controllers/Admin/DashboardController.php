@@ -66,7 +66,9 @@ class DashboardController extends Controller
 
     public function maisVendidos()
     {
-        $maisVendidos = PedidoProduto::select('produto_id', DB::raw('SUM(quantidade_vendida) as vendas'))
+        $maisVendidos = PedidoProduto::select('produto_id', 'produtos.nome', 'produtos.valor', DB::raw('SUM(quantidade_vendida) as vendas'))
+            ->join('produtos', 'produtos.id', '=', 'pedidos_produtos.produto_id')
+            ->whereNotNull('produtos.deleted_at')
             ->groupBy('produto_id')
             ->orderByDesc('vendas')
             ->limit(3)

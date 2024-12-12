@@ -19,8 +19,8 @@ class ProdutosController extends Controller
             ->get();
 
         $mais_vendidos = PedidoProduto::select('produto_id', DB::raw('SUM(quantidade_vendida) as vendas'))
-            ->join('produtos', 'produtos.id', '=', 'pedidos_produtos.produto_id') // Faz a junção com a tabela de produtos
-            ->where('produtos.quantidade', '>', 0) // Filtra os produtos com quantidade > 0
+            ->join('produtos', 'produtos.id', '=', 'pedidos_produtos.produto_id')
+            ->where('produtos.quantidade', '>', 0)
             ->groupBy('produto_id')
             ->orderByDesc('vendas')
             ->limit(5)

@@ -39,6 +39,7 @@ class ProdutosController extends Controller
     {
         $produtos = Produto::where('categoria_id', $id_categoria)->get();
         $categorias = ProdutoCategoria::all();
+
         return view('site.pages.vitrine.porCategoria.list', compact('produtos', 'categorias'));
     }
 
@@ -46,14 +47,14 @@ class ProdutosController extends Controller
     {
         $query = Produto::query();
 
-        if($request->pesquisaProdutos){
+        if ($request->pesquisaProdutos) {
             $query->where('nome', 'like', "%{$request->pesquisaProdutos}%");
         }
 
         $pesquisaProdutos = $query->get();
         $categorias = ProdutoCategoria::all();
 
-        return view('site.pages.vitrine.produtos.pesquisa', compact(  'categorias', 'pesquisaProdutos'));
+        return view('site.pages.vitrine.produtos.pesquisa', compact('categorias', 'pesquisaProdutos'));
     }
 
     public function adicionarAoCarrinho($id, Request $request)

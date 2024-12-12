@@ -38,9 +38,10 @@ class ProdutosController extends Controller
     public static function produtosPorCategoria($id_categoria)
     {
         $produtos = Produto::where('categoria_id', $id_categoria)->get();
+        $categoriaSelecionada = ProdutoCategoria::find($id_categoria);
         $categorias = ProdutoCategoria::all();
 
-        return view('site.pages.vitrine.porCategoria.list', compact('produtos', 'categorias'));
+        return view('site.pages.vitrine.porCategoria.list', compact('produtos', 'categoriaSelecionada', 'categorias'));
     }
 
     public function pesquisaProdutos(Request $request)

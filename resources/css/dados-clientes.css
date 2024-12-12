@@ -24,9 +24,9 @@
     flex-direction: column;
     border-radius: 20px;
 
-    box-shadow:1px 1px 11px 0px #03266b;
+    box-shadow:1px 1px 11px 0px #888888;
    padding: 5vh;
-    height: 85vh;
+    height: 68vh;
     width: 60vh;
 
 
@@ -65,8 +65,8 @@ input[type=text]{
 }
 
 input[type=text]:focus {
-    background-color: #92eea6;
-    color: black;
+    background-color: #ff6363;
+    color: white;
 
 }
 

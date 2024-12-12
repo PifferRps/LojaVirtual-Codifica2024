@@ -15,7 +15,7 @@
               <input type="date" name="data_nascimento"  value="{{ $usuario->cliente->data_nascimento }}"><br><br>
               <label for="cpf">CPF</label>
               <input type="text" name="cpf" disabled value="{{ $usuario->cliente->cpf }}"><br><br>
-              <button>Salvar</button>
+              <button class=salvar>Salvar</button>
           </form>
         </div>
     </div>

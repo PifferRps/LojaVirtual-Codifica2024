@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Cliente;
 
 use App\Http\Controllers\Controller;
+use App\Models\ProdutoCategoria;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -11,29 +12,31 @@ class ClientesController extends Controller
 {
     public function index() // tela minha conta
     {
-        $cliente = Auth::user();
-        return view('site.pages.perfil.list', compact('cliente'));
+        $usuario = Auth::user();
+        $categorias = ProdutoCategoria::all();
+
+        return view('site.pages.perfil.form', compact('usuario', 'categorias'));
     }
 
-    public function edit() // tela de edição de dados
-    {
-        $cliente = Auth::user();
-        return view('site.pages.perfil.form', compact('cliente'));
-    }
+//    public function edit() // tela de edição de dados
+//    {
+//        $cliente = Auth::user();
+//        return view('site.pages.perfil.form', compact('cliente'));
+//    }
 
     public function update(Request $request) //atualiza dados cliente
     {
-        $cliente = Auth::user();
-    /**    $request->validate([
-            'name' => 'required|string|max:255',
-            'email' => 'required|email|unique:usuarios,email' . $cliente->id
-        ]);
-    */
+        $usuario = Auth::user();
 
-//        $cliente->update([
-//            'name' => $request->name,
-//            'email' => $request->email,
-//        ]);
+        if ($usuario->email != $request->input('email')) {
+            $usuario->update($request->only(['email']));
+        }
+
+        $usuario->cliente->update([
+            'nome' => $request->input('nome'),
+            'telefone' => $request->input('telefone'),
+            'data_nascimento' => $request->input('data_nascimento'),
+        ]);
 
         return redirect()->route('site.meu-perfil.index'); //retorna a tela minha conta
     }
@@ -41,7 +44,9 @@ class ClientesController extends Controller
 
     public function editarSenha() // tela edição d e senha
     {
-        return view('site.pages.perfil.editar-senha');
+        $categorias = ProdutoCategoria::all();
+
+        return view('site.pages.perfil.editar-senha', compact('categorias'));
     }
 
     public function atualizarSenha(Request $request)
@@ -66,12 +71,16 @@ class ClientesController extends Controller
 
     public function meusPedidos()
     {
-        return view('site.pages.perfil.meus-pedidos');
+        $categorias = ProdutoCategoria::all();
+
+        return view('site.pages.perfil.meus-pedidos', compact('categorias'));
     }
 
     public function meusEnderecos()
     {
-        return view('site.pages.perfil.meus-enderecos');
+        $categorias = ProdutoCategoria::all();
+
+        return view('site.pages.perfil.meus-enderecos', compact('categorias'));
     }
 
 }

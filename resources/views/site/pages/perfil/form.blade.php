@@ -1,17 +1,23 @@
 @extends("site._layouts.perfil")
 @section("conteudoPerfil")
     <div class="dadosClientesPrincipal">
-        <label for="nome">Nome</label>
-        <input type="text" name="nome"  value="Guilherme Costa"><br><br>
-        <label for="email">Email</label>
-        <input type="text" name="email"  value="guilherme@email.com"><br><br>
-        <label for="telefone">Telefone</label>
-        <input type="text" name="telefone"  value="(27) 99999-9999"><br><br>
-        <label for="nascimento">Nascimento</label>
-        <input type="text" name="nascimento"  value="05/08/2001"><br><br>
-        <label for="cpf">CPF</label>
-        <input type="text" name="cpf" disabled value="111.222.333-44"><br><br>
-        <a href="{{ route('site.meu-perfil.update') }}"><button>Salvar</button></a>
+        <div class=informacoes>
+          <form action="{{ route('site.meu-perfil.update', $usuario) }}" method="post">
+              @method('PUT')
+              @csrf
+              <label for="nome">Nome</label>
+              <input type="text" name="nome"  value="{{ $usuario->cliente->nome }}"><br><br>
+              <label for="email">Email</label>
+              <input type="text" name="email"  value="{{ $usuario->email }}"><br><br>
+              <label for="telefone">Telefone</label>
+              <input type="text" name="telefone"  value="{{ $usuario->cliente->telefone }}"><br><br>
+              <label for="nascimento">Nascimento</label>
+              <input type="date" name="data_nascimento"  value="{{ $usuario->cliente->data_nascimento }}"><br><br>
+              <label for="cpf">CPF</label>
+              <input type="text" name="cpf" disabled value="{{ $usuario->cliente->cpf }}"><br><br>
+              <button class=salvar>Salvar</button>
+          </form>
+        </div>
     </div>
 @endsection
 

@@ -5,8 +5,8 @@
             <a href="{{ route('site.pages.vitrine.produtos.list') }}"><img src="{{ asset('img/codificamaislogo.png') }}" alt="Logo CODIFICA+"></a>
         </div>
         <div class="header_container__search">
-            <form action="">
-                <input type="text" name="search" placeholder="Nome do produto">
+            <form action="{{ route('site.pages.vitrine.produtos.pesquisa') }}">
+                <input type="text" name="pesquisaProdutos" placeholder="Nome do produto">
                 <button>Buscar</button>
             </form>
         </div>
@@ -33,7 +33,7 @@
                     @else
                     <a href="{{ route('site.meu-perfil.index') }}">
                         <i class="fas fa-user-circle"></i> Meu Perfil</a>
-                    <a href="{{route('pedidos.index')}}">
+                    <a href="{{route('site.meu-perfil.index')}}">
                         <i class="fas fa-shopping-bag"></i> Minhas Compras</a>
                     @endif
                     <a href="{{ route('logout') }}">
@@ -52,19 +52,37 @@
     </div>
 
     <nav>
+        <select name="categorias" id="categorias">
+            <option value="0">Selecione</option>
+            @foreach ($categorias as $categoria)
+                <option value="{{ $categoria->id }}" {{ isset($categoriaSelecionada) && $categoria->id == $categoriaSelecionada->id ? 'selected' : '' }}>{{ $categoria->nome }}</option>
+            @endforeach
+        </select>
         <div>
-            <a href="{{ route('site.porCategoria', 1) }}"><p>Eletrônicos</p></a>
+            <a href="{{ route('site.porCategoria', 0) }}"><p>Todos</p></a>
         </div>
         <div>
-            <a href="{{ route('site.porCategoria', 2) }}"><p>Cosméticos</p></a>
+            <a href="{{ route('site.porCategoria', 1) }}"><p>Hardware</p></a>
         </div>
         <div>
-            <a href="{{ route('site.porCategoria', 3) }}"><p>Vestuário</p></a>
+            <a href="{{ route('site.porCategoria', 2) }}"><p>Mouses</p></a>
         </div>
         <div>
-            <a href="{{ route('site.porCategoria', 4) }}"><p>Eletrodomésticos</p></a>
+            <a href="{{ route('site.porCategoria', 3) }}"><p>Teclados</p></a>
+        </div>
+        <div>
+            <a href="{{ route('site.porCategoria', 4) }}"><p>Monitores</p></a>
         </div>
     </nav>
+    
+    <script>
+        document.getElementById('categorias').addEventListener('change', function () {
+            const categoriaId = this.value;
+            if (categoriaId != 0) {
+                window.location.href = `/categoria/${categoriaId}`;
+            }
+        });
+    </script>
     @vite('resources/css/navbar.css')
     @vite('resources/js/dark-mode.js')
 </header>

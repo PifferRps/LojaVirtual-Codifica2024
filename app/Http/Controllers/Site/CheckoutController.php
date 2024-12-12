@@ -3,11 +3,10 @@
 namespace App\Http\Controllers\Site;
 
 use App\Http\Controllers\Controller;
-use App\Models\ClienteEndereco;
-use App\Models\Produto;
-use App\Models\Usuario;
+use App\Models\FormaPagamento;
+use App\Models\Pedido;
 use App\Models\UsuarioCliente;
-use http\Env\Request;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class CheckoutController extends Controller
@@ -47,33 +46,53 @@ class CheckoutController extends Controller
     public function removerDoCarrinho($id)
     {
         session()->forget('produtos.' . $id);
+
         if (!session('produtos')) {
             return redirect('/');
         }
+        session()->flash('mensagem', value: 'Produto removido do carrinho.');
+
         return redirect()->back();
     }
 
     public function removerTudoDoCarrinho()
     {
         session()->forget('produtos');
+       
         return redirect('/');
+    }
+
+    public function alterarQuantidadeProduto(Request $request)
+    {
+
+        $produtos = session('produtos', []);
+
+        foreach ($request->input('carrinho_atualizado') as $id => $quantidade) {
+            $produtos[$id]['quantidade'] = $quantidade;
+        }
+
+        session(['produtos' => $produtos]);
+
+        return redirect()->back();
     }
 
     public function etapaEnderecos()
     {
-        $id = Auth::id();
-        $cliente = UsuarioCliente::where('usuario_id', $id)->first();
-        $enderecos = $cliente->enderecos->toArray();
+        $usuario = Auth::user();
+
+        $enderecos = $usuario->cliente->enderecos->toArray();
 
         $valores = $this->getValores();
 
         return view('site.pages.checkout.form', compact('enderecos', 'valores'));
     }
 
-    public function salvarEndereco(\Illuminate\Http\Request $request)
+    public function salvarEndereco(Request $request)
     {
         $idEndereco = $request->id;
+        $frete = $request->frete;
         session(['endereco' => $idEndereco]);
+        session(['frete' => $frete]);
         $valores = $this->getValores();
 
         return to_route('site.checkout.pagamento');
@@ -83,13 +102,14 @@ class CheckoutController extends Controller
     {
         $valores = $this->getValores();
 
-        return view('site.pages.checkout.pagamento', compact('valores'));
+        $frete = session('frete');
+
+        return view('site.pages.checkout.pagamento', compact('valores', 'frete'));
     }
 
-    public function salvarPagamento(\Illuminate\Http\Request $request)
+    public function salvarPagamento(Request $request)
     {
         $pagamento = $request['payment_method'];
-
         if ($request['payment_method'] == '3') {
             $vezes = $request['vezes'];
             session(['vezes' => $vezes]);
@@ -102,8 +122,14 @@ class CheckoutController extends Controller
 
     public function etapaConfirmacao()
     {
+        $formasDePagamento = FormaPagamento::all()
+            ->pluck('nome', 'id')
+            ->toArray();
+
+        $frete = session('frete');
         $idEndereco = session('endereco');
-        $pagamento = session('pagamento');
+        $idPagamento = session('pagamento');
+        $pagamento = $formasDePagamento[$idPagamento];
         $vezes = session('vezes');
         $produtos = session('produtos');
         $valores = $this->getValores();
@@ -111,7 +137,50 @@ class CheckoutController extends Controller
         $cliente = UsuarioCliente::where('usuario_id', $id)->first();
         $enderecos = $cliente->enderecos->toArray();
 
-        return view('site.pages.checkout.confirmacao', compact('valores', 'cliente', 'enderecos', 'produtos', 'vezes', 'pagamento', 'idEndereco'));
+        return view('site.pages.checkout.confirmacao', compact('valores', 'frete', 'cliente', 'enderecos', 'produtos', 'vezes', 'pagamento', 'idEndereco', 'idPagamento'));
+    }
+
+    public function salvarPedido()
+    {
+        $usuario = Auth::user();
+        $valor_total = 0;
+        $desconto = 0;
+
+        foreach(session('produtos') as $item){
+            $valor_total += ($item['produto']->valor * $item['quantidade']);
+
+            $item['produto']->update(['quantidade' => ($item['produto']->quantidade - $item['quantidade'])]);
+        }
+
+        if(session('pagamento') == 1){
+            $desconto = ($valor_total * 0.1);
+        }
+
+        $valor_final = $valor_total - $desconto + session('frete');
+
+        Pedido::create([
+            'data_transacao' => date('Y-m-d'),
+            'cliente_id' => $usuario->cliente->id,
+            'endereco_id' => session('endereco'),
+            'status_id' => 4,
+            'forma_pagamento_id' => session('pagamento'),
+            'valor_total' => $valor_total,
+            'desconto_total' => $desconto,
+            'valor_frete' => session('frete'),
+            'valor_final' => $valor_final,
+            'parcelas' => session('vezes')
+        ]);
+
+
+        session()->forget([
+            'produtos',
+            'endereco',
+            'frete',
+            'vezes',
+            'pagamento'
+        ]);
+
+        return to_route('site.checkout.concluido');
     }
 
     public function etapaConcluido()

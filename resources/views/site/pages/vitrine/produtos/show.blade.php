@@ -11,14 +11,15 @@
                     <div class="blocoSuperior">
                         <div class="rotas">Home > Categoria ></div>
                         <div class="tituloProduto"> {{ $produto->nome }}</div>
-                        <div class="descricaoSuperior">{{ $produto->sku }}</div>
+                        <div class="descricaoSuperior">{{ $produto->sku }} - Estoque: {{ $produto->quantidade }}</div>
                     </div>
 
+                    @if($produto->quantidade > 0)
                     <div class="blocoInferior">
-                        <div class="tituloProduto"> R${{ number_format(num:$produto->valor, decimals: 2, decimal_separator: ',',thousands_separator: '.' )}}</div>
+                        <div class="tituloProduto"> R$ {{ number_format($produto->valor, 2, ',','.' ) }}</div>
                         <div class="descricaoSuperior">A vista no pix 10% OFF</div>
-                        <div class="descricaoInferior">R$ {{ number_format(num:$valorComDesconto, decimals: 2, decimal_separator: ',',thousands_separator: '.' )}}</div>
-                        <div class="descricaoSuperior">Em até 10x de {{ number_format(num:$valorParcelado, decimals: 2, decimal_separator: ',',thousands_separator: '.' )}} sem juros</div>
+                        <div class="descricaoInferior">R$ {{ number_format(($produto->valor * 0.9), 2, ',','.' ) }}</div>
+                        <div class="descricaoSuperior">Em até 10x de {{ number_format(($produto->valor / 10), 2, ',','.' )}} sem juros</div>
                     </div>
 
                     <div class="botoesInferiores">
@@ -27,8 +28,17 @@
                             <input type="number" name="quantidade" value="1" min="1">
                             <button> Adicionar ao Carrinho </button>
                         </form>
-
                     </div>
+                    @else
+                        <div style="display: flex; align-items: center; justify-content: center; height: 70%; color: grey">
+                            <h2>Produto indisponível</h2>
+                        </div>
+                    @endif
+                    @if(session('mensagem'))
+                        <div style="color: gray" role="alert">
+                            <span>{{ session('mensagem') }}</span>
+                        </div>
+                    @endif
                 </div>
             </div>
 

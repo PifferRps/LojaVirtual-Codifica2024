@@ -68,6 +68,7 @@ class ProdutosController extends Controller
     public function destroy(Produto $produto)
     {
         $produto->delete();
+        session()->flash('mensagem', value: 'Produto excluído com sucesso.');
 
         return redirect()->route('produtos.index');
     }
@@ -83,6 +84,7 @@ class ProdutosController extends Controller
     public function update(Request $request, Produto $produto)
     {
         $produto->update($request->all());
+        session()->flash('mensagem', value: 'Produto atualizado com sucesso.');
 
         return redirect()->route('produtos.index');
     }

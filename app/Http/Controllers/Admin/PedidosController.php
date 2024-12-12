@@ -12,9 +12,19 @@ use Illuminate\Http\Request;
 
 class PedidosController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $pedidos = Pedido::with('status')->get();
+        $query = Pedido::query();
+
+        if(!$request->buscarPedidos && $request->status){
+            $query->where('status_id', $request->status);
+        }
+
+        if($request->buscarPedidos){
+            $query->where('id', $request->buscarPedidos);
+        }
+
+        $pedidos = $query->get();
         $status = PedidoStatus::all();
 
         return view('admin.pages.pedidos.list', compact('pedidos', 'status'));
@@ -24,6 +34,7 @@ class PedidosController extends Controller
     {
         return view('admin.pages.pedidos.show', compact('pedido'));
     }
+
     public function edit(string $id)
     {
         return view('admin.pages.pedidos.form');
@@ -34,6 +45,7 @@ class PedidosController extends Controller
         $pedido->update([
             'status_id' => $request->input('status_id')
         ]);
+        session()->flash('mensagem', value: 'Status do pedido atualizado com sucesso.');
 
         return redirect('/admin/pedidos');
     }

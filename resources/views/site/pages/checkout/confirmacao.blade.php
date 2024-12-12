@@ -24,7 +24,7 @@
                 <p><b>Rua: </b>{{ $enderecos[0]['rua'] }}<b> - Nº </b>{{ $enderecos[0]['numero'] }}</p>
                 <p><b>Bairro: </b>{{ $enderecos[0]['bairro'] }} - {{ $enderecos[0]['cidade'] }}</p>
                 <p><b>Forma de
-                        pagamento: </b>{{ $pagamento }}{{ isset($vezes) && $pagamento == '3' ? ', ' . $vezes . 'x' : '' }}
+                        pagamento: </b>{{ $pagamento }}{{ isset($vezes) && $idPagamento == '3' ? ', ' . $vezes . 'x' : '' }}
                 </p>
             </div>
             <div class="checkoutContent_informacoes__dadosProdutos">
@@ -32,7 +32,7 @@
                 @foreach($produtos as $produto)
                     <section class="checkoutContent_items__item">
                         <div class="checkoutContent_items__item-img">
-                            <img src="{{ asset('img/4.jpg') }}" alt="imagemProduto">
+                            <img src="{{ $produto['produto']->imagem_1}}" alt="imagemProduto">
                             <section>
                                 <h3>Nome: {{ $produto['produto']->nome }}</h3>
                                 <p>SKU: {{ $produto['produto']->sku }}</p>
@@ -44,7 +44,7 @@
                         </div>
                         <div class="checkoutContent_items__item-valor">
                             <h4>Valor:</h4>
-                            <p>{{ $produto['produto']->valor }}</p>
+                            <p>{{ number_format($produto['produto']->valor , 2, ',', '.') }}</p>
                         </div>
                     </section>
                 @endforeach
@@ -52,24 +52,16 @@
         </div>
         <div class="checkoutContent_values">
             <section class="checkoutContent_values__total">
+                <h1>Subtotal:
+                    R${{ number_format($valores[0]['valorTotal'],  2,  ',', '.' )}}</h1>
+                    <h4>Frete: R${{ number_format($frete,  2,  ',', '.' )}}</h4>
+            </section>
+            <section class="checkoutContent_values__total">
                 <h1>Total:
-                    R${{ number_format(num:$valores[0]['valorTotal'], decimals: 2, decimal_separator: ',',thousands_separator: '.' )}}</h1>
-            </section>
-            <section class="checkoutContent_values__pix">
-                <h6>A vista</h6>
-                <h1>
-                    R${{ number_format(num:$valores[0]['valorDescontoPix'], decimals: 2, decimal_separator: ',',thousands_separator: '.' )}}</h1>
-                <h6>Com 10% de desconto no pix</h6>
-            </section>
-            <section class="checkoutContent_values__cartao">
-                <h6>ou em até 10x de</h6>
-                <p class="checkoutContent_values__cartao-p">
-                    <b>{{ number_format(num:$valores[0]['valorParcelado'], decimals: 2, decimal_separator: ',',thousands_separator: '.' )}}</b>
-                </p>
-                <h6>sem juros no cartão</h6>
+                    R${{ number_format($valores[0]['valorTotal']+$frete,  2,  ',', '.' )}}</h1>
             </section>
             <div class="checkoutContent_values__button">
-                <a href="{{ route('site.checkout.concluido') }}">Finalizar compra</a>
+                <a href="{{ route('site.checkout.salvar') }}">Finalizar compra</a>
             </div>
         </div>
     </div>

@@ -10,7 +10,7 @@ class CategoriasController extends Controller
 {
     public function index()
     {
-        $categorias = ProdutoCategoria::All();
+        $categorias = ProdutoCategoria::withCount('produtos')->get();
 
         return view('admin.pages.categorias.list', compact('categorias'));
     }
@@ -23,6 +23,7 @@ class CategoriasController extends Controller
     public function store(Request $request)
     {
         ProdutoCategoria::create($request->all());
+        session()->flash('mensagem', value: 'Categoria adicionada com sucesso.');
 
         return redirect()->route('categorias.index');
     }
@@ -35,6 +36,7 @@ class CategoriasController extends Controller
     public function update(Request $request, ProdutoCategoria $categoria)
     {
         $categoria->update($request->all());
+        session()->flash('mensagem', value: 'Categoria atualizado com sucesso.');
 
         return redirect()->route('categorias.index');
     }
@@ -42,6 +44,7 @@ class CategoriasController extends Controller
     public function destroy(ProdutoCategoria $categoria)
     {
         $categoria->delete();
+        session()->flash('mensagem', value: 'Categoria excluída com sucesso.');
 
         return redirect()->route('categorias.index');
     }

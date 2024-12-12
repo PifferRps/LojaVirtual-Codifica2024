@@ -46,7 +46,8 @@ class RelatoriosController extends Controller
 
         $dompdf->loadHtml($html);
         $dompdf->render();
-        $dompdf->stream();
+
+        return $dompdf->stream('relatorio_estoque.pdf');
     }
 
     public function paginaVendas(Request $request)
@@ -100,7 +101,26 @@ class RelatoriosController extends Controller
         $dompdf->loadHtml($html);
         $dompdf->render();
         $dompdf->stream();
+
+        return $dompdf->stream('relatorio_vendas.pdf');
     }
 
+    public function paginaBaixoEstoque()
+    {
+        return view('admin.pages.relatorios.baixo-estoque');
+    }
 
+    public function gerarPdfBaixoEstoque(Request $request)
+    {
+
+        $dompdf = new Dompdf();
+
+        $html = view('admin.pages.relatorios.modelos.baixo-estoque', compact('baixoEstoque'));
+
+        $dompdf->loadHtml($html);
+        $dompdf->render();
+        $dompdf->stream();
+
+        return $dompdf->stream('relatorio_vendas.pdf');
+    }
 }

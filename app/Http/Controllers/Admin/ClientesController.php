@@ -45,6 +45,7 @@ class ClientesController extends Controller
             'nome' => $request->post('nome'),
             'documento' => $request->post('documento'),
         ]);
+        session()->flash('mensagem', value: 'Cliente atualizado com sucesso.');
 
         return redirect()->route('clientes.index');
     }

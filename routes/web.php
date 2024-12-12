@@ -22,27 +22,30 @@ Route::get('/produto/{produto}', [ProdutosController::class, 'show'])->name('sit
 Route::get('/categoria/{categoria}', [ProdutosController::class, 'produtosPorCategoria'])->name('site.porCategoria');
 Route::get('/produto/adicionar-ao-carrinho/{id}', [ProdutosController::class, 'adicionarAoCarrinho'])->name('adicionar-ao-carrinho');
 Route::get('/carrinho', [CheckoutController::class, 'index'])->name('site.checkout.carrinho');
+Route::get('/carrinho/adicionar', [CheckoutController::class, 'alterarQuantidadeProduto'])->name('site.checkout.carrinho-alterarquantidade');
 Route::get('/remover-do-carrinho/{id}', [CheckoutController::class, 'removerDoCarrinho'])->name('remover-do-carrinho');
 Route::get('/remover-tudo-do-carrinho', [CheckoutController::class, 'removerTudoDoCarrinho'])->name('remover-tudo-do-carrinho');
+Route::get('/pesquisa', [ProdutosController::class,'pesquisaProdutos'])->name('site.pages.vitrine.produtos.pesquisa');
 
 Route::get('/login', [LoginController::class, 'index'])->name('login');
 Route::post('/login/autenticar', [LoginController::class, 'login'])->name('login.autenticar');
 Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 Route::resource('/cadastro', CadastroController::class)->only('index', 'store');
-Route::resource('enderecos', EnderecosController::class);
+//Route::resource('enderecos', EnderecosController::class);
 
 Route::middleware(['auth'])->group(function () {
+
     Route::get('/enderecos', [CheckoutController::class, 'etapaEnderecos'])->name('site.checkout.enderecos');
     Route::post('/enderecos/salvar', [CheckoutController::class, 'salvarEndereco'])->name('site.checkout.enderecos.salvar');
     Route::get('/pagamento', [CheckoutController::class, 'etapaPagamento'])->name('site.checkout.pagamento');
     Route::post('/pagamento/salvar', [CheckoutController::class, 'salvarPagamento'])->name('site.checkout.pagamento.salvar');
     Route::get('/confirmacao', [CheckoutController::class, 'etapaConfirmacao'])->name('site.checkout.confirmacao');
-    Route::post('/concluido', [CheckoutController::class, 'etapaConcluido'])->name('site.checkout.concluido');
+    Route::get('/pedido/salvar', [CheckoutController::class, 'salvarPedido'])->name('site.checkout.salvar');
+    Route::get('/concluido', [CheckoutController::class, 'etapaConcluido'])->name('site.checkout.concluido');
 
     Route::prefix('meu-perfil')->group(function () {
         Route::get('/', [ClienteClientesController::class, 'index'])->name('site.meu-perfil.index');
-        Route::get('/editar-dados', [ClienteClientesController::class, 'edit'])->name('site.meu-perfil.edit');
-        Route::get('/editar-dados/salvar', [ClienteClientesController::class, 'update'])->name('site.meu-perfil.update');
+        Route::put('/editar-dados/salvar/{usuario}', [ClienteClientesController::class, 'update'])->name('site.meu-perfil.update');
         Route::get('/meus-pedidos', [ClienteClientesController::class, 'meusPedidos'])->name('site.meu-perfil.pedidos');
         Route::get('/meus-enderecos', [ClienteClientesController::class, 'meusEnderecos'])->name('site.meu-perfil.enderecos');
         Route::get('/editar-senha', [ClienteClientesController::class, 'editarSenha'])->name('site.meu-perfil.editar-senha');

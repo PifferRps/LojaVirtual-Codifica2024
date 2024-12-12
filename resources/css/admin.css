@@ -22,7 +22,6 @@ body{
     border: 0.120rem solid rgb(167, 48, 48);
     border-radius: 1rem;
     width: calc(100% + 0.5rem);
-    height: 6rem;
 }
 
 .sidebar {
@@ -40,7 +39,6 @@ body{
     height: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
     align-items: center;
 }
 
@@ -49,6 +47,7 @@ body{
     justify-content: center;
     align-items: center;
     flex-grow: 1;
+    max-height: 4.5rem;
     width: 100%;
     border-bottom: 0.120rem solid rgb(167, 48, 48);
 }

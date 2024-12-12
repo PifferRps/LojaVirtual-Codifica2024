@@ -1,5 +1,5 @@
 <div class="sidebar">
-    <img class="sidebar_img" src="{{ asset('img/codificamaislogo2.png') }}" alt="nome da loja na logo">
+    <img class="sidebar_img" src="{{ asset('img/logo_nome.png') }}" alt="nome da loja na logo">
     <div class="sidebar_opcoes">
         <a href="{{ route('dashboard.index') }}" style="border-top: 0.120rem solid rgb(167, 48, 48);">Dashboard</a>
         <a href="{{ route('produtos.index') }}">Produtos</a>

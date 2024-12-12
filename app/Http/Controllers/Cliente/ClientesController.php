@@ -44,7 +44,9 @@ class ClientesController extends Controller
 
     public function editarSenha() // tela edição d e senha
     {
-        return view('site.pages.perfil.editar-senha');
+        $categorias = ProdutoCategoria::all();
+
+        return view('site.pages.perfil.editar-senha', compact('categorias'));
     }
 
     public function atualizarSenha(Request $request)
@@ -69,12 +71,16 @@ class ClientesController extends Controller
 
     public function meusPedidos()
     {
-        return view('site.pages.perfil.meus-pedidos');
+        $categorias = ProdutoCategoria::all();
+
+        return view('site.pages.perfil.meus-pedidos', compact('categorias'));
     }
 
     public function meusEnderecos()
     {
-        return view('site.pages.perfil.meus-enderecos');
+        $categorias = ProdutoCategoria::all();
+
+        return view('site.pages.perfil.meus-enderecos', compact('categorias'));
     }
 
 }

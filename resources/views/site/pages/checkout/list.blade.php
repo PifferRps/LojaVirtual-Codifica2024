@@ -16,6 +16,13 @@
             <p>Resumo</p>
         </div>
     </div>
+    <div class="mensagem_flash">
+        @if (session()->has('mensagem'))
+            <div class="">
+                {{ session('mensagem') }}
+            </div>
+        @endif
+    </div>
     <div class="checkoutContent">
         <div class="checkoutContent_items">
             @if(session('produtos'))

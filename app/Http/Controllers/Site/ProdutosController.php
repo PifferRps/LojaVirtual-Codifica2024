@@ -8,8 +8,6 @@ use App\Models\Produto;
 use App\Models\ProdutoCategoria;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Session;
-use function Symfony\Component\String\s;
 
 class ProdutosController extends Controller
 {
@@ -64,8 +62,8 @@ class ProdutosController extends Controller
                 'produto' => $produto
             ];
         }
-
         session(['produtos' => $sessao]);
+        session()->flash('mensagem', value: 'Produto adicionado ao carrinho.');
 
         return to_route('site.produto.show', $id);
     }

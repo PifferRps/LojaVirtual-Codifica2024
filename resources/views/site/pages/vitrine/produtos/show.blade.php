@@ -7,6 +7,8 @@
                     <img src="{{ asset($produto->imagem_1) }}" width="100%" height="100%" alt="{{ $produto->nome }}">
                 </div>
 
+
+
                 <div class="informacoesProduto">
                     <div class="blocoSuperior">
                         <div class="rotas">Home > Categoria ></div>
@@ -28,6 +30,14 @@
                             <button> Adicionar ao Carrinho </button>
                         </form>
 
+                    </div>
+
+                    <div class="mensagem_flash">
+                        @if (session()->has('mensagem'))
+                            <div class="">
+                                {{ session('mensagem') }}
+                            </div>
+                        @endif
                     </div>
                 </div>
             </div>

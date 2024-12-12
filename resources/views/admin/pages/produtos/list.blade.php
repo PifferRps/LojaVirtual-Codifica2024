@@ -31,6 +31,13 @@
 
     <button type="submit">Filtrar</button>
 </form>
+<div class="mensagem_flash">
+    @if (session()->has('mensagem'))
+        <div class="">
+            {{ session('mensagem') }}
+        </div>
+    @endif
+</div>
         <table>
             <thead>
                 <tr>

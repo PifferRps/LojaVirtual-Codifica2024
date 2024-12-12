@@ -61,6 +61,7 @@ class CadastroController extends Controller
             'estado' => $request->estado,
             'complemento' => $request->complemento,
             'referencia' => $request->referencia,
+            'valor_frete' => rand(1500, 2500)/100
         ]);
 
         Auth::login($user);

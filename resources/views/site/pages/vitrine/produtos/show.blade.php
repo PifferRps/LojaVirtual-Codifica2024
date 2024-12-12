@@ -15,10 +15,10 @@
                     </div>
 
                     <div class="blocoInferior">
-                        <div class="tituloProduto"> R${{ number_format(num:$produto->valor, decimals: 2, decimal_separator: ',',thousands_separator: '.' )}}</div>
+                        <div class="tituloProduto"> R$ {{ number_format($produto->valor, 2, ',','.' ) }}</div>
                         <div class="descricaoSuperior">A vista no pix 10% OFF</div>
-                        <div class="descricaoInferior">R$ {{ number_format(num:$valorComDesconto, decimals: 2, decimal_separator: ',',thousands_separator: '.' )}}</div>
-                        <div class="descricaoSuperior">Em até 10x de {{ number_format(num:$valorParcelado, decimals: 2, decimal_separator: ',',thousands_separator: '.' )}} sem juros</div>
+                        <div class="descricaoInferior">R$ {{ number_format(($produto->valor * 0.9), 2, ',','.' ) }}</div>
+                        <div class="descricaoSuperior">Em até 10x de {{ number_format(($produto->valor / 10), 2, ',','.' )}} sem juros</div>
                     </div>
 
                     <div class="botoesInferiores">

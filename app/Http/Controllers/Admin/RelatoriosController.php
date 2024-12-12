@@ -46,7 +46,8 @@ class RelatoriosController extends Controller
 
         $dompdf->loadHtml($html);
         $dompdf->render();
-        $dompdf->stream();
+
+        return $dompdf->stream('relatorio_estoque.pdf');
     }
 
     public function paginaVendas(Request $request)
@@ -100,6 +101,8 @@ class RelatoriosController extends Controller
         $dompdf->loadHtml($html);
         $dompdf->render();
         $dompdf->stream();
+
+        return $dompdf->stream('relatorio_vendas.pdf');
     }
 
 

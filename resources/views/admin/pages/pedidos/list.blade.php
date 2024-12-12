@@ -3,11 +3,21 @@
     <div class="conteudo" >
         <div class="conteudo_header">
             <form action="" class="form">
-                <label for="Search"></label>
-                <input type="text" name="searchPedidos">
+                <label for="status">Status:</label>
+                <select id="status" name="status">
+                    <option value="0">Todos</option>
+                    @foreach($status as $status_unitario)
+                        <option value="{{ $status_unitario->id }}" {{ isset($_GET['status']) && $status_unitario->id == $_GET['status'] ? 'selected' : '' }}>{{ $status_unitario->status }}</option>
+                    @endforeach
+                </select>
+                
+                <label for="buscarPedidos">Buscar</label>
+                <input type="text" name="buscarPedidos" placeholder=" ID do pedido">
+
                 <button type="submit">Buscar</button>
             </form>
         </div>
+
         <div class="conteudo_main" style="overflow: auto">
             <div class="conteudo_main__infos">
                 <section class="conteudo_main__infos-section1">Número do pedido</section>

@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Cliente;
 
 use App\Http\Controllers\Controller;
+use App\Models\Usuario;
+use App\Models\UsuarioCliente;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -11,29 +13,32 @@ class ClientesController extends Controller
 {
     public function index() // tela minha conta
     {
-        $cliente = Auth::user();
-        return view('site.pages.perfil.list', compact('cliente'));
+        $usuario = Auth::user();
+
+        return view('site.pages.perfil.form', compact('usuario'));
     }
 
-    public function edit() // tela de edição de dados
-    {
-        $cliente = Auth::user();
-        return view('site.pages.perfil.form', compact('cliente'));
-    }
+//    public function edit() // tela de edição de dados
+//    {
+//        $cliente = Auth::user();
+//        return view('site.pages.perfil.form', compact('cliente'));
+//    }
 
     public function update(Request $request) //atualiza dados cliente
     {
-        $cliente = Auth::user();
-    /**    $request->validate([
-            'name' => 'required|string|max:255',
-            'email' => 'required|email|unique:usuarios,email' . $cliente->id
-        ]);
-    */
+        $usuario = Auth::user();
 
-//        $cliente->update([
-//            'name' => $request->name,
-//            'email' => $request->email,
-//        ]);
+        if ($usuario->email != $request->input('email')) {
+            $usuario->update($request->only(['email']));
+        }
+
+        $usuario->cliente->update([
+            'nome' => $request->input('nome'),
+            'telefone' => $request->input('telefone'),
+            'data_nascimento' => $request->input('data_nascimento'),
+        ]);
+
+
 
         return redirect()->route('site.meu-perfil.index'); //retorna a tela minha conta
     }

@@ -21,9 +21,8 @@
             @if(session('produtos'))
                 @foreach($produtos as $produto)
                     <section class="checkoutContent_items__item">
-
                         <div class="checkoutContent_items__item-img">
-                            <img src="{{ asset('img/4.jpg') }}" alt="imagemProduto">
+                            <img src="{{ $produto['produto']->imagem_1}}" alt="imagemProduto">
                             <section>
                                 <h3>{{ $produto['produto']->nome }}</h3>
                                 <p>SKU: {{ $produto['produto']->sku}}</p>
@@ -35,13 +34,13 @@
                         </div>
                         <div class="checkoutContent_items__item-valor">
                             <h4>Valor unitário:</h4>
-                            <p>R$ {{ number_format(num:$produto['produto']->valor, decimals: 2, decimal_separator: ',',thousands_separator: '.' )}}</p>
+                            <p>R$ {{ number_format($produto['produto']->valor,  2, ',', '.' )}}</p>
                         </div>
                         <div class="checkoutContent_items__item-valor">
                             <h4>Valor total:</h4>
-                            <p>R$ {{ number_format(num:$produto['produto']->valor*$produto['quantidade'], decimals: 2, decimal_separator: ',',thousands_separator: '.' )}}</p>
+                            <p>R$ {{ number_format($produto['produto']->valor*$produto['quantidade'],  2, ',', '.' )}}</p>
                         </div>
-                        <a href={{ route('remover-do-carrinho', $produto['produto']->id) }}><button>Excluir</button></a>
+                        <a href="{{ route('remover-do-carrinho', $produto['produto']->id) }}"><button>Excluir</button></a>
                     </section>
                 @endforeach
             @else
@@ -51,16 +50,16 @@
         </div>
         <div class="checkoutContent_values">
             <section class="checkoutContent_values__total">
-                <h1>Total: R${{ number_format(num:$valores[0]['valorTotal'], decimals: 2, decimal_separator: ',',thousands_separator: '.' )}}</h1>
+                <h1>Total: R${{ number_format($valores[0]['valorTotal'],  2, ',', '.' )}} + Frete</h1>
             </section>
             <section class="checkoutContent_values__pix">
                 <h6>A vista</h6>
-                <h1>R${{ number_format(num:$valores[0]['valorDescontoPix'], decimals: 2, decimal_separator: ',',thousands_separator: '.' )}}</h1>
+                <h1>R${{ number_format($valores[0]['valorDescontoPix'],  2, ',', '.' )}}</h1>
                 <h6>Com 10% de desconto no pix</h6>
             </section>
             <section class="checkoutContent_values__cartao">
                 <h6>ou em até 10x de</h6>
-                <p class="checkoutContent_values__cartao-p"><b>{{ number_format(num:$valores[0]['valorParcelado'], decimals: 2, decimal_separator: ',',thousands_separator: '.' )}}</b></p>
+                <p class="checkoutContent_values__cartao-p"><b>{{ number_format($valores[0]['valorParcelado'],  2, ',', '.' )}}</b></p>
                 <h6>sem juros no cartão</h6>
             </section>
             <div class="checkoutContent_values__button">

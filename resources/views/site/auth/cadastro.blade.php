@@ -103,9 +103,9 @@
             <input type="text" name="estado" id="estado" class="form-control" placeholder="Estado" required>
             <input type="text" name="numero" id="numero" class="form-control" placeholder="Numero" required>
             <input type="text" name="referencia" id="referencia" class="form-control" placeholder="Ponto de referência"
-                   required>
+                   >
             <input type="text" name="complemento" id="complemento" class="form-control" placeholder="Complemento"
-                   required>
+                   >
         </div>
 
         <button type="submit">Cadastrar</button>

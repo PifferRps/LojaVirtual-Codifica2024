@@ -68,8 +68,8 @@ class DashboardController extends Controller
     {
         $maisVendidos = PedidoProduto::select('produto_id', 'produtos.nome', 'produtos.valor', DB::raw('SUM(quantidade_vendida) as vendas'))
             ->join('produtos', 'produtos.id', '=', 'pedidos_produtos.produto_id')
-            ->whereNotNull('produtos.deleted_at')
-            ->groupBy('produto_id')
+            ->whereNull('produtos.deleted_at')
+            ->groupBy('produto_id', 'produtos.nome', 'produtos.valor') // Adiciona colunas ao groupBy
             ->orderByDesc('vendas')
             ->limit(3)
             ->get();

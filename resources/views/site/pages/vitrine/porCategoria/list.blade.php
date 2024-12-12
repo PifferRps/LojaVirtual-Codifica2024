@@ -1,10 +1,9 @@
 @extends("site._layouts.site")
 @section("conteudo")
     <section class="container" style="max-width: 1024px">
-        <h1>Categoria</h1>
+        <h1>{{ $categoriaSelecionada->nome }}</h1>
 
         <section id="produtos">
-
             @foreach($produtos as $produto)
             <div class="produto-card">
                 <a href="{{ route('site.produto.show', $produto->id) }}">

@@ -12,6 +12,13 @@
                 <a href="{{ route('categorias.create') }}" class="">Adicionar Categoria</a>
             </div>
         </div>
+        <div class="mensagem_flash">
+            @if (session()->has('mensagem'))
+                <div class="">
+                    {{ session('mensagem') }}
+                </div>
+            @endif
+        </div>
         <div class="conteudo_main">
             <div class="conteudo_main__infos">
                 <section class="conteudo_main__infos-section1">Categoria</section>

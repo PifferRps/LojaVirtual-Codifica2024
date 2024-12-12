@@ -16,8 +16,18 @@
             <p>Resumo</p>
         </div>
     </div>
+    <div class="mensagem_flash">
+        @if (session()->has('mensagem'))
+            <div class="">
+                {{ session('mensagem') }}
+            </div>
+        @endif
+    </div>
     <div class="checkoutContent">
         <div class="checkoutContent_items">
+            <form action="{{route('site.checkout.carrinho-alterarquantidade')}}" method="get">
+                @csrf
+                <button>Atualizar quantidade</button>
             @if(session('produtos'))
                 @foreach($produtos as $produto)
                     <section class="checkoutContent_items__item">
@@ -30,7 +40,7 @@
                         </div>
                         <div class="checkoutContent_items__item-qt">
                             <label for="quantidade">Quantidade</label>
-                            <input type="number" name="quantidade" value="{{ $produto['quantidade'] }}">
+                            <input type="number" name="carrinho_atualizado[{{ $produto['produto']->id }}]" value="{{ $produto['quantidade'] }}">
                         </div>
                         <div class="checkoutContent_items__item-valor">
                             <h4>Valor unitário:</h4>
@@ -40,13 +50,13 @@
                             <h4>Valor total:</h4>
                             <p>R$ {{ number_format($produto['produto']->valor*$produto['quantidade'],  2, ',', '.' )}}</p>
                         </div>
-                        <a href="{{ route('remover-do-carrinho', $produto['produto']->id) }}"><button>Excluir</button></a>
+                        <button formaction="{{ route('remover-do-carrinho', $produto['produto']->id) }}">Excluir</button>
                     </section>
                 @endforeach
             @else
                 <p>Oops, seu carrinho está vazio! Clique <a href="{{ route('site.pages.vitrine.produtos.list') }}">aqui</a> para voltar a loja!</p>
             @endif
-
+            </form>
         </div>
         <div class="checkoutContent_values">
             <section class="checkoutContent_values__total">

@@ -8,7 +8,7 @@
             @foreach($produtos as $produto)
             <div class="produto-card">
                 <a href="{{ route('site.produto.show', $produto->id) }}">
-                    <img src="{{ asset('img/1.jpg') }}" alt="Imagem do produto">
+                    <img src="{{  asset($produto->imagem_1)  }}" alt="Imagem do produto">
                     <p class="produto-nome">{{ $produto->nome }}</p>
                     <p class="produto-valor">R$ {{ number_format($produto->valor, 2, ',', '.') }}</p>
                 </a>

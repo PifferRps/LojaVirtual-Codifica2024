@@ -45,6 +45,7 @@ class PedidosController extends Controller
         $pedido->update([
             'status_id' => $request->input('status_id')
         ]);
+        session()->flash('mensagem', value: 'Status do pedido atualizado com sucesso.');
 
         return redirect('/admin/pedidos');
     }

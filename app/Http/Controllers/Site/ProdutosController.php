@@ -8,12 +8,10 @@ use App\Models\Produto;
 use App\Models\ProdutoCategoria;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Session;
-use function Symfony\Component\String\s;
 
 class ProdutosController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
         $novidades = Produto::orderByDesc('id')
             ->where('quantidade', '>', 0)
@@ -44,7 +42,22 @@ class ProdutosController extends Controller
     {
         $produtos = Produto::where('categoria_id', $id_categoria)->get();
         $categorias = ProdutoCategoria::all();
+
         return view('site.pages.vitrine.porCategoria.list', compact('produtos', 'categorias'));
+    }
+
+    public function pesquisaProdutos(Request $request)
+    {
+        $query = Produto::query();
+
+        if ($request->pesquisaProdutos) {
+            $query->where('nome', 'like', "%{$request->pesquisaProdutos}%");
+        }
+
+        $pesquisaProdutos = $query->get();
+        $categorias = ProdutoCategoria::all();
+
+        return view('site.pages.vitrine.produtos.pesquisa', compact('categorias', 'pesquisaProdutos'));
     }
 
     public function adicionarAoCarrinho($id, Request $request)
@@ -59,7 +72,7 @@ class ProdutosController extends Controller
 
         $sessao = session('produtos', []);
 
-        if (array_key_exists($produto->id, $sessao)){
+        if (array_key_exists($produto->id, $sessao)) {
             $soma = $request->query('quantidade') + $sessao[$produto->id]['quantidade'];
             $sessao[$produto->id] = [
                 'quantidade' => $soma,
@@ -73,8 +86,8 @@ class ProdutosController extends Controller
                 'produto' => $produto
             ];
         }
-
         session(['produtos' => $sessao]);
+        session()->flash('mensagem', value: 'Produto adicionado ao carrinho.');
 
         return to_route('site.produto.show', $id);
     }

@@ -35,7 +35,7 @@
                         </div>
                     @endif
                     @if(session('mensagem'))
-                        <div style="color: red" role="alert">
+                        <div style="color: gray" role="alert">
                             <span>{{ session('mensagem') }}</span>
                         </div>
                     @endif

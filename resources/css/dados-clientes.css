@@ -2,7 +2,6 @@
     font-family: "Host Grotesk", sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #043495;
   }
 
 .dadosClientesPrincipal{
@@ -16,15 +15,15 @@
 .dadosClientesPrincipal input{
 
     width: 100%;
-    
+
 }
 
 .informacoes {
-    
+
     display: flex;
-    flex-direction: column; 
+    flex-direction: column;
     border-radius: 20px;
-    
+
     box-shadow:1px 1px 11px 0px #03266b;
    padding: 5vh;
     height: 85vh;
@@ -68,11 +67,11 @@ input[type=text]{
 input[type=text]:focus {
     background-color: #92eea6;
     color: black;
-  
+
 }
 
 
-  
+
 input[type=date]{
 
     background-color: white;

@@ -74,8 +74,6 @@ class DashboardController extends Controller
             ->limit(3)
             ->get();
 
-        dd($maisVendidos);
-
         return $maisVendidos;
     }
 }

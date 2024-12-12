@@ -2,22 +2,20 @@
 @section("conteudo")
     <div class="conteudo" >
         <div class="conteudo_header">
-
             <form action="" class="form">
-                
-                <label for="ordem">Ordenar por</label>
-                <select id="ordem" name="ordem">
-                    <option value="0"></option>
-                    <option value="asc" >menor quantidade</option>
-                    <option value="desc" >maior quantidade</option>
+                <label for="status">Status:</label>
+                <select id="status" name="status">
+                    <option value="0">Todos</option>
+                    @foreach($status as $status_unitario)
+                        <option value="{{ $status_unitario->id }}" {{ isset($_GET['status']) && $status_unitario->id == $_GET['status'] ? 'selected' : '' }}>{{ $status_unitario->status }}</option>
+                    @endforeach
                 </select>
-
-                <label for="Search"></label>
-                <input type="text" name="searchPedidos">
+                
+                <label for="buscarPedidos">Buscar</label>
+                <input type="text" name="buscarPedidos" placeholder=" ID do pedido">
 
                 <button type="submit">Buscar</button>
             </form>
-
         </div>
 
         <div class="conteudo_main" style="overflow: auto">

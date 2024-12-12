@@ -13,7 +13,7 @@ use function Symfony\Component\String\s;
 
 class ProdutosController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
         $novidades = Produto::orderByDesc('id')
             ->limit(5)
@@ -44,13 +44,27 @@ class ProdutosController extends Controller
         return view('site.pages.vitrine.porCategoria.list', compact('produtos', 'categorias'));
     }
 
+    public function pesquisaProdutos(Request $request)
+    {
+        $query = Produto::query();
+
+        if($request->pesquisaProdutos){
+            $query->where('nome', 'like', "%{$request->pesquisaProdutos}%");
+        }
+
+        $pesquisaProdutos = $query->get();
+        $categorias = ProdutoCategoria::all();
+
+        return view('site.pages.vitrine.produtos.pesquisa', compact(  'categorias', 'pesquisaProdutos'));
+    }
+
     public function adicionarAoCarrinho($id, Request $request)
     {
         $produto = Produto::find($id);
 
         $sessao = session('produtos', []);
 
-        if (array_key_exists($produto->id, $sessao)){
+        if (array_key_exists($produto->id, $sessao)) {
             $soma = $request->query('quantidade') + $sessao[$produto->id]['quantidade'];
             $sessao[$produto->id] = [
                 'quantidade' => $soma,

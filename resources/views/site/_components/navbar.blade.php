@@ -52,19 +52,34 @@
     </div>
 
     <nav>
+        <select name="categorias" id="categorias">
+            <option value="0">Selecione</option>
+            @foreach ($categorias as $categoria)
+                <option value="{{ $categoria->id }}" {{ $categoria->id == $categoriaSelecionada->id ? 'selected' : '' }}>{{ $categoria->nome }}</option>
+            @endforeach
+        </select>
         <div>
-            <a href="{{ route('site.porCategoria', 1) }}"><p>Eletrônicos</p></a>
+            <a href="{{ route('site.porCategoria', 1) }}"><p>Hardware</p></a>
         </div>
         <div>
-            <a href="{{ route('site.porCategoria', 2) }}"><p>Cosméticos</p></a>
+            <a href="{{ route('site.porCategoria', 2) }}"><p>Mouses</p></a>
         </div>
         <div>
-            <a href="{{ route('site.porCategoria', 3) }}"><p>Vestuário</p></a>
+            <a href="{{ route('site.porCategoria', 3) }}"><p>Teclados</p></a>
         </div>
         <div>
-            <a href="{{ route('site.porCategoria', 4) }}"><p>Eletrodomésticos</p></a>
+            <a href="{{ route('site.porCategoria', 4) }}"><p>Monitores</p></a>
         </div>
     </nav>
+    
+    <script>
+        document.getElementById('categorias').addEventListener('change', function () {
+            const categoriaId = this.value;
+            if (categoriaId != 0) {
+                window.location.href = `/categoria/${categoriaId}`;
+            }
+        });
+    </script>
     @vite('resources/css/navbar.css')
     @vite('resources/js/dark-mode.js')
 </header>

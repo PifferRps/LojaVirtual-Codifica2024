@@ -3,11 +3,8 @@
 namespace App\Http\Controllers\Site;
 
 use App\Http\Controllers\Controller;
-use App\Models\ClienteEndereco;
 use App\Models\FormaPagamento;
 use App\Models\Pedido;
-use App\Models\Produto;
-use App\Models\Usuario;
 use App\Models\UsuarioCliente;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -49,15 +46,19 @@ class CheckoutController extends Controller
     public function removerDoCarrinho($id)
     {
         session()->forget('produtos.' . $id);
+
         if (!session('produtos')) {
             return redirect('/');
         }
+        session()->flash('mensagem', value: 'Produto removido do carrinho.');
+
         return redirect()->back();
     }
 
     public function removerTudoDoCarrinho()
     {
         session()->forget('produtos');
+       
         return redirect('/');
     }
 

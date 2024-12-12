@@ -16,6 +16,13 @@
             <p>Resumo</p>
         </div>
     </div>
+    <div class="mensagem_flash">
+        @if (session()->has('mensagem'))
+            <div class="">
+                {{ session('mensagem') }}
+            </div>
+        @endif
+    </div>
     <div class="checkoutContent">
         <div class="checkoutContent_items">
             <form action="{{route('site.checkout.carrinho-alterarquantidade')}}" method="get">

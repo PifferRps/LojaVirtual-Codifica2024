@@ -1,4 +1,4 @@
-@extends('.admin._layouts.admin')
+@extends('admin._layouts.admin')
 @section('conteudo')
     <div>
         <h3>Venda por período: </h3>

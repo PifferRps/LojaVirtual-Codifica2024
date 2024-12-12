@@ -14,5 +14,7 @@
     <div class="main">
         @yield('conteudo')
     </div>
+
+    @stack("script")
 </body>
 </html>

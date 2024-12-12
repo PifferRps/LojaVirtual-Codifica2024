@@ -55,7 +55,18 @@ Route::middleware(['auth'])->group(function () {
             Route::resource('pedidos', AdminPedidosController::class)->except('create', 'store');
             Route::resource('clientes', AdminClientesController::class)->except('show', 'create', 'store', 'destroy');
             Route::resource('categorias', AdminCategoriasController::class)->except('show');
-            Route::resource('relatorios', RelatoriosController::class)->except('show');
+            Route::prefix('relatorios')->group(function () {
+                Route::get('/', [RelatoriosController::class, 'index'])->name('relatorios.index');
+
+                Route::get('/estoque-atual', [RelatoriosController::class, 'paginaEstoqueAtual'])->name('relatorios.estoque-atual');
+                Route::post('/estoque-atual/gerar', [RelatoriosController::class, 'gerarPdfEstoqueAtual'])->name('relatorios.estoque-atual.gerar');
+
+                Route::get('/vendas', [RelatoriosController::class, 'paginaVendas'])->name('relatorios.vendas');
+                Route::post('/vendas/gerar', [RelatoriosController::class, 'gerarPdfVendas'])->name('relatorios.vendas.gerar');
+
+                Route::get('/mais-vendidos', [RelatoriosController::class, 'paginaMaisVendidos'])->name('relatorios.mais-vendidos');
+                Route::post('/mais-vendidos/gerar', [RelatoriosController::class, 'gerarPdfMaisVendidos'])->name('relatorios.mais-vendidos.gerar');
+            });
         });
     });
 });

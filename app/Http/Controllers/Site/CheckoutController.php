@@ -61,6 +61,20 @@ class CheckoutController extends Controller
         return redirect('/');
     }
 
+    public function alterarQuantidadeProduto(Request $request)
+    {
+
+        $produtos = session('produtos', []);
+
+        foreach ($request->input('carrinho_atualizado') as $id => $quantidade) {
+            $produtos[$id]['quantidade'] = $quantidade;
+        }
+
+        session(['produtos' => $produtos]);
+
+        return redirect()->back();
+    }
+
     public function etapaEnderecos()
     {
         $usuario = Auth::user();

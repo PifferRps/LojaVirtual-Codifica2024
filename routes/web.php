@@ -22,6 +22,7 @@ Route::get('/produto/{produto}', [ProdutosController::class, 'show'])->name('sit
 Route::get('/categoria/{categoria}', [ProdutosController::class, 'produtosPorCategoria'])->name('site.porCategoria');
 Route::get('/produto/adicionar-ao-carrinho/{id}', [ProdutosController::class, 'adicionarAoCarrinho'])->name('adicionar-ao-carrinho');
 Route::get('/carrinho', [CheckoutController::class, 'index'])->name('site.checkout.carrinho');
+Route::get('/carrinho/adicionar', [CheckoutController::class, 'alterarQuantidadeProduto'])->name('site.checkout.carrinho-alterarquantidade');
 Route::get('/remover-do-carrinho/{id}', [CheckoutController::class, 'removerDoCarrinho'])->name('remover-do-carrinho');
 Route::get('/remover-tudo-do-carrinho', [CheckoutController::class, 'removerTudoDoCarrinho'])->name('remover-tudo-do-carrinho');
 
@@ -32,6 +33,7 @@ Route::resource('/cadastro', CadastroController::class)->only('index', 'store');
 //Route::resource('enderecos', EnderecosController::class);
 
 Route::middleware(['auth'])->group(function () {
+
     Route::get('/enderecos', [CheckoutController::class, 'etapaEnderecos'])->name('site.checkout.enderecos');
     Route::post('/enderecos/salvar', [CheckoutController::class, 'salvarEndereco'])->name('site.checkout.enderecos.salvar');
     Route::get('/pagamento', [CheckoutController::class, 'etapaPagamento'])->name('site.checkout.pagamento');

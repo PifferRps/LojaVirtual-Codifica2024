@@ -16,10 +16,13 @@ class ProdutosController extends Controller
     public function index()
     {
         $novidades = Produto::orderByDesc('id')
+            ->where('quantidade', '>', 0)
             ->limit(5)
             ->get();
 
         $mais_vendidos = PedidoProduto::select('produto_id', DB::raw('SUM(quantidade_vendida) as vendas'))
+            ->join('produtos', 'produtos.id', '=', 'pedidos_produtos.produto_id') // Faz a junção com a tabela de produtos
+            ->where('produtos.quantidade', '>', 0) // Filtra os produtos com quantidade > 0
             ->groupBy('produto_id')
             ->orderByDesc('vendas')
             ->limit(5)
@@ -47,6 +50,12 @@ class ProdutosController extends Controller
     public function adicionarAoCarrinho($id, Request $request)
     {
         $produto = Produto::find($id);
+
+        if ($produto->quantidade < $request->query('quantidade')){
+            session()->flash('mensagem', "Quantidade indisponível. Estoque disponível: {$produto->quantidade}");
+
+            return redirect()->back();
+        }
 
         $sessao = session('produtos', []);
 

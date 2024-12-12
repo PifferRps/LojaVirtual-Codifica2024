@@ -14,7 +14,7 @@ class PedidosController extends Controller
 {
     public function index()
     {
-        $pedidos = Pedido::with('status')->get();
+        $pedidos = Pedido::all();
         $status = PedidoStatus::all();
 
         return view('admin.pages.pedidos.list', compact('pedidos', 'status'));

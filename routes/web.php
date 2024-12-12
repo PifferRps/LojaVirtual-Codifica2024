@@ -37,7 +37,8 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/pagamento', [CheckoutController::class, 'etapaPagamento'])->name('site.checkout.pagamento');
     Route::post('/pagamento/salvar', [CheckoutController::class, 'salvarPagamento'])->name('site.checkout.pagamento.salvar');
     Route::get('/confirmacao', [CheckoutController::class, 'etapaConfirmacao'])->name('site.checkout.confirmacao');
-    Route::post('/concluido', [CheckoutController::class, 'etapaConcluido'])->name('site.checkout.concluido');
+    Route::get('/pedido/salvar', [CheckoutController::class, 'salvarPedido'])->name('site.checkout.salvar');
+    Route::get('/concluido', [CheckoutController::class, 'etapaConcluido'])->name('site.checkout.concluido');
 
     Route::prefix('meu-perfil')->group(function () {
         Route::get('/', [ClienteClientesController::class, 'index'])->name('site.meu-perfil.index');

@@ -61,7 +61,7 @@
                     R${{ number_format($valores[0]['valorTotal']+$frete,  2,  ',', '.' )}}</h1>
             </section>
             <div class="checkoutContent_values__button">
-                <a href="{{ route('site.checkout.concluido') }}">Finalizar compra</a>
+                <a href="{{ route('site.checkout.salvar') }}">Finalizar compra</a>
             </div>
         </div>
     </div>

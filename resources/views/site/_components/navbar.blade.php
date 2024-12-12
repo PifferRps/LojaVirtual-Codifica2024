@@ -33,7 +33,7 @@
                     @else
                     <a href="{{ route('site.meu-perfil.index') }}">
                         <i class="fas fa-user-circle"></i> Meu Perfil</a>
-                    <a href="{{route('pedidos.index')}}">
+                    <a href="{{route('site.meu-perfil.index')}}">
                         <i class="fas fa-shopping-bag"></i> Minhas Compras</a>
                     @endif
                     <a href="{{ route('logout') }}">
@@ -58,6 +58,9 @@
                 <option value="{{ $categoria->id }}" {{ isset($categoriaSelecionada) && $categoria->id == $categoriaSelecionada->id ? 'selected' : '' }}>{{ $categoria->nome }}</option>
             @endforeach
         </select>
+        <div>
+            <a href="{{ route('site.porCategoria', 0) }}"><p>Todos</p></a>
+        </div>
         <div>
             <a href="{{ route('site.porCategoria', 1) }}"><p>Hardware</p></a>
         </div>

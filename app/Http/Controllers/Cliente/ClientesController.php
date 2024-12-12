@@ -3,8 +3,7 @@
 namespace App\Http\Controllers\Cliente;
 
 use App\Http\Controllers\Controller;
-use App\Models\Usuario;
-use App\Models\UsuarioCliente;
+use App\Models\ProdutoCategoria;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -14,8 +13,9 @@ class ClientesController extends Controller
     public function index() // tela minha conta
     {
         $usuario = Auth::user();
+        $categorias = ProdutoCategoria::all();
 
-        return view('site.pages.perfil.form', compact('usuario'));
+        return view('site.pages.perfil.form', compact('usuario', 'categorias'));
     }
 
 //    public function edit() // tela de edição de dados
@@ -37,8 +37,6 @@ class ClientesController extends Controller
             'telefone' => $request->input('telefone'),
             'data_nascimento' => $request->input('data_nascimento'),
         ]);
-
-
 
         return redirect()->route('site.meu-perfil.index'); //retorna a tela minha conta
     }

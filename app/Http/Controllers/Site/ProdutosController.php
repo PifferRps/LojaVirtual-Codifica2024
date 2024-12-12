@@ -44,6 +44,10 @@ class ProdutosController extends Controller
         $categoriaSelecionada = ProdutoCategoria::find($id_categoria);
         $categorias = ProdutoCategoria::all();
 
+        if ($id_categoria == 0){
+            $produtos = Produto::all();
+        }
+
         return view('site.pages.vitrine.porCategoria.list', compact('produtos', 'categoriaSelecionada', 'categorias'));
     }
 

@@ -1,7 +1,7 @@
 @extends("site._layouts.site")
 @section("conteudo")
     <section class="container" style="max-width: 1024px">
-        <h1>{{ $categoriaSelecionada->nome }}</h1>
+        <h1>{{ isset($categoriaSelecionada->nome) ? $categoriaSelecionada->nome : 'Todos' }}</h1>
 
         <section id="produtos">
             @foreach($produtos as $produto)

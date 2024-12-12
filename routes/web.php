@@ -24,6 +24,7 @@ Route::get('/produto/adicionar-ao-carrinho/{id}', [ProdutosController::class, 'a
 Route::get('/carrinho', [CheckoutController::class, 'index'])->name('site.checkout.carrinho');
 Route::get('/remover-do-carrinho/{id}', [CheckoutController::class, 'removerDoCarrinho'])->name('remover-do-carrinho');
 Route::get('/remover-tudo-do-carrinho', [CheckoutController::class, 'removerTudoDoCarrinho'])->name('remover-tudo-do-carrinho');
+Route::get('/pesquisa', [ProdutosController::class,'pesquisaProdutos'])->name('site.pages.vitrine.produtos.pesquisa');
 
 Route::get('/login', [LoginController::class, 'index'])->name('login');
 Route::post('/login/autenticar', [LoginController::class, 'login'])->name('login.autenticar');

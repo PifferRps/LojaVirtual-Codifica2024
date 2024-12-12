@@ -5,8 +5,8 @@
             <a href="{{ route('site.pages.vitrine.produtos.list') }}"><img src="{{ asset('img/codificamaislogo.png') }}" alt="Logo CODIFICA+"></a>
         </div>
         <div class="header_container__search">
-            <form action="">
-                <input type="text" name="search" placeholder="Nome do produto">
+            <form action="{{ route('site.pages.vitrine.produtos.pesquisa') }}">
+                <input type="text" name="pesquisaProdutos" placeholder="Nome do produto">
                 <button>Buscar</button>
             </form>
         </div>

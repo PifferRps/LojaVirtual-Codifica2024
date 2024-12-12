@@ -16,8 +16,8 @@
         <h3>Produtos Mais Vendidos:</h3>
         @foreach($dados->maisVendidos as $produto)
             <div>
-                <span>Nome do produto: {{ $produto->produto->nome }}</span><br>
-                <span>Valor: R$ {{ number_format($produto->produto->valor, 2, ',', '.') }}</span><br>
+                <span>Nome do produto: {{ $produto->nome }}</span><br>
+                <span>Valor: R$ {{ number_format($produto->valor, 2, ',', '.') }}</span><br>
                 <span>Quantidade Vendida: {{ $produto->vendas }}</span><br>
             </div><br>
         @endforeach

@@ -10,7 +10,7 @@ class CategoriasController extends Controller
 {
     public function index()
     {
-        $categorias = ProdutoCategoria::All();
+        $categorias = ProdutoCategoria::withCount('produtos')->get();
 
         return view('admin.pages.categorias.list', compact('categorias'));
     }

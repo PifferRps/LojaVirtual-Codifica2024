@@ -20,7 +20,7 @@
         <div class="checkoutContent_informacoes">
             <div class="checkoutContent_informacoes__pagamento">
                 <section class="payment-card">
-                    <input type="radio" id="pix" name="payment_method" value="1">
+                    <input type="radio" id="pix" required name="payment_method" value="1">
                     <label for="pix">
                         <img src="img/pix.png" alt="Pix Icon" class="payment-icon">
                         Pix <span class="payment-discount">(10% de desconto)</span>
@@ -29,7 +29,7 @@
             </div>
             <div class="checkoutContent_informacoes__pagamento">
                 <section class="payment-card">
-                    <input type="radio" id="boleto" name="payment_method" value="2">
+                    <input type="radio" id="boleto" required name="payment_method" value="2">
                     <label for="boleto">
                         <img src="img/boleto.png" alt="Boleto Icon" class="payment-icon">
                         Boleto
@@ -38,7 +38,7 @@
             </div>
             <div class="checkoutContent_informacoes__pagamento">
                 <section class="payment-card">
-                    <input type="radio" id="cartao" name="payment_method" value="3">
+                    <input type="radio" id="cartao" required name="payment_method" value="3">
                     <label for="cartao">
                         <img src="img/cartao.png" alt="Cartão Icon" class="payment-icon">
                         Cartão de crédito
@@ -54,17 +54,24 @@
 
         <div class="checkoutContent_values">
             <section class="checkoutContent_values__total">
-                <h1>Total com frete: R${{ number_format(num:$valorComFrete, decimals: 2, decimal_separator: ',',thousands_separator: '.' )}}</h1>
+                <h1>Total:
+                    R${{ number_format($valores[0]['valorTotal'],  2,  ',', '.' )}}</h1>
+                <h4>Valor frete: R${{ number_format($frete,  2,  ',', '.' )}}</h4>
             </section>
             <section class="checkoutContent_values__pix">
                 <h6>A vista</h6>
-                <h1>R${{ number_format(num:$valores[0]['valorDescontoPix'], decimals: 2, decimal_separator: ',',thousands_separator: '.' )}}</h1>
-                <h6>Com 10% de desconto no pix.</h6>
+                <h1>
+                    R${{ number_format($valores[0]['valorDescontoPix'],  2,  ',', '.' )}}</h1>
+                <h6>Com 10% de desconto no pix</h6>
+                <h6>+ valor do frete</h6>
             </section>
             <section class="checkoutContent_values__cartao">
                 <h6>ou em até 10x de</h6>
-                <p class="checkoutContent_values__cartao-p"><b>{{ number_format(num:$valores[0]['valorParcelado'], decimals: 2, decimal_separator: ',',thousands_separator: '.' )}}</b></p>
+                <p class="checkoutContent_values__cartao-p">
+                    <b>{{ number_format($valores[0]['valorParcelado'],  2,  ',', '.' )}}</b>
+                </p>
                 <h6>sem juros no cartão</h6>
+                <h6>+ valor do frete</h6>
             </section>
             <div class="checkoutContent_values__button">
                 <button>Continuar</button>

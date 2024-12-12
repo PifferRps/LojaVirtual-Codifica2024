@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Site;
 
 use App\Http\Controllers\Controller;
 use App\Models\ClienteEndereco;
+use App\Models\FormaPagamento;
 use App\Models\Produto;
 use App\Models\Usuario;
 use App\Models\UsuarioCliente;
@@ -84,10 +85,10 @@ class CheckoutController extends Controller
     public function etapaPagamento()
     {
         $valores = $this->getValores();
-        $valorComFrete = session('frete') + $valores[0]['valorTotal'];
+
         $frete = session('frete');
 
-        return view('site.pages.checkout.pagamento', compact('valores', 'frete', 'valorComFrete'));
+        return view('site.pages.checkout.pagamento', compact('valores', 'frete'));
     }
 
     public function salvarPagamento(Request $request)
@@ -100,14 +101,20 @@ class CheckoutController extends Controller
 
         session(['pagamento' => $pagamento]);
 
+
         return to_route('site.checkout.confirmacao');
     }
 
     public function etapaConfirmacao()
     {
-        $idEndereco = session('endereco');
+        $formasDePagamento = FormaPagamento::all()
+            ->pluck('nome', 'id')
+            ->toArray();
 
-        $pagamento = session('pagamento');
+        $frete = session('frete');
+        $idEndereco = session('endereco');
+        $idPagamento = session('pagamento');
+        $pagamento = $formasDePagamento[$idPagamento];
         $vezes = session('vezes');
         $produtos = session('produtos');
         $valores = $this->getValores();
@@ -115,7 +122,7 @@ class CheckoutController extends Controller
         $cliente = UsuarioCliente::where('usuario_id', $id)->first();
         $enderecos = $cliente->enderecos->toArray();
 
-        return view('site.pages.checkout.confirmacao', compact('valores','frete', 'cliente', 'enderecos', 'produtos', 'vezes', 'pagamento', 'idEndereco'));
+        return view('site.pages.checkout.confirmacao', compact('valores', 'frete', 'cliente', 'enderecos', 'produtos', 'vezes', 'pagamento', 'idEndereco', 'idPagamento'));
     }
 
     public function etapaConcluido()

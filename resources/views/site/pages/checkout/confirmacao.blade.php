@@ -69,7 +69,7 @@
                 <h6>sem juros no cartão</h6>
             </section>
             <div class="checkoutContent_values__button">
-                <a href="{{ route('site.checkout.concluido') }}">Finalizar compra</a>
+                <a href="{{ route('site.checkout.salvar') }}">Finalizar compra</a>
             </div>
         </div>
     </div>

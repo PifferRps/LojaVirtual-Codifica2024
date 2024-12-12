@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Site;
 
 use App\Http\Controllers\Controller;
 use App\Models\ClienteEndereco;
+use App\Models\Pedido;
 use App\Models\Produto;
 use App\Models\Usuario;
 use App\Models\UsuarioCliente;
@@ -115,7 +116,50 @@ class CheckoutController extends Controller
         $cliente = UsuarioCliente::where('usuario_id', $id)->first();
         $enderecos = $cliente->enderecos->toArray();
 
-        return view('site.pages.checkout.confirmacao', compact('valores','frete', 'cliente', 'enderecos', 'produtos', 'vezes', 'pagamento', 'idEndereco'));
+        return view('site.pages.checkout.confirmacao', compact('valores','cliente', 'enderecos', 'produtos', 'vezes', 'pagamento', 'idEndereco'));
+    }
+
+    public function salvarPedido()
+    {
+        $usuario = Auth::user();
+        $valor_total = 0;
+        $desconto = 0;
+
+        foreach(session('produtos') as $item){
+            $valor_total += ($item['produto']->valor * $item['quantidade']);
+
+            $item['produto']->update(['quantidade' => ($item['produto']->quantidade - $item['quantidade'])]);
+        }
+
+        if(session('pagamento') == 1){
+            $desconto = ($valor_total * 0.1);
+        }
+
+        $valor_final = $valor_total - $desconto + session('frete');
+
+        Pedido::create([
+            'data_transacao' => date('Y-m-d'),
+            'cliente_id' => $usuario->cliente->id,
+            'endereco_id' => session('endereco'),
+            'status_id' => 4,
+            'forma_pagamento_id' => session('pagamento'),
+            'valor_total' => $valor_total,
+            'desconto_total' => $desconto,
+            'valor_frete' => session('frete'),
+            'valor_final' => $valor_final,
+            'parcelas' => session('vezes')
+        ]);
+
+
+        session()->forget([
+            'produtos',
+            'endereco',
+            'frete',
+            'vezes',
+            'pagamento'
+        ]);
+
+        return to_route('site.checkout.concluido');
     }
 
     public function etapaConcluido()

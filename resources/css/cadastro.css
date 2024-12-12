@@ -4,6 +4,7 @@
     font-family: "Host Grotesk", sans-serif;
     margin: 0;
     padding: 0;
+    background-color: #043495;
 }
 
 body {
@@ -11,6 +12,10 @@ body {
     width: 100vw;
     min-height: 100vh;
     justify-content: center;
+}
+
+h3 {
+    color: white;
 }
 
 .container {
@@ -26,39 +31,44 @@ body {
 
 .main__logo {
     margin: 1rem;
-    max-width: 18rem;
+    max-width: 23rem;
 }
 
 form {
+    background-color: #042d80;
     display: flex;
     flex-direction: column;
-    border: solid rgb(255, 71, 71) 0.250rem;
+    border: solid rgb(28, 28, 120) 0.250rem;
     border-radius: 1.875rem;
     padding: 1.5rem;
     gap: 1rem;
-    align-items: center;
-    width: 20rem;
+    justify-content: space-around;
+    width: 90%;
+    max-width: 40rem;
 }
 
 .form-group{
     display: flex;
     flex-direction: column;
     gap: 1rem;
+    width: 100%;
+align-items: center;
 }
 
 .form-control{
+    background-color: white;
     display: flex;
     flex-direction: column;
     border-radius: 0.313rem;
-    border: solid rgb(255, 103, 103) 0.100rem;
     padding-left: 0.5rem;
-    width: 15rem;
+    width: 100%;
+    max-width: 20rem;
     height: 2.5rem;
 }
 
 button {
 border-radius: 0.3rem;
-    background-color: #ff3232;
+    background-color: rgb(100, 100, 247);
   border: none;
   color: white;
   padding: 0.850rem 1rem;
@@ -68,28 +78,6 @@ border-radius: 0.3rem;
   font-size: medium;
 }
 button:hover {
-    background-color:  rgb(216, 0, 0);
+    background-color:  rgb(76, 76, 224);
     cursor: pointer;
     }
-
-    body.dark-mode {
-        background-color: #121212;
-        color: #ffffff;
-    }
-    
-    .form__input.dark-mode,
-    .form-control.dark-mode {
-        background-color: #1e1e1e;
-        border: solid #333333 0.1rem;
-        color: #ffffff;
-    }
-    
-    button.dark-mode {
-        background-color: #333333;
-        color: #ffffff;
-    }
-    
-    button.dark-mode:hover {
-        background-color: #444444;
-    }
-    

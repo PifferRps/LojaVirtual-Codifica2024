@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', () => {
+/*document.addEventListener('DOMContentLoaded', () => {
     if (localStorage.getItem('dark-mode') === 'enabled') {
         document.body.classList.add('dark-mode');
     }
@@ -14,4 +14,4 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }
-});
+});*/

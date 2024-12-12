@@ -15,10 +15,6 @@
             </a>
         </div>
 
-        <button id="darkModeToggle" class="dark-mode-toggle">
-            <i class="fas fa-moon"></i>
-        </button>
-
         @auth
             <div class="header_container__user-info">
                 <p>Olá, {{ Auth::user()->cliente->nome ?? 'admin' }}!</p>
@@ -66,5 +62,6 @@
         </div>
     </nav>
     @vite('resources/css/navbar.css')
+    @vite('resources/css/header.css')
     @vite('resources/js/dark-mode.js')
 </header>

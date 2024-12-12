@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/png" href="{{ asset('favicon-16x16.png') }}">
+    <link rel="icon" type="image/png" href="{{ asset('favicon-32x32.png') }}">
     <title>Cadastro de Usuário</title>
     @vite('resources/css/cadastro.css')
 </head>
@@ -12,7 +12,7 @@
 <body>
 
 <div class="container">
-    <img class="main__logo" src="{{ asset('img/codificamaislogo2.png')}}" alt="logo">
+    <img class="main__logo" src="{{ asset('img/codificamaislogo.png')}}" alt="logo">
 
     <form action="{{ route('cadastro.store') }}" method="POST">
         @csrf

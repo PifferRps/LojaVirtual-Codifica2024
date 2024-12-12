@@ -1,11 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Host+Grotesk:ital,wght@0,300..800;1,300..800&display=swap');
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: "Host Grotesk", sans-serif;
 }
 
 .container {
-    padding-top: 2rem;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -18,32 +20,25 @@
     justify-content: center;
     margin-bottom: 2rem;
     padding: 1rem;
-    width: 90%;
+    width: 100%;
     border-radius: 0.3125rem;
 }
 
 .container_produtos__destaque-title {
     font-size: 1.8rem;
-    margin-bottom: 1rem;
+    margin: 1.5rem;
     text-align: center;
     color: #333;
 }
 
 .container_produtos__grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(12.5rem, 1fr));
-    gap: 1.25rem;
-    width: 100%;
-}
-
-.container {
-    padding: 2rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    max-width: 1024px;
+    grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+    gap: 1.5rem;
+    width: 90%;
     margin: 0 auto;
 }
+
 
 h1 {
     font-size: 2rem;
@@ -74,7 +69,7 @@ h1 {
 }
 
 .produto:hover {
-    transform: scale(1.05);
+    transform: scale(0.55);
     box-shadow: 0rem 0.25rem 0.5rem rgba(0, 0, 0, 0.2);
 }
 
@@ -87,28 +82,10 @@ h1 {
     font-weight: bold;
 }
 .produto p:nth-child(3) {
-    color: #e74c3c;
+    color: #e7e73c;
 }
 
-a {
-    text-decoration: none;
-    color: inherit;
-    cursor: pointer;
-}
 
-.dark-mode {
-    background-color: #121212;
-}
-
-.dark-mode .produto {
-    background-color: #383838;
-    border-color: #7b0000;
-}
-
-.dark-mode h1,
-.dark-mode .produto p {
-    color: #fff;
-}
 
 .produto-card {
     display: flex;
@@ -120,6 +97,8 @@ a {
     border-radius: 0.5rem;
     background-color: #f9f9f9;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    width: 100%;
+    max-width: 18rem;
 }
 
 .produto-card:hover {
@@ -153,21 +132,13 @@ color: inherit;
 cursor: pointer;
 }
 
-.dark-mode {
-    .produto-card{
-        background-color: #383838;
-        border-color: #7b0000;
-    }
 
-    .produto-nome {
+.swiper {
+    width: 100%;
+    padding: 1rem 0;
+}
 
-        font-size: 1.2rem;
-        color: #ffffff;
-        margin: 0.3125rem 0;
-    }
-
-    .container_produtos__destaque-title{
-        color: #ddd;
-    }
-    
+.swiper-slide {
+    display: flex;
+    justify-content: center;
 }

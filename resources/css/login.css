@@ -4,6 +4,7 @@
     font-family: "Host Grotesk", sans-serif;
     margin: 0;
     padding: 0;
+    background-color: #043495;
 }
 
 body {
@@ -24,8 +25,8 @@ body {
 }
 
 .main__logo {
-    margin: 2rem;
-    max-width: 20rem;
+    margin: 1rem;
+    max-width: 23rem;
 }
 
 .main__section {
@@ -36,41 +37,46 @@ body {
 }
 
 .section__form {
+    background-color: #042d80;
+    box-shadow: rgba(24, 41, 60, 0.8) 0 0 4px 3px;
     display: flex;
     flex-direction: column;
-    border: solid rgb(255, 71, 71) 0.250rem;
+    border: solid rgb(28, 28, 120) 0.250rem;
     border-radius: 1.875rem;
     padding: 2rem;
     gap: 1rem;
     align-items: center;
+    color: white;
 }
 
 .form__input {
     border-radius: 0.313rem;
-    border: solid rgb(255, 103, 103) 0.100rem;
+    border: solid #0b139e 0.080rem;
     padding-left: 0.5rem;
     width: 100%;
     height: 2.5rem;
+    background-color: white;
 }
 
 .form__button {
-    width: 70%;
-    color: white;
-    background-color: rgb(255, 59, 59);
+    width: 30%;
+    align-self: center;
+    color: rgb(255, 255, 255);
+    background-color: rgb(96, 169, 233);
+    border: none;
 }
 
+
 .button {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0.5rem;
-    height: 2rem;
-    border: solid rgb(255, 75, 75) 1px;
-    border-radius: 5px;
-    word-wrap: break-word;
+    border: none;
+    color: white;
+    padding: 0.850rem 1rem;
     text-align: center;
     text-decoration: none;
+    display: inline-block;
+    font-size: medium;
     color: rgb(255, 255, 255);
+    border-radius: 0.3rem;
 }
 
 .button:hover {
@@ -79,33 +85,12 @@ body {
 }
 
 .button:active {
-    filter: brightness(160%);
+    filter: brightness(200%);
 }
 
 .section__a {
     font-size: small;
-    width: 40%;
+    width: 30%;
     align-self: center;
-    background-color: rgb(255, 34, 34);
-}
-
-body.dark-mode {
-    background-color: #121212;
-    color: #ffffff;
-}
-
-.form__input.dark-mode,
-.form-control.dark-mode {
-    background-color: #1e1e1e;
-    border: solid #333333 0.1rem;
-    color: #ffffff;
-}
-
-button.dark-mode {
-    background-color: #333333;
-    color: #ffffff;
-}
-
-button.dark-mode:hover {
-    background-color: #444444;
+    color: rgb(100, 100, 247);
 }

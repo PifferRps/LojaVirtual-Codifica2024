@@ -10,14 +10,6 @@
                 <button>Buscar</button>
             </form>
         </div>
-        <div class="header_container__cart">
-            <a href="{{ route('site.checkout.carrinho') }}"><i class="fas fa-cart-shopping"></i>
-            </a>
-        </div>
-
-        <button id="darkModeToggle" class="dark-mode-toggle">
-            <i class="fas fa-moon"></i>
-        </button>
 
         @auth
             <div class="header_container__user-info">
@@ -46,5 +38,5 @@
         @endauth
     </div>
 
-
+@vite('resources/css/header.css')
 </header>

@@ -119,8 +119,8 @@ class ClientesController extends Controller
 
     public function deletarEndereco(ClienteEndereco $endereco)
     {
-        $endereco->id->delete();
+        $endereco->delete();
 
-        return redirect()->route('site.meu-perfil.index');
+        return redirect()->route('site.meu-perfil.enderecos');
     }
 }

@@ -3,12 +3,16 @@
 namespace App\Http\Controllers\Cliente;
 
 use App\Http\Controllers\Controller;
+use App\Models\ClienteEndereco;
+use App\Models\Usuario;
+use App\Models\UsuarioCliente;
 use App\Models\Pedido;
 use App\Models\PedidoStatus;
 use App\Models\ProdutoCategoria;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Database\Eloquent\Collection;
 
 class ClientesController extends Controller
 {
@@ -43,7 +47,6 @@ class ClientesController extends Controller
         return redirect()->route('site.meu-perfil.index'); //retorna a tela minha conta
     }
 
-
     public function editarSenha() // tela edição d e senha
     {
         $categorias = ProdutoCategoria::all();
@@ -55,54 +58,36 @@ class ClientesController extends Controller
     {
         $cliente = Auth::user();
 
-        $request->validate([
-            'senha_atual' => 'required',
-            'nova_senha' => 'required|min:6|confirmed',
-        ]);
+        $request->validate(
+            [
+                'senha_atual' => 'required',
+                'nova_senha' => 'required|min:6|confirmed',
+            ],
+            [
+                'nova_senha.confirmed' => 'As senhas não conferem. Por favor, tente novamente.',
+            ]
+        );
 
-        if (!Hash::check($request->senha_atual, $cliente->password)) {
-            return back()->withErrors(['senha_atual' => 'Senha atual incorreta']);
+        if (!Hash::check($request['senha_atual'], $cliente->password)){
+            $erro = "A senha atual está incorreta. Por favor, tente novamente.";
+            session()->flash('erro', $erro);
+            return redirect()->route('site.meu-perfil.editar-senha');
         }
 
-        $cliente->update([
-            'password' => Hash::make($request->nova_senha),
-        ]);
+        if($request['senha_atual'] === $request['nova_senha']){
+            $erro = "A nova senha não pode ser igual à senha antiga. Por favor, escolha uma senha diferente.";
+            session()->flash('erro', $erro);
+            return redirect()->route('site.meu-perfil.editar-senha');
+        }
 
-        return redirect()->route('clientes.index');
+        $cliente->update(['password' => Hash::make($request['nova_senha'])]);
+
+        return redirect()->route('site.meu-perfil.index');
     }
 
-    public function meusPedidos(Request $request)
+    public function meusPedidos()
     {
-        $usuario = Auth::user();
-
-        $query = Pedido::query()->where('cliente_id', $usuario->cliente->id);
-
-        if(!$request->buscarPedidos && $request->status){
-            $query->where('status_id', $request->status);
-        }
-
-        if($request->buscarPedidos){
-            $query->where('id', $request->buscarPedidos);
-        }
-
-        $pedidos = $query->get();
-        $status = PedidoStatus::all();
-        $categorias = ProdutoCategoria::all();
-
-        return view('site.pages.perfil.meus-pedidos', compact('categorias', 'status', 'pedidos'));
-    }
-
-    public function pedidoShow(Pedido $pedido)
-    {
-        $usuario = Auth::user();
-//        dd($usuario->cliente->id == $pedido->cliente_id);
-        if (!$usuario->cliente->pedidos()->where('id', $pedido->id)->exists()){
-            return redirect('/meu-perfil/meus-pedidos');
-        }
-
-        $categorias = ProdutoCategoria::all();
-
-        return view('site.pages.perfil.pedido', compact('pedido', 'categorias'));
+        return view('site.pages.perfil.meus-pedidos');
     }
 
     public function meusEnderecos()
@@ -110,6 +95,47 @@ class ClientesController extends Controller
         $categorias = ProdutoCategoria::all();
 
         return view('site.pages.perfil.meus-enderecos', compact('categorias'));
+        $usuario = Auth::user();
+        $enderecos = $usuario->cliente->enderecos;
+
+        return view('site.pages.perfil.meus-enderecos', compact('enderecos'));
     }
 
+    public function editarEndereco($idEndereco)
+    {
+        $usuario = Auth::user();
+        $enderecos = $usuario->cliente->enderecos;
+        $endereco = $enderecos->find($idEndereco);
+        return view('site.pages.perfil.editar-endereco', compact('endereco'));
+    }
+
+    public function atualizarEndereco(Request $request)
+    {
+        ClienteEndereco::findOrFail($request->input('endereco_id'))->update($request->all());
+
+        return redirect()->route('site.meu-perfil.enderecos');
+    }
+
+    public function adicionarEndereco()
+    {
+        $usuario = Auth::user();
+
+        $clienteId = $usuario->cliente->id;
+
+        return view('site.pages.perfil.adicionar-endereco', compact('clienteId'));
+    }
+
+    public function salvarEndereco(Request $request)
+    {
+        ClienteEndereco::create($request->all() + ['valor_frete' => rand(1500, 2500) / 100]);
+
+        return redirect()->route('site.meu-perfil.enderecos');
+    }
+
+    public function deletarEndereco(ClienteEndereco $endereco)
+    {
+        $endereco->delete();
+
+        return redirect()->route('site.meu-perfil.enderecos');
+    }
 }

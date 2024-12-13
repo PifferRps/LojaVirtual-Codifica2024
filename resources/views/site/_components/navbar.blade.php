@@ -1,8 +1,3 @@
-@php
- $quantidadeCarrinho = array_sum(array_column(session('produtos', []), 'quantidade'));
-
-@endphp
-
 <header class="header">
 
     <div class="header_container">
@@ -18,9 +13,6 @@
         <div class="header_container__cart">
             <a href="{{ route('site.checkout.carrinho') }}"><i class="fas fa-cart-shopping"></i>
             </a>
-            @if($quantidadeCarrinho > 0)
-                <span class="header_container__cart-quantidade">{{ $quantidadeCarrinho }}</span>
-            @endif
         </div>
 
         <button id="darkModeToggle" class="dark-mode-toggle">
@@ -41,6 +33,8 @@
                     @else
                     <a href="{{ route('site.meu-perfil.index') }}">
                         <i class="fas fa-user-circle"></i> Meu Perfil</a>
+                    <a href="{{route('site.meu-perfil.index')}}">
+                        <i class="fas fa-shopping-bag"></i> Minhas Compras</a>
                     @endif
                     <a href="{{ route('logout') }}">
                             <i class="fas fa-sign-out-alt"></i> Sair</a>
@@ -68,19 +62,19 @@
             <a href="{{ route('site.porCategoria', 0) }}"><p>Todos</p></a>
         </div>
         <div>
-            <a href="{{ route('site.porCategoria', 1) }}"><p>Eletrônicos</p></a>
+            <a href="{{ route('site.porCategoria', 1) }}"><p>Hardware</p></a>
         </div>
         <div>
-            <a href="{{ route('site.porCategoria', 2) }}"><p>Cosméticos</p></a>
+            <a href="{{ route('site.porCategoria', 2) }}"><p>Mouses</p></a>
         </div>
         <div>
-            <a href="{{ route('site.porCategoria', 3) }}"><p>Vestuário</p></a>
+            <a href="{{ route('site.porCategoria', 3) }}"><p>Teclados</p></a>
         </div>
         <div>
-            <a href="{{ route('site.porCategoria', 4) }}"><p>Eletrodomésticos</p></a>
+            <a href="{{ route('site.porCategoria', 4) }}"><p>Monitores</p></a>
         </div>
     </nav>
-
+    
     <script>
         document.getElementById('categorias').addEventListener('change', function () {
             const categoriaId = this.value;

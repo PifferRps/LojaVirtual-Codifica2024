@@ -98,7 +98,7 @@ class ClientesController extends Controller
     {
         ClienteEndereco::findOrFail($request->input('endereco_id'))->update($request->all());
 
-        return redirect()->route('site.meu-perfil.index');
+        return redirect()->route('site.meu-perfil.enderecos');
     }
 
     public function adicionarEndereco()
@@ -114,7 +114,7 @@ class ClientesController extends Controller
     {
         ClienteEndereco::create($request->all() + ['valor_frete' => rand(1500, 2500) / 100]);
 
-        return redirect()->route('site.meu-perfil.index');
+        return redirect()->route('site.meu-perfil.enderecos');
     }
 
     public function deletarEndereco(ClienteEndereco $endereco)

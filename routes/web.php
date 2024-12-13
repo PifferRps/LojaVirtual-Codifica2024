@@ -47,8 +47,14 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/', [ClienteClientesController::class, 'index'])->name('site.meu-perfil.index');
         Route::put('/editar-dados/salvar/{usuario}', [ClienteClientesController::class, 'update'])->name('site.meu-perfil.update');
         Route::get('/meus-pedidos', [ClienteClientesController::class, 'meusPedidos'])->name('site.meu-perfil.pedidos');
+        Route::resource('produtos', ClienteClientesController::class)->except('show');
         Route::get('/meus-enderecos', [ClienteClientesController::class, 'meusEnderecos'])->name('site.meu-perfil.enderecos');
+        Route::get('/meus-enderecos/editar/{endereco}', [ClienteClientesController::class, 'editarEndereco'])->name('site.meu-perfil.editar-endereco');
+        Route::put('/meus-enderecos/editar/salvar', [ClienteClientesController::class, 'atualizarEndereco'])->name('site.meu-perfil.atualizar-endereco');
+        Route::get('/meus-enderecos/adicionar-endereco', [ClienteClientesController::class, 'adicionarEndereco'])->name('site.meu-perfil.adicionar-endereco');
+        Route::post('/meus-enderecos/adicionar-endereco/salvar', [ClienteClientesController::class, 'salvarEndereco'])->name('site.meu-perfil.salvar-endereco');
         Route::get('/editar-senha', [ClienteClientesController::class, 'editarSenha'])->name('site.meu-perfil.editar-senha');
+        Route::post('/editar-senha/atualizar', [ClienteClientesController::class, 'atualizarSenha'])->name('site.meu-perfil.salvar-senha');
     });
 
     Route::middleware([Admin::class])->group(function () {

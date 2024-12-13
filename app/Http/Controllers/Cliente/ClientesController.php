@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Cliente;
 
 use App\Http\Controllers\Controller;
+use App\Models\Pedido;
+use App\Models\PedidoStatus;
 use App\Models\ProdutoCategoria;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -69,11 +71,38 @@ class ClientesController extends Controller
         return redirect()->route('clientes.index');
     }
 
-    public function meusPedidos()
+    public function meusPedidos(Request $request)
     {
+        $usuario = Auth::user();
+
+        $query = Pedido::query()->where('cliente_id', $usuario->cliente->id);
+
+        if(!$request->buscarPedidos && $request->status){
+            $query->where('status_id', $request->status);
+        }
+
+        if($request->buscarPedidos){
+            $query->where('id', $request->buscarPedidos);
+        }
+
+        $pedidos = $query->get();
+        $status = PedidoStatus::all();
         $categorias = ProdutoCategoria::all();
 
-        return view('site.pages.perfil.meus-pedidos', compact('categorias'));
+        return view('site.pages.perfil.meus-pedidos', compact('categorias', 'status', 'pedidos'));
+    }
+
+    public function pedidoShow(Pedido $pedido)
+    {
+        $usuario = Auth::user();
+//        dd($usuario->cliente->id == $pedido->cliente_id);
+        if (!$usuario->cliente->pedidos()->where('id', $pedido->id)->exists()){
+            return redirect('/meu-perfil/meus-pedidos');
+        }
+
+        $categorias = ProdutoCategoria::all();
+
+        return view('site.pages.perfil.pedido', compact('pedido', 'categorias'));
     }
 
     public function meusEnderecos()

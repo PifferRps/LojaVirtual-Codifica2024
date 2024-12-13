@@ -1,30 +1,75 @@
+@import url('https://fonts.googleapis.com/css2?family=Host+Grotesk:ital,wght@0,300..800;1,300..800&display=swap');
+
+* {
+    font-family: "Host Grotesk", sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
 .conteudo{
-    border: 2px solid green;
     width: 100%;
 }
 
-.conteudo_main__infos{
-    display: flex;
+.conteudo_header{
+
+    margin: 0.2rem;
+    padding-top: 1rem;
+    padding-bottom: 2rem;
 }
 
-.conteudo_main__infos-section1{
-    width: 40%;
-    margin: 0;
-}
+.conteudo_main{
+    font-size: 1.2rem;
+    padding: 0.6rem;
+    border: 0.120rem solid rgb(167, 48, 48);
+    border-radius: 1rem;
 
-.conteudo_main__infos-section3{
-    width: 40%;
-    margin: 0;
 }
 
 .conteudo_main__category{
     display: flex;
-    border: 1px solid black;
     height: 3rem;
     flex-direction: row;
     align-items: center;
 }
 
-.conteudo_main__infos-edit{
-    margin-right: 2rem;
+
+button {
+    color: white;
+    background-color: rgb(255, 59, 59);
+    padding: 0.3rem;
+    margin: 0.1rem;
+    border: solid rgb(255, 75, 75) 1px;
+    border-radius: 5px;
+    text-align: center;
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+}
+
+button:hover {
+    cursor: pointer;
+    filter: brightness(130%);
+}
+
+button:active {
+    filter: brightness(160%);
+}
+
+input{
+    padding: 0.5rem;
+    border: 0.100rem solid rgb(155, 155, 155);
+    border-radius: 0.5rem;
+    background-color: rgb(255, 255, 255);
+    font-size: 1rem;
+}
+
+.conteudo_main__infos{
+    color: #333;
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem ;
+}
+
+.main{
+    display: flex;
+    padding: 3rem;
+    width: 100%;
 }

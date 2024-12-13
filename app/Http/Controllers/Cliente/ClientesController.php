@@ -3,6 +3,9 @@
 namespace App\Http\Controllers\Cliente;
 
 use App\Http\Controllers\Controller;
+use App\Models\Pedido;
+use App\Models\PedidoStatus;
+use App\Models\ProdutoCategoria;
 use App\Models\ClienteEndereco;
 use App\Models\Usuario;
 use App\Models\UsuarioCliente;
@@ -16,8 +19,9 @@ class ClientesController extends Controller
     public function index() // tela minha conta
     {
         $usuario = Auth::user();
+        $categorias = ProdutoCategoria::all();
 
-        return view('site.pages.perfil.form', compact('usuario'));
+        return view('site.pages.perfil.form', compact('usuario', 'categorias'));
     }
 
     public function update(Request $request) //atualiza dados cliente
@@ -39,7 +43,9 @@ class ClientesController extends Controller
 
     public function editarSenha() // tela edição d e senha
     {
-        return view('site.pages.perfil.editar-senha');
+        $categorias = ProdutoCategoria::all();
+
+        return view('site.pages.perfil.editar-senha', compact('categorias'));
     }
 
     public function atualizarSenha(Request $request)
@@ -73,17 +79,48 @@ class ClientesController extends Controller
         return redirect()->route('site.meu-perfil.index');
     }
 
-    public function meusPedidos()
+    public function meusPedidos(Request $request)
     {
-        return view('site.pages.perfil.meus-pedidos');
+        $usuario = Auth::user();
+
+        $query = Pedido::query()->where('cliente_id', $usuario->cliente->id);
+
+        if(!$request->buscarPedidos && $request->status){
+            $query->where('status_id', $request->status);
+        }
+
+        if($request->buscarPedidos){
+            $query->where('id', $request->buscarPedidos);
+        }
+
+        $pedidos = $query->get();
+        $status = PedidoStatus::all();
+        $categorias = ProdutoCategoria::all();
+
+        return view('site.pages.perfil.meus-pedidos', compact('categorias', 'status', 'pedidos'));
+    }
+
+    public function pedidoShow(Pedido $pedido)
+    {
+        $usuario = Auth::user();
+//        dd($usuario->cliente->id == $pedido->cliente_id);
+        if (!$usuario->cliente->pedidos()->where('id', $pedido->id)->exists()){
+            return redirect('/meu-perfil/meus-pedidos');
+        }
+
+        $categorias = ProdutoCategoria::all();
+
+        return view('site.pages.perfil.pedido', compact('pedido', 'categorias'));
     }
 
     public function meusEnderecos()
     {
+        $categorias = ProdutoCategoria::all();
+
         $usuario = Auth::user();
         $enderecos = $usuario->cliente->enderecos;
 
-        return view('site.pages.perfil.meus-enderecos', compact('enderecos'));
+        return view('site.pages.perfil.meus-enderecos', compact('enderecos', 'categorias'));
     }
 
     public function editarEndereco($idEndereco)

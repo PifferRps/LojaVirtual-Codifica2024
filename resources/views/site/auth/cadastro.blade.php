@@ -95,17 +95,14 @@
                 };
 
             </script>
-            <input type="text" name="cep" id="cep" class="form-control" placeholder="CEP" maxlength="8"
-                   onblur="pesquisacep(this.value);" required>
+            <input type="text" name="cep" id="cep" class="form-control" placeholder="CEP" maxlength="8" onblur="pesquisacep(this.value);" required>
             <input type="text" name="rua" id="rua" class="form-control" placeholder="Rua" required>
             <input type="text" name="bairro" id="bairro" class="form-control" placeholder="Bairro" required>
             <input type="text" name="cidade" id="cidade" class="form-control" placeholder="Cidade" required>
             <input type="text" name="estado" id="estado" class="form-control" placeholder="Estado" required>
             <input type="text" name="numero" id="numero" class="form-control" placeholder="Numero" required>
-            <input type="text" name="referencia" id="referencia" class="form-control" placeholder="Ponto de referência"
-                   >
-            <input type="text" name="complemento" id="complemento" class="form-control" placeholder="Complemento"
-                   >
+            <input type="text" name="referencia" id="referencia" class="form-control" placeholder="Ponto de referência">
+            <input type="text" name="complemento" id="complemento" class="form-control" placeholder="Complemento">
         </div>
 
         <button type="submit">Cadastrar</button>

@@ -1,6 +1,52 @@
 @extends("site._layouts.perfil")
 @section("conteudoPerfil")
-  MEUS PEDIDOS
+    <div class="conteudo" >
+        <div class="conteudo_header">
+            <form action="" class="form">
+                <label for="status">Status:</label>
+                <select id="status" name="status">
+                    <option value="0">Todos</option>
+                    @foreach($status as $status_unitario)
+                        <option value="{{ $status_unitario->id }}" {{ isset($_GET['status']) && $status_unitario->id == $_GET['status'] ? 'selected' : '' }}>{{ $status_unitario->status }}</option>
+                    @endforeach
+                </select>
+
+                <label for="buscarPedidos">Buscar</label>
+                <input type="text" name="buscarPedidos" placeholder=" ID do pedido">
+
+                <button type="submit">Buscar</button>
+            </form>
+        </div>
+        <div class="mensagem_flash">
+            @if (session()->has('mensagem'))
+                <div class="">
+                    {{ session('mensagem') }}
+                </div>
+            @endif
+        </div>
+        <div class="conteudo_main" style="overflow: auto;">
+            <div class="conteudo_main__infos" style="display: flex; width: 100%" >
+                <section class="conteudo_main__infos-section1" style="display: flex; width: 100%; justify-content: space-between;">Pedido</section>
+                <section class="conteudo_main__infos-section2" style="display: flex; width: 100%; justify-content: space-between;">Valor</section>
+                <section class="conteudo_main__infos-section2" style="display: flex; width: 100%; justify-content: space-between;">Status</section>
+                <section class="conteudo_main__infos-section2" style="display: flex; width: 100%; justify-content: flex-end;">Status</section>
+            </div>
+            <hr>
+            <div style="display: flex; flex-direction: column">
+                @foreach($pedidos as $pedido)
+                    <div class="conteudo_main__pedido" style="display: flex; width: 100%; justify-content: space-between;" >
+                        <section class="conteudo_main__infos-section1">#{{ $pedido->id }}</section>
+                        <section class="conteudo_main__infos-section2">R$ {{ number_format($pedido->valor_final, 2, ',', '.') }}</section>
+                        <section class="conteudo_main__infos-section2">{{ $pedido->status->status }}</section>
+                        <a href="{{ route('site.meu-perfil.pedido-show', $pedido) }}"><section class="conteudo_main__infos-view">Visualizar pedido</section></a>
+                    </div>
+                @endforeach
+                @if(empty($pedidos))
+                    <span>Nenhum pedido realizado.</span>
+                @endif
+            </div>
+        </div>
+    </div>
 @endsection
 
 @push('style')

@@ -7,15 +7,14 @@
                     <img src="{{ asset($produto->imagem_1) }}" width="100%" height="100%" alt="{{ $produto->nome }}">
                 </div>
 
-
-
                 <div class="informacoesProduto">
                     <div class="blocoSuperior">
                         <div class="rotas">Home > Categoria ></div>
                         <div class="tituloProduto"> {{ $produto->nome }}</div>
-                        <div class="descricaoSuperior">{{ $produto->sku }}</div>
+                        <div class="descricaoSuperior">{{ $produto->sku }} - Estoque: {{ $produto->quantidade }}</div>
                     </div>
 
+                    @if($produto->quantidade > 0)
                     <div class="blocoInferior">
                         <div class="tituloProduto"> R$ {{ number_format($produto->valor, 2, ',','.' ) }}</div>
                         <div class="descricaoSuperior">A vista no pix 10% OFF</div>
@@ -29,16 +28,17 @@
                             <input type="number" name="quantidade" value="1" min="1">
                             <button> Adicionar ao Carrinho </button>
                         </form>
-
                     </div>
-
-                    <div class="mensagem_flash">
-                        @if (session()->has('mensagem'))
-                            <div class="">
-                                {{ session('mensagem') }}
-                            </div>
-                        @endif
-                    </div>
+                    @else
+                        <div style="display: flex; align-items: center; justify-content: center; height: 70%; color: grey">
+                            <h2>Produto indisponível</h2>
+                        </div>
+                    @endif
+                    @if(session('mensagem'))
+                        <div style="color: gray" role="alert">
+                            <span>{{ session('mensagem') }}</span>
+                        </div>
+                    @endif
                 </div>
             </div>
 

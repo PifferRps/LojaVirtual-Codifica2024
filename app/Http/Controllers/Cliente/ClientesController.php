@@ -6,6 +6,9 @@ use App\Http\Controllers\Controller;
 use App\Models\ClienteEndereco;
 use App\Models\Usuario;
 use App\Models\UsuarioCliente;
+use App\Models\Pedido;
+use App\Models\PedidoStatus;
+use App\Models\ProdutoCategoria;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -16,9 +19,16 @@ class ClientesController extends Controller
     public function index() // tela minha conta
     {
         $usuario = Auth::user();
+        $categorias = ProdutoCategoria::all();
 
-        return view('site.pages.perfil.form', compact('usuario'));
+        return view('site.pages.perfil.form', compact('usuario', 'categorias'));
     }
+
+//    public function edit() // tela de edição de dados
+//    {
+//        $cliente = Auth::user();
+//        return view('site.pages.perfil.form', compact('cliente'));
+//    }
 
     public function update(Request $request) //atualiza dados cliente
     {
@@ -39,7 +49,9 @@ class ClientesController extends Controller
 
     public function editarSenha() // tela edição d e senha
     {
-        return view('site.pages.perfil.editar-senha');
+        $categorias = ProdutoCategoria::all();
+
+        return view('site.pages.perfil.editar-senha', compact('categorias'));
     }
 
     public function atualizarSenha(Request $request)
@@ -80,6 +92,9 @@ class ClientesController extends Controller
 
     public function meusEnderecos()
     {
+        $categorias = ProdutoCategoria::all();
+
+        return view('site.pages.perfil.meus-enderecos', compact('categorias'));
         $usuario = Auth::user();
         $enderecos = $usuario->cliente->enderecos;
 

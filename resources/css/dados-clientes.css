@@ -2,6 +2,7 @@
     font-family: "Host Grotesk", sans-serif;
     margin: 0;
     padding: 0;
+    background-color: #043495;
   }
 
 .dadosClientesPrincipal{
@@ -14,13 +15,16 @@
 
 .dadosClientesPrincipal input{
     width: 100%;
+
 }
 
 .informacoes {
+
     display: flex;
     flex-direction: column;
     border-radius: 20px;
-    box-shadow:1px 1px 11px 0px #03266b;
+
+    box-shadow:1px 1px 11px 0px #888888;
    padding: 5vh;
     height: 85vh;
     width: 60vh;
@@ -59,8 +63,8 @@ input[type=text]{
 }
 
 input[type=text]:focus {
-    background-color: #92eea6;
-    color: black;
+    background-color: #ff6363;
+    color: white;
 
 }
 

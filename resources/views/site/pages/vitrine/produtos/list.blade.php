@@ -3,7 +3,7 @@
 <body class="container">
 
     <div class="container_produtos__destaque">
-        <h1 class="container_produtos__destaque-title">Mais Vendidos</h1>
+        <h1 class="container_produtos__destaque-title">Lançamentos</h1>
         <div class="container_produtos__grid">
             @foreach($novidades as $produto)
             <div class="produto-card">
@@ -18,7 +18,7 @@
     </div>
 
     <div class="container_produtos__destaque">
-        <h1 class="container_produtos__destaque-title">Novidades</h1>
+        <h1 class="container_produtos__destaque-title">Mais Vendidos</h1>
         <div class="container_produtos__grid">
             @foreach($mais_vendidos as $item)
             <div class="produto-card">

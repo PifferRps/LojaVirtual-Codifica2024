@@ -58,6 +58,15 @@
     </div>
 
     <nav>
+        <select name="categorias" id="categorias">
+            <option value="0">Selecione</option>
+            @foreach ($categorias as $categoria)
+                <option value="{{ $categoria->id }}" {{ isset($categoriaSelecionada) && $categoria->id == $categoriaSelecionada->id ? 'selected' : '' }}>{{ $categoria->nome }}</option>
+            @endforeach
+        </select>
+        <div>
+            <a href="{{ route('site.porCategoria', 0) }}"><p>Todos</p></a>
+        </div>
         <div>
             <a href="{{ route('site.porCategoria', 1) }}"><p>Eletrônicos</p></a>
         </div>
@@ -71,6 +80,15 @@
             <a href="{{ route('site.porCategoria', 4) }}"><p>Eletrodomésticos</p></a>
         </div>
     </nav>
+
+    <script>
+        document.getElementById('categorias').addEventListener('change', function () {
+            const categoriaId = this.value;
+            if (categoriaId != 0) {
+                window.location.href = `/categoria/${categoriaId}`;
+            }
+        });
+    </script>
     @vite('resources/css/navbar.css')
     @vite('resources/js/dark-mode.js')
 </header>

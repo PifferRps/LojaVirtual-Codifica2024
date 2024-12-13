@@ -53,6 +53,7 @@ Route::middleware(['auth'])->group(function () {
         Route::put('/meus-enderecos/editar/salvar', [ClienteClientesController::class, 'atualizarEndereco'])->name('site.meu-perfil.atualizar-endereco');
         Route::get('/meus-enderecos/adicionar-endereco', [ClienteClientesController::class, 'adicionarEndereco'])->name('site.meu-perfil.adicionar-endereco');
         Route::post('/meus-enderecos/adicionar-endereco/salvar', [ClienteClientesController::class, 'salvarEndereco'])->name('site.meu-perfil.salvar-endereco');
+        Route::post('/meus-enderecos/deletar-endereco/{id}', [ClienteClientesController::class, 'deletarEndereco'])->name('site.meu-perfil.deletar-endereco');
         Route::get('/editar-senha', [ClienteClientesController::class, 'editarSenha'])->name('site.meu-perfil.editar-senha');
         Route::post('/editar-senha/atualizar', [ClienteClientesController::class, 'atualizarSenha'])->name('site.meu-perfil.salvar-senha');
     });

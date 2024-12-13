@@ -105,16 +105,22 @@ class ClientesController extends Controller
     {
         $usuario = Auth::user();
 
-        $clienteId = $usuario->cliente['usuario_id'];
+        $clienteId = $usuario->cliente->id;
 
         return view('site.pages.perfil.adicionar-endereco', compact('clienteId'));
     }
 
     public function salvarEndereco(Request $request)
     {
-        ClienteEndereco::create($request->all());
+        ClienteEndereco::create($request->all() + ['valor_frete' => rand(1500, 2500) / 100]);
 
         return redirect()->route('site.meu-perfil.index');
     }
 
+    public function deletarEndereco(ClienteEndereco $endereco)
+    {
+        $endereco->id->delete();
+
+        return redirect()->route('site.meu-perfil.index');
+    }
 }

@@ -53,7 +53,7 @@
 
         </script>
         <div class="container_enderecos__edit">
-            <form action="{{ route('site.meu-perfil.adicionar-endereco')}}" method="post">
+            <form action="{{ route('site.meu-perfil.atualizar-endereco')}}" method="post">
                 @csrf
                 <input type="hidden" name="endereco_id" value="{{ $endereco->id }}">
                 <label for="cep">CEP:</label>

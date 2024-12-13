@@ -11,7 +11,12 @@
                 </div>
                 <section class="container_enderecos__form-botao">
                     <a href="{{ route('site.meu-perfil.editar-endereco', $endereco->id) }}">Editar</a>
-                </section>
+                    <form method="post" action="{{ route("site.meu-perfil.deletar-endereco", $endereco->id) }}">
+                        @csrf
+                        @method("delete")
+                        <button class="button" >Deletar</button>
+                    </form>
+                    </section>
             </form>
         @endforeach
     </form>

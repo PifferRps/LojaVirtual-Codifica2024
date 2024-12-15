@@ -10,7 +10,9 @@ body {
 
 .conteudo{
     background-color: #0C6478;
-    box-shadow: rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    padding: 20px;
     display: flex;
     flex-direction: column;
 }
@@ -22,7 +24,7 @@ body {
 }
 
 .form{
-    width: 80vw;
+    width: 100vw;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -60,16 +62,16 @@ button[type="submit"]:hover {
 }
 
 .conteudo_main{
-    border: 1px solid black;
+   
     height: 90vh;
     overflow: hidden
 }
 
 .conteudo_main__pedido{
     height: 15vh;
-    border: 1px solid black;
     display: flex;
     align-items: center;
+    border-bottom: 1px solid #09D1C7;
 }
 
 .conteudo_main__infos{

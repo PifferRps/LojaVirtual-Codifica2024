@@ -1,20 +1,59 @@
+body {
+    
+    background-color: #213A58;
+    color: #FFF000; 
+    font-family: Arial, sans-serif; 
+    padding: 0;
+    margin: 0;
+ 
+}
+
 .conteudo{
+    background-color: #0C6478;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    padding: 20px;
     display: flex;
     flex-direction: column;
 }
 .conteudo_header{
-    background-color: white;
+    color: #FFF000;
     display: flex;
     justify-content: space-between;
     height: 10vh;
 }
 
 .form{
-    width: 80vw;
+    width: 100vw;
     display: flex;
     justify-content: center;
     align-items: center;
 }
+
+input[type="text"],
+select {
+    padding: 8px;
+    border: 2px solid #09D1C7;
+    border-radius: 4px;
+    background-color: #46DFB1;
+    color: #213A58;
+}
+
+button[type="submit"] {
+    background-color: #0540B7;
+    color: #FFF000;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+button[type="submit"]:hover {
+    background-color: #15919B;
+}
+
+
 
 .conteudo_header__button{
     display: flex;
@@ -23,16 +62,16 @@
 }
 
 .conteudo_main{
-    border: 1px solid black;
+   
     height: 90vh;
     overflow: hidden
 }
 
 .conteudo_main__pedido{
     height: 15vh;
-    border: 1px solid black;
     display: flex;
     align-items: center;
+    border-bottom: 1px solid #09D1C7;
 }
 
 .conteudo_main__infos{
@@ -54,6 +93,5 @@
     width: 20%;
     margin-right: 3rem;
 }
-
 
 

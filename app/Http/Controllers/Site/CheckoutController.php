@@ -188,7 +188,9 @@ class CheckoutController extends Controller
             'pagamento'
         ]);
 
-        return to_route('site.checkout.concluido');
+        session(['pedido' => $pedido->id]);
+
+        return to_route('site.checkout.concluido', compact('pedido'));
     }
 
     public function etapaConcluido()

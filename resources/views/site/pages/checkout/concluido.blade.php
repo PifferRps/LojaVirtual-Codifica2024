@@ -25,7 +25,7 @@
     </div>
     <div class="checkoutFim">
         <h1>Compra finalizada!</h1>
-        <p>Pedido #1532</p>
+        <p>Pedido #{{ session('pedido') }}</p>
         <a href="{{ route('site.pages.vitrine.produtos.list') }}">Clique aqui para voltar a tela inicial</a>
     </div>
     @endsection

@@ -44,7 +44,7 @@
                         </div>
                         <div class="checkoutContent_items__item-valor">
                             <h4>Valor:</h4>
-                            <p>{{ number_format($produto['produto']->valor , 2, ',', '.') }}</p>
+                            <p>R$ {{ number_format($produto['produto']->valor , 2, ',', '.') }}</p>
                         </div>
                     </section>
                 @endforeach
@@ -53,12 +53,20 @@
         <div class="checkoutContent_values">
             <section class="checkoutContent_values__total">
                 <h1>Subtotal:
-                    R${{ number_format($valores[0]['valorTotal'],  2,  ',', '.' )}}</h1>
+                    @if($idPagamento == 1)
+                        <p>R$ {{ number_format(($valores[0]['valorTotal'] * 0.9) , 2, ',', '.') }}</p>
+                    @else
+                        <p>{{ number_format($valores[0]['valorTotal'] , 2, ',', '.') }}</p>
+                    @endif
                     <h4>Frete: R${{ number_format($frete,  2,  ',', '.' )}}</h4>
             </section>
             <section class="checkoutContent_values__total">
                 <h1>Total:
-                    R${{ number_format($valores[0]['valorTotal']+$frete,  2,  ',', '.' )}}</h1>
+                    @if($idPagamento == 1)
+                        <p>R$ {{ number_format(($valores[0]['valorTotal'] * 0.9) + $frete , 2, ',', '.') }}</p>
+                    @else
+                        R$ {{ number_format($valores[0]['valorTotal']+$frete,  2,  ',', '.' )}}</h1>
+                    @endif
             </section>
             <div class="checkoutContent_values__button">
                 <a href="{{ route('site.checkout.salvar') }}">Finalizar compra</a>

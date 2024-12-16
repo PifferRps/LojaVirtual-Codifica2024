@@ -27,7 +27,7 @@
         <div class="checkoutContent_items">
             <form action="{{route('site.checkout.carrinho-alterarquantidade')}}" method="get">
                 @csrf
-                <button>Atualizar quantidade</button>
+                <button> <i class="fas fa-sync-alt"></i> Atualizar quantidade</button>
             @if(session('produtos'))
                 @foreach($produtos as $produto)
                     <section class="checkoutContent_items__item">

@@ -10,7 +10,7 @@
             @endisset
             <label for="nome" style="font-size: 18px; color: #555; margin-bottom: 8px;">Nome da Categoria</label>
             <input type="text" name="nome" value="{{ ($categoria->nome ?? '') }}" placeholder="Digite o nome da categoria"
-                   style="padding: 12px 16px; font-size: 16px; border: 1px solid #ccc; border-radius: 8px; transition: all 0.3s ease;">
+                   style="padding: 12px 16px; font-size: 16px; border: 1px solid #ccc; border-radius: 8px; transition: all 0.3s ease;" required>
             <button type="submit"
                     style="background-color: #007BFF; color: white; padding: 12px 20px; border: none; border-radius: 8px; font-size: 16px; cursor: pointer; transition: background-color 0.3s;">
                 Salvar Categoria

@@ -1,15 +1,15 @@
 .navbarCheckout {
-    margin: 1rem;
     display: flex;
     justify-content: space-between;
     min-height: 1rem;
-    padding: 0 1rem;
-    border-radius: 0.5rem;
+    padding: 1rem 5rem;
+    background-color: #3664ED;
 } /*carrinho>dados>...>*/
 
-.navbarCheckout p {
+.navbarCheckout p, .navbarCheckout a {
     font-size: 0.9rem;
     color: rgb(222, 222, 222);
+    text-decoration: none;
 }
 
 #navbarCheckout_pSelected {
@@ -19,9 +19,8 @@
 
 .checkoutTitle {
     display: flex;
-    border: 2px solid rgb(237, 231, 145);
     padding: 0.4rem;
-    background-color: #f1ff2f;
+    background-color: #06068E;
 }
 
 .checkoutTitle_produtos {
@@ -31,8 +30,9 @@
     margin: 0;
     height: 3rem;
     align-items: center;
-    border-right: 2px solid rgb(194, 179, 12);
+    border-right: 2px solid white;
     padding: 0 1rem;
+    color: white;
 }
 
 .checkoutTitle_produtos button {
@@ -65,12 +65,12 @@
     height: 3rem;
     border-radius: 0.2rem;
     margin-left: 0.2rem;
+    color: white;
 }
 
 .checkoutContent {
     margin-top: 0.5rem;
     display: flex;
-    height: 25rem;
     padding: 1rem;
     border-radius: 1rem;
 }
@@ -220,7 +220,7 @@ button i {
     height: calc(100% - 2rem);
     overflow-y: auto;
     padding: 0.5rem;
-    border: 1px solid #ff0000;
+    border: 1px solid grey;
     border-radius: 0.5rem;
 }
 

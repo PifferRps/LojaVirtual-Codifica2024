@@ -49,7 +49,7 @@
     margin-bottom: 0.4rem;
 }
 
-.descricaoSuperior, 
+.descricaoSuperior,
 .descricaoInferior {
     font-size: 1rem;
     color: #575757;
@@ -85,7 +85,7 @@
     padding: 0.8rem 1.2rem;
     font-size: 1rem;
     color: white;
-    background-color: #000;
+    background-color: #ffcd00;
     border: none;
     border-radius: 0.5rem;
     cursor: pointer;
@@ -97,7 +97,7 @@
 }
 
 .rotas{
-    color: #bb0000;
+    color: grey;
 }
 
 .detalhesProduto {
@@ -136,11 +136,11 @@
         background-color: #232323;
     }
 
-    .descricaoSuperior, 
+    .descricaoSuperior,
     .descricaoInferior{
         color: rgb(162, 162, 162);
     }
-    
+
     .rotas{
         color: #ff6565;
     }

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Site;
 use App\Http\Controllers\Controller;
 use App\Models\FormaPagamento;
 use App\Models\Pedido;
+use App\Models\PedidoProduto;
 use App\Models\UsuarioCliente;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -58,7 +59,7 @@ class CheckoutController extends Controller
     public function removerTudoDoCarrinho()
     {
         session()->forget('produtos');
-       
+
         return redirect('/');
     }
 
@@ -148,8 +149,6 @@ class CheckoutController extends Controller
 
         foreach(session('produtos') as $item){
             $valor_total += ($item['produto']->valor * $item['quantidade']);
-
-            $item['produto']->update(['quantidade' => ($item['produto']->quantidade - $item['quantidade'])]);
         }
 
         if(session('pagamento') == 1){
@@ -158,7 +157,7 @@ class CheckoutController extends Controller
 
         $valor_final = $valor_total - $desconto + session('frete');
 
-        Pedido::create([
+        $pedido = Pedido::create([
             'data_transacao' => date('Y-m-d'),
             'cliente_id' => $usuario->cliente->id,
             'endereco_id' => session('endereco'),
@@ -171,6 +170,15 @@ class CheckoutController extends Controller
             'parcelas' => session('vezes')
         ]);
 
+        foreach(session('produtos') as $item){
+            $item['produto']->update(['quantidade' => ($item['produto']->quantidade - $item['quantidade'])]);
+
+            PedidoProduto::create([
+                'pedido_id' => $pedido->id,
+                'produto_id' => $item['produto']->id,
+                'quantidade_vendida' => $item['quantidade']
+            ]);
+        }
 
         session()->forget([
             'produtos',

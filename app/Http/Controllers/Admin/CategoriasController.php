@@ -43,6 +43,11 @@ class CategoriasController extends Controller
 
     public function destroy(ProdutoCategoria $categoria)
     {
+        if($categoria->id == 1 || $categoria->id == 2 || $categoria->id == 3 || $categoria->id == 4) {
+            session()->flash('mensagem', value: 'Você não pode excluir esta categoria.');
+
+            return redirect()->route('categorias.index');
+        }
         $categoria->delete();
         session()->flash('mensagem', value: 'Categoria excluída com sucesso.');
 

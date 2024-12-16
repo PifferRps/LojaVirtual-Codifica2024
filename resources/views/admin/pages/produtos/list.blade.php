@@ -1,76 +1,79 @@
 @extends("admin._layouts.admin")
-@section("conteudo")
+@section("conteudoAdmin")
 
-    <section>
-        <div>
-            <h1 class="title">{{ count($produtos) == 0 ? "Estoque vazio." : "Produtos em estoque: "}}</h1>
-            <a href="{{ route('produtos.create') }}" ><button class="button_adcionar" >Adicionar Produto</button></a>
+    <section style="padding: 20px; font-family: Arial, sans-serif;">
+        <div style="margin-bottom: 20px; display: flex; justify-content: space-between; align-items: center;">
+            <h1 style="font-size: 24px; font-weight: bold;">{{ count($produtos) == 0 ? "Estoque vazio." : "Produtos em estoque: "}}</h1>
+            <a href="{{ route('produtos.create') }}" style="text-decoration: none;">
+                <button style="padding: 6px 12px; background-color: #28a745; color: white; border: none; cursor: pointer; font-size: 14px;">Adicionar Produto</button>
+            </a>
         </div>
-        
-<form method="GET" action="{{ route('produtos.index') }}">
-    <label for="categoria">Categoria</label>
-    <select id="categoria" name="categoria">
-        @if(isset($categorias[0]))
-            <option value="0">Todos</option>
-        @endif
-        @forelse ($categorias as $categoria)
-            <option value="{{ $categoria->id }}" {{ $categoria->id == $categoriaSelecionada ? 'selected' : '' }}>
-                {{ $categoria->nome }}
-            </option>
-        @empty
-            <option>Adicione uma transação</option>
-        @endforelse
-    </select>
 
-    <label for="ordem">Ordenar por</label>
-    <select id="ordem" name="ordem">
-        <option value="0"></option>
-        <option value="asc" {{ $ordem == 'asc' ? 'selected' : '' }}>menor quantidade</option>
-        <option value="desc" {{ $ordem == 'desc' ? 'selected' : '' }}>maior quantidade</option>
-    </select>
+        <form method="GET" action="{{ route('produtos.index') }}" style="margin-bottom: 20px; display: flex; gap: 20px; align-items: center;">
+            <label for="categoria" style="font-weight: bold;">Categoria</label>
+            <select id="categoria" name="categoria" style="padding: 5px; font-size: 14px;">
+                @if(isset($categorias[0]))
+                    <option value="0">Todos</option>
+                @endif
+                @forelse ($categorias as $categoria)
+                    <option value="{{ $categoria->id }}" {{ $categoria->id == $categoriaSelecionada ? 'selected' : '' }}>{{ $categoria->nome }}</option>
+                @empty
+                    <option>Adicione uma transação</option>
+                @endforelse
+            </select>
 
-    <button type="submit">Filtrar</button>
-</form>
-<div class="mensagem_flash">
-    @if (session()->has('mensagem'))
-        <div class="">
-            {{ session('mensagem') }}
+            <label for="ordem" style="font-weight: bold;">Ordenar por</label>
+            <select id="ordem" name="ordem" style="padding: 5px; font-size: 14px;">
+                <option value="0"></option>
+                <option value="asc" {{ $ordem == 'asc' ? 'selected' : '' }}>menor quantidade</option>
+                <option value="desc" {{ $ordem == 'desc' ? 'selected' : '' }}>maior quantidade</option>
+            </select>
+
+            <button type="submit" style="padding: 6px 12px; font-size: 14px; cursor: pointer;">Filtrar</button>
+        </form>
+
+        <div class="mensagem_flash">
+            @if (session()->has('mensagem'))
+                <div>{{ session('mensagem') }}</div>
+            @endif
         </div>
-    @endif
-</div>
-        <table>
-            <thead>
-                <tr>
-                    <th>Nome</th>
-                    <th>SKU</th>
-                    <th>Categoria</th>
-                    <th>Valor</th>
-                    <th>Quantidade</th>
-                    <th></th>
-                </tr>
+
+        <table style="width: 100%; border-collapse: collapse; margin-top: 20px;">
+            <thead style="background-color: #f1f1f1;">
+            <tr>
+                <th style="padding: 10px; text-align: left;">Nome</th>
+                <th style="padding: 10px; text-align: left;">SKU</th>
+                <th style="padding: 10px; text-align: left;">Categoria</th>
+                <th style="padding: 10px; text-align: left;">Valor</th>
+                <th style="padding: 10px; text-align: left;">Quantidade</th>
+                <th style="padding: 10px; text-align: center;">Ações</th>
+            </tr>
             </thead>
             <tbody>
             @foreach($produtos as $produto)
-                <tr>
-                    <td>{{ $produto->nome }}</td>
-                    <td>{{ $produto->sku }}</td>
-                    <td>{{ $produto->categoria_id }}</td>
-                    <td>{{ $produto->valor }}</td>
-                    <td>{{ $produto->quantidade }}</td>
-                    <td><form method="post" action="{{ route("produtos.destroy", $produto->id) }}">
-                        @csrf
-                        @method("delete")
-                        <button class="button" >Deletar</button>
-                    </form>
-                    <a href="{{ route('produtos.edit', $produto->id) }}"><button class="button_editar" >Editar</button></a></td>
+                <tr style="border-bottom: 1px solid #ddd;">
+                    <td style="padding: 10px;">{{ $produto->nome }}</td>
+                    <td style="padding: 10px;">{{ $produto->sku }}</td>
+                    <td style="padding: 10px;">{{ $produto->categoria_id }}</td>
+                    <td style="padding: 10px;">R$ {{ number_format($produto->valor, 2, ',', '.') }}</td>
+                    <td style="padding: 10px;">{{ $produto->quantidade }}</td>
+                    <td style="text-align: center;">
+                        <form method="post" action="{{ route('produtos.destroy', $produto->id) }}" style="display: inline;">
+                            @csrf
+                            @method('delete')
+                            <button type="submit" style="padding: 6px 12px; background-color: #dc3545; color: white; border: none; cursor: pointer; font-size: 14px; margin-right: 5px;">Deletar</button>
+                        </form>
+                        <a href="{{ route('produtos.edit', $produto->id) }}" style="text-decoration: none;">
+                            <button style="padding: 6px 12px; background-color: #007bff; color: white; border: none; cursor: pointer; font-size: 14px;">Editar</button>
+                        </a>
+                    </td>
                 </tr>
             @endforeach
             </tbody>
         </table>
-
     </section>
 
 @endsection
-@push('style')
-    @vite('resources/css/admin.css')
-@endpush
+{{--@push('style')--}}
+{{--    @vite('resources/css/admin.css')--}}
+{{--@endpush--}}

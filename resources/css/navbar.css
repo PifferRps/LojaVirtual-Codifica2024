@@ -13,6 +13,7 @@ body.dark-mode {
     color: #ffffff;
     .header_container__cart i {
         color: white;
+        font-size: 24px;
     }
 
     .user-info__img img {
@@ -28,7 +29,7 @@ body.dark-mode {
     background: none;
     border: none;
     cursor: pointer;
-    font-size: 1.5rem;
+    font-size: 24px;
     color: inherit;
 }
 .dark-mode-toggle:hover {
@@ -55,4 +56,27 @@ nav a:hover{
     color: rgb(226, 179, 58);
 }
 
+.header_container__cart {
+    position: relative;
+    display: inline-block;
+}
 
+.header_container__cart i {
+    font-size: 24px; /* Ajuste o tamanho do ícone conforme necessário */
+}
+
+.header_container__cart-quantidade {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background-color: red;
+    color: white;
+    border-radius: 50%;
+    width: 12px;
+    height: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: bold;
+}

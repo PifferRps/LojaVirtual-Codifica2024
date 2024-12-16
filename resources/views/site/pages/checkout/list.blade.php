@@ -54,7 +54,7 @@
                     </section>
                 @endforeach
             @else
-                <p>Oops, seu carrinho está vazio! Clique <a href="{{ route('site.pages.vitrine.produtos.list') }}">aqui</a> para voltar a loja!</p>
+                <p style="display: flex; justify-content: center; align-items: center; gap: 0.2rem">Oops, seu carrinho está vazio! Clique <a href="{{ route('site.pages.vitrine.produtos.list') }}"> aqui </a> para voltar a loja!</p>
             @endif
             </form>
         </div>

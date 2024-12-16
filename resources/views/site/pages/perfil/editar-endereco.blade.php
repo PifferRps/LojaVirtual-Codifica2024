@@ -53,8 +53,9 @@
 
         </script>
         <div class="container_enderecos__edit">
-            <form action="{{ route('site.meu-perfil.atualizar-endereco')}}" method="post">
+            <form action="{{ route('site.meu-perfil.atualizar-endereco')}}" method="post" style="width: 500px">
                 @csrf
+                @method('PUT')
                 <input type="hidden" name="endereco_id" value="{{ $endereco->id }}">
                 <label for="cep">CEP:</label>
                 <input type="text" value="{{ $endereco->cep }}" name="cep" id="cep" class="form-control" maxlength="8" onblur="pesquisacep(this.value);" required>
@@ -71,7 +72,7 @@
                 <label for="referencia"> Ponto de referência:</label>
                 <input type="text" value="{{ $endereco->referencia }}" name="referencia" id="referencia" class="form-control">
                 <label for="complemento"> Complemento:</label>
-                <input type="text" value="{{ $endereco->complemento }}" name="complemento" id="complemento" class="form-control">
+                <input type="text" value="{{ $endereco->complemento }}" name="complemento" id="complemento" class="form-control"><br>
                 <button>Atualizar</button>
             </form>
         </div>

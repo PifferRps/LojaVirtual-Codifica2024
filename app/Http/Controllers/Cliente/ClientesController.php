@@ -12,7 +12,7 @@ use App\Models\UsuarioCliente;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Database\Eloquent\Collection;
+
 
 class ClientesController extends Controller
 {
@@ -93,7 +93,7 @@ class ClientesController extends Controller
             $query->where('id', $request->buscarPedidos);
         }
 
-        $pedidos = $query->get();
+        $pedidos = $query->orderByDesc('id')->get();
         $status = PedidoStatus::all();
         $categorias = ProdutoCategoria::all();
 
@@ -103,7 +103,7 @@ class ClientesController extends Controller
     public function pedidoShow(Pedido $pedido)
     {
         $usuario = Auth::user();
-//        dd($usuario->cliente->id == $pedido->cliente_id);
+
         if (!$usuario->cliente->pedidos()->where('id', $pedido->id)->exists()){
             return redirect('/meu-perfil/meus-pedidos');
         }
@@ -128,7 +128,9 @@ class ClientesController extends Controller
         $usuario = Auth::user();
         $enderecos = $usuario->cliente->enderecos;
         $endereco = $enderecos->find($idEndereco);
-        return view('site.pages.perfil.editar-endereco', compact('endereco'));
+        $categorias = ProdutoCategoria::all();
+
+        return view('site.pages.perfil.editar-endereco', compact('endereco', 'categorias'));
     }
 
     public function atualizarEndereco(Request $request)
@@ -143,8 +145,9 @@ class ClientesController extends Controller
         $usuario = Auth::user();
 
         $clienteId = $usuario->cliente->id;
+        $categorias = ProdutoCategoria::all();
 
-        return view('site.pages.perfil.adicionar-endereco', compact('clienteId'));
+        return view('site.pages.perfil.adicionar-endereco', compact('clienteId', 'categorias'));
     }
 
     public function salvarEndereco(Request $request)
@@ -154,8 +157,9 @@ class ClientesController extends Controller
         return redirect()->route('site.meu-perfil.enderecos');
     }
 
-    public function deletarEndereco(ClienteEndereco $endereco)
+    public function deletarEndereco($id)
     {
+        $endereco = ClienteEndereco::find($id);
         $endereco->delete();
 
         return redirect()->route('site.meu-perfil.enderecos');

@@ -34,7 +34,7 @@
                 <div>
                     <a href="{{ route('login') }}">Entre</a>
                 </div>
-                <p>ou</p>
+                <p style="color: white">ou</p>
                 <a href="{{ route('cadastro.index') }}">Crie uma conta</a>
             </div>
         @endauth

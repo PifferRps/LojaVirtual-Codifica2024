@@ -1,4 +1,4 @@
 @extends('.admin._layouts.admin')
-@section('conteudo')
+@section('conteudoAdmin')
     editando status do pedido
 @endsection

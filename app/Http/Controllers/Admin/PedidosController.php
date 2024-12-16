@@ -24,7 +24,7 @@ class PedidosController extends Controller
             $query->where('id', $request->buscarPedidos);
         }
 
-        $pedidos = $query->get();
+        $pedidos = $query->orderByDesc('id')->get();
         $status = PedidoStatus::all();
 
         return view('admin.pages.pedidos.list', compact('pedidos', 'status'));

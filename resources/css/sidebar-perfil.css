@@ -1,36 +1,30 @@
 .containerGeral{
     display: flex;
     flex-direction: row;
-    margin: 1rem;
-    padding: 0.5rem;
-    border: 0.120rem solid rgb(167, 48, 48);
     border-radius: 1rem;
     font-style: none;
 }
 
 .containerLateral{
-    padding-right: 0.5rem;
-    border-right: 0.120rem solid rgb(167, 48, 48);
+    border-right: 0.120rem solid grey;
     width: 20%;
     height: 100vh;
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: flex-start;
     align-items: center;
 }
 
 .containerLateral a {
     display: flex;
     justify-content: center;
-    align-items: center;
-    flex-grow: 1;
+    align-items: flex-start;
     width: 100%;
-    border-bottom: 0.120rem solid rgb(167, 48, 48);
+    border-bottom: 0.120rem solid grey;
 }
 
 .containerGeral_principal{
     width: 80%;
     display: flex;
     justify-content: center;
-    align-items: center;
 }

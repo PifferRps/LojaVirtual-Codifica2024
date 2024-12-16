@@ -15,7 +15,7 @@ class ProdutosController extends Controller
     {
         $novidades = Produto::orderByDesc('id')
             ->where('quantidade', '>', 0)
-            ->limit(5)
+            ->limit(4)
             ->get();
 
         $mais_vendidos = PedidoProduto::select('produto_id', DB::raw('SUM(quantidade_vendida) as vendas'))
@@ -23,7 +23,7 @@ class ProdutosController extends Controller
             ->where('produtos.quantidade', '>', 0)
             ->groupBy('produto_id')
             ->orderByDesc('vendas')
-            ->limit(5)
+            ->limit(4)
             ->get();
 
         $categorias = ProdutoCategoria::all();

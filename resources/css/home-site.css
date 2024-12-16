@@ -32,17 +32,16 @@
 }
 
 .container_produtos__destaque {
-    width: 90%;
-    max-width: 1200px;
+    width: 100%;
+    max-width: 1024px;
     margin: 0 auto;
-    padding: 1rem;
-    box-sizing: border-box; 
+    box-sizing: border-box;
 }
 
 
 .container_produtos__grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+    grid-template-columns: repeat(4, 1fr);
     gap: 1.5rem;
     width: 100%;
     padding: 1rem 0;
@@ -52,30 +51,80 @@
 h1 {
     font-size: 2rem;
     color: #333;
-    margin-bottom: 1rem;
+    margin: 1rem 0;
     text-align: center;
 }
 
+.produtos {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+    width: 100%;
+    margin-top: 1rem;
+}
 #produtos {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr));
+    grid-template-columns: repeat(4, 1fr);
     gap: 1.5rem;
     width: 100%;
     margin-top: 1rem;
 }
 
 .produto-card {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    border: 1px solid #ddd;
+    border-radius: 0.5rem;
+    overflow: hidden;
     text-align: center;
     padding: 1rem;
-    border: 0.0625rem solid #ddd;
-    border-radius: 0.5rem;
-    background-color: #f9f9f9;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    width: 100%;
-    max-width: 18rem;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%; /* Garante altura consistente */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.produto-card a {
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+}
+
+/* Estilização da imagem */
+.produto-card img {
+    max-height: 150px;
+    object-fit: contain;
+    margin: 0 auto;
+    flex-shrink: 0;
+}
+
+/* Nome do produto */
+.produto-nome {
+    font-size: 1rem;
+    margin: 0.5rem 0;
+    color: #333;
+    flex-grow: 1; /* Preenche o espaço disponível */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    min-height: 2.5rem; /* Altura fixa para evitar desalinhamento */
+}
+
+/* Preço do produto */
+.produto-valor {
+    background-color: #ffcd00;
+    color: #333;
+    font-size: 1.1rem;
+    padding: 0.5rem 1rem;
+    border-radius: 0.25rem;
+    min-width: 120px;
+    text-align: center;
+    display: inline-block;
+    margin: 0 auto; /* Centraliza horizontalmente */
 }
 
 .produto:hover {
@@ -140,7 +189,7 @@ a {
     font-weight: bold;
     color: #fff;
     background-color: #ffcc00;
-    padding: 0.5rem 1rem; 
+    padding: 0.5rem 1rem;
     border-radius: 0.3rem;
     transition: background-color 0.3s ease, transform 0.3s ease;
     cursor: pointer;
@@ -167,7 +216,7 @@ a {
     .container_produtos__destaque-title{
         color: #ddd;
     }
-    
+
 }
 
 .container_produtos__grid img {

@@ -19,6 +19,7 @@ header{
     gap: 1rem;
     width: 100%;
     justify-content: space-around;
+
 }
 
 .header_container__search {
@@ -80,10 +81,11 @@ header{
     gap: 1.5rem;
     color: white;
     font-size: 1rem;
+    padding: 0 1rem;
 }
 
 .user-info__img img {
-    width: 3.rem;
+    width: 3.2rem;
     height: 2.5rem;
     border-radius: 50%;
     background-color: white;
@@ -111,6 +113,7 @@ header{
     align-items: center;
     gap: 0.5rem;
     font-size: 1rem;
+    margin-right: 15px;
 }
 
 .header_container_login a {
@@ -119,13 +122,16 @@ header{
     font-weight: bold;
 }
 
-.header_container_login a:hover {
-    color: var(--color-secondary);
-}
 
 .header_container__cart-quantidade{
     color: white;
     background-color: red;
-    border-radius: 0.2rem;
-    width: 2rem;
+    border-radius: 50%
+}
+
+select#categorias {
+    color: #FFD900;
+    background-color: #3664ED;
+    font-size: 1em;
+    border: 0;
 }

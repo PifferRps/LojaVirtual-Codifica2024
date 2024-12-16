@@ -51,32 +51,32 @@
                 <div>
                     <a href="{{ route('login') }}">Entre</a>
                 </div>
-                <p>ou</p>
+                <p style="color: white">ou</p>
                 <a href="{{ route('cadastro.index') }}">Crie uma conta</a>
             </div>
         @endauth
     </div>
 
     <nav>
-        <select name="categorias" id="categorias">
+        <select name="categorias" id="categorias"  style="display: flex; align-items: center;">
             <option value="0">Selecione</option>
             @foreach ($categorias as $categoria)
                 <option value="{{ $categoria->id }}" {{ isset($categoriaSelecionada) && $categoria->id == $categoriaSelecionada->id ? 'selected' : '' }}>{{ $categoria->nome }}</option>
             @endforeach
         </select>
-        <div>
+        <div style="display: flex; align-items: center;">
             <a href="{{ route('site.porCategoria', 0) }}"><p>Todos</p></a>
         </div>
-        <div>
+        <div style="display: flex; align-items: center;">
             <a href="{{ route('site.porCategoria', 1) }}"><p>Hardware</p></a>
         </div>
-        <div>
+        <div style="display: flex; align-items: center;">
             <a href="{{ route('site.porCategoria', 2) }}"><p>Mouses</p></a>
         </div>
-        <div>
+        <div style="display: flex; align-items: center;">
             <a href="{{ route('site.porCategoria', 3) }}"><p>Teclados</p></a>
         </div>
-        <div>
+        <div style="display: flex; align-items: center;">
             <a href="{{ route('site.porCategoria', 4) }}"><p>Monitores</p></a>
         </div>
     </nav>

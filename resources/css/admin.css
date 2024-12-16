@@ -9,6 +9,11 @@
 .main{
     display: flex;
     padding: 1rem;
+    background-color: #213A58;
+    color: #FFF000;
+    border: 0.120rem solid rgb(0, 4, 255);
+    border-radius: 1rem;
+    
 }
 
 body{
@@ -26,6 +31,7 @@ body{
     border: 0.120rem solid rgb(167, 48, 48);
     border-radius: 1rem;
     width: calc(100% + 0.5rem);
+    border-color: #A73030
 }
 
 .sidebar {
@@ -59,11 +65,11 @@ body{
 
 table{
     font-size: 1.2rem;
-    margin: 1rem;    
-    color: #333;
-    width: 95%;
-    border: 0.120rem solid rgb(167, 48, 48);
-    border-radius: 1rem;
+    margin: 0.6rem;    
+    color: #46dfb1;
+    width: 80%;
+    border: 0.120rem solid rgb(238, 255, 0);
+
 }
 
 .title {
@@ -73,12 +79,14 @@ table{
     color: #333;
 }
 
+
 section{
     width:100%
 }
 
 td{
 text-align: center; 
+
 
 }
 

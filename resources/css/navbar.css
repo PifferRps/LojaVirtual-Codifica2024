@@ -29,7 +29,7 @@ header{
     flex-direction: column;
     gap: 2rem;
     justify-content: space-between;  /* Distribui os itens corretamente */
-    box-sizing: border-box;
+    box-sizing: border-box; 
 }
 
 .header {
@@ -85,23 +85,6 @@ header{
 
 .header_container__search button:hover {
     background-color: rgb(255, 182, 182);
-}
-
-.header_container__cart{
-    position: relative;
-    padding: 5px;
-}
-
-.header_container__cart-quantidade{
-    position: absolute;
-    top:0;
-    right: 0;
-    border-radius: 50%;
-    padding: 1px 4px;
-    background-color: red;
-    font-size: 10px;
-    font-weight: 700;
-    color: white;
 }
 
 .header_container__cart i {
@@ -200,4 +183,3 @@ nav a:hover{
 nav select{
     border: 1px solid black;
 }
-

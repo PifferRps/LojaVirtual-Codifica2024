@@ -8,8 +8,8 @@
             @method('PUT')
         @endisset
         <label for="nome">Categoria:</label>
-        <input type="text" name="nome" value="{{ ($categoria->nome ?? '') }}">
-        <button>Adicionar</button>
+        <input type="text" name="nome" value="{{ ($categoria->nome ?? '') }}" style="padding:0.3rem">
+        <button class="button_editar">Atualizar</button>
     </form>
     </div>
 @endsection

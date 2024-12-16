@@ -2,7 +2,6 @@
     font-family: "Host Grotesk", sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #043495;
   }
 
 .dadosClientesPrincipal{
@@ -33,7 +32,6 @@
 }
 
 .salvar {
-
   border-radius: 0.3rem;
   background-color: #ff3232;
   border: none;
@@ -43,11 +41,11 @@
   text-decoration: none;
   display: inline-block;
   font-size:2.5vh;
-
+  align-self: flex-start;
 }
 
 button:hover {
-    background-color:  rgb(216, 0, 0);
+    background-color:rgb(216, 0, 0);
     box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
     cursor: pointer;
 }
@@ -75,62 +73,4 @@ input[type=date] {
     border-radius: 5px;
     padding: 4px;
     border: solid rgb(95, 95, 95) 1px;
-}
-
-.container_enderecos{
-    border: 2px solid red;
-    width: 100%;
-    height: 100%;
-}
-
-.container_enderecos__form{
-    border: 2px solid black;
-    height: 20%;
-    display: flex;
-}
-
-.container_enderecos__form-botao{
-    display: flex;
-    justify-content: end;
-    width: 50%;
-    margin: 1rem;
-}
-
-.container_enderecos__form-botao button{
-    height: 20px;
-    width: 50px;
-    margin-right: 5px;
-}
-
-.container_enderecos__form-endereco{
-    width: 50%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-.container_enderecos__form-endereco span{
-    margin-left: 1rem;
-}
-
-.container_enderecos__edit{
-    display: flex;
-    flex-direction: column;
-    justify-content: center ;
-    width: 100%;
-    align-items: center;
-}
-
-.container_enderecos__edit form{
-    display: flex;
-    flex-direction: column;
-}
-
-.container_enderecos__edit form input{
-    background-color: white;
-    border: 1px solid black;
-}
-
-label{
-    display: inline-block;
 }

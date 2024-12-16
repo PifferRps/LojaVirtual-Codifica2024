@@ -5,31 +5,23 @@ namespace App\Http\Controllers\Cliente;
 use App\Http\Controllers\Controller;
 use App\Models\Pedido;
 use App\Models\PedidoProduto;
-use App\Models\PedidoStatus;
 use App\Models\UsuarioCliente;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 
 class PedidosController extends Controller
 {
     public function index(Request $request)
     {
-        $usuario = Auth::user();
+        $search = $request->input('search');
 
-        $query = Pedido::query()->where('cliente_id', $usuario->cliente->id);
-
-        if(!$request->buscarPedidos && $request->status){
-            $query->where('status_id', $request->status);
+        $query = Pedido::where('cliente_id', auth()->id());
+        
+            if ($search) {
+            $query->where('id', $search);
         }
-
-        if($request->buscarPedidos){
-            $query->where('id', $request->buscarPedidos);
-        }
-
+    
         $pedidos = $query->get();
-        $status = PedidoStatus::all();
-
-        return view('admin.pages.pedidos.list', compact('pedidos', 'status'));
+        return view('site.pages.pedidos.list', compact('pedidos'));
     }
 
     public function show(Request $request, int $pedidoId)

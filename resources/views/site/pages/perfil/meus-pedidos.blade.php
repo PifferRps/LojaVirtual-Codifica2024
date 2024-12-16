@@ -24,27 +24,37 @@
                 </div>
             @endif
         </div>
-        <div class="conteudo_main" style="overflow: auto;">
-            <div class="conteudo_main__infos" style="display: flex; width: 100%" >
-                <section class="conteudo_main__infos-section1" style="display: flex; width: 100%; justify-content: space-between;">Pedido</section>
-                <section class="conteudo_main__infos-section2" style="display: flex; width: 100%; justify-content: space-between;">Valor</section>
-                <section class="conteudo_main__infos-section2" style="display: flex; width: 100%; justify-content: space-between;">Status</section>
-                <section class="conteudo_main__infos-section2" style="display: flex; width: 100%; justify-content: flex-end;">Status</section>
+        <div class="conteudo_main" style="overflow: auto">
+            <div class="conteudo_main__infos">
+                <section class="conteudo_main__infos-section1">Número do pedido</section>
+                <section class="conteudo_main__infos-section2">Valor</section>
+                <section class="conteudo_main__infos-section2">Status</section>
             </div>
             <hr>
-            <div style="display: flex; flex-direction: column">
-                @foreach($pedidos as $pedido)
-                    <div class="conteudo_main__pedido" style="display: flex; width: 100%; justify-content: space-between;" >
-                        <section class="conteudo_main__infos-section1">#{{ $pedido->id }}</section>
-                        <section class="conteudo_main__infos-section2">R$ {{ number_format($pedido->valor_final, 2, ',', '.') }}</section>
-                        <section class="conteudo_main__infos-section2">{{ $pedido->status->status }}</section>
-                        <a href="{{ route('site.meu-perfil.pedido-show', $pedido) }}"><section class="conteudo_main__infos-view">Visualizar pedido</section></a>
-                    </div>
-                @endforeach
-                @if(empty($pedidos))
-                    <span>Nenhum pedido realizado.</span>
-                @endif
-            </div>
+            @foreach($pedidos as $pedido)
+                <div class="conteudo_main__pedido">
+                    <section class="conteudo_main__infos-section1">#{{ $pedido->id }}</section>
+                    <section class="conteudo_main__infos-section2">R$ {{ number_format($pedido->valor_final, 2, ',', '.') }}</section>
+                    <section class="conteudo_main__infos-select">
+                        <form action="{{ route('pedidos.update', $pedido) }}" method="post">
+                            @method('PUT')
+                            @csrf
+                            <select name="status_id" id="status_id">
+                                <option value="{{ $pedido->status->id }}">{{ $pedido->status->status }}</option>
+                                @foreach ($status as $status_unitario)
+                                    <option value="{{ $status_unitario->id }}">{{ $status_unitario->status }}</option>
+                                @endforeach
+                            </select>
+                            <button type="submit">OK</button>
+                        </form>
+
+                    </section>
+                    <a href="{{ route('pedidos.show', $pedido) }}"><section class="conteudo_main__infos-view">Visualizar pedido</section></a>
+                </div>
+            @endforeach
+            @if(empty($pedidos))
+                <span>Nenhum pedido realizado.</span>
+            @endif
         </div>
     </div>
 @endsection

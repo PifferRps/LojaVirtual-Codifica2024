@@ -6,39 +6,27 @@
     padding: 0;
 }
 
-.main{
-    display: flex;
-    padding: 1rem;
-}
-
 body{
     display: flex;
     flex-direction: row;
-    margin: 1rem;
-    padding: 0.5rem;
-    border: 0.120rem solid rgb(167, 48, 48);
-    border-radius: 1rem;
-    font-style: none;
     min-height: 100vh;
 }
 
-.sidebar_img {
-    border: 0.120rem solid rgb(167, 48, 48);
-    border-radius: 1rem;
-    width: calc(100% + 0.5rem);
-}
+/*.sidebar_img {*/
+/*    border: 0.120rem solid rgb(167, 48, 48);*/
+/*    width: calc(100% + 0.5rem);*/
+/*}*/
 
 .sidebar {
     margin-right: 1rem;
     display: flex;
     flex-direction: column;
-    width: 25rem;
+    width: 100%;
     gap: 1rem;
 }
 
 .sidebar_opcoes {
     padding-right: 0.5rem;
-    border-right: 0.120rem solid rgb(167, 48, 48);
     width: 100%;
     height: 100%;
     display: flex;
@@ -50,37 +38,11 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-grow: 1;
     max-height: 4.5rem;
     width: 100%;
-    border-bottom: 0.120rem solid rgb(167, 48, 48);
 }
 
 
-table{
-    font-size: 1.2rem;
-    margin: 1rem;    
-    color: #333;
-    width: 95%;
-    border: 0.120rem solid rgb(167, 48, 48);
-    border-radius: 1rem;
-}
-
-.title {
-    font-size: 1.8rem;
-    margin-bottom: 1rem;
-    text-align: center;
-    color: #333;
-}
-
-section{
-    width:100%
-}
-
-td{
-text-align: center; 
-
-}
 
 
 
@@ -108,7 +70,7 @@ text-align: center;
 
 .button_adcionar {
     background-color: rgb(155, 155, 155);
-    margin: 1rem; 
+    margin: 1rem;
     padding: 0.5rem;
     border: 0.100rem solid rgb(155, 155, 155);
     border-radius: 5px;
@@ -132,4 +94,8 @@ text-align: center;
 
 .button_editar:hover {
     background-color: rgb(255, 182, 182);
+}
+
+.containerGeral_principal {
+    max-height: 100vh;
 }

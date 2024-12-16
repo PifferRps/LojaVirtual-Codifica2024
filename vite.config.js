@@ -23,7 +23,8 @@ export default defineConfig({
                 'resources/css/formulario-produtos.css',
                 'resources/js/dark-mode.js',
                 'resources/css/sidebar-perfil.css',
-                'resources/css/admin-clientes.css'
+                'resources/css/admin-clientes.css',
+                'resources/css/header.css'
             ],
             refresh: true,
         }),

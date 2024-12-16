@@ -17,8 +17,9 @@
             <input class="form__input" name="email" type="email" placeholder="Digite seu email" required>
             <input class="form__input" name="password" type="password" placeholder="Digite sua senha" required>
             <button class="button form__button" type="submit">Logar</button>
+            <a class="" href="{{ route('cadastro.index') }}" style="text-decoration: none; color: #3664ED">Crie sua conta</a>
         </form>
-        <a class="button section__a" href="{{ route('cadastro.index') }}">Se não possuir uma conta, crie-a</a>
+
     </section>
 </main>
 @vite('resources/js/dark-mode.js')

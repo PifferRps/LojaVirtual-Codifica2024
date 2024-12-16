@@ -27,7 +27,7 @@
         <div class="checkoutContent_items">
             <form action="{{route('site.checkout.carrinho-alterarquantidade')}}" method="get">
                 @csrf
-                <button>Atualizar quantidade</button>
+                <button> <i class="fas fa-sync-alt"></i> Atualizar quantidade</button>
             @if(session('produtos'))
                 @foreach($produtos as $produto)
                     <section class="checkoutContent_items__item">
@@ -54,7 +54,7 @@
                     </section>
                 @endforeach
             @else
-                <p>Oops, seu carrinho está vazio! Clique <a href="{{ route('site.pages.vitrine.produtos.list') }}">aqui</a> para voltar a loja!</p>
+                <p style="display: flex; justify-content: center; align-items: center; gap: 0.2rem">Oops, seu carrinho está vazio! Clique <a href="{{ route('site.pages.vitrine.produtos.list') }}"> aqui </a> para voltar a loja!</p>
             @endif
             </form>
         </div>

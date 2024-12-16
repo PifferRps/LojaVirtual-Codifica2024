@@ -2,7 +2,7 @@
 
 *{
     font-family: "Host Grotesk", sans-serif;
-    margin: 0;
+    margin: 1rem;
     padding: 0;
     box-sizing: border-box;
     font-style: none;
@@ -13,6 +13,7 @@ body.dark-mode {
     color: #ffffff;
     .header_container__cart i {
         color: white;
+        font-size: 24px;
     }
 
     .user-info__img img {
@@ -24,152 +25,11 @@ body.dark-mode {
 }
 
 
-header{
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-    justify-content: space-between;  /* Distribui os itens corretamente */
-    box-sizing: border-box;
-}
-
-.header {
-    padding: 1.5rem 3rem;
-    display: flex;
-    align-items: center;
-}
-
-.header_container {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    width: 100%;
-    max-width: 1000px;
-}
-
-.header_container__img img {
-    max-width: 5rem;
-    height: auto;
-}
-
-.header_container__search {
-    flex-grow: 1;
-    display: flex;
-    align-items: center;
-    width: auto;
-}
-
-.header_container__search form {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    width: auto;
-}
-
-.header_container__search input {
-    flex-grow: 1;
-    padding: 0.5rem;
-    border: 0.100rem solid rgb(155, 155, 155);
-    border-radius: 0.5rem;
-    background-color: rgb(255, 255, 255);
-    font-size: 1rem;
-}
-
-.header_container__search button {
-    padding: 0.5rem 1rem;
-    background-color: rgb(236, 236, 236);
-    border: none;
-    border-radius: 0.5rem;
-    cursor: pointer;
-    font-size: 1rem;
-}
-
-.header_container__search button:hover {
-    background-color: rgb(255, 182, 182);
-}
-
-.header_container__cart{
-    position: relative;
-    padding: 5px;
-}
-
-.header_container__cart-quantidade{
-    position: absolute;
-    top:0;
-    right: 0;
-    border-radius: 50%;
-    padding: 1px 4px;
-    background-color: red;
-    font-size: 10px;
-    font-weight: 700;
-    color: white;
-}
-
-.header_container__cart i {
-    font-size: 1.5rem;
-    color: black;
-    margin-right: 0.5rem;
-}
-
-.header_container__cart:hover {
-    opacity: 0.7;
-}
-
-.header_container__cart a {
-    text-decoration: none;
-}
-
-.header_container__user-info {
-    display: flex;
-    align-items: center;
-    gap: 1.5rem;
-    font-size: 1rem;
-}
-
-.user-info__img img {
-    width: 3.rem;
-    height: 2.5rem;
-    border-radius: 50%;
-}
-
-.user-info__actions {
-    display: flex;
-    flex-direction: column;
-    gap: 0.2rem;
-    font-size: 0.675rem;
-}
-
-.user-info__actions a {
-    text-decoration: none;
-    color: rgb(236, 161, 161);
-    transition: color 0.3s;
-}
-
-.user-info__actions a:hover {
-    color: brown;
-}
-
-.header_container_login {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    font-size: 1rem;
-}
-
-.header_container_login a {
-    text-decoration: none;
-    color: red;
-    font-weight: bold;
-}
-
-.header_container_login a:hover {
-    color: var(--color-secondary);
-}
-
 .dark-mode-toggle {
     background: none;
     border: none;
     cursor: pointer;
-    font-size: 1.5rem;
+    font-size: 24px;
     color: inherit;
 }
 .dark-mode-toggle:hover {
@@ -182,22 +42,41 @@ nav{
     display: flex;
     flex-direction: row;
     padding: 0.5rem;
-    border: 0.120rem solid rgb(167, 48, 48);
-    border-radius: 1rem;
-    justify-content: space-between;
+    justify-content: space-around;
     font-style: none;
+    background-color: rgb(54, 100, 237);
 }
 
 nav a{
     text-decoration: none;
-    color: rgb(252, 95, 95);
+    color: rgb(255, 217, 0);
 }
 
 nav a:hover{
-    color: brown;
+    color: rgb(226, 179, 58);
 }
 
-nav select{
-    border: 1px solid black;
+.header_container__cart {
+    position: relative;
+    display: inline-block;
 }
 
+.header_container__cart i {
+    font-size: 24px; /* Ajuste o tamanho do ícone conforme necessário */
+}
+
+.header_container__cart-quantidade {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background-color: red;
+    color: white;
+    border-radius: 50%;
+    width: 12px;
+    height: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: bold;
+}

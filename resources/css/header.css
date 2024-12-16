@@ -1,0 +1,137 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+header{
+    width: 100%;
+    background-color: rgb(6, 6, 142);
+}
+
+.header_container__img img{
+    max-width: 13rem;
+}
+
+.header_container {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    width: 100%;
+    justify-content: space-around;
+
+}
+
+.header_container__search {
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.header_container__search form {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    width: 80%;
+}
+
+.header_container__search input {
+    flex-grow: 1;
+    padding: 0.5rem;
+    border: 0.100rem solid rgb(155, 155, 155);
+    background-color: rgb(255, 255, 255);
+    font-size: 1rem;
+}
+
+.header_container__search button {
+    padding: 0.3rem 0.6rem;
+    background-color: rgb(236, 236, 236);
+    border: none;
+    border-radius: 0.2rem;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.header_container__search button:hover {
+    background-color: rgb(245, 255, 182);
+}
+
+.header_container__cart i {
+    font-size: 1.5rem;
+    color: rgb(255, 255, 255);
+    margin-right: 0.5rem;
+}
+
+.dark-mode-toggle i {
+    color: white;
+}
+
+.header_container__cart:hover {
+    opacity: 0.7;
+}
+
+.header_container__cart a {
+    text-decoration: none;
+}
+
+.header_container__user-info {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    color: white;
+    font-size: 1rem;
+    padding: 0 1rem;
+}
+
+.user-info__img img {
+    width: 3.2rem;
+    height: 2.5rem;
+    border-radius: 50%;
+    background-color: white;
+}
+
+.user-info__actions {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+    font-size: 0.675rem;
+}
+
+.user-info__actions a {
+    text-decoration: none;
+    color: rgb(32, 255, 207);
+    transition: color 0.3s;
+}
+
+.user-info__actions a:hover {
+    color: rgb(144, 248, 233);
+}
+
+.header_container_login {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 1rem;
+    margin-right: 15px;
+}
+
+.header_container_login a {
+    text-decoration: none;
+    color: rgb(100, 222, 212);
+    font-weight: bold;
+}
+
+
+.header_container__cart-quantidade{
+    color: white;
+    background-color: red;
+    border-radius: 50%
+}
+
+select#categorias {
+    color: #FFD900;
+    background-color: #3664ED;
+    font-size: 1em;
+    border: 0;
+}

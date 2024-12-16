@@ -32,7 +32,7 @@
 
             <input type="text" name="name" id="name" class="form-control" placeholder="Nome Completo" required>
             <input type="text" name="cpf" id="cpf" class="form-control" placeholder="CPF" maxlength="14" required>
-            Data de nascimento:
+            <h4>Data de nascimento:</h4>
             <input type="date" name="data" id="data" class="form-control" required>
             <input type="email" name="email" id="email" class="form-control" placeholder="Email" required>
             <input type="text" name="telefone" id="telefone" class="form-control" placeholder="(27) 99999-9999"

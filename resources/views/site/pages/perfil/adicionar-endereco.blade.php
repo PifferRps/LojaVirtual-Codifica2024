@@ -53,7 +53,7 @@
 
         </script>
         <div class="container_enderecos__edit">
-            <form action="{{ route('site.meu-perfil.salvar-endereco')}}" method="post">
+            <form action="{{ route('site.meu-perfil.salvar-endereco')}}" method="post" style="width: 500px">
                 @csrf
                 <input type="hidden" name="cliente_id" value="{{ $clienteId }}">
                 <input type="hidden" name="endereco_id">
@@ -72,7 +72,7 @@
                 <label for="referencia"> Ponto de referência:</label>
                 <input type="text" name="referencia" id="referencia" class="form-control">
                 <label for="complemento"> Complemento:</label>
-                <input type="text" name="complemento" id="complemento" class="form-control">
+                <input type="text" name="complemento" id="complemento" class="form-control"><br>
                 <button>Adicionar</button>
             </form>
         </div>

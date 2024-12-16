@@ -24,7 +24,7 @@ class ProdutosController extends Controller
             $query->orderBy('quantidade', $ordem);
         }
 
-        $produtos = $query->get();
+        $produtos = $query->orderByDesc('id')->get();
         $categorias = ProdutoCategoria::all();
 
         return view('admin.pages.produtos.list', compact('produtos', 'categorias', 'categoriaSelecionada', 'ordem'));
@@ -45,7 +45,7 @@ class ProdutosController extends Controller
         ]);
 
 
-        $caminhoImagem = '/img/codificamaislogo.png';
+        $caminhoImagem = '/img/codificamaislogo3.png';
 
 
         if ($request->hasFile('imagem')) {

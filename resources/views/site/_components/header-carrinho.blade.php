@@ -2,17 +2,13 @@
 
     <div class="header_container">
         <div class="header_container__img">
-            <a href="{{ route('site.pages.vitrine.produtos.list') }}"><img src="{{ asset('img/codificamaislogo.png') }}" alt="Logo CODIFICA+"></a>
+            <a href="{{ route('site.pages.vitrine.produtos.list') }}"><img src="{{ asset('img/codificamaislogo2.png') }}" alt="Logo CODIFICA+"></a>
         </div>
         <div class="header_container__search">
             <form action="">
                 <input type="text" name="search" placeholder="Nome do produto">
                 <button>Buscar</button>
             </form>
-        </div>
-        <div class="header_container__cart">
-            <a href="{{ route('site.checkout.carrinho') }}"><i class="fas fa-cart-shopping"></i>
-            </a>
         </div>
 
         <button id="darkModeToggle" class="dark-mode-toggle">
@@ -38,11 +34,12 @@
                 <div>
                     <a href="{{ route('login') }}">Entre</a>
                 </div>
-                <p>ou</p>
+                <p style="color: white">ou</p>
                 <a href="{{ route('cadastro.index') }}">Crie uma conta</a>
             </div>
         @endauth
     </div>
 
+    @vite('resources/css/header.css')
 
 </header>

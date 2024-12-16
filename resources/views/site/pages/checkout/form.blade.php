@@ -18,21 +18,25 @@
     <form action="{{ route('site.checkout.enderecos.salvar') }}" method="post" class="checkoutContent">
         @csrf
         <div class="checkoutContent_informacoes">
-            @foreach($enderecos as $endereco)
-                <input type="hidden" name="id" value="{{ $endereco['id'] }}">
-                <input type="hidden" name="frete" value="{{ $endereco['valor_frete'] }}">
-                <section class="checkoutContent_informacoes__endereco">
-                    <label>
-                        <input type="radio" required name="teste">
-                        <span class="checkoutContent_informacoes__endereco-radio">
-                            <span>Rua: {{$endereco['rua']}}, Nº: {{ $endereco['numero'] }}</span>
-                            <span>Bairro: {{$endereco['bairro']}} - {{ $endereco['cidade'] }} - {{ $endereco['estado'] }}</span>
-                            <span>Cep: {{$endereco['cep']}}</span>
-                        </span>
-                        <span class="checkoutContent_informacoes__endereco-frete">Frete: R${{ number_format($endereco['valor_frete'], 2, ',', '.' ) }}</span>
-                    </label>
-                </section>
-            @endforeach
+            @if($enderecos)
+                @foreach($enderecos as $endereco)
+                    <input type="hidden" name="id" value="{{ $endereco['id'] }}">
+                    <input type="hidden" name="frete" value="{{ $endereco['valor_frete'] }}">
+                    <section class="checkoutContent_informacoes__endereco">
+                        <label>
+                            <input type="radio" required name="teste">
+                            <span class="checkoutContent_informacoes__endereco-radio">
+                                <span>Rua: {{$endereco['rua']}}, Nº: {{ $endereco['numero'] }}</span>
+                                <span>Bairro: {{$endereco['bairro']}} - {{ $endereco['cidade'] }} - {{ $endereco['estado'] }}</span>
+                                <span>Cep: {{$endereco['cep']}}</span>
+                            </span>
+                            <span class="checkoutContent_informacoes__endereco-frete">Frete: R${{ number_format($endereco['valor_frete'], 2, ',', '.' ) }}</span>
+                        </label>
+                    </section>
+                @endforeach
+            @else
+                <p style="display: flex; justify-content: center; align-items: center; gap: 0.2rem">Oops, nenhum endereço cadastrado. <a href="{{ route('site.meu-perfil.enderecos') }}" target="_blank"> Clique aqui </a> para registrar um novo!</p>
+            @endif
         </div>
         <div class="checkoutContent_values">
             <section class="checkoutContent_values__total">

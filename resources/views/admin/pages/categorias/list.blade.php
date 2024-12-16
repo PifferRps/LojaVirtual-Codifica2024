@@ -2,45 +2,51 @@
 @vite("resources/css/categorias.css")
 @section("conteudo")
     <div class="conteudo">
-        <div class="conteudo_header">
-            <form action="" class="form">
+        <div class="header_container__search conteudo_header">
+            <form action="">
                 <label for="Search"></label>
                 <input type="text" name="searchCategories">
                 <button type="submit">Buscar</button>
             </form>
             <div class="conteudo_header__button">
-                <a href="{{ route('categorias.create') }}" class="">Adicionar Categoria</a>
+                <a href="{{ route('categorias.create') }}" class="button_editar" style="color: black;">Adicionar Categoria</a>
             </div>
         </div>
-        <div class="mensagem_flash">
+        <div style="width:90%">
             @if (session()->has('mensagem'))
-                <div class="">
+                <div>
                     {{ session('mensagem') }}
                 </div>
             @endif
         </div>
-        <div class="conteudo_main">
-            <div class="conteudo_main__infos">
-                <section class="conteudo_main__infos-section1">Categoria</section>
-                <section class="conteudo_main__infos-section2">Produtos vinculados</section>
-                <section class="conteudo_main__infos-section3">Ações</section>
-            </div>
-            <hr>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Categoria</th>
+                    <th>Produtos Vinculados</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody>
             @foreach($categorias as $categoria)
-                <div class="conteudo_main__category">
-                    <section class="conteudo_main__infos-section1">{{ $categoria->nome}}</section>
-                    <section class="conteudo_main__infos-section2">{{ $categoria->produtos_count }}</section>
-                    <form method="post" action="{{ route("categorias.destroy", $categoria->id) }}">
-                        @csrf
-                        @method("delete")
-                        <button>Deletar</button>
-                    </form>
-                    <section class="conteudo_main__infos-edit"><a href="{{ route('categorias.edit', $categoria->id) }}">Editar</a></section>
-                    {{--                MUDAR PARA FORMULÁRIO--}}
-                </div>
+            <tr class="table__item">
+                    <td>{{ $categoria->nome}}</td>
+                    <td>{{ $categoria->produtos_count }}</td>
+                    <td>
+                        <section class="item__button">
+                            <form method="post" action="{{ route("categorias.destroy", $categoria->id) }}">
+                                @csrf
+                                @method("delete")
+                                <button class="button">Deletar</button>
+                            </form>
+                            <a href="{{ route('categorias.edit', $categoria->id) }}">
+                                <button class="button_editar">Editar</button>
+                            </a>    
+                        </section>
+                    </td>
+            </tr>
             @endforeach
-        </div>
+            </tbody>
+        </table>
     </div>
-
 @endsection
-
